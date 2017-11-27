@@ -386,6 +386,7 @@ a:hover {
 	color: #c73430;
 }
 
+
 a.col1:hover a {
     color: #c73430;
 }
@@ -404,6 +405,11 @@ a.btn {
 a.btn:hover {
     background-color: #c73430;
     color: #fff;
+}
+/* ´ñ±Û ¹öÆ° */
+a.reply{
+	float:right; magin:5%; border-radius:0%;
+
 }
 
 /****classes****/
