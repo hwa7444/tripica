@@ -17,12 +17,13 @@ import com.DAO.bulletinVO;
 public class SelectService extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
+		//DB에 저장된 file정보를 모두 검색해서 jsp로 전송
+		bulletinDAO dao = new bulletinDAO();
 		try {
-			ArrayList<bulletinVO> list = (ArrayList<bulletinVO>)request.getAttribute("list");
-				
+			ArrayList<bulletinVO> list;
+			list = dao.selectAll();
 			if(list!=null) {
+				
 				request.setAttribute("list", list);
 			}
 			RequestDispatcher dispatcher = request.getRequestDispatcher("bulletin.jsp");

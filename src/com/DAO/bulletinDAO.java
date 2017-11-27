@@ -89,14 +89,14 @@ public class bulletinDAO {
 		return -1;//데이터베이스 오류
 	}
 
-	public ArrayList<bulletinVO> selectAll(int pageNumber) throws Exception { //게시물 불러들이기
+	public ArrayList<bulletinVO> selectAll() throws Exception { //게시물 불러들이기
 		getConn();
 
 		ArrayList<bulletinVO> tmpList = new ArrayList<bulletinVO>();
 
 		// 모든 검색 sql 작성
-		pst = conn.prepareStatement("select * from bulletin WHERE num < ? AND order by num desc limit 10");
-		pst.setInt(1,  - (pageNumber -1)*10);
+		pst = conn.prepareStatement("select * from bulletin order by num desc limit 10");
+
 		rs = pst.executeQuery();
 
 		while (rs.next()) {
