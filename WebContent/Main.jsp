@@ -157,8 +157,8 @@
 							
 							<c:otherwise>
 							<ul>
-							<a href="Logout.jsp" id="login_pop">로그아웃</a>
-							<a href="Update.jsp" id="join_pop">개인정보수정</a>
+							<li><a href="Logout.jsp" id="login_pop">로그아웃</a></li>
+							<li><a href="Update.jsp" id="join_pop">개인정보수정</a></li>
 							</ul>
 							</c:otherwise>
 						</c:choose>
