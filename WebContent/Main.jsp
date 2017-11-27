@@ -94,6 +94,8 @@
 		<a class="close" href="#close"></a>
 	</div>
 	<!-- /login form -->
+	
+	
 
 	<!-- join form -->
 	<a href="#x" class="overlay" id="join_form"></a>
@@ -157,6 +159,47 @@
 					
 	<!-- /join form -->
 
+
+<!-- update form -->
+	<a href="#x" class="overlay" id="update_form"></a>
+	<div class="popup">
+		<span>개인정보 수정</span>
+		<p>수정할 개인정보를 입력하세요</p>
+		<form action="UpdateCon" method="post">
+			<table>
+				
+				<tr>
+					<td>비밀번호</td>
+					<td><input type="password" name="pw" required maxlength="10"></td>
+				</tr>
+				<tr>
+					<td>닉네임</td>
+					<td><input type="text" name="nick" required maxlength="10"></td>
+				</tr>
+				
+				<tr>
+					<td>전화번호</td>
+					<td><input type="text" name="phone" required onfocus="OnCheckPhone(this)" onKeyup="OnCheckPhone(this)" size=14></td>
+					
+				</tr>
+				<tr>
+					<td>생일</td>
+					<td><input type="date" name="birth" required></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" value="개인정보 수정"
+						class="submit" /></td>
+				</tr>
+			</table>
+		</form>
+		If you have account >><a href="#login_form" id="login_pop">Log In</a>
+		<a class="close" href="#close"></a>
+	</div>
+	
+					
+	<!-- /update form -->
+
+
 	<!--==========================try me==============================-->
 
 	<!-- allfor you -->
@@ -179,7 +222,7 @@
 							<c:otherwise>
 							<ul>
 							<li><a href="Logout.jsp" id="login_pop">로그아웃</a></li>
-							<li><a href="Update.jsp" id="join_pop">개인정보수정</a></li>
+							<li><a href="#update_form" id="join_pop">개인정보수정</a></li>
 							</ul>
 							</c:otherwise>
 						</c:choose>

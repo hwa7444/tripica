@@ -106,4 +106,18 @@ public class memberDAO {
 		}
 		return vo;
 	}
+
+	public int update(String pw, String nick, String ph, String birth, String id) throws Exception{
+		getConn();
+
+		pst = conn.prepareStatement("update member set pw=?,nick=?,phone=?,birthday=? where mem_id=?");
+		pst.setString(1, pw);
+		pst.setString(2, nick);
+		pst.setString(3, ph);
+		pst.setString(4, birth);
+		pst.setString(5, id);
+
+		int cnt = pst.executeUpdate();
+		return cnt;
+	}
 }
