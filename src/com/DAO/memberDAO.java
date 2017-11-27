@@ -7,6 +7,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Properties;
 
+import javax.servlet.http.HttpSession;
+import javax.xml.ws.Response;
+
 public class memberDAO {
 	private Connection conn;
 	private PreparedStatement pst;
@@ -75,6 +78,8 @@ public class memberDAO {
 		int cnt = 0;
 		if (rs.next()) {
 			String getpw = rs.getString(2);
+			String getnick = rs.getString(3);
+
 			if (pw.equals(getpw)) {
 
 				cnt = 1;
@@ -107,7 +112,7 @@ public class memberDAO {
 		return vo;
 	}
 
-	public int update(String pw, String nick, String ph, String birth, String id) throws Exception{
+	public int update(String pw, String nick, String ph, String birth, String id) throws Exception {
 		getConn();
 
 		pst = conn.prepareStatement("update member set pw=?,nick=?,phone=?,birthday=? where mem_id=?");
@@ -120,4 +125,17 @@ public class memberDAO {
 		int cnt = pst.executeUpdate();
 		return cnt;
 	}
+
+	public String nickselect(String id) throws Exception {
+		getConn();
+		pst = conn.prepareStatement("select * from member where mem_id=?");
+		pst.setString(1, id);
+		rs = pst.executeQuery();
+		String nick = null;
+		if (rs.next()) {
+			nick = rs.getString(3);
+		}
+		return nick;
+	}
+
 }

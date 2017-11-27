@@ -220,6 +220,8 @@
 							</c:when>
 							
 							<c:otherwise>
+							
+							<h1>${nick}님</h1>
 							<ul>
 							<li><a href="Logout.jsp" id="login_pop">로그아웃</a></li>
 							<li><a href="#update_form" id="join_pop">개인정보수정</a></li>

@@ -25,14 +25,18 @@ public class LoginCon extends HttpServlet {
 		
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
+		
 		System.out.println(id+pw);
 		
 		try {
 			int cnt = dao.login(id, pw);
+			String nick = dao.nickselect(id);
 			if (cnt == 1) {
 				HttpSession session = request.getSession();
 				session.setAttribute("id", id);
-				
+				session.setAttribute("nick", nick);
+				System.out.println(id);
+				System.out.println("nick °ª : "+nick);
 				response.sendRedirect("Main.jsp");
 			}else {
 				response.setContentType("text/html;charset=euc-kr");
