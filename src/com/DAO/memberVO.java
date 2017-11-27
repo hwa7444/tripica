@@ -16,6 +16,12 @@ public class memberVO {
 		this.ph = ph;
 		this.birth = birth;
 	}
+	
+	public memberVO(String id) {
+		super();
+		this.id = id;
+	}
+
 	public String getId() {
 		return id;
 	}

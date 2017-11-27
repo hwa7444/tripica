@@ -51,7 +51,7 @@ public class memberDAO {
 		getConn();
 
 		// DBMS에 id의 pw를 인증을 받고 DB를 핸들링 할 수 있는 Connection 객체를 생성
-		//insert into fileboard values(1,'a','b','c',to_char(sysdate, 'YYYY-MM-DD'))
+		// insert into fileboard values(1,'a','b','c',to_char(sysdate, 'YYYY-MM-DD'))
 		pst = conn.prepareStatement("insert into member values(?,?,?,?,?,?)");
 		pst.setString(1, id);
 		pst.setString(2, pw);
@@ -63,6 +63,7 @@ public class memberDAO {
 		close();
 		return cnt;
 	}
+
 	public int login(String id, String pw) throws Exception {
 		getConn();
 		// DBMS에 id의 pw를 인증을 받고 DB를 핸들링 할 수 있는 Connection 객체를 생성
@@ -86,5 +87,23 @@ public class memberDAO {
 		}
 
 		return cnt;
+	}
+
+	public memberVO idselect(String id) throws Exception {
+		getConn();
+
+		pst = conn.prepareStatement("select * from member where mem_id=?");
+		pst.setString(1, id);
+
+		memberVO vo = null;
+
+		rs = pst.executeQuery();
+		if (rs.next()) {
+			id = rs.getString(1);
+
+			vo = new memberVO(id);
+
+		}
+		return vo;
 	}
 }
