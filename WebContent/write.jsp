@@ -98,7 +98,7 @@
 				<div class="grid_12">
 					<h3>Write Posts</h3>
 					<div class="row">
-						<form method="post" action="WriteCon">
+						<form method="post" action="WriteCon" enctype="multipart/form-data">
 							<table class="table"
 								style="text-align: center; border: 1px solid #dddddd;">
 								<thead>

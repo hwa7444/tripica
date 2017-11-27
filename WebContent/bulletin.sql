@@ -14,3 +14,6 @@ drop table bulletin
 create sequence num
 start with 1
 increment by 1
+select * from bulletin
+
+select * from bulletin order by num;

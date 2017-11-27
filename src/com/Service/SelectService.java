@@ -30,8 +30,7 @@ public class SelectService extends HttpServlet {
 			}
 			RequestDispatcher dispatcher = request.getRequestDispatcher("bulletin.jsp");
 			dispatcher.forward(request, response);
-		} catch (Exception e) {
-			
+		} catch (Exception e) {			
 			e.printStackTrace();
 		}
 	}

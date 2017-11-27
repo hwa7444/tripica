@@ -1,6 +1,9 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.DAO.bulletinVO"%>
+<%@page import="com.sun.xml.internal.txw2.Document"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,12 +49,11 @@
 		<![endif]-->
 </head>
 <body>
-<%
-		String nick= null;
+	<%
+		String nick = null;
 		if (session.getAttribute("nick") != null) {
 			nick = (String) session.getAttribute("nick");
 		}
-		
 	%>
 
 	<div class="allFor">
@@ -97,37 +99,50 @@
 			<div class="container_12">
 				<!--================ blogPost ================-->
 				<div class="grid_12">
-					<h3>Recent Posts</h3>				
-						<div class="row">
-							<table class="table table-striped"
-								style="text-align: center; border: 1pxx solid #dddddd;">
-								<thead>
-									<tr>
-										<th style="background-color: #eeeeee; text-align: center;">번호</th>
-										<th style="background-color: #eeeeee; text-align: center;">제목</th>
-										<th style="background-color: #eeeeee; text-align: center;">작성자</th>
-										<th style="background-color: #eeeeee; text-align: center;">작성일</th>
-									</tr>
-								</thead>
-								<tbody>
-									<c:choose>
-									<c:when test ="${not empty list}">
-									<c:foreach items="${list}" var="vo">
-									<tr>
-									<td>${vo.num}</td>
-									<td>${vo.title}</td>
-									<td>${vo.nick}</td>
-									<td>${vo.writeDay}</td>
-									</tr>
-									</c:foreach>
+					<h3>Recent Posts</h3>
+					<div class="row">
+						<table class="table table-striped"
+							style="text-align: center; border: 1pxx solid #dddddd;">
+							<thead>
+								<tr>
+									<th style="background-color: #eeeeee; text-align: center;">번호</th>
+									<th style="background-color: #eeeeee; text-align: center;">제목</th>
+									<th style="background-color: #eeeeee; text-align: center;">작성자</th>
+									<th style="background-color: #eeeeee; text-align: center;">작성일</th>
+								</tr>
+							</thead>
+							<tbody>
+							<% 
+							ArrayList<bulletinVO> arr = (ArrayList<bulletinVO>)request.getAttribute("list");
+							System.out.println(arr.get(0).getTitle()); %>
+								<c:choose>
+									<c:when test="${not empty list}">
+										<c:forEach items="${list}" var="vo">
+											<tr>
+												<td>${vo.num}</td>
+												<td><a href="SelectOne?num=${vo.num}">${vo.title}</a></td>
+												<td>${vo.nick}</td>
+												<td>${vo.writeDay}</td>
+											</tr>
+										</c:forEach>
 									</c:when>
-									</c:choose>
-								</tbody>
-							</table>
-							<%if (nick != null){ %> <!-- 로그인 했을 때 -->
-							<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
-							<% }%>
-						</div>		
+									<c:otherwise>
+										<tr>
+											<td colspan="4">현재 데이터가 존재하지 않습니다.</td>
+										</tr>
+									</c:otherwise>
+								</c:choose>
+							</tbody>
+						</table>
+						<%
+							if (nick != null) {
+						%>
+						<!-- 로그인 했을 때 -->
+						<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
+						<%
+							}
+						%>
+					</div>
 				</div>
 
 			</div>
