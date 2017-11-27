@@ -95,30 +95,38 @@
 	<!-- join form -->
 	<a href="#x" class="overlay" id="join_form"></a>
 	<div class="popup">
-		<span>Join Us</span>
+		<span>회원가입</span>
 		<p>Please enter your details here</p>
 		<form action="JoinCon">
 			<table>
 				<tr>
-					<td>Login ID</td>
+					<td>아이디</td>
 					<td><input type="text" name="id" required></td>
 				</tr>
 				<tr>
-					<td>PassWord</td>
+					<td>비밀번호</td>
 					<td><input type="password" name="pw" required></td>
 				</tr>
 				<tr>
-					<td>Gender</td>
-					<td>Male<input type="radio" name="gender" value="male"
-						required>Female<input type="radio" name="gender"
+					<td>닉네임</td>
+					<td><input type="text" name="nick" required></td>
+				</tr>
+				<tr>
+					<td>성별</td>
+					<td>남자<input type="radio" name="gender" value="male"
+						required>여자<input type="radio" name="gender"
 						value="female" required></td>
 				</tr>
 				<tr>
-					<td>Address</td>
-					<td><input type="text" name="address" required></td>
+					<td>전화번호</td>
+					<td><input type="text" name="phone" required></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" value="Join Us"
+					<td>생일</td>
+					<td><input type="text" name="birth" required></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" value="회원가입"
 						class="submit" /></td>
 				</tr>
 			</table>
@@ -136,8 +144,8 @@
 		<div class="grid_13">
 			<img src="images/logo/tripickerLogo9.png">
 			<ul>
-				<li><a href="#login_form" id="login_pop">LOGIN</a></li>
-				<li><a href="#join_form" id="join_pop">JOIN</a></li>
+				<li><a href="#login_form" id="login_pop">로그인</a></li>
+				<li><a href="#join_form" id="join_pop">회원가입</a></li>
 			</ul>
 		</div>
 
