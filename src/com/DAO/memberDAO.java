@@ -63,4 +63,28 @@ public class memberDAO {
 		close();
 		return cnt;
 	}
+	public int login(String id, String pw) throws Exception {
+		getConn();
+		// DBMS에 id의 pw를 인증을 받고 DB를 핸들링 할 수 있는 Connection 객체를 생성
+
+		pst = conn.prepareStatement("select * from member where mem_id = ? ");
+		pst.setString(1, id);
+
+		rs = pst.executeQuery();
+		int cnt = 0;
+		if (rs.next()) {
+			String getpw = rs.getString(2);
+			if (pw.equals(getpw)) {
+
+				cnt = 1;
+
+			}
+		} else {
+
+			cnt = 2;
+
+		}
+
+		return cnt;
+	}
 }
