@@ -5,9 +5,9 @@ public class memberVO {
 	String pw;
 	String nick;
 	int gender;
-	int ph;
+	String ph;
 	String birth;
-	public memberVO(String id, String pw, String nick, int gender, int ph, String birth) {
+	public memberVO(String id, String pw, String nick, int gender, String ph, String birth) {
 		super();
 		this.id = id;
 		this.pw = pw;
@@ -28,7 +28,7 @@ public class memberVO {
 	public int getGender() {
 		return gender;
 	}
-	public int getPh() {
+	public String getPh() {
 		return ph;
 	}
 	public String getBirth() {

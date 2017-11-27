@@ -97,7 +97,7 @@
 	<div class="popup">
 		<span>회원가입</span>
 		<p>Please enter your details here</p>
-		<form action="JoinCon">
+		<form action="JoinCon" method="post">
 			<table>
 				<tr>
 					<td>아이디</td>
@@ -113,9 +113,8 @@
 				</tr>
 				<tr>
 					<td>성별</td>
-					<td>남자<input type="radio" name="gender" value="male"
-						required>여자<input type="radio" name="gender"
-						value="female" required></td>
+					<td>남자<input type="radio" name="gender" value="0" required>여자<input
+						type="radio" name="gender" value="1" required></td>
 				</tr>
 				<tr>
 					<td>전화번호</td>
@@ -123,7 +122,7 @@
 				</tr>
 				<tr>
 					<td>생일</td>
-					<td><input type="text" name="birth" required></td>
+					<td><input type="date" name="birth" required></td>
 				</tr>
 				<tr>
 					<td colspan="2"><input type="submit" value="회원가입"
@@ -267,103 +266,103 @@
 				<div class="container_12">
 					<br> <br>
 				</div>
-				</div>
+			</div>
 
 
-				<div class="container_12">
+			<div class="container_12">
+				<div class="grid_4">
+					<div class="banner">
+						<img src="images/ban_img1.jpg" alt="">
+						<div class="label">
+							<div class="title">236px</div>
+							<div class="price">
+								FROM<span>$ 1000</span>
+							</div>
+							<a href="#">LEARN MORE</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="grid_4">
+					<div class="banner">
+						<img src="images/ban_img2.jpg" alt="">
+						<div class="label">
+							<div class="title">GOA</div>
+							<div class="price">
+								FROM<span>$ 1.500</span>
+							</div>
+							<a href="#">LEARN MORE</a>
+						</div>
+					</div>
+				</div>
+				<div class="grid_4">
+					<div class="banner">
+						<img src="images/ban_img3.jpg" alt="">
+						<div class="label">
+							<div class="title">PARIS</div>
+							<div class="price">
+								FROM<span>$ 1.600</span>
+							</div>
+							<a href="#">LEARN MORE</a>
+						</div>
+					</div>
+				</div>
+				<!-- ==================== ^banner ======================= -->
+			</div>
+
+			<div class="clear"></div>
+		</div>
+		<!-- allfor you -->
+		<div class="allFor">
+
+			<div class="color">
+				<!-- =========================== Lastest News=================================== -->
+				<div class="container_12" align="center">
+					<div class="grid_12">
+						<h3 class="head1">Latest News</h3>
+					</div>
 					<div class="grid_4">
-						<div class="banner">
-							<img src="images/ban_img1.jpg" alt="">
-							<div class="label">
-								<div class="title">236px</div>
-								<div class="price">
-									FROM<span>$ 1000</span>
+						<div class="block1">
+							<time datetime="2014-01-01">10<span>Jan</span></time>
+							<div class="extra_wrapper">
+								<div class="text1 col1">
+									<a href="#">성산일출봉 투어</a>
 								</div>
-								<a href="#">LEARN MORE</a>
+								하루동안 성산일출봉에서 시간을 보내세요
+							</div>
+						</div>
+					</div>
+					<div class="grid_4">
+						<div class="block1">
+							<time datetime="2014-01-01">21<span>Jan</span></time>
+							<div class="extra_wrapper">
+								<div class="text1 col1">
+									<a href="#">효리네 일몰스팟</a>
+								</div>
+								효리네 민박집에서 나온 일몰이 멋있던 바닷가 방문하기
+							</div>
+						</div>
+					</div>
+					<div class="grid_4">
+						<div class="block1">
+							<time datetime="2014-01-01">15<span>Feb</span></time>
+							<div class="extra_wrapper">
+								<div class="text1 col1">
+									<a href="#">uamnibh Edeto</a>
+								</div>
+								Ros convallisumsan. Maecenas vehicula egestas venenatis. Duis
+								massa elit, auctor non
 							</div>
 						</div>
 					</div>
 
-					<div class="grid_4">
-						<div class="banner">
-							<img src="images/ban_img2.jpg" alt="">
-							<div class="label">
-								<div class="title">GOA</div>
-								<div class="price">
-									FROM<span>$ 1.500</span>
-								</div>
-								<a href="#">LEARN MORE</a>
-							</div>
-						</div>
-					</div>
-					<div class="grid_4">
-						<div class="banner">
-							<img src="images/ban_img3.jpg" alt="">
-							<div class="label">
-								<div class="title">PARIS</div>
-								<div class="price">
-									FROM<span>$ 1.600</span>
-								</div>
-								<a href="#">LEARN MORE</a>
-							</div>
-						</div>
-					</div>
-					<!-- ==================== ^banner ======================= -->
+					<!-- ===========================^Lastest News=================================== -->
 				</div>
-				
-				<div class="clear"></div>
-				</div>
-<!-- allfor you -->
-	<div class="allFor">
-				
-					<div class="color">
-						<!-- =========================== Lastest News=================================== -->
-						<div class="container_12" align="center">
-						<div class="grid_12">						
-							<h3 class="head1">Latest News</h3>
-						</div>
-						<div class="grid_4">
-							<div class="block1">
-								<time datetime="2014-01-01">10<span>Jan</span></time>
-								<div class="extra_wrapper">
-									<div class="text1 col1">
-										<a href="#">성산일출봉 투어</a>
-									</div>
-									하루동안 성산일출봉에서 시간을 보내세요
-								</div>
-							</div>
-						</div>
-						<div class="grid_4">
-							<div class="block1">
-								<time datetime="2014-01-01">21<span>Jan</span></time>
-								<div class="extra_wrapper">
-									<div class="text1 col1">
-										<a href="#">효리네 일몰스팟</a>
-									</div>
-									효리네 민박집에서 나온 일몰이 멋있던 바닷가 방문하기
-								</div>
-							</div>
-						</div>
-						<div class="grid_4">
-							<div class="block1">
-								<time datetime="2014-01-01">15<span>Feb</span></time>
-								<div class="extra_wrapper">
-									<div class="text1 col1">
-										<a href="#">uamnibh Edeto</a>
-									</div>
-									Ros convallisumsan. Maecenas vehicula egestas venenatis. Duis
-									massa elit, auctor non
-								</div>
-							</div>
-						</div>
-						
-						<!-- ===========================^Lastest News=================================== -->
-					</div>
-				</div>
-				<!--==============================Content=================================-->
-		<div class="content">
-			<div class="ic">More Website Templates @ TemplateMonster.com -
-				February 10, 2014!</div>
+			</div>
+			<!--==============================Content=================================-->
+			<div class="content">
+				<div class="ic">More Website Templates @ TemplateMonster.com -
+					February 10, 2014!</div>
 				<div class="container_12">
 					<!-- ============== welcome ===================== -->
 					<div class="grid_4">
@@ -421,7 +420,7 @@
 					</blockquote>
 				</div>
 			</div>
-			
+
 			<!-- ^allfor you -->
 		</div>
 
