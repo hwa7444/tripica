@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,6 +46,14 @@
 		<![endif]-->
 </head>
 <body>
+<%
+		String nick= null;
+		if (session.getAttribute("nick") != null) {
+			nick = (String) session.getAttribute("nick");
+		}
+		
+	%>
+
 	<div class="allFor">
 		<!-- ======SIDE MENU===== -->
 		<div class="grid_13">
@@ -101,15 +110,23 @@
 									</tr>
 								</thead>
 								<tbody>
+									<c:choose>
+									<c:when test ="${not empty list}">
+									<c:foreach items="${list}" var="vo">
 									<tr>
-										<td>1</td>
-										<td>안녕하세요</td>
-										<td>홍길동</td>
-										<td>2017-11-26</td>
+									<td>${vo.num}</td>
+									<td>${vo.title}</td>
+									<td>${vo.nick}</td>
+									<td>${vo.writeDay}</td>
 									</tr>
+									</c:foreach>
+									</c:when>
+									</c:choose>
 								</tbody>
 							</table>
+							<%if (nick != null){ %> <!-- 로그인 했을 때 -->
 							<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
+							<% }%>
 						</div>		
 				</div>
 

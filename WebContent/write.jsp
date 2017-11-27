@@ -45,6 +45,14 @@
 		<![endif]-->
 </head>
 <body>
+
+<%
+		String nick= null;
+		if (session.getAttribute("nick") != null) {
+			nick = (String) session.getAttribute("nick");
+		}
+		
+	%>
 	<div class="allFor">
 		<!-- ======SIDE MENU===== -->
 		<div class="grid_13">
@@ -90,7 +98,7 @@
 				<div class="grid_12">
 					<h3>Write Posts</h3>
 					<div class="row">
-						<form method="post" action="writeAction.jsp">
+						<form method="post" action="WriteCon">
 							<table class="table"
 								style="text-align: center; border: 1px solid #dddddd;">
 								<thead>
@@ -104,15 +112,15 @@
 									<tr>
 									<td>글 제목</td>
 										<td><input type="text" class="form-control"
-											placeholder="글 제목" name="bbsTitle" maxlength="50" required="required"></td>
+											placeholder="글 제목" name="title" maxlength="50" required="required"></td>
 									</tr>
 									<tr>
 									<td>업로드할 사진</td>
-										<td><input type="file" required="required"></td>
+										<td><input  name="fileName" type="file"></td>
 									</tr>
 									<tr>
 										<td colspan="2"><textarea class="form-control" placeholder="글 내용"
-												name="bbsContent" maxlength="2048" style="height: 350px;"></textarea></td>
+												name="content" maxlength="2048" style="height: 350px;"></textarea></td>
 									</tr>
 								</tbody>
 							</table>
