@@ -1,7 +1,6 @@
 package com.Service;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,21 +12,28 @@ import javax.servlet.http.HttpServletResponse;
 import com.DAO.bulletinDAO;
 import com.DAO.bulletinVO;
 
-@WebServlet("/SelectService")
-public class SelectService extends HttpServlet {
+@WebServlet("/deleteCon")
+public class deleteCon extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		int num = Integer.parseInt(request.getParameter("num"));
+
+		bulletinDAO dao = bulletinDAO.getInstance();
+
 		try {
-			ArrayList<bulletinVO> list = (ArrayList<bulletinVO>)request.getAttribute("list");
-				
-			if(list!=null) {
-				request.setAttribute("list", list);
+			boolean isSuccess = dao.delete(num);
+
+			if (isSuccess) {
+				response.sendRedirect("bulletin.jsp");
+			}else {
+				// 삭제 실패 했을 때, 식패 알림 띄우기
 			}
-			RequestDispatcher dispatcher = request.getRequestDispatcher("bulletin.jsp");
-			dispatcher.forward(request, response);
-		} catch (Exception e) {			
+			
+
+		} catch (
+
+		Exception e) {
 			e.printStackTrace();
 		}
 	}

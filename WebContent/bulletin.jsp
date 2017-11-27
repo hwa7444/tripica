@@ -1,6 +1,7 @@
+<%@page import="com.DAO.bulletinDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.DAO.bulletinVO"%>
-<%@page import="com.sun.xml.internal.txw2.Document"%>
+<%-- <%@page import="com.sun.xml.internal.txw2.Document"%> --%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -54,6 +55,12 @@
 		if (session.getAttribute("nick") != null) {
 			nick = (String) session.getAttribute("nick");
 		}
+		int pageNumber = 1;
+		if (request.getParameter("pageNumber") != null) {
+			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+		}
+		bulletinDAO dao = bulletinDAO.getInstance();
+		ArrayList<bulletinVO> list= dao.selectAll(pageNumber);
 	%>
 
 	<div class="allFor">
@@ -115,6 +122,7 @@
 							<% 
 							ArrayList<bulletinVO> arr = (ArrayList<bulletinVO>)request.getAttribute("list");
 							System.out.println(arr.get(0).getTitle()); %>
+							
 								<c:choose>
 									<c:when test="${not empty list}">
 										<c:forEach items="${list}" var="vo">
@@ -132,8 +140,23 @@
 										</tr>
 									</c:otherwise>
 								</c:choose>
+								
 							</tbody>
 						</table>
+						<%
+				if (pageNumber != 1) {
+			%>
+			
+			<a href="bulletin.jsp?pageNumber=<%=pageNumber - 1%>"
+				class="btn btn-success btn-arraw-left">이전</a>	
+			<%
+				} if(dao.nextPage(pageNumber + 1)) {
+			%>
+			
+			<a href = "bulletin.jsp?pageNumber=<%= pageNumber+1 %>" class="btn btn-success btn-arraw-left">다음</a>
+			<%
+				}
+			%>
 						<%
 							if (nick != null) {
 						%>

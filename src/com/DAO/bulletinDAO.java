@@ -71,15 +71,32 @@ public class bulletinDAO {
 		close();
 		return cnt;
 	}
+	//게시판 페이지 넘기기
+	public int getNext() {
+		String sql="SELECT num FROM bulletin ORDER BY num DESC";
+		try {
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			System.out.println("여기서 나는 오루는 무조건! 오타!!");	
+			rs = psmt.executeQuery();
+			System.out.println("들어오니??");
+			if(rs.next()) {
+				return rs.getInt(1)+1;
+			}
+			return 1;//첫 번째 게시물일 경우
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1;//데이터베이스 오류
+	}
 
-	public ArrayList<bulletinVO> selectAll() throws Exception {
+	public ArrayList<bulletinVO> selectAll(int pageNumber) throws Exception { //게시물 불러들이기
 		getConn();
 
 		ArrayList<bulletinVO> tmpList = new ArrayList<bulletinVO>();
 
 		// 모든 검색 sql 작성
-		pst = conn.prepareStatement("select * from bulletin order by num");
-
+		pst = conn.prepareStatement("select * from bulletin WHERE num < ? AND order by num desc limit 10");
+		pst.setInt(1,  - (pageNumber -1)*10);
 		rs = pst.executeQuery();
 
 		while (rs.next()) {
@@ -93,12 +110,26 @@ public class bulletinDAO {
 
 		return tmpList;
 	}
+	public boolean nextPage(int pageNumber) { //다음 페이지 불러오기
+		String sql="SELECT * FROM bulletin WHERE num < ?";
+		try {
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, getNext() - (pageNumber -1)*10);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 
 	public bulletinVO selectOne(int num) throws Exception {
 		getConn();
 
 		// num를 이용하여 db에서 하나의 file에 대한 정보를 검색
-		pst = conn.prepareStatement("select * from fileboard where num = ?");
+		pst = conn.prepareStatement("select * from bulletin where num = ?");
 		pst.setInt(1, num);
 
 		rs = pst.executeQuery();
@@ -113,5 +144,24 @@ public class bulletinDAO {
 
 		return vo;
 
+	}
+
+	public boolean delete(int num) throws Exception {
+		
+		getConn();
+
+		// num를 이용하여 db에서 하나의 file에 대한 정보를 검색
+		pst = conn.prepareStatement("delete from bulletin where num = ?");
+		pst.setInt(1, num);
+
+		rs = pst.executeQuery();
+		
+		if(rs.next()) {
+			return true; // 삭제 성공
+		}
+		close();
+		
+		return false; // 삭제 실패
+		
 	}
 }
