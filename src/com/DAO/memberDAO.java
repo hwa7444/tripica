@@ -48,7 +48,7 @@ public class memberDAO {
 			conn.close();
 	}// 종료기능
 
-	public int Join(String id, String pw, String nick, int gender, String ph, String birth) throws Exception {
+	public int Join(String id, String pw, String nick, int gender, String ph, String birth) throws Exception {//회원가입메소드
 
 		// throws와 try/catch 차이
 		getConn();
@@ -67,7 +67,7 @@ public class memberDAO {
 		return cnt;
 	}
 
-	public int login(String id, String pw) throws Exception {
+	public int login(String id, String pw) throws Exception { //로그인 메소드
 		getConn();
 		// DBMS에 id의 pw를 인증을 받고 DB를 핸들링 할 수 있는 Connection 객체를 생성
 
@@ -94,7 +94,7 @@ public class memberDAO {
 		return cnt;
 	}
 
-	public memberVO idselect(String id) throws Exception {
+	public memberVO idselect(String id) throws Exception { // 해당아이디 정보 불러오는 메소드
 		getConn();
 
 		pst = conn.prepareStatement("select * from member where mem_id=?");
@@ -112,7 +112,7 @@ public class memberDAO {
 		return vo;
 	}
 
-	public int update(String pw, String nick, String ph, String birth, String id) throws Exception {
+	public int update(String pw, String nick, String ph, String birth, String id) throws Exception {// 회원정보 수정 메소드
 		getConn();
 
 		pst = conn.prepareStatement("update member set pw=?,nick=?,phone=?,birthday=? where mem_id=?");
@@ -126,7 +126,7 @@ public class memberDAO {
 		return cnt;
 	}
 
-	public String nickselect(String id) throws Exception {
+	public String nickselect(String id) throws Exception { //닉네임 세션에 저장하기 위해 값 가져오는 메소드
 		getConn();
 		pst = conn.prepareStatement("select * from member where mem_id=?");
 		pst.setString(1, id);
