@@ -89,7 +89,7 @@ img {
     display: block;
     float: left;
     margin-left: 10px;
-/*     padding: 5px 10px; */
+/*   padding: 5px 10px; */
     text-decoration: none;
     /* text-shadow: 1px 1px #000;
 
@@ -104,7 +104,7 @@ img {
     border-color: #eee;
 }
 .overlay {
-    background-color: rgba(0, 0,0, 0.6);
+    background-color: rgba(0,0,0, 0.6);
     bottom: 0;
     cursor: default;
     left: 0;
@@ -249,6 +249,8 @@ table tr td .submit{
 	
 }
 /* LOGIN / JOIN MODAL--------end-------------------------------------------- */
+
+
 /****Heads****/
 
 
