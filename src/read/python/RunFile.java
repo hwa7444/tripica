@@ -8,7 +8,7 @@ public class RunFile {
 
 		try {
 			Runtime r = Runtime.getRuntime();
-			Process p = r.exec("cmd /c C:\\Python32\\python.exe D:\\다운로드//script.py"); //cmd를 이용해 파이썬의 경로를 입력해 파이썬을 실행시키고 실행시킨 파이썬을 이용해 파이썬 파일안의 코드를 실행
+			Process p = r.exec("cmd /c C:\\Python32\\python.exe C:\\Users//home//db.ipnyb"); //cmd를 이용해 파이썬의 경로를 입력해 파이썬을 실행시키고 실행시킨 파이썬을 이용해 파이썬 파일안의 코드를 실행
 
 			BufferedReader bfr = new BufferedReader(new InputStreamReader(p.getInputStream()));
 
