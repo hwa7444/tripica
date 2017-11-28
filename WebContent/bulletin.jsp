@@ -114,9 +114,11 @@
 								</tr>
 							</thead>
 							<tbody>
-							<% 
-							ArrayList<bulletinVO> arr = (ArrayList<bulletinVO>)request.getAttribute("list");
-							System.out.println(arr.get(0).getTitle()); %>
+					<%
+					bulletinDAO dao = bulletinDAO.getInstance();
+					ArrayList<bulletinVO> arr = dao.selectAll();
+					request.setAttribute("list", arr);
+					%>
 							
 								<c:choose>
 									<c:when test="${not empty list}">
@@ -138,15 +140,15 @@
 								
 							</tbody>
 						</table>
-						
+						<%-- 
 						<%
 							if (nick != null) {
-						%>
+						%> --%>
 						<!-- 로그인 했을 때 -->
 						<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
-						<%
+						<%-- <%
 							}
-						%>
+						%> --%>
 					</div>
 				</div>
 

@@ -21,7 +21,7 @@ public class SelectOne extends HttpServlet {
 				int num = Integer.parseInt(request.getParameter("num"));
 
 				bulletinDAO dao = bulletinDAO.getInstance();
-
+				
 				try {
 					bulletinVO vo = dao.selectOne(num);
 

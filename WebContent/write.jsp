@@ -120,7 +120,7 @@
 									</tr>
 									<tr>
 										<td colspan="2"><textarea class="form-control" placeholder="±Û ³»¿ë"
-												name="content" maxlength="2048" style="height: 350px;"></textarea></td>
+												name="content" maxlength="2048" style="min-height: 350px;"></textarea></td>
 									</tr>
 								</tbody>
 							</table>

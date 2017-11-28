@@ -28,6 +28,7 @@ public class deleteCon extends HttpServlet {
 				response.sendRedirect("bulletin.jsp");
 			}else {
 				// 삭제 실패 했을 때, 식패 알림 띄우기
+				System.out.println("삭제실패");
 			}
 			
 

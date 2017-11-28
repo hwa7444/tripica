@@ -3,7 +3,7 @@ create table bulletin (
 num number, 
 title varchar(50),
 nick varchar(50),
-fileName varchar(30),
+fileName varchar(50),
 content varchar(2048),
 writeDay varchar(30),
 checkD number

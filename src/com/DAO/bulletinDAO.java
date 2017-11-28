@@ -26,20 +26,14 @@ public class bulletinDAO {
 		// 1.JDBC 업로드
 		InputStream in = (this.getClass().getResourceAsStream("../../../../db.properties"));
 		// 현재 작업하고 있는 자바파일의 클래스파일을 기준으로 db.properties를 읽어오겠다.
-		/*
-		 * Properties p = new Properties(); p.load(in);
-		 * 
-		 * String url = p.getProperty("dburl"); String dbid = p.getProperty("dbid");
-		 * String dbpw = p.getProperty("dbpw"); Class.forName(p.getProperty("dbclass"));
-		 */
+		
+		 Properties p = new Properties(); p.load(in);
+		 
+		 String url = p.getProperty("dburl"); String dbid = p.getProperty("dbid");
+		 String dbpw = p.getProperty("dbpw"); Class.forName(p.getProperty("dbclass"));
+		
 		// 동적로딩
 
-		String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
-		String dbid = "system";
-		String dbpw = "123";
-		String dbclass = "oracle.jdbc.driver.OracleDriver";
-
-		Class.forName(dbclass);
 		conn = DriverManager.getConnection(url, dbid, dbpw);
 		System.out.println("DB연결완료");
 
@@ -61,11 +55,17 @@ public class bulletinDAO {
 
 		// sql작성
 		pst = conn.prepareStatement("insert into bulletin values(num.nextval,?,?,?,?,to_char(sysdate,'YYYY-MM-DD'),?)");
+		System.out.println("DAO 동작 upload동작");
 		pst.setString(1, title);
+		System.out.println("DAO 동작 upload동작이름");
 		pst.setString(2, nick);
+		System.out.println("DAO 동작 upload동작아이디");
 		pst.setString(3, fileName);
+		System.out.println("DAO 동작 upload동작파일");
 		pst.setString(4, content);
+		System.out.println("DAO 동작 upload내용");
 		pst.setInt(5, checkD);
+		System.out.println("DAO 동작 upload체크");
 
 		cnt = pst.executeUpdate();
 		close();
@@ -93,9 +93,11 @@ public class bulletinDAO {
 		getConn();
 
 		ArrayList<bulletinVO> tmpList = new ArrayList<bulletinVO>();
+		
+		System.out.println("select작동");
 
 		// 모든 검색 sql 작성
-		pst = conn.prepareStatement("select * from bulletin order by num desc limit 10");
+		pst = conn.prepareStatement("select * from bulletin order by num desc");
 
 		rs = pst.executeQuery();
 
@@ -131,7 +133,8 @@ public class bulletinDAO {
 		// num를 이용하여 db에서 하나의 file에 대한 정보를 검색
 		pst = conn.prepareStatement("select * from bulletin where num = ?");
 		pst.setInt(1, num);
-
+		
+	
 		rs = pst.executeQuery();
 
 		bulletinVO vo = null;
