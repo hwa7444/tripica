@@ -6,7 +6,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -94,7 +94,7 @@
 								<li><a href="Main.jsp">HOME</a></li>
 								<li><a href="HotTour.jsp">HOT TOURS</a></li>
 								<li><a href="specialOffer.jsp">SPECIAL OFFERS</a></li>
-								<li class="current"><a href="SelectService">BLOG</a></li>
+								<li class="current"><a href="SelectService?start=0&end=9">POST</a></li>
 								<li><a href="Index04_Map.jsp">CONTACTS</a></li>
 							</ul>
 						</nav>
@@ -131,28 +131,26 @@
 							<tbody>
 
 								<%
-								
-								/*	int start = 1;
-							 		int end = 10;
-									
-									if(request.getParameter("start") != null || request.getParameter("end") != null){
-										bulletinDAO dao = bulletinDAO.getInstance();
-										ArrayList<bulletinVO> arr = dao.selectAll(Integer.parseInt(request.getParameter("start")), Integer.parseInt(request.getParameter("end")));
-										request.setAttribute("list", arr);
-									}else{
-									 */
-									
-							
-							/* 		}
-									 */
-									
+									/*	int start = 1;
+										int end = 10;
+										
+										if(request.getParameter("start") != null || request.getParameter("end") != null){
+											bulletinDAO dao = bulletinDAO.getInstance();
+											ArrayList<bulletinVO> arr = dao.selectAll(Integer.parseInt(request.getParameter("start")), Integer.parseInt(request.getParameter("end")));
+											request.setAttribute("list", arr);
+										}else{
+										 */
+
+									/* 		}
+											 */
 								%>
-<c:set var = "size" value="${fn:length(list)}"></c:set>
-<c:set var = "in" value="1"></c:set>
+								<c:set var="size" value="${fn:length(list)}"></c:set>
+								<c:set var="in" value="1"></c:set>
 								<c:choose>
-								
+
 									<c:when test="${not empty list}">
-										<c:forEach items="${list}" var="vo" begin="0" end="9" step="1" varStatus="idx">
+										<c:forEach items="${list}" var="vo" begin="0" end="9" step="1"
+											varStatus="idx">
 											<tr>
 												<td>${vo.num}</td>
 												<td><a href="SelectOne?num=${vo.num}">${vo.title}</a></td>
@@ -161,10 +159,10 @@
 												<td>${vo.writeDay}</td>
 											</tr>
 											<c:if test="${size > idx.index}">
-											<c:if test="${idx.index % 9 == 0}">
-											<a href="" onclick="izn(${in })">${in }</a>
-											<c:set var = "in" value="${in+1 }"></c:set>
-											</c:if>
+												<c:if test="${idx.index % 9 == 0}">
+													<a href="" onclick="izn(${in })">${in }</a>
+													<c:set var="in" value="${in+1 }"></c:set>
+												</c:if>
 											</c:if>
 										</c:forEach>
 									</c:when>

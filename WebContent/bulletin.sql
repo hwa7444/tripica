@@ -17,3 +17,7 @@ increment by 1
 select * from bulletin
 
 select * from bulletin order by num;
+
+select count(*) as cnt from bulletin
+
+select * from (select * from bulletin order by num desc) where rownum between 11 and 20

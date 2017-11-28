@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -149,6 +150,23 @@ public class bulletinDAO {
 
 		return vo;
 
+	}
+	
+	public int countRows() throws Exception {
+		
+		getConn();
+		
+		pst = conn.prepareStatement("select count(*) as cnt from bulletin");
+		
+		rs = pst.executeQuery();
+	
+		int count = 0;
+		if(rs.next()) {
+			count = rs.getInt("cnt");
+		}	
+		
+		
+		return count;
 	}
 
 	public boolean delete(int num) throws Exception {

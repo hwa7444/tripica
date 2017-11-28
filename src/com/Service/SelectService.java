@@ -18,15 +18,22 @@ public class SelectService extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//DB에 저장된 file정보를 모두 검색해서 jsp로 전송
+		int start = Integer.parseInt(request.getParameter("start"));
+		int end = Integer.parseInt(request.getParameter("end"));
+		
+		System.out.println(start);
+		System.out.println(end);
+		
+		
 		bulletinDAO dao = bulletinDAO.getInstance();
 		ArrayList<bulletinVO> list;
 		try {
 	
-			list = dao.selectAll();
+			list = dao.selectAll2(start,end);
 			if(list!=null) {
 				request.setAttribute("list", list);
 			}
-			RequestDispatcher dispatcher = request.getRequestDispatcher("bulletin.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("bulletin2.jsp");
 			dispatcher.forward(request, response);
 		} catch (Exception e) {			
 			e.printStackTrace();

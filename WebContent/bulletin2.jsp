@@ -1,14 +1,21 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="com.DAO.bulletinDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.DAO.bulletinVO"%>
+<%-- <%@page import="com.sun.xml.internal.txw2.Document"%> --%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <title>Blog</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- 부트스트랩 -->
-<meta name="viewport" content="width=device-width" , initial-scale="1">
-<link rel="stylesheet" href="css/bootstrap.css">
+<!-- <meta name="viewport" content="width=device-width" , initial-scale="1">
+<link rel="stylesheet" href="css/bootstrap.css"> -->
 <meta name="format-detection" content="telephone=no" />
 <link rel="icon" href="images/favicon.ico">
 <link rel="shortcut icon" href="images/favicon.ico" />
@@ -21,6 +28,9 @@
 <script src="js/jquery.equalheights.js"></script>
 <script src="js/jquery.mobilemenu.js"></script>
 <script src="js/jquery.easing.1.3.js"></script>
+
+
+
 
 
 <script>
@@ -43,16 +53,13 @@
 		<![endif]-->
 </head>
 <body>
-
-<%
-		String nick= null;
+	<%
+		String nick = null;
 		if (session.getAttribute("nick") != null) {
 			nick = (String) session.getAttribute("nick");
 		}
-		
 	%>
-	
-	<!--==========================try me==============================-->
+<!--==========================try me==============================-->
 	<!-- login form -->
 	<a href="#x" class="overlay" id="login_form"></a>
 	<div class="popup">
@@ -174,7 +181,8 @@
 				</tr>
 			</table>
 		</form>
-			<a class="close" href="#close"></a>
+	
+		<a class="close" href="#close"></a>
 	</div>
 
 
@@ -182,7 +190,6 @@
 
 
 	<!--==========================try me==============================-->
-	
 	<div class="allFor">
 		<!-- ======SIDE MENU===== -->
 		<div class="grid_13">
@@ -194,14 +201,11 @@
 						<li><a href="#login_form" id="login_pop">로그인</a></li>
 						<li><a href="#join_form" id="join_pop">회원가입</a></li>
 					</ul>
-
-
-
 				</c:when>
 
 				<c:otherwise>
 					<ul>
-					<li><h1 style="color:white;">${nick}님</h1></li>
+						<li><h1 style="color: white;">${nick}님</h1></li>
 						<li><a href="Logout.jsp" id="login_pop">로그아웃</a></li>
 						<li><a href="#update_form" id="join_pop">개인정보수정</a></li>
 					</ul>
@@ -218,7 +222,7 @@
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 							<ul class="sf-menu">
 								<li><a href="Main.jsp">HOME</a></li>
-								<li><a href="Index01_HotTour.html">HOT TOURS</a></li>
+								<li><a href="HotTour.jsp">HOT TOURS</a></li>
 								<li><a href="specialOffer.jsp">SPECIAL OFFERS</a></li>
 								<li class="current"><a href="SelectService?start=0&end=8">POST</a></li>
 								<li><a href="Index04_Map.jsp">CONTACTS</a></li>
@@ -242,36 +246,114 @@
 			<div class="container_12">
 				<!--================ blogPost ================-->
 				<div class="grid_12">
-					<h3>Write Posts</h3>
-					<div class="row">
-						<form method="post" action="WriteCon" enctype="multipart/form-data">
-							<table class="table"
-								style="text-align: left; border: 1px solid #dddddd;">
-								<thead>
-									<tr>
-										<th colspan="4"
-											style="background-color: #eeeeee; text-align: center;">${vo.num}.${vo.title}</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-									<td>작성자</td>
+					<h3>Recent Posts</h3>
+					<!-- <div class="row">
+						<table class="table table-striped"
+							style="text-align: center; border: 1pxx solid #dddddd;">
+							<thead>
+								<tr>
+									<th style="background-color: #eeeeee; text-align: center;">번호</th>
+									<th style="background-color: #eeeeee; text-align: center;">제목</th>
+									<th colspan="2" style="background-color: #eeeeee; text-align: center;">올린 사진</th>
+									<th style="background-color: #eeeeee; text-align: center;">작성자</th>
+									<th style="background-color: #eeeeee; text-align: center;">작성일</th>
+								</tr>
+							</thead>
+							<tbody> -->
+
+								<%
+									int start = Integer.parseInt(request.getParameter("start"));
+									int end = Integer.parseInt(request.getParameter("end"));
+									ArrayList<bulletinVO> arr = null;
+									if (request.getParameter("start") != null || request.getParameter("end") != null) {
+										bulletinDAO dao = bulletinDAO.getInstance();
+										arr = dao.selectAll();
+
+										request.setAttribute("list", arr);
+									}
+								%>
+
+								<c:forEach items="${list}" var="vo" begin="<%=start %>"
+									end="<%=end %>" step="1" varStatus="idx">
+									<%-- <tr>
+										<td>${vo.num}</td>
+										<td><a href="SelectOne?num=${vo.num}">${vo.title}</a></td>
+										<td colspan="2"><img style="max-width:200px !important; height:200px;" src="upload/${vo.fileName}"></td>
 										<td>${vo.nick}</td>
-									<td>작성 일자</td>
 										<td>${vo.writeDay}</td>
-									</tr>
-									<tr>
-										<td colspan="4"><img style="max-width:500px !important; height:auto;" src="upload/${vo.fileName}"></td>
-									</tr>
-									<tr>
-										<td colspan="4" style="min-height:200px !important;">${vo.content}</td>
-									</tr>
-								</tbody>
-							</table>
-							<a href="bulletin.jsp" class="btn btn-primary">목록</a>
-							<a href="updateBlu.jsp" class="btn btn-primary">수정</a> <!-- 아직 안만 들어짐 -->
-							<a href="deleteCon?num=${vo.num}" class="btn btn-primary">삭제</a>
-						</form>
+									</tr> --%>
+									<div class="grid_3">
+									<img style="max-width:200px !important; height:200px;" src="upload/${vo.fileName}">
+									<hr>
+									<span text-align="center">${vo.num}. ${vo.title} <span style="color:red;">BY</span> ${vo.nick}<br>
+									${vo.writeDay}</span>
+									<hr>
+									</div>
+									<c:if test="${size > idx.index}">
+										<c:if test="${idx.index % 9 == 0}">
+											<a href="" onclick="izn(${in })">${in }</a>
+											<c:set var="in" value="${in+1 }"></c:set>
+										</c:if>
+									</c:if>
+								</c:forEach>
+
+								<%-- <c:set var="size" value="${fn:length(list)}"></c:set>
+								<c:set var="in" value="1"></c:set>
+								<c:choose>
+
+									<c:when test="${not empty list}">
+										<c:forEach items="${list}" var="vo" begin="0" end="9" step="1"
+											varStatus="idx">
+											<tr>
+												<td>${vo.num}</td>
+												<td><a href="SelectOne?num=${vo.num}">${vo.title}</a></td>
+												<td><img style="max-width:200px !important; height:200px;" src="upload/${vo.fileName}"></td>
+												<td>${vo.nick}</td>
+												<td>${vo.writeDay}</td>
+											</tr>
+											<c:if test="${size > idx.index}">
+												<c:if test="${idx.index % 9 == 0}">
+													<a href="" onclick="izn(${in })">${in }</a>
+													<c:set var="in" value="${in+1 }"></c:set>
+												</c:if>
+											</c:if>
+										</c:forEach>
+									</c:when>
+									<c:otherwise>
+										<tr>
+											<td colspan="4">현재 데이터가 존재하지 않습니다.</td>
+										</tr>
+									</c:otherwise>
+								</c:choose> --%>
+
+							<!-- </tbody>
+						</table> -->
+						
+						<hr>
+
+						<c:if test="<%=start > 1%>">
+							<a href="bulletin2.jsp?start=<%=start - 9%>&end=<%=end - 9%>"
+								class="btn btn-success btn-arraw-left">이전</a>
+						</c:if>
+						<!-- 페이징 다시 하기!! -->
+						<c:if test="<%=arr.size() > end%>">
+							<a href="bulletin2.jsp?start=<%=start + 9%>&end=<%=end + 9%>"
+								class="btn btn-success btn-arraw-left">다음</a>
+							<%
+								start = Integer.parseInt(request.getParameter("start"));
+							%>
+						</c:if>
+						
+
+						<c:choose>
+							<c:when test="${not empty id}">
+								<!-- 로그인 했을 때 -->
+								<a href="write.jsp" class="btn btn-success btn-arraw-left">글쓰기</a>
+							</c:when>
+							<c:otherwise>
+
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 
@@ -298,6 +380,12 @@
 			</div>
 		</footer>
 		<script>
+		function izn(num){
+			alert(num);
+		}
+		
+		
+		
 			$(function() {
 				$('#bookingForm').bookingForm({
 					ownerEmail : '#'

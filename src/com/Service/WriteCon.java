@@ -62,7 +62,7 @@ public class WriteCon extends HttpServlet {
 				
 				if(cnt > 0) {
 					System.out.println("저장완료");
-					moveUrl = "SelectService";
+					moveUrl = "SelectService?start=0&end=8";
 				}else {
 					System.out.println("저장실패");
 					moveUrl = "bulletin.jsp";

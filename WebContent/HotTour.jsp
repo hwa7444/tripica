@@ -45,6 +45,137 @@
 			nick = (String) session.getAttribute("nick");
 		}
 	%>
+	<!--==========================try me==============================-->
+	<!-- login form -->
+	<a href="#x" class="overlay" id="login_form"></a>
+	<div class="popup">
+		<span>Welcome Guest!</span>
+		<p>Please enter your login and password here</p>
+		<form action="LoginCon" method="post">
+			<table>
+				<tr>
+					<td>Login ID</td>
+					<td><input type="text" name="id" required /></td>
+					<td rowspan="2" align="center"><input type="submit"
+						value="Log In" class="submit" /></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><input type="password" name="pw" required /></td>
+			</table>
+		</form>
+		<a class="close" href="#close"></a>
+	</div>
+	<!-- /login form -->
+
+
+
+	<!-- join form -->
+	<a href="#x" class="overlay" id="join_form"></a>
+	<div class="popup">
+		<span>회원가입</span>
+		<p>Please enter your details here</p>
+		<form action="JoinCon" method="post">
+			<table>
+				<tr>
+					<td>아이디</td>
+					<td><input type="text" id="id" name="id" required
+						maxlength="10" size="10" onkeydown="nonHangulSpecialKey()">
+						<button onclick="idCheck()">중복확인</button></td>
+
+				</tr>
+				<tr>
+					<td>비밀번호</td>
+					<td><input type="password" name="pw" required maxlength="10"></td>
+				</tr>
+				<tr>
+					<td>닉네임</td>
+					<td><input type="text" name="nick" required maxlength="10"></td>
+				</tr>
+				<tr>
+					<td>성별</td>
+					<td>남자<input type="radio" name="gender" value="0" required>여자<input
+						type="radio" name="gender" value="1" required></td>
+				</tr>
+				<tr>
+					<td>전화번호</td>
+					<td><input type="text" name="phone" required
+						onfocus="OnCheckPhone(this)" onKeyup="OnCheckPhone(this)" size=14></td>
+
+
+				</tr>
+				<tr>
+					<td>생일</td>
+					<td><input type="date" name="birth" required></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" value="회원가입"
+						class="submit" /></td>
+				</tr>
+			</table>
+		</form>
+		If you have account >><a href="#login_form" id="login_pop">Log In</a>
+		<a class="close" href="#close"></a>
+	</div>
+
+	<script>
+		function idCheck() {
+			var id = document.getElementById("id");
+			$.ajax({
+				url : "SearchId",
+				data : "id=" + id.value,
+				success : function(result) {
+					alert(result);
+				}
+			})
+
+		}
+	</script>
+
+	<!-- /join form -->
+
+
+	<!-- update form -->
+	<a href="#x" class="overlay" id="update_form"></a>
+	<div class="popup">
+		<span>개인정보 수정</span>
+		<p>수정할 개인정보를 입력하세요</p>
+		<form action="UpdateCon" method="post">
+			<table>
+
+				<tr>
+					<td>비밀번호</td>
+					<td><input type="password" name="pw" required maxlength="10"></td>
+				</tr>
+				<tr>
+					<td>닉네임</td>
+					<td><input type="text" name="nick" required maxlength="10"></td>
+				</tr>
+				<tr>
+					<td>전화번호</td>
+					<td><input type="text" name="phone" required
+						onfocus="OnCheckPhone(this)" onKeyup="OnCheckPhone(this)" size=14></td>
+
+				</tr>
+				<tr>
+					<td>생일</td>
+					<td><input type="date" name="birth" required></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" value="개인정보 수정"
+						class="submit" /></td>
+				</tr>
+			</table>
+		</form>
+
+		<a class="close" href="#close"></a>
+	</div>
+
+
+	<!-- /update form -->
+
+
+	<!--==========================try me==============================-->
 	<div class="allFor">
 		<!-- ======SIDE MENU===== -->
 		<div class="grid_13">
@@ -82,7 +213,7 @@
 								<li><a href="Main.jsp">HOME</a></li>
 								<li class="current"><a href="HotTour.jsp">HOT TOURS</a></li>
 								<li><a href="specialOffer.jsp">SPECIAL OFFERS</a></li>
-								<li><a href="bulletin.jsp">POST</a></li>
+								<li><a href="SelectService?start=0&end=8">POST</a></li>
 								<li><a href="Index04_Map.jsp">CONTACTS</a></li>
 							</ul>
 						</nav>
@@ -91,7 +222,7 @@
 				</div>
 				<div class="grid_12">
 					<h1>
-						<a href="index.html"> <img
+						<a href="HotTour.jsp"> <img
 							src="images/logo/tripickerLogo9.png" alt="Your Happy Family">
 						</a>
 					</h1>
