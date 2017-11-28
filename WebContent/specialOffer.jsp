@@ -49,16 +49,11 @@
       <img src="images/logo/tripickerLogo9.png">
          <c:choose>
 				<c:when test="${empty id}">
-
 					<ul>
 						<li><a href="#login_form" id="login_pop">로그인</a></li>
 						<li><a href="#join_form" id="join_pop">회원가입</a></li>
 					</ul>
-
-
-
 				</c:when>
-
 				<c:otherwise>
 					<ul>
 					<li><h1 style="color:white;">${nick}님</h1></li>

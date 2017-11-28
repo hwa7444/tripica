@@ -21,10 +21,9 @@ public class SelectService extends HttpServlet {
 		bulletinDAO dao = bulletinDAO.getInstance();
 		ArrayList<bulletinVO> list;
 		try {
-			
+	
 			list = dao.selectAll();
 			if(list!=null) {
-				
 				request.setAttribute("list", list);
 			}
 			RequestDispatcher dispatcher = request.getRequestDispatcher("bulletin.jsp");

@@ -179,7 +179,6 @@
 					<td>닉네임</td>
 					<td><input type="text" name="nick" required maxlength="10"></td>
 				</tr>
-
 				<tr>
 					<td>전화번호</td>
 					<td><input type="text" name="phone" required
@@ -219,8 +218,6 @@
 						<li><a href="#join_form" id="join_pop">회원가입</a></li>
 					</ul>
 
-
-
 				</c:when>
 
 				<c:otherwise>
@@ -244,7 +241,7 @@
 						<li class="current"><a href="Main.jsp">HOME</a></li>
 						<li><a href="HotTour.jsp">HOT TOURS</a></li>
 						<li><a href="specialOffer.jsp">SPECIAL OFFERS</a></li>
-						<li><a href="bulletin.jsp">POST</a></li>
+						<li><a href="SelectService">POST</a></li>
 						<li><a href="Index04_Map.jsp">CONTACTS</a></li>
 					</ul>
 					</nav>
@@ -270,7 +267,7 @@
 						<div class="price">
 							FROM <span>$1000</span>
 						</div>
-						<a href="tourInformation.html">여행더보기</a>
+						<a href="tourInformation.jsp">여행더보기</a>
 					</div>
 				</div>
 				<div data-src="images/Main/slide2.jpg">
@@ -279,7 +276,7 @@
 						<div class="price">
 							FROM <span>$2000</span>
 						</div>
-						<a href="tourInformation.html">여행더보기</a>
+						<a href="tourInformation.jsp">여행더보기</a>
 					</div>
 				</div>
 				<div data-src="images/slide2.jpg">
@@ -288,7 +285,7 @@
 						<div class="price">
 							FROM <span>$1600</span>
 						</div>
-						<a href="tourInformation.html">LEARN MORE</a>
+						<a href="tourInformation.jsp">LEARN MORE</a>
 					</div>
 				</div>
 				<div data-src="images/slide1.jpg">
@@ -297,7 +294,7 @@
 						<div class="price">
 							FROM <span>$2000</span>
 						</div>
-						<a href="tourInformation.html">LEARN MORE</a>
+						<a href="tourInformation.jsp">LEARN MORE</a>
 					</div>
 				</div>
 			</div>
