@@ -268,8 +268,8 @@
 									</tr>
 								</tbody>
 							</table>
-							<a href="bulletin.jsp" class="btn btn-primary">목록</a>
-							<a href="updateBlu.jsp" class="btn btn-primary">수정</a> <!-- 아직 안만 들어짐 -->
+							<a href="SelectService?start=0&end=8" class="btn btn-primary">목록</a>
+							<!-- <a href="updateBlu.jsp" class="btn btn-primary">수정</a> --> <!-- 아직 안만 들어짐 -->
 							<a href="deleteCon?num=${vo.num}" class="btn btn-primary">삭제</a>
 						</form>
 					</div>

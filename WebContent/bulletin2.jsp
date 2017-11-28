@@ -283,10 +283,10 @@
 										<td>${vo.writeDay}</td>
 									</tr> --%>
 									<div class="grid_3">
-									<img style="max-width:200px !important; height:200px;" src="upload/${vo.fileName}">
+									<a href="SelectOne?num=${vo.num}"><img style="max-width:200px !important; height:200px;" src="upload/${vo.fileName}"></a>
 									<hr>
-									<span text-align="center">${vo.num}. ${vo.title} <span style="color:red;">BY</span> ${vo.nick}<br>
-									${vo.writeDay}</span>
+									<a href="SelectOne?num=${vo.num}">${vo.num}. ${vo.title} <span style="color:red;">BY</span> ${vo.nick}<br>
+									${vo.writeDay}</a>
 									<hr>
 									</div>
 									<c:if test="${size > idx.index}">
