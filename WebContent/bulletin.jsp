@@ -55,17 +55,33 @@
 		if (session.getAttribute("nick") != null) {
 			nick = (String) session.getAttribute("nick");
 		}
-		
 	%>
 
 	<div class="allFor">
 		<!-- ======SIDE MENU===== -->
 		<div class="grid_13">
-			<img src="images/logo.png">
-			<ul>
-				<li><a href="#login_form" id="login_pop">LOGIN</a></li>
-				<li><a href="#join_form" id="join_pop">JOIN</a></li>
-			</ul>
+			<img src="images/logo/tripickerLogo9.png">
+			<c:choose>
+				<c:when test="${empty id}">
+
+					<ul>
+						<li><a href="#login_form" id="login_pop">로그인</a></li>
+						<li><a href="#join_form" id="join_pop">회원가입</a></li>
+					</ul>
+
+
+
+				</c:when>
+
+				<c:otherwise>
+
+					<ul>
+					<li><h1 style="color:white;">${nick}님</h1></li>
+						<li><a href="Logout.jsp" id="login_pop">로그아웃</a></li>
+						<li><a href="#update_form" id="join_pop">개인정보수정</a></li>
+					</ul>
+				</c:otherwise>
+			</c:choose>
 		</div>
 
 		<!-- ======^SIDE MENU===== -->
@@ -77,8 +93,8 @@
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 							<ul class="sf-menu">
 								<li><a href="Main.jsp">HOME</a></li>
-								<li><a href="Index01_HotTour.html">HOT TOURS</a></li>
-								<li><a href="index-2.html">SPECIAL OFFERS</a></li>
+								<li><a href="HotTour.jsp">HOT TOURS</a></li>
+								<li><a href="specialOffer.jsp">SPECIAL OFFERS</a></li>
 								<li class="current"><a href="index-3.html">BLOG</a></li>
 								<li><a href="Index04_Map.jsp">CONTACTS</a></li>
 							</ul>
@@ -114,18 +130,19 @@
 								</tr>
 							</thead>
 							<tbody>
-					<%
-					bulletinDAO dao = bulletinDAO.getInstance();
-					ArrayList<bulletinVO> arr = dao.selectAll();
-					request.setAttribute("list", arr);
-					%>
-							
+								<%
+									bulletinDAO dao = bulletinDAO.getInstance();
+									ArrayList<bulletinVO> arr = dao.selectAll();
+									request.setAttribute("list", arr);
+								%>
+
 								<c:choose>
 									<c:when test="${not empty list}">
 										<c:forEach items="${list}" var="vo">
 											<tr>
 												<td>${vo.num}</td>
 												<td><a href="SelectOne?num=${vo.num}">${vo.title}</a></td>
+												<%-- <td><img style="max-width:200px !important; height:200px;" src="upload/${vo.fileName}"></td> --%>
 												<td>${vo.nick}</td>
 												<td>${vo.writeDay}</td>
 											</tr>
@@ -137,7 +154,7 @@
 										</tr>
 									</c:otherwise>
 								</c:choose>
-								
+
 							</tbody>
 						</table>
 						<%-- 

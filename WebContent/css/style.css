@@ -542,6 +542,11 @@ header h1 a img {
     top: -45px;
     position: relative;
 }
+/* special offer 배너 조절 */
+.special {
+    top: 55px;
+    position: relative;
+}
 
 .banner .label {
     color: #fff;
