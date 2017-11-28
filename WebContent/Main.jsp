@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,7 +13,8 @@
 <link rel="stylesheet" href="css/camera.css">
 <link rel="stylesheet" href="css/owl.carousel.css">
 <link rel="stylesheet" href="css/style.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="js/jquery.js"></script>
 <script src="js/jquery-migrate-1.2.1.js"></script>
 <script src="js/script.js"></script>
@@ -94,8 +95,8 @@
 		<a class="close" href="#close"></a>
 	</div>
 	<!-- /login form -->
-	
-	
+
+
 
 	<!-- join form -->
 	<a href="#x" class="overlay" id="join_form"></a>
@@ -106,9 +107,10 @@
 			<table>
 				<tr>
 					<td>아이디</td>
-					<td><input type="text" id = "id" name="id" required maxlength="10" size="10" onkeydown="nonHangulSpecialKey()">
-					<button onclick="idCheck()">중복확인</button></td>
-				
+					<td><input type="text" id="id" name="id" required
+						maxlength="10" size="10" onkeydown="nonHangulSpecialKey()">
+						<button onclick="idCheck()">중복확인</button></td>
+
 				</tr>
 				<tr>
 					<td>비밀번호</td>
@@ -125,9 +127,10 @@
 				</tr>
 				<tr>
 					<td>전화번호</td>
-					<td><input type="text" name="phone" required onfocus="OnCheckPhone(this)" onKeyup="OnCheckPhone(this)" size=14></td>
-					
-					
+					<td><input type="text" name="phone" required
+						onfocus="OnCheckPhone(this)" onKeyup="OnCheckPhone(this)" size=14></td>
+
+
 				</tr>
 				<tr>
 					<td>생일</td>
@@ -142,32 +145,32 @@
 		If you have account >><a href="#login_form" id="login_pop">Log In</a>
 		<a class="close" href="#close"></a>
 	</div>
-	
-		<script>
-					function idCheck(){
-						var id= document.getElementById("id");
-						$.ajax({
-							url:"SearchId",
-							data:"id="+id.value,
-							success:function(result){
-								alert(result);
-							}
-						})
-						
-					}
-					</script>
-					
+
+	<script>
+		function idCheck() {
+			var id = document.getElementById("id");
+			$.ajax({
+				url : "SearchId",
+				data : "id=" + id.value,
+				success : function(result) {
+					alert(result);
+				}
+			})
+
+		}
+	</script>
+
 	<!-- /join form -->
 
 
-<!-- update form -->
+	<!-- update form -->
 	<a href="#x" class="overlay" id="update_form"></a>
 	<div class="popup">
 		<span>개인정보 수정</span>
 		<p>수정할 개인정보를 입력하세요</p>
 		<form action="UpdateCon" method="post">
 			<table>
-				
+
 				<tr>
 					<td>비밀번호</td>
 					<td><input type="password" name="pw" required maxlength="10"></td>
@@ -176,11 +179,11 @@
 					<td>닉네임</td>
 					<td><input type="text" name="nick" required maxlength="10"></td>
 				</tr>
-				
 				<tr>
 					<td>전화번호</td>
-					<td><input type="text" name="phone" required onfocus="OnCheckPhone(this)" onKeyup="OnCheckPhone(this)" size=14></td>
-					
+					<td><input type="text" name="phone" required
+						onfocus="OnCheckPhone(this)" onKeyup="OnCheckPhone(this)" size=14></td>
+
 				</tr>
 				<tr>
 					<td>생일</td>
@@ -195,8 +198,8 @@
 		If you have account >><a href="#login_form" id="login_pop">Log In</a>
 		<a class="close" href="#close"></a>
 	</div>
-	
-					
+
+
 	<!-- /update form -->
 
 
@@ -206,28 +209,25 @@
 	<div class="allFor">
 		<!-- ======SIDE MENU===== -->
 		<div class="grid_13">
-		<img src="images/logo/tripickerLogo9.png">
-		<c:choose>
-		<c:when test="${empty id}">
-			
-			<ul>
-				<li><a href="#login_form" id="login_pop">로그인</a></li>
-				<li><a href="#join_form" id="join_pop">회원가입</a></li>
-			</ul>
-			
-							
-								
-							</c:when>
-							
-							<c:otherwise>
-							
-							<h1>${nick}님</h1>
-							<ul>
-							<li><a href="Logout.jsp" id="login_pop">로그아웃</a></li>
-							<li><a href="#update_form" id="join_pop">개인정보수정</a></li>
-							</ul>
-							</c:otherwise>
-						</c:choose>
+			<img src="images/logo/tripickerLogo9.png">
+			<c:choose>
+				<c:when test="${empty id}">
+
+					<ul>
+						<li><a href="#login_form" id="login_pop">로그인</a></li>
+						<li><a href="#join_form" id="join_pop">회원가입</a></li>
+					</ul>
+
+				</c:when>
+
+				<c:otherwise>
+					<ul>
+					<li><h1 style="color:white;">${nick}님</h1></li>
+						<li><a href="Logout.jsp" id="login_pop">로그아웃</a></li>
+						<li><a href="#update_form" id="join_pop">개인정보수정</a></li>
+					</ul>
+				</c:otherwise>
+			</c:choose>
 		</div>
 
 		<!-- ======^SIDE MENU===== -->
@@ -239,9 +239,9 @@
 					<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 					<ul class="sf-menu">
 						<li class="current"><a href="Main.jsp">HOME</a></li>
-						<li><a href="Index01_HotTour.html">HOT TOURS</a></li>
-						<li><a href="index-2.html">SPECIAL OFFERS</a></li>
-						<li><a href="index-3.html">BLOG</a></li>
+						<li><a href="HotTour.jsp">HOT TOURS</a></li>
+						<li><a href="specialOffer.jsp">SPECIAL OFFERS</a></li>
+						<li><a href="SelectService">POST</a></li>
 						<li><a href="Index04_Map.jsp">CONTACTS</a></li>
 					</ul>
 					</nav>
@@ -267,7 +267,7 @@
 						<div class="price">
 							FROM <span>$1000</span>
 						</div>
-						<a href="#">여행더보기</a>
+						<a href="tourInformation.jsp">여행더보기</a>
 					</div>
 				</div>
 				<div data-src="images/Main/slide2.jpg">
@@ -276,7 +276,7 @@
 						<div class="price">
 							FROM <span>$2000</span>
 						</div>
-						<a href="#">LEARN MORE</a>
+						<a href="tourInformation.jsp">여행더보기</a>
 					</div>
 				</div>
 				<div data-src="images/slide2.jpg">
@@ -285,7 +285,7 @@
 						<div class="price">
 							FROM <span>$1600</span>
 						</div>
-						<a href="#">LEARN MORE</a>
+						<a href="tourInformation.jsp">LEARN MORE</a>
 					</div>
 				</div>
 				<div data-src="images/slide1.jpg">
@@ -294,7 +294,7 @@
 						<div class="price">
 							FROM <span>$2000</span>
 						</div>
-						<a href="#">LEARN MORE</a>
+						<a href="tourInformation.jsp">LEARN MORE</a>
 					</div>
 				</div>
 			</div>
@@ -470,23 +470,6 @@
 						Proin pharetra luctus diam, a scelerisque eros convallis
 
 						<!-- ============== ^welcome ===================== -->
-						<div class="grid_4">
-
-							<img src="images/page2_img2.jpg" alt="" class="img_inner fleft">
-							<div class="extra_wrapper">
-								<div class="text1 col1">
-									<a href="#">Barcelona</a>
-								</div>
-								<p>Cras facilisis, nulla vel viverra auctor, leo gna sodales
-									felis, quis malesuada nibh odio ut velit. Proin pharetra luctus
-									diam, a celerisque eros convallis accumsan.</p>
-								Maecenas vehicula egestas venenatis. Duis massa elit, auctor non
-								pellentesque vel <br> <a href="#" class="link1">LEARN
-									MORE</a>
-							</div>
-
-						</div>
-					</div>
 					<h4>Clients’ Quotes</h4>
 					<blockquote class="bq1">
 						<img src="images/page1_img2.jpg" alt=""
@@ -534,189 +517,329 @@
 			});
 		</script>
 		<script type="text/javascript">
-		//번호입력 하이픈 자동생성
-		function OnCheckPhone(oTa) { 
-		    var oForm = oTa.form ; 
-		    var sMsg = oTa.value ; 
-		    var onlynum = "" ; 
-		    var imsi=0; 
-		    onlynum = RemoveDash2(sMsg);  //하이픈 입력시 자동으로 삭제함 
-		    onlynum =  checkDigit(onlynum);  // 숫자만 입력받게 함 
-		    var retValue = ""; 
+			//번호입력 하이픈 자동생성
+			function OnCheckPhone(oTa) {
+				var oForm = oTa.form;
+				var sMsg = oTa.value;
+				var onlynum = "";
+				var imsi = 0;
+				onlynum = RemoveDash2(sMsg); //하이픈 입력시 자동으로 삭제함 
+				onlynum = checkDigit(onlynum); // 숫자만 입력받게 함 
+				var retValue = "";
 
-		    if(event.keyCode != 12 ) { 
-		        if(onlynum.substring(0,2) == 02) {  // 서울전화번호일 경우  10자리까지만 나타나교 그 이상의 자리수는 자동삭제 
-		                if (GetMsgLen(onlynum) <= 1) oTa.value = onlynum ; 
-		                if (GetMsgLen(onlynum) == 2) oTa.value = onlynum + "-"; 
-		                if (GetMsgLen(onlynum) == 4) oTa.value = onlynum.substring(0,2) + "-" + onlynum.substring(2,3) ; 
-		                if (GetMsgLen(onlynum) == 4) oTa.value = onlynum.substring(0,2) + "-" + onlynum.substring(2,4) ; 
-		                if (GetMsgLen(onlynum) == 5) oTa.value = onlynum.substring(0,2) + "-" + onlynum.substring(2,5) ; 
-		                if (GetMsgLen(onlynum) == 6) oTa.value = onlynum.substring(0,2) + "-" + onlynum.substring(2,6) ; 
-		                if (GetMsgLen(onlynum) == 7) oTa.value = onlynum.substring(0,2) + "-" + onlynum.substring(2,5) + "-" + onlynum.substring(5,7) ; ; 
-		                if (GetMsgLen(onlynum) == 8) oTa.value = onlynum.substring(0,2) + "-" + onlynum.substring(2,6) + "-" + onlynum.substring(6,8) ; 
-		                if (GetMsgLen(onlynum) == 9) oTa.value = onlynum.substring(0,2) + "-" + onlynum.substring(2,5) + "-" + onlynum.substring(5,9) ; 
-		                if (GetMsgLen(onlynum) == 10) oTa.value = onlynum.substring(0,2) + "-" + onlynum.substring(2,6) + "-" + onlynum.substring(6,10) ; 
-		                if (GetMsgLen(onlynum) == 11) oTa.value = onlynum.substring(0,2) + "-" + onlynum.substring(2,6) + "-" + onlynum.substring(6,10) ; 
-		                if (GetMsgLen(onlynum) == 12) oTa.value = onlynum.substring(0,2) + "-" + onlynum.substring(2,6) + "-" + onlynum.substring(6,10) ; 
-		        } 
-		        if(onlynum.substring(0,2) == 05 ) {  // 05로 시작되는 번호 체크 
-		            if(onlynum.substring(2,3) == 0 ) {  // 050으로 시작되는지 따지기 위한 조건문 
-		                    if (GetMsgLen(onlynum) <= 3) oTa.value = onlynum ; 
-		                    if (GetMsgLen(onlynum) == 4) oTa.value = onlynum + "-"; 
-		                    if (GetMsgLen(onlynum) == 5) oTa.value = onlynum.substring(0,4) + "-" + onlynum.substring(4,5) ; 
-		                    if (GetMsgLen(onlynum) == 6) oTa.value = onlynum.substring(0,4) + "-" + onlynum.substring(4,6) ; 
-		                    if (GetMsgLen(onlynum) == 7) oTa.value = onlynum.substring(0,4) + "-" + onlynum.substring(4,7) ; 
-		                    if (GetMsgLen(onlynum) == 8) oTa.value = onlynum.substring(0,4) + "-" + onlynum.substring(4,8) ; 
-		                    if (GetMsgLen(onlynum) == 9) oTa.value = onlynum.substring(0,4) + "-" + onlynum.substring(4,7) + "-" + onlynum.substring(7,9) ; ; 
-		                    if (GetMsgLen(onlynum) == 10) oTa.value = onlynum.substring(0,4) + "-" + onlynum.substring(4,8) + "-" + onlynum.substring(8,10) ; 
-		                    if (GetMsgLen(onlynum) == 11) oTa.value = onlynum.substring(0,4) + "-" + onlynum.substring(4,7) + "-" + onlynum.substring(7,11) ; 
-		                    if (GetMsgLen(onlynum) == 12) oTa.value = onlynum.substring(0,4) + "-" + onlynum.substring(4,8) + "-" + onlynum.substring(8,12) ; 
-		                    if (GetMsgLen(onlynum) == 13) oTa.value = onlynum.substring(0,4) + "-" + onlynum.substring(4,8) + "-" + onlynum.substring(8,12) ; 
-		          } else { 
-		                if (GetMsgLen(onlynum) <= 2) oTa.value = onlynum ; 
-		                if (GetMsgLen(onlynum) == 3) oTa.value = onlynum + "-"; 
-		                if (GetMsgLen(onlynum) == 4) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,4) ; 
-		                if (GetMsgLen(onlynum) == 5) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,5) ; 
-		                if (GetMsgLen(onlynum) == 6) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,6) ; 
-		                if (GetMsgLen(onlynum) == 7) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,7) ; 
-		                if (GetMsgLen(onlynum) == 8) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,6) + "-" + onlynum.substring(6,8) ; ; 
-		                if (GetMsgLen(onlynum) == 9) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,7) + "-" + onlynum.substring(7,9) ; 
-		                if (GetMsgLen(onlynum) == 10) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,6) + "-" + onlynum.substring(6,10) ; 
-		                if (GetMsgLen(onlynum) == 11) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,7) + "-" + onlynum.substring(7,11) ; 
-		                if (GetMsgLen(onlynum) == 12) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,7) + "-" + onlynum.substring(7,11) ; 
-		          } 
-		        } 
+				if (event.keyCode != 12) {
+					if (onlynum.substring(0, 2) == 02) { // 서울전화번호일 경우  10자리까지만 나타나교 그 이상의 자리수는 자동삭제 
+						if (GetMsgLen(onlynum) <= 1)
+							oTa.value = onlynum;
+						if (GetMsgLen(onlynum) == 2)
+							oTa.value = onlynum + "-";
+						if (GetMsgLen(onlynum) == 4)
+							oTa.value = onlynum.substring(0, 2) + "-"
+									+ onlynum.substring(2, 3);
+						if (GetMsgLen(onlynum) == 4)
+							oTa.value = onlynum.substring(0, 2) + "-"
+									+ onlynum.substring(2, 4);
+						if (GetMsgLen(onlynum) == 5)
+							oTa.value = onlynum.substring(0, 2) + "-"
+									+ onlynum.substring(2, 5);
+						if (GetMsgLen(onlynum) == 6)
+							oTa.value = onlynum.substring(0, 2) + "-"
+									+ onlynum.substring(2, 6);
+						if (GetMsgLen(onlynum) == 7)
+							oTa.value = onlynum.substring(0, 2) + "-"
+									+ onlynum.substring(2, 5) + "-"
+									+ onlynum.substring(5, 7);
+						;
+						if (GetMsgLen(onlynum) == 8)
+							oTa.value = onlynum.substring(0, 2) + "-"
+									+ onlynum.substring(2, 6) + "-"
+									+ onlynum.substring(6, 8);
+						if (GetMsgLen(onlynum) == 9)
+							oTa.value = onlynum.substring(0, 2) + "-"
+									+ onlynum.substring(2, 5) + "-"
+									+ onlynum.substring(5, 9);
+						if (GetMsgLen(onlynum) == 10)
+							oTa.value = onlynum.substring(0, 2) + "-"
+									+ onlynum.substring(2, 6) + "-"
+									+ onlynum.substring(6, 10);
+						if (GetMsgLen(onlynum) == 11)
+							oTa.value = onlynum.substring(0, 2) + "-"
+									+ onlynum.substring(2, 6) + "-"
+									+ onlynum.substring(6, 10);
+						if (GetMsgLen(onlynum) == 12)
+							oTa.value = onlynum.substring(0, 2) + "-"
+									+ onlynum.substring(2, 6) + "-"
+									+ onlynum.substring(6, 10);
+					}
+					if (onlynum.substring(0, 2) == 05) { // 05로 시작되는 번호 체크 
+						if (onlynum.substring(2, 3) == 0) { // 050으로 시작되는지 따지기 위한 조건문 
+							if (GetMsgLen(onlynum) <= 3)
+								oTa.value = onlynum;
+							if (GetMsgLen(onlynum) == 4)
+								oTa.value = onlynum + "-";
+							if (GetMsgLen(onlynum) == 5)
+								oTa.value = onlynum.substring(0, 4) + "-"
+										+ onlynum.substring(4, 5);
+							if (GetMsgLen(onlynum) == 6)
+								oTa.value = onlynum.substring(0, 4) + "-"
+										+ onlynum.substring(4, 6);
+							if (GetMsgLen(onlynum) == 7)
+								oTa.value = onlynum.substring(0, 4) + "-"
+										+ onlynum.substring(4, 7);
+							if (GetMsgLen(onlynum) == 8)
+								oTa.value = onlynum.substring(0, 4) + "-"
+										+ onlynum.substring(4, 8);
+							if (GetMsgLen(onlynum) == 9)
+								oTa.value = onlynum.substring(0, 4) + "-"
+										+ onlynum.substring(4, 7) + "-"
+										+ onlynum.substring(7, 9);
+							;
+							if (GetMsgLen(onlynum) == 10)
+								oTa.value = onlynum.substring(0, 4) + "-"
+										+ onlynum.substring(4, 8) + "-"
+										+ onlynum.substring(8, 10);
+							if (GetMsgLen(onlynum) == 11)
+								oTa.value = onlynum.substring(0, 4) + "-"
+										+ onlynum.substring(4, 7) + "-"
+										+ onlynum.substring(7, 11);
+							if (GetMsgLen(onlynum) == 12)
+								oTa.value = onlynum.substring(0, 4) + "-"
+										+ onlynum.substring(4, 8) + "-"
+										+ onlynum.substring(8, 12);
+							if (GetMsgLen(onlynum) == 13)
+								oTa.value = onlynum.substring(0, 4) + "-"
+										+ onlynum.substring(4, 8) + "-"
+										+ onlynum.substring(8, 12);
+						} else {
+							if (GetMsgLen(onlynum) <= 2)
+								oTa.value = onlynum;
+							if (GetMsgLen(onlynum) == 3)
+								oTa.value = onlynum + "-";
+							if (GetMsgLen(onlynum) == 4)
+								oTa.value = onlynum.substring(0, 3) + "-"
+										+ onlynum.substring(3, 4);
+							if (GetMsgLen(onlynum) == 5)
+								oTa.value = onlynum.substring(0, 3) + "-"
+										+ onlynum.substring(3, 5);
+							if (GetMsgLen(onlynum) == 6)
+								oTa.value = onlynum.substring(0, 3) + "-"
+										+ onlynum.substring(3, 6);
+							if (GetMsgLen(onlynum) == 7)
+								oTa.value = onlynum.substring(0, 3) + "-"
+										+ onlynum.substring(3, 7);
+							if (GetMsgLen(onlynum) == 8)
+								oTa.value = onlynum.substring(0, 3) + "-"
+										+ onlynum.substring(3, 6) + "-"
+										+ onlynum.substring(6, 8);
+							;
+							if (GetMsgLen(onlynum) == 9)
+								oTa.value = onlynum.substring(0, 3) + "-"
+										+ onlynum.substring(3, 7) + "-"
+										+ onlynum.substring(7, 9);
+							if (GetMsgLen(onlynum) == 10)
+								oTa.value = onlynum.substring(0, 3) + "-"
+										+ onlynum.substring(3, 6) + "-"
+										+ onlynum.substring(6, 10);
+							if (GetMsgLen(onlynum) == 11)
+								oTa.value = onlynum.substring(0, 3) + "-"
+										+ onlynum.substring(3, 7) + "-"
+										+ onlynum.substring(7, 11);
+							if (GetMsgLen(onlynum) == 12)
+								oTa.value = onlynum.substring(0, 3) + "-"
+										+ onlynum.substring(3, 7) + "-"
+										+ onlynum.substring(7, 11);
+						}
+					}
 
-		        if(onlynum.substring(0,2) == 03 || onlynum.substring(0,2) == 04  || onlynum.substring(0,2) == 06  || onlynum.substring(0,2) == 07  || onlynum.substring(0,2) == 08 ) {  // 서울전화번호가 아닌 번호일 경우(070,080포함 // 050번호가 문제군요) 
-		                if (GetMsgLen(onlynum) <= 2) oTa.value = onlynum ; 
-		                if (GetMsgLen(onlynum) == 3) oTa.value = onlynum + "-"; 
-		                if (GetMsgLen(onlynum) == 4) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,4) ; 
-		                if (GetMsgLen(onlynum) == 5) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,5) ; 
-		                if (GetMsgLen(onlynum) == 6) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,6) ; 
-		                if (GetMsgLen(onlynum) == 7) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,7) ; 
-		                if (GetMsgLen(onlynum) == 8) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,6) + "-" + onlynum.substring(6,8) ; ; 
-		                if (GetMsgLen(onlynum) == 9) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,7) + "-" + onlynum.substring(7,9) ; 
-		                if (GetMsgLen(onlynum) == 10) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,6) + "-" + onlynum.substring(6,10) ; 
-		                if (GetMsgLen(onlynum) == 11) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,7) + "-" + onlynum.substring(7,11) ; 
-		                if (GetMsgLen(onlynum) == 12) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,7) + "-" + onlynum.substring(7,11) ; 
+					if (onlynum.substring(0, 2) == 03
+							|| onlynum.substring(0, 2) == 04
+							|| onlynum.substring(0, 2) == 06
+							|| onlynum.substring(0, 2) == 07
+							|| onlynum.substring(0, 2) == 08) { // 서울전화번호가 아닌 번호일 경우(070,080포함 // 050번호가 문제군요) 
+						if (GetMsgLen(onlynum) <= 2)
+							oTa.value = onlynum;
+						if (GetMsgLen(onlynum) == 3)
+							oTa.value = onlynum + "-";
+						if (GetMsgLen(onlynum) == 4)
+							oTa.value = onlynum.substring(0, 3) + "-"
+									+ onlynum.substring(3, 4);
+						if (GetMsgLen(onlynum) == 5)
+							oTa.value = onlynum.substring(0, 3) + "-"
+									+ onlynum.substring(3, 5);
+						if (GetMsgLen(onlynum) == 6)
+							oTa.value = onlynum.substring(0, 3) + "-"
+									+ onlynum.substring(3, 6);
+						if (GetMsgLen(onlynum) == 7)
+							oTa.value = onlynum.substring(0, 3) + "-"
+									+ onlynum.substring(3, 7);
+						if (GetMsgLen(onlynum) == 8)
+							oTa.value = onlynum.substring(0, 3) + "-"
+									+ onlynum.substring(3, 6) + "-"
+									+ onlynum.substring(6, 8);
+						;
+						if (GetMsgLen(onlynum) == 9)
+							oTa.value = onlynum.substring(0, 3) + "-"
+									+ onlynum.substring(3, 7) + "-"
+									+ onlynum.substring(7, 9);
+						if (GetMsgLen(onlynum) == 10)
+							oTa.value = onlynum.substring(0, 3) + "-"
+									+ onlynum.substring(3, 6) + "-"
+									+ onlynum.substring(6, 10);
+						if (GetMsgLen(onlynum) == 11)
+							oTa.value = onlynum.substring(0, 3) + "-"
+									+ onlynum.substring(3, 7) + "-"
+									+ onlynum.substring(7, 11);
+						if (GetMsgLen(onlynum) == 12)
+							oTa.value = onlynum.substring(0, 3) + "-"
+									+ onlynum.substring(3, 7) + "-"
+									+ onlynum.substring(7, 11);
 
-		        } 
-		        if(onlynum.substring(0,2) == 01) {  //휴대폰일 경우 
-		            if (GetMsgLen(onlynum) <= 2) oTa.value = onlynum ; 
-		            if (GetMsgLen(onlynum) == 3) oTa.value = onlynum + "-"; 
-		            if (GetMsgLen(onlynum) == 4) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,4) ; 
-		            if (GetMsgLen(onlynum) == 5) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,5) ; 
-		            if (GetMsgLen(onlynum) == 6) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,6) ; 
-		            if (GetMsgLen(onlynum) == 7) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,7) ; 
-		            if (GetMsgLen(onlynum) == 8) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,7) + "-" + onlynum.substring(7,8) ; 
-		            if (GetMsgLen(onlynum) == 9) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,7) + "-" + onlynum.substring(7,9) ; 
-		            if (GetMsgLen(onlynum) == 10) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,6) + "-" + onlynum.substring(6,10) ; 
-		            if (GetMsgLen(onlynum) == 11) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,7) + "-" + onlynum.substring(7,11) ; 
-		            if (GetMsgLen(onlynum) == 12) oTa.value = onlynum.substring(0,3) + "-" + onlynum.substring(3,7) + "-" + onlynum.substring(7,11) ; 
-		        } 
+					}
+					if (onlynum.substring(0, 2) == 01) { //휴대폰일 경우 
+						if (GetMsgLen(onlynum) <= 2)
+							oTa.value = onlynum;
+						if (GetMsgLen(onlynum) == 3)
+							oTa.value = onlynum + "-";
+						if (GetMsgLen(onlynum) == 4)
+							oTa.value = onlynum.substring(0, 3) + "-"
+									+ onlynum.substring(3, 4);
+						if (GetMsgLen(onlynum) == 5)
+							oTa.value = onlynum.substring(0, 3) + "-"
+									+ onlynum.substring(3, 5);
+						if (GetMsgLen(onlynum) == 6)
+							oTa.value = onlynum.substring(0, 3) + "-"
+									+ onlynum.substring(3, 6);
+						if (GetMsgLen(onlynum) == 7)
+							oTa.value = onlynum.substring(0, 3) + "-"
+									+ onlynum.substring(3, 7);
+						if (GetMsgLen(onlynum) == 8)
+							oTa.value = onlynum.substring(0, 3) + "-"
+									+ onlynum.substring(3, 7) + "-"
+									+ onlynum.substring(7, 8);
+						if (GetMsgLen(onlynum) == 9)
+							oTa.value = onlynum.substring(0, 3) + "-"
+									+ onlynum.substring(3, 7) + "-"
+									+ onlynum.substring(7, 9);
+						if (GetMsgLen(onlynum) == 10)
+							oTa.value = onlynum.substring(0, 3) + "-"
+									+ onlynum.substring(3, 6) + "-"
+									+ onlynum.substring(6, 10);
+						if (GetMsgLen(onlynum) == 11)
+							oTa.value = onlynum.substring(0, 3) + "-"
+									+ onlynum.substring(3, 7) + "-"
+									+ onlynum.substring(7, 11);
+						if (GetMsgLen(onlynum) == 12)
+							oTa.value = onlynum.substring(0, 3) + "-"
+									+ onlynum.substring(3, 7) + "-"
+									+ onlynum.substring(7, 11);
+					}
 
-		        if(onlynum.substring(0,1) == 1) {  // 1588, 1688등의 번호일 경우 
-		            if (GetMsgLen(onlynum) <= 3) oTa.value = onlynum ; 
-		            if (GetMsgLen(onlynum) == 4) oTa.value = onlynum + "-"; 
-		            if (GetMsgLen(onlynum) == 5) oTa.value = onlynum.substring(0,4) + "-" + onlynum.substring(4,5) ; 
-		            if (GetMsgLen(onlynum) == 6) oTa.value = onlynum.substring(0,4) + "-" + onlynum.substring(4,6) ; 
-		            if (GetMsgLen(onlynum) == 7) oTa.value = onlynum.substring(0,4) + "-" + onlynum.substring(4,7) ; 
-		            if (GetMsgLen(onlynum) == 8) oTa.value = onlynum.substring(0,4) + "-" + onlynum.substring(4,8) ; 
-		            if (GetMsgLen(onlynum) == 9) oTa.value = onlynum.substring(0,4) + "-" + onlynum.substring(4,8) ; 
-		            if (GetMsgLen(onlynum) == 10) oTa.value = onlynum.substring(0,4) + "-" + onlynum.substring(4,8) ; 
-		            if (GetMsgLen(onlynum) == 11) oTa.value = onlynum.substring(0,4) + "-" + onlynum.substring(4,8) ; 
-		            if (GetMsgLen(onlynum) == 12) oTa.value = onlynum.substring(0,4) + "-" + onlynum.substring(4,8) ; 
-		        } 
-		    } 
-		} 
-
-		function RemoveDash2(sNo) { 
-		var reNo = "" 
-		for(var i=0; i<sNo.length; i++) { 
-		    if ( sNo.charAt(i) != "-" ) { 
-		    reNo += sNo.charAt(i) 
-		    } 
-		} 
-		return reNo 
-		} 
-
-		function GetMsgLen(sMsg) { // 0-127 1byte, 128~ 2byte 
-		var count = 0 
-		    for(var i=0; i<sMsg.length; i++) { 
-		        if ( sMsg.charCodeAt(i) > 127 ) { 
-		            count += 2 
-		        } 
-		        else { 
-		            count++ 
-		        } 
-		    } 
-		return count 
-		} 
-
-		function checkDigit(num) { 
-		    var Digit = "1234567890"; 
-		    var string = num; 
-		    var len = string.length 
-		    var retVal = ""; 
-
-		    for (i = 0; i < len; i++) 
-		    { 
-		        if (Digit.indexOf(string.substring(i, i+1)) >= 0) 
-		        { 
-		            retVal = retVal + string.substring(i, i+1); 
-		        } 
-		    } 
-		    return retVal; 
-		} 
-
-		
-
-		function check_key() {//키값확인
-			 var char_ASCII = event.keyCode;
-			                
-			  //숫자
-			 if (char_ASCII >= 48 && char_ASCII <= 57 )
-			   return 1;
-			 //영어
-			 else if ((char_ASCII>=65 && char_ASCII<=90) || (char_ASCII>=97 && char_ASCII<=122||char_ASCII==8
-					 ||char_ASCII==13||char_ASCII==21||char_ASCII==27||char_ASCII==17||char_ASCII==37
-					 ||char_ASCII==38||char_ASCII==39||char_ASCII==40||char_ASCII==46))
-			    return 2;
-			 //특수기호
-			 else if ((char_ASCII>=33 && char_ASCII<=47) || (char_ASCII>=58 && char_ASCII<=64) 
-			   || (char_ASCII>=91 && char_ASCII<=96) || (char_ASCII>=123 && char_ASCII<=126))
-			    return 4;
-			 //한글
-			 else if ((char_ASCII >= 12592) || (char_ASCII <= 12687))
-			    return 3;
-			 else 
-			    return 0;
+					if (onlynum.substring(0, 1) == 1) { // 1588, 1688등의 번호일 경우 
+						if (GetMsgLen(onlynum) <= 3)
+							oTa.value = onlynum;
+						if (GetMsgLen(onlynum) == 4)
+							oTa.value = onlynum + "-";
+						if (GetMsgLen(onlynum) == 5)
+							oTa.value = onlynum.substring(0, 4) + "-"
+									+ onlynum.substring(4, 5);
+						if (GetMsgLen(onlynum) == 6)
+							oTa.value = onlynum.substring(0, 4) + "-"
+									+ onlynum.substring(4, 6);
+						if (GetMsgLen(onlynum) == 7)
+							oTa.value = onlynum.substring(0, 4) + "-"
+									+ onlynum.substring(4, 7);
+						if (GetMsgLen(onlynum) == 8)
+							oTa.value = onlynum.substring(0, 4) + "-"
+									+ onlynum.substring(4, 8);
+						if (GetMsgLen(onlynum) == 9)
+							oTa.value = onlynum.substring(0, 4) + "-"
+									+ onlynum.substring(4, 8);
+						if (GetMsgLen(onlynum) == 10)
+							oTa.value = onlynum.substring(0, 4) + "-"
+									+ onlynum.substring(4, 8);
+						if (GetMsgLen(onlynum) == 11)
+							oTa.value = onlynum.substring(0, 4) + "-"
+									+ onlynum.substring(4, 8);
+						if (GetMsgLen(onlynum) == 12)
+							oTa.value = onlynum.substring(0, 4) + "-"
+									+ onlynum.substring(4, 8);
+					}
+				}
 			}
 
-			
+			function RemoveDash2(sNo) {
+				var reNo = ""
+				for (var i = 0; i < sNo.length; i++) {
+					if (sNo.charAt(i) != "-") {
+						reNo += sNo.charAt(i)
+					}
+				}
+				return reNo
+			}
 
-		function nonHangulSpecialKey() {//텍스트 박스에 숫자와 영문만 입력할수있도록
+			function GetMsgLen(sMsg) { // 0-127 1byte, 128~ 2byte 
+				var count = 0
+				for (var i = 0; i < sMsg.length; i++) {
+					if (sMsg.charCodeAt(i) > 127) {
+						count += 2
+					} else {
+						count++
+					}
+				}
+				return count
+			}
 
-		 if(check_key() != 1 && check_key() != 2) {
-		  event.returnValue = false;   
-		  alert("숫자나 영문자만 입력하세요!");
-		  return;
-		 }
-		}
+			function checkDigit(num) {
+				var Digit = "1234567890";
+				var string = num;
+				var len = string.length
+				var retVal = "";
 
-		
+				for (i = 0; i < len; i++) {
+					if (Digit.indexOf(string.substring(i, i + 1)) >= 0) {
+						retVal = retVal + string.substring(i, i + 1);
+					}
+				}
+				return retVal;
+			}
 
-		
-		</script> 
-	
-	
+			function check_key() {//키값확인
+				var char_ASCII = event.keyCode;
 
+				//숫자
+				if (char_ASCII >= 48 && char_ASCII <= 57)
+					return 1;
+				//영어
+				else if ((char_ASCII >= 65 && char_ASCII <= 90)
+						|| (char_ASCII >= 97 && char_ASCII <= 122
+								|| char_ASCII == 8 || char_ASCII == 13
+								|| char_ASCII == 21 || char_ASCII == 27
+								|| char_ASCII == 17 || char_ASCII == 37
+								|| char_ASCII == 38 || char_ASCII == 39
+								|| char_ASCII == 40 || char_ASCII == 46))
+					return 2;
+				//특수기호
+				else if ((char_ASCII >= 33 && char_ASCII <= 47)
+						|| (char_ASCII >= 58 && char_ASCII <= 64)
+						|| (char_ASCII >= 91 && char_ASCII <= 96)
+						|| (char_ASCII >= 123 && char_ASCII <= 126))
+					return 4;
+				//한글
+				else if ((char_ASCII >= 12592) || (char_ASCII <= 12687))
+					return 3;
+				else
+					return 0;
+			}
 
+			function nonHangulSpecialKey() {//텍스트 박스에 숫자와 영문만 입력할수있도록
 
-	
-	
-
-
+				if (check_key() != 1 && check_key() != 2) {
+					event.returnValue = false;
+					alert("숫자나 영문자만 입력하세요!");
+					return;
+				}
+			}
+		</script>
 </body>
 </html>
 

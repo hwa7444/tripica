@@ -1,3 +1,4 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="com.DAO.bulletinDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.DAO.bulletinVO"%>
@@ -5,6 +6,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,17 +58,29 @@
 		if (session.getAttribute("nick") != null) {
 			nick = (String) session.getAttribute("nick");
 		}
-		
 	%>
 
 	<div class="allFor">
 		<!-- ======SIDE MENU===== -->
 		<div class="grid_13">
-			<img src="images/logo.png">
-			<ul>
-				<li><a href="#login_form" id="login_pop">LOGIN</a></li>
-				<li><a href="#join_form" id="join_pop">JOIN</a></li>
-			</ul>
+			<img src="images/logo/tripickerLogo9.png">
+			<c:choose>
+				<c:when test="${empty id}">
+
+					<ul>
+						<li><a href="#login_form" id="login_pop">로그인</a></li>
+						<li><a href="#join_form" id="join_pop">회원가입</a></li>
+					</ul>
+				</c:when>
+
+				<c:otherwise>
+					<ul>
+						<li><h1 style="color: white;">${nick}님</h1></li>
+						<li><a href="Logout.jsp" id="login_pop">로그아웃</a></li>
+						<li><a href="#update_form" id="join_pop">개인정보수정</a></li>
+					</ul>
+				</c:otherwise>
+			</c:choose>
 		</div>
 
 		<!-- ======^SIDE MENU===== -->
@@ -77,9 +92,9 @@
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 							<ul class="sf-menu">
 								<li><a href="Main.jsp">HOME</a></li>
-								<li><a href="Index01_HotTour.html">HOT TOURS</a></li>
-								<li><a href="index-2.html">SPECIAL OFFERS</a></li>
-								<li class="current"><a href="index-3.html">BLOG</a></li>
+								<li><a href="HotTour.jsp">HOT TOURS</a></li>
+								<li><a href="specialOffer.jsp">SPECIAL OFFERS</a></li>
+								<li class="current"><a href="SelectService">BLOG</a></li>
 								<li><a href="Index04_Map.jsp">CONTACTS</a></li>
 							</ul>
 						</nav>
@@ -114,21 +129,43 @@
 								</tr>
 							</thead>
 							<tbody>
-					<%
-					bulletinDAO dao = bulletinDAO.getInstance();
-					ArrayList<bulletinVO> arr = dao.selectAll();
-					request.setAttribute("list", arr);
-					%>
+
+								<%
+								
+								/*	int start = 1;
+							 		int end = 10;
+									
+									if(request.getParameter("start") != null || request.getParameter("end") != null){
+										bulletinDAO dao = bulletinDAO.getInstance();
+										ArrayList<bulletinVO> arr = dao.selectAll(Integer.parseInt(request.getParameter("start")), Integer.parseInt(request.getParameter("end")));
+										request.setAttribute("list", arr);
+									}else{
+									 */
+									
 							
+							/* 		}
+									 */
+									
+								%>
+<c:set var = "size" value="${fn:length(list)}"></c:set>
+<c:set var = "in" value="1"></c:set>
 								<c:choose>
+								
 									<c:when test="${not empty list}">
-										<c:forEach items="${list}" var="vo">
+										<c:forEach items="${list}" var="vo" begin="0" end="9" step="1" varStatus="idx">
 											<tr>
 												<td>${vo.num}</td>
 												<td><a href="SelectOne?num=${vo.num}">${vo.title}</a></td>
+												<%-- <td><img style="max-width:200px !important; height:200px;" src="upload/${vo.fileName}"></td> --%>
 												<td>${vo.nick}</td>
 												<td>${vo.writeDay}</td>
 											</tr>
+											<c:if test="${size > idx.index}">
+											<c:if test="${idx.index % 9 == 0}">
+											<a href="" onclick="izn(${in })">${in }</a>
+											<c:set var = "in" value="${in+1 }"></c:set>
+											</c:if>
+											</c:if>
 										</c:forEach>
 									</c:when>
 									<c:otherwise>
@@ -137,18 +174,28 @@
 										</tr>
 									</c:otherwise>
 								</c:choose>
-								
+
 							</tbody>
 						</table>
-						<%-- 
-						<%
-							if (nick != null) {
-						%> --%>
-						<!-- 로그인 했을 때 -->
-						<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
-						<%-- <%
-							}
-						%> --%>
+						<%-- <c:if test="<%= start >1 %>">
+							<a href="SelectService?start=<%= start - 10%>&end=<%= end - 10%>"
+								class="btn btn-success btn-arraw-left">이전</a>
+						</c:if>
+						<!-- 페이징 다시 하기!! -->
+						<c:when test="${ 페이지 체크!!!}">
+						<a href="SelectService?start=<%= start + 10%>&end=<%=end + 10%>"
+							class="btn btn-success btn-arraw-left">다음</a>
+							<% start = Integer.parseInt(request.getParameter("start")); %>
+						</c:when> --%>
+						<c:choose>
+							<c:when test="${not empty id}">
+								<!-- 로그인 했을 때 -->
+								<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
+							</c:when>
+							<c:otherwise>
+
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 
@@ -175,6 +222,12 @@
 			</div>
 		</footer>
 		<script>
+		function izn(num){
+			alert(num);
+		}
+		
+		
+		
 			$(function() {
 				$('#bookingForm').bookingForm({
 					ownerEmail : '#'

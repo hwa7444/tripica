@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,11 +54,27 @@
 	<div class="allFor">
 		<!-- ======SIDE MENU===== -->
 		<div class="grid_13">
-			<img src="images/logo.png">
-			<ul>
-				<li><a href="#login_form" id="login_pop">LOGIN</a></li>
-				<li><a href="#join_form" id="join_pop">JOIN</a></li>
-			</ul>
+			<img src="images/logo/tripickerLogo9.png">
+			<c:choose>
+				<c:when test="${empty id}">
+
+					<ul>
+						<li><a href="#login_form" id="login_pop">로그인</a></li>
+						<li><a href="#join_form" id="join_pop">회원가입</a></li>
+					</ul>
+
+
+
+				</c:when>
+
+				<c:otherwise>
+					<ul>
+					<li><h1 style="color:white;">${nick}님</h1></li>
+						<li><a href="Logout.jsp" id="login_pop">로그아웃</a></li>
+						<li><a href="#update_form" id="join_pop">개인정보수정</a></li>
+					</ul>
+				</c:otherwise>
+			</c:choose>
 		</div>
 
 		<!-- ======^SIDE MENU===== -->
