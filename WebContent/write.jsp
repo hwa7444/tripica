@@ -2,7 +2,7 @@
 	pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <title>Blog</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -48,6 +48,7 @@
 <body>
 
 <%
+request.setCharacterEncoding("UTF-8");
 		String nick= null;
 		if (session.getAttribute("nick") != null) {
 			nick = (String) session.getAttribute("nick");
@@ -91,7 +92,7 @@
 								<li><a href="Main.jsp">HOME</a></li>
 								<li><a href="Index01_HotTour.html">HOT TOURS</a></li>
 								<li><a href="index-2.html">SPECIAL OFFERS</a></li>
-								<li class="current"><a href="index-3.html">BLOG</a></li>
+								<li class="current"><a href="SelectService?start=0&end=8">POST</a></li>
 								<li><a href="Index04_Map.jsp">CONTACTS</a></li>
 							</ul>
 						</nav>
@@ -100,7 +101,7 @@
 				</div>
 				<div class="grid_12">
 					<h1>
-						<a href="index.html"> <img src="images/logo.png"
+						<a href="SelectService?start=0&end=8"> <img src="images/logo.png"
 							alt="Your Happy Family">
 						</a>
 					</h1>

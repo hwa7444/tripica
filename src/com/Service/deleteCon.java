@@ -25,7 +25,7 @@ public class deleteCon extends HttpServlet {
 			boolean isSuccess = dao.delete(num);
 
 			if (isSuccess) {
-				response.sendRedirect("bulletin.jsp");
+				response.sendRedirect("SelectService?start=0&end=8");
 			}else {
 				// 삭제 실패 했을 때, 식패 알림 띄우기
 				System.out.println("삭제실패");
