@@ -4,6 +4,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+ <style>
+/* css [line] */ 
+.dot {overflow:hidden;float:left;width:12px;height:12px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/mini_circle.png');}    
+.dotOverlay {position:relative;bottom:10px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;float:left;font-size:12px;padding:5px;background:#fff;}
+.dotOverlay:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}    
+.number {font-weight:bold;color:#ee6152;}
+.dotOverlay:after {content:'';position:absolute;margin-left:-6px;left:50%;bottom:-8px;width:11px;height:8px;background:url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white_small.png')}
+.distanceInfo {position:relative;top:5px;left:5px;list-style:none;margin:0;}
+.distanceInfo .label {display:inline-block;width:50px;}
+.distanceInfo:after {content:none;}
+
+/* css [customoverlay] */ 
+.customoverlay {position:relative;bottom:85px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;float:left;}
+.customoverlay:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
+.customoverlay a {display:block;text-decoration:none;color:#000;text-align:center;border-radius:6px;font-size:14px;font-weight:bold;overflow:hidden;background: #d95050;background: #d95050 url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
+.customoverlay .title {display:block;text-align:center;background:#fff;margin-right:35px;padding:10px 15px;font-size:14px;font-weight:bold;}
+.customoverlay:after {content:'';position:absolute;margin-left:-12px;left:50%;bottom:-12px;width:22px;height:12px;background:url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+</style>
 <title>Home</title>
 <meta charset="utf-8">
 <meta name="format-detection" content="telephone=no" />
@@ -838,9 +856,175 @@
 							return;
 						}
 					}
-				</script>
-				
-				
+</script>
+
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7b2110a6aaef5104b2ce89c704a24ed3"></script>
+<script>
+
+var mapContainer = document.getElementById('minimap1'), // 지도를 표시할 div  
+    mapOption = { 
+		center: new daum.maps.LatLng(33.37137, 126.56695), // 지도의 중심좌표
+        level: 10 // 지도의 확대 레벨
+    };
+var mapContainer2 = document.getElementById('minimap2'), // 지도를 표시할 div  
+mapOption2 = { 
+	center: new daum.maps.LatLng(33.37137, 126.56695), // 지도의 중심좌표
+    level: 10 // 지도의 확대 레벨
+};
+var mapContainer3 = document.getElementById('minimap3'), // 지도를 표시할 div  
+mapOption3 = { 
+	center: new daum.maps.LatLng(33.37137, 126.56695), // 지도의 중심좌표
+    level: 9 // 지도의 확대 레벨
+};
+var mapContainer4 = document.getElementById('minimap4'), // 지도를 표시할 div  
+mapOption4 = { 
+	center: new daum.maps.LatLng(33.37137, 126.56695), // 지도의 중심좌표
+    level: 11 // 지도의 확대 레벨
+};
+var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+var map2 = new daum.maps.Map(mapContainer2, mapOption2); // 지도를 생성합니다
+var map3 = new daum.maps.Map(mapContainer3, mapOption3); // 지도를 생성합니다
+var map4 = new daum.maps.Map(mapContainer4, mapOption4); // 지도를 생성합니다
+// 지도 타입 변경 컨트롤을 생성한다
+var mapTypeControl = new daum.maps.MapTypeControl();
+var mapTypeControl2 = new daum.maps.MapTypeControl();
+var mapTypeControl3 = new daum.maps.MapTypeControl();
+var mapTypeControl4 = new daum.maps.MapTypeControl();
+// 지도의 상단 우측에 지도 타입 변경 컨트롤을 추가한다
+map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);	
+map2.addControl(mapTypeControl2, daum.maps.ControlPosition.TOPRIGHT);	
+map3.addControl(mapTypeControl3, daum.maps.ControlPosition.TOPRIGHT);	
+map4.addControl(mapTypeControl4, daum.maps.ControlPosition.TOPRIGHT);	
+// 지도에 확대 축소 컨트롤을 생성한다
+var zoomControl = new daum.maps.ZoomControl();
+var zoomControl2 = new daum.maps.ZoomControl();
+var zoomControl3 = new daum.maps.ZoomControl();
+var zoomControl4 = new daum.maps.ZoomControl();
+// 지도의 우측에 확대 축소 컨트롤을 추가한다
+map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT); 
+map2.addControl(zoomControl2, daum.maps.ControlPosition.RIGHT); 
+map3.addControl(zoomControl3, daum.maps.ControlPosition.RIGHT); 
+map4.addControl(zoomControl4, daum.maps.ControlPosition.RIGHT); 
+// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+var positions = [
+    {
+        content: '<div class="customoverlay">' +
+        '  <a href="http://map.daum.net/?itemId=11394059" target="_blank">' +
+        '    <span class="title">제주시청</span>' +
+        '  </a>' +
+        '</div>', 
+        latlng: new daum.maps.LatLng(33.499565 , 126.531241)
+    },
+    {
+        content: '<div class="customoverlay">' +
+        '  <a href="http://map.daum.net/?itemId=11394059" target="_blank">' +
+        '    <span class="title">섭지코지</span>' +
+        '  </a>' +
+        '</div>', 
+        latlng: new daum.maps.LatLng(33.42377208326678, 126.93045722895785)
+    },
+    {
+        content:  '<div class="customoverlay">' +
+        '  <a href="http://map.daum.net/?itemId=11394059" target="_blank">' +
+        '    <span class="title">성산 일출봉</span>' +
+        '  </a>' +
+        '</div>', 
+        latlng: new daum.maps.LatLng(33.45943569514741, 126.93968216363504)
+    },
+    {
+        content:  '<div class="customoverlay">' +
+        '  <a href="http://map.daum.net/?itemId=11394059" target="_blank">' +
+        '    <span class="title">한라산</span>' +
+        '  </a>' +
+        '</div>',
+        latlng: new daum.maps.LatLng(33.36083380810028, 126.53581319393376)
+    }
+];
+
+
+var latlng = new daum.maps.LatLng(37, 127);
+
+for (var i = 0; i < positions.length; i ++) {
+    // 마커를 생성합니다
+    var marker = new daum.maps.Marker({
+        map: map, // 마커를 표시할 지도
+        clickable: true,
+        position: positions[i].latlng // 마커의 위치
+    });
+    var marker2 = new daum.maps.Marker({
+        map: map2, // 마커를 표시할 지도
+        clickable: true,
+        position: positions[i].latlng // 마커의 위치
+    });
+    var marker3 = new daum.maps.Marker({
+        map: map3, // 마커를 표시할 지도
+        clickable: true,
+        position: positions[i].latlng // 마커의 위치
+    });
+    var marker4 = new daum.maps.Marker({
+        map: map4, // 마커를 표시할 지도
+        clickable: true,
+        position: positions[i].latlng // 마커의 위치
+    });
+
+
+    // 커스텀 오버레이를 생성합니다
+    var customOverlay = new daum.maps.CustomOverlay({
+        map: map,
+        clickable: true,
+        position: positions[i].latlng,
+        content: positions[i].content,
+        yAnchor: 1 
+    });
+    var customOverlay2 = new daum.maps.CustomOverlay({
+        map: map2,
+        clickable: true,
+        position: positions[i].latlng,
+        content: positions[i].content,
+        yAnchor: 1 
+    });
+    var customOverlay3 = new daum.maps.CustomOverlay({
+        map: map3,
+        clickable: true,
+        position: positions[i].latlng,
+        content: positions[i].content,
+        yAnchor: 1 
+    });
+    var customOverlay4 = new daum.maps.CustomOverlay({
+        map: map4,
+        clickable: true,
+        position: positions[i].latlng,
+        content: positions[i].content,
+        yAnchor: 1 
+    });
+
+    customOverlay.setMap(null);
+    customOverlay2.setMap(null);
+    customOverlay3.setMap(null);
+    customOverlay4.setMap(null);
+   
+
+    daum.maps.event.addListener(marker, 'click', makeOverListener(map, marker, customOverlay));
+    daum.maps.event.addListener(marker2, 'click', makeOverListener(map2, marker, customOverlay2));
+    daum.maps.event.addListener(marker3, 'click', makeOverListener(map3, marker, customOverlay3));
+    daum.maps.event.addListener(marker4, 'click', makeOverListener(map4, marker, customOverlay4));
+}
+
+//인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+function makeOverListener(map, marker, customOverlay) {
+ return function() {
+	 customOverlay.setMap(map);
+ };
+}
+
+//인포윈도우를 닫는 클로저를 만드는 함수입니다 
+function makeOutListener(customOverlay) {
+ return function() {
+	 customOverlay.setMap(null);
+ };
+}
+		</script>		
 </body>
 </html>
 
