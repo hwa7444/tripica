@@ -18,6 +18,8 @@ public class SelectOne extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// board.jsp에서 클릭한 파일에 대한 번호를 가져온다.
+		request.setCharacterEncoding("EUC-KR");
+		
 				int num = Integer.parseInt(request.getParameter("num"));
 
 				bulletinDAO dao = bulletinDAO.getInstance();

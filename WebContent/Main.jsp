@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	request.setCharacterEncoding("EUC-KR");
+	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -560,7 +563,7 @@
 						<div class="price">
 							FROM <span>$1000</span>
 						</div>
-						<a href="tourInformation.jsp">여행더보기</a>
+						<a href="HotTour.jsp">여행더보기</a>
 					</div>
 				</div>
 				<div data-src="images/Main/slide2.jpg">
@@ -569,7 +572,7 @@
 						<div class="price">
 							FROM <span>$2000</span>
 						</div>
-						<a href="tourInformation.jsp">여행더보기</a>
+						<a href="HotTour.jsp">여행더보기</a>
 					</div>
 				</div>
 				<div data-src="images/slide2.jpg">
@@ -578,7 +581,7 @@
 						<div class="price">
 							FROM <span>$1600</span>
 						</div>
-						<a href="tourInformation.jsp">LEARN MORE</a>
+						<a href="HotTour.jsp">LEARN MORE</a>
 					</div>
 				</div>
 				<div data-src="images/slide1.jpg">
@@ -587,7 +590,7 @@
 						<div class="price">
 							FROM <span>$2000</span>
 						</div>
-						<a href="tourInformation.jsp">LEARN MORE</a>
+						<a href="HotTour.jsp">LEARN MORE</a>
 					</div>
 				</div>
 			</div>

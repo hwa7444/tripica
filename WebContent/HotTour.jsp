@@ -23,7 +23,7 @@
 .customoverlay:after {content:'';position:absolute;margin-left:-12px;left:50%;bottom:-12px;width:22px;height:12px;background:url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
 </style>
 <title>Hot Tours</title>
-<meta charset="utf-8">
+<meta charset="euc-kr">
 <meta name="format-detection" content="telephone=no" />
 <link rel="icon" href="images/favicon.ico">
 <link rel="shortcut icon" href="images/favicon.ico" />

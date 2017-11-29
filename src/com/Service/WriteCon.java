@@ -28,6 +28,8 @@ public class WriteCon extends HttpServlet {
 		 * 절대경로에 대한 정보를 반환
 		 */
 		// 파일전송 Form인지를 체크
+		
+		/*request.setCharacterEncoding("UTF-8");*/
 		boolean isMulti = ServletFileUpload.isMultipartContent(request);
 		MultipartRequest multi = null;
 

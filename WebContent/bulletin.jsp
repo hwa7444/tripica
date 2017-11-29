@@ -53,7 +53,10 @@
 		<![endif]-->
 </head>
 <body>
-	<%
+<%
+ 
+    request.setCharacterEncoding("UTF-8");
+
 		String nick = null;
 		if (session.getAttribute("nick") != null) {
 			nick = (String) session.getAttribute("nick");
