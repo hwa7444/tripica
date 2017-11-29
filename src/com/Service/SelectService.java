@@ -28,7 +28,7 @@ public class SelectService extends HttpServlet {
 		bulletinDAO dao = bulletinDAO.getInstance();
 		ArrayList<bulletinVO> list;
 		try {
-	
+	//실제경로 
 			list = dao.selectAll2(start,end);
 			if(list!=null) {
 				request.setAttribute("list", list);
