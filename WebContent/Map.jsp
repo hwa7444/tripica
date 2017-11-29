@@ -222,72 +222,35 @@
             <div class="grid_12">
                <h1>
                   <a href="Map.jsp">
-                     <img src="images/logo.png" alt="Your Happy Family">
+                     <img src="images/logo/tripickerLogo9.png" alt="Your Happy Family">
                   </a>
                </h1>
             </div>
          </div>
       </header>
+        <!-- ^allfor you -->
+      </div>
 <!--==============================Content=================================-->
-      <div class="content"><div class="ic"></div>
-         <div class="container_12">
-         <!--================ blogPost ================-->
-            <div class="grid_7">
-               <h3>Recent Posts</h3>
-               <div class="blog">
-                  <time datetime="2014-10-01">15<span>Feb</span></time>
-                  <div class="extra_wrapper">
-                     <div class="text1 col1"><a href="#">uamnibh Edet Mertolo numi</a></div>Posted by
-                     <a href="#">Admin</a>
-                  </div>
-                  <div class="clear"></div>
-                  <img src="images/page4_img1.jpg" alt="" class="img_inner">
-                  <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel aliquet sit amet erat. Nullam eget dignissim nisi, aliquam feugiat nibh.
-                  <br>
-                  <a href="#" class="link1">LEARN MORE</a>
-               </div>
-               <div class="blog">
-                  <time datetime="2014-10-01">17<span>Feb</span></time>
-                  <div class="extra_wrapper">
-                     <div class="text1 col1"><a href="#">ERh EMertlo numolo</a></div>Posted by
-                     <a href="#">Admin</a>
-                  </div>
-                  <div class="clear"></div>
-                  <img src="images/page4_img2.jpg" alt="" class="img_inner">
-                  <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel aliquet sit amet erat. Nullam eget dignissim nisi, aliquam feugiat nibh.
-                  <br>
-                  <a href="#" class="link1">LEARN MORE</a>
-               </div>
-            </div>
-            <!--================= ^blogPost ==================-->
-            <!--================================= Category =================================-->
-            <div class="grid_3 prefix_1">
-               <h3 class="head1">CATEGORIES</h3>
-               <ul class="list">
-                  <li><a href="#">Suspendisse massa mi </a></li>
-                  <li><a href="#">Porttitor at velit id </a></li>
-                  <li><a href="#">Congue adipiscing </a></li>
-                  <li><a href="#">Vestibulum vitae porta </a></li>
-                  <li><a href="#">Vivamus ac sodales </a></li>
-                  <li><a href="#">Massa quis adipiscing </a></li>
-                  <li><a href="#">Phasellus hendrerit </a></li>
-                  <li><a href="#">Libero in sapien </a></li>
-                  <li><a href="#">Dignissim vel imperdiet </a></li>
-               </ul>
-               <h3 class="head1">ARchives</h3>
-               <ul class="list">
-                  <li><a href="#">November 2013</a></li>
-                  <li><a href="#">October 2013</a></li>
-                  <li><a href="#">September 2013</a></li>
-                  <li><a href="#">August 2013</a></li>
-                  <li><a href="#">July 2013</a></li>
-               </ul>
-            </div>
-         </div>
-         <!--================================= ^Category =================================-->
+
+        <div class="content"><div class="ic"></div>
+
+					<h3 style="margin-left:50px;">MAKE YOUR ROUT</h3>
+ 
+					<div class="grid_4 suffix_1" style="margin-left:50px;">
+						<div
+							style="background-color: lightgreen; width: 320px; height: 700px;"></div>
+					</div>
+		
+					<div class=".grid_12">
+						<div class="MAP"
+							style="background-color: lightblue; width: 100px; height: 700px;"></div>
+					</div>
+	
+<div class="allFor">
+   <!-- ^allfor you -->
+
       </div>
-      <!-- ^allfor you -->
-      </div>
+   
 <!--==============================footer=================================-->
       <footer>
          <div class="container_12">
@@ -298,17 +261,10 @@
                   <a href="#" class="fa fa-google-plus"></a>
                </div>
                <div class="copy">
-                  Tripicker (c) 2017 | <a href="#">Privacy Policy</a> | Website Template Designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a>
+                  Your Trip (c) 2014 | <a href="#">Privacy Policy</a> | Website Template Designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a>
                </div>
             </div>
          </div>
       </footer>
-      <script>
-      $(function (){
-         $('#bookingForm').bookingForm({
-            ownerEmail: '#'
-         });
-      })
-      </script>
    </body>
 </html>

@@ -223,7 +223,7 @@
          </div>
       </header>
 <!--==============================Content=================================-->
-      <div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
+      <div class="content"><div class="ic"></div>
          <div class="container_12">      
             <h3>CHOOSE YOUR PREFERENCE</h3>
                <div class="grid_5">

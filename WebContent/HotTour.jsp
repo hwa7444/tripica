@@ -262,7 +262,7 @@
             </div>
             <!--================= ^blogPost ==================-->
             <!--================================= Category =================================-->
-            <div class="grid_3 prefix_1">
+            <div class="grid_3 prefix_1" style="position:fixed;">
                <h3 class="head1">CATEGORIES</h3>
                <ul class="list">
                   <li><a href="#">Suspendisse massa mi </a></li>
