@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="css/owl.carousel.css">
 <link rel="stylesheet" href="css/style.css">
 
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="js/jquery.js"></script>
@@ -402,9 +403,35 @@
 				<div class="content">
 					<div class="ic">More Website Templates @ TemplateMonster.com
 						- February 10, 2014!</div>
-					<div class="container_12">
+				<div class="container_12">
+					<h3>statistical</h3>
+
+					<div class="grid_4 suffix_1">
+						<div
+							style="background-color: lightgreen; width: 320px; height: 460px;"></div>
+					</div>
+					<div class="grid_7">
+						<div
+							style="background-color: lightblue; width: 560px; height: 460px;"></div>
+					</div>
+				</div>
+
+				<div class="clear"></div>
+	<div class="container_12">
+	
+					<h3>Tirpicker's Choice</h3>
+					<div class="grid_6">
+						<div style="background-color: lightblue; width: 460px; height: 460px;"></div>
+					</div>
+					<div class="grid_6">
+						<div style="background-color: lightblue; width: 460px; height: 460px;"></div>
+					</div>
+
+				
+					<!-- ==================== ^banner ======================= -->
+				</div>
 						<!-- ============== welcome ===================== -->
-						<div class="grid_4">
+						<!-- <div class="grid_4">
 							<h3>Welcome</h3>
 							<img src="images/page2_img2.jpg" alt="" class="img_inner fleft">
 							<div class="extra_wrapper">
@@ -424,10 +451,15 @@
 								a variety of designs that are perfect for travel sphere of
 								business.
 							</p>
-							Proin pharetra luctus diam, a scelerisque eros convallis
+							¶ö¶ö¤©¶ó¶ó¶ó¶ó¶ó¶ó¤¿ -->
+							
+							<!--====================================video==================================-->
+							
+							
+							<!--====================================^video==================================-->
 
 							<!-- ============== ^welcome ===================== -->
-							<h4>Clients¡¯ Quotes</h4>
+							<!-- <h4>Clients¡¯ Quotes</h4>
 							<blockquote class="bq1">
 								<img src="images/page1_img2.jpg" alt=""
 									class="img_inner noresize fleft">
@@ -441,8 +473,9 @@
 									</div>
 								</div>
 							</blockquote>
-						</div>
-					</div>
+						</div> -->
+					</div><!-- container_12 -->
+					
 
 					<!-- ^allfor you -->
 				</div>
