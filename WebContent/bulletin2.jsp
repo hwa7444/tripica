@@ -233,7 +233,7 @@
 				</div>
 				<div class="grid_12">
 					<h1>
-						<a href="SelectService?start=0&end=8"> <img src="images/logo.png"
+						<a href="SelectService?start=0&end=8"> <img src="images/logo/tripickerLogo9.png"
 							alt="Your Happy Family">
 						</a>
 					</h1>
@@ -289,12 +289,12 @@
 									${vo.writeDay}</a>
 									<hr>
 									</div>
-									<c:if test="${size > idx.index}">
+									<%-- <c:if test="${size > idx.index}">
 										<c:if test="${idx.index % 9 == 0}">
 											<a href="" onclick="izn(${in })">${in }</a>
 											<c:set var="in" value="${in+1 }"></c:set>
 										</c:if>
-									</c:if>
+									</c:if> --%>
 								</c:forEach>
 
 								<%-- <c:set var="size" value="${fn:length(list)}"></c:set>

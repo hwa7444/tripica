@@ -93,7 +93,7 @@ request.setCharacterEncoding("UTF-8");
 								<li><a href="Index01_HotTour.html">HOT TOURS</a></li>
 								<li><a href="index-2.html">SPECIAL OFFERS</a></li>
 								<li class="current"><a href="SelectService?start=0&end=8">POST</a></li>
-								<li><a href="Index04_Map.jsp">CONTACTS</a></li>
+								<li><a href="Map.jsp">MAP INFO</a></li>
 							</ul>
 						</nav>
 						<div class="clear"></div>
@@ -101,7 +101,7 @@ request.setCharacterEncoding("UTF-8");
 				</div>
 				<div class="grid_12">
 					<h1>
-						<a href="SelectService?start=0&end=8"> <img src="images/logo.png"
+						<a href="SelectService?start=0&end=8"> <img src="images/logo/tripickerLogo9.png"
 							alt="Your Happy Family">
 						</a>
 					</h1>
