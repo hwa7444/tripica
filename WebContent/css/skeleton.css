@@ -76,6 +76,12 @@
 	margin-right: 10px;
 }
 
+
+#top > div.popup2 > form > div > ul > li > div > img{
+		width: 300px; height: 200px;
+}
+
+
 /* Nested Column Classes */
 .container_12 .alpha {
 	margin-left: 0;
@@ -99,7 +105,7 @@
 .container_12 .grid_11 {width: 860px;}
 .container_12 .grid_12 {width: 940px;}
 /* Prefix Extra Space >> 12 Columns */
-.container_12 .prefix_1 {padding-left: 80px;}
+.container_12 .prefix_1 {padng-left: 80px;}
 .container_12 .prefix_2 {padding-left: 160px;}
 .container_12 .prefix_3 {padding-left: 240px;}
 .container_12 .prefix_4 {padding-left: 320px;}
