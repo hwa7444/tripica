@@ -339,47 +339,6 @@
 		}
 	</script>
 
-	<!-- 2차 여행 설문 form -->
-	<a href="#x" class="overlay2" id="trip_form2"></a>
-	<div class="popup2">
-		<form action="TripCon" method="post">
-			<div class="container_12">
-				<span>SELECT YOUR TRAVEL TYPE</span><br> 당신이 마음에 드는 사진을 선택하세요!
-				<div class="clear"></div>
-				<ul align="center">
-
-					<li><div class="grid_4">
-							<input type="checkbox" id="first1">
-						</div></li>
-					<li><div class="grid_4">
-							<img class="tripImg" src="images/page2_img6.jpg"><input
-								type="checkbox" id="first2">
-						</div></li>
-					<div class="clear"></div>
-					<li><div class="grid_4">
-							<img class="tripImg" src="images/page2_img6.jpg"><input
-								type="checkbox" id="first3">
-						</div></li>
-					<li><div class="grid_4">
-							<img class="tripImg" src="images/page2_img6.jpg"><input
-								type="checkbox" id="first4">
-						</div></li>
-					<div class="clear"></div>
-
-				</ul>
-				<div class="grid_8" align="center">
-					<table align="center">
-						<tr>
-							<input align="center" type="submit" value="2차 선택완료">
-							</td>
-						</tr>
-					</table>
-				</div>
-			</div>
-			<a class="close2" href="#close2"></a>
-		</form>
-		<a class="close2" href="#close2"></a>
-	</div>
 	<!-- ==========================^설문조사 팝업 만들기============================ -->
 
 	<!--==========================try me==============================-->
