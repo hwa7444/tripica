@@ -305,7 +305,7 @@ table tr td .submit{
     position: fixed;
     text-align: justify;
     margin-top:2em;
-/*     top: 40%; */
+/*  top: 40%; */
     visibility: hidden;
     z-index: 10;
 
@@ -419,10 +419,10 @@ table tr td .submit{
    
 }
 
-#top > div > form > div > div > input[type="submit"]{
+#top > div.popup2 > form > div > div.grid_8 > table > tbody > tr > td > input[type="submit"]{
 	 font-size: 0.9em;
    padding:10px;
-   margin: 10px;
+   margin: 5px;
    /* 버튼 둥근정도 조정하기 */
 /*    -webkit-border-radius: 10%;
     -moz-border-radius: 10%;
