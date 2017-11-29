@@ -77,6 +77,7 @@
 			easingType : 'easeOutQuart'
 		});
 	});
+
 </script>
 <!--[if lt IE 8]>
 		<div style=' clear: both; text-align:center; position: relative;'>
@@ -1032,6 +1033,7 @@ function makeOutListener(customOverlay) {
 	 customOverlay.setMap(null);
  };
 }
+
 		</script>		
 </body>
 </html>
