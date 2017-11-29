@@ -896,7 +896,15 @@ map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
 map2.addControl(mapTypeControl2, daum.maps.ControlPosition.TOPRIGHT);	
 map3.addControl(mapTypeControl3, daum.maps.ControlPosition.TOPRIGHT);	
 map4.addControl(mapTypeControl4, daum.maps.ControlPosition.TOPRIGHT);	
-// 지도에 확대 축소 컨트롤을 생성한다
+
+//지도타입 컨트롤의 지도 또는 스카이뷰 버튼을 클릭하면 호출되어 지도타입을 바꾸는 함수입니다
+map.setMapTypeId(daum.maps.MapTypeId.HYBRID);
+map2.setMapTypeId(daum.maps.MapTypeId.HYBRID);   
+map3.setMapTypeId(daum.maps.MapTypeId.HYBRID);   
+map4.setMapTypeId(daum.maps.MapTypeId.HYBRID);   
+
+
+/* // 지도에 확대 축소 컨트롤을 생성한다
 var zoomControl = new daum.maps.ZoomControl();
 var zoomControl2 = new daum.maps.ZoomControl();
 var zoomControl3 = new daum.maps.ZoomControl();
@@ -905,7 +913,7 @@ var zoomControl4 = new daum.maps.ZoomControl();
 map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT); 
 map2.addControl(zoomControl2, daum.maps.ControlPosition.RIGHT); 
 map3.addControl(zoomControl3, daum.maps.ControlPosition.RIGHT); 
-map4.addControl(zoomControl4, daum.maps.ControlPosition.RIGHT); 
+map4.addControl(zoomControl4, daum.maps.ControlPosition.RIGHT);  */
 // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
 var positions = [
     {
