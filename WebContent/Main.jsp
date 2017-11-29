@@ -327,11 +327,11 @@
 			<div class="container_12">
 				<h3>Recommend</h3>
 
-				<div class="grid_6">
-					<div style="background-color: lightblue; width: 460px; height: 460px;"></div>
+				<div class="grid_6"> <!-- MINIMAP 1번 사용자 맞춤 추천 루트 -->
+					<div id="minimap1"></div>
 				</div>
-				<div class="grid_6">
-					<div style="background-color: lightblue; width: 460px; height: 460px;"></div>
+				<div class="grid_6"> <!-- MINIMAP 2번 사용자 맞춤 추천 루트 -->
+					<div id="minimap2"></div>
 				</div>
 				</div>
 
@@ -339,11 +339,11 @@
 	<div class="container_12">
 	
 					<h3>Tirpicker's Choice</h3>
-					<div class="grid_6">
-						<div style="background-color: lightblue; width: 460px; height: 460px;"></div>
+					<div class="grid_6"> <!-- MINIMAP 3번 우리사이트 자체 추천 루트 -->
+						<div id="minimap3"></div>
 					</div>
-					<div class="grid_6">
-						<div style="background-color: lightblue; width: 460px; height: 460px;"></div>
+					<div class="grid_6"> <!-- MINIMAP 4번 우리사이트 자체 추천 루트 -->
+						<div id="minimap4"></div>
 					</div>
 
 				
@@ -839,6 +839,8 @@
 						}
 					}
 				</script>
+				
+				
 </body>
 </html>
 
