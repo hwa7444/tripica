@@ -405,21 +405,15 @@ function makeOutListener(customOverlay) {
  };
 }
 
-/* ##############################LINE SCIPT############################### */
- var drawingOK = true;
+/* ##############################LINE SCRIPT############################### */
+ var drawingOK = false;
  function drawing(){
 	 if(!drawingOK){
-		 alert(drawingOK);
 		drawingOK = true;		 
 	 }else{
-		 alert(drawingOK);
 		drawingOK = false;
 		deleteClickLine();
-        
-        // 지도 위에 커스텀오버레이가 표시되고 있다면 지도에서 제거합니다
         deleteDistnce();
-
-        // 지도 위에 선을 그리기 위해 클릭한 지점과 해당 지점의 거리정보가 표시되고 있다면 지도에서 제거합니다
         deleteCircleDot();
 	 }
  }
