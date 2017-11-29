@@ -228,7 +228,7 @@
 		document.getElementById("no1").addEventListener("mouseover",
 				function(e) {
 
-					no1.style.border = "3px solid red";
+					no1.style.border = "3px solid #C73430";
 
 				});
 		document.getElementById("no1").addEventListener("mouseout",
@@ -240,7 +240,7 @@
 		document.getElementById("no2").addEventListener("mouseover",
 				function(e) {
 
-					no2.style.border = "3px solid red";
+					no2.style.border = "3px solid #C73430";
 
 				});
 		document.getElementById("no2").addEventListener("mouseout",
@@ -252,7 +252,7 @@
 		document.getElementById("no3").addEventListener("mouseover",
 				function(e) {
 
-					no3.style.border = "3px solid red";
+					no3.style.border = "3px solid #C73430";
 
 				});
 		document.getElementById("no3").addEventListener("mouseout",
@@ -264,7 +264,7 @@
 		document.getElementById("no4").addEventListener("mouseover",
 				function(e) {
 
-					no4.style.border = "3px solid red";
+					no4.style.border = "3px solid #C73430";
 
 				});
 		document.getElementById("no4").addEventListener("mouseout",
