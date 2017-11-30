@@ -219,20 +219,50 @@
       <div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
          <div class="container_12">
             <div class="grid_12">
-                <h3><span style="color:#C73430;">HOT</span> RESTAURANT</h3>
+                <h3><span style="color:#C73430;">HOT</span> HOTEL</h3>
                <div class="block2">
                   <img src="images/page3_img2.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
-                     <div class="text1 col1" id="hotRe1"><a href="#" id="hotRe1">산굼부리</a></div>
-                     <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel
+                     <div class="text1 col1" id="hotRe1"><a href="#" id="hotRe1"><b>호텔 리젠트 마린 더 블루</b></a></div>
+                     <p>위치 : 서부두 2 길 20, 제주</p> 
+                     <p>가격 : 77,000원 성인 2 명 주말 기준</p>
+                     
+                     <p>이용가능 시설</p>
+                     <table style="border:1px solid black;">
+                     <tr>
+                     <td>d</td><td>d</td><td>d</td><td>d</td>
+                     <tr>
+                     </tr>
+                     <td>d</td><td>d</td><td>d</td><td>d</td>
+                     </tr>
+                     </table>
                      <br>
-
+                     <a href="http://www.hotelnjoy.com/svc/kor/roomview.php?v_agent=hotelscombined&v_pcode=HJJ_JJ2698&v_sttdate=2017-12-01&v_enddate=2017-12-02&v_rcount=1&v_tcode=162348_3&ConversionID=826556510">예약사이트 바로가기</a>
                   </div>
                </div>
                <div class="block2">
                   <img src="images/page3_img2.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
-                     <div class="text1 col1" id="hotRe2"><a href="#">Moscow</a></div>
+                     <div class="text1 col1" id="hotRe2"><a href="#"><b>라마다 앙코르 이스트 호텔</b></a></div>
+                     <p>위치 : 서호중로 65, 서귀포, 제주도, 대한민국</p>
+                     <p>가격 :40,000원 성인2명 주말 기준</p>
+                     <p>이용가능 시설</p>
+                     <table style="border:1px solid black;">
+                     <tr>
+                     <td>d</td><td>d</td><td>d</td><td>d</td>
+                     <tr>
+                     </tr>
+                     <td>d</td><td>d</td><td>d</td><td>d</td>
+                     </tr>
+                     </table>
+                     <br>
+                     <a href="https://sp.booking.com/hotel/kr/days-jeju-seogwipo-ocean.html?aid=1350181&checkin=2017-12-01&checkout=2017-12-02&lang=ko&selected_currency=KRW&label=naver_nologin&no_rooms=1;group_adults=2;group_children=0&splash=false">예약사이트 바로가기</a>
+                  </div>
+               </div>
+               <div class="block2">
+                  <img src="images/page3_img3.jpg" alt="" class="img_inner fleft">
+                  <div class="extra_wrapper">
+                     <div class="text1 col1" id="hotRe3"><a href="#"><b>데이즈 호텔 제주 서귀포 오션</b></a></div>
                      <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel
                      <br>
 
@@ -241,16 +271,7 @@
                <div class="block2">
                   <img src="images/page3_img3.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
-                     <div class="text1 col1" id="hotRe3"><a href="#">Thailand</a></div>
-                     <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel
-                     <br>
-
-                  </div>
-               </div>
-               <div class="block2">
-                  <img src="images/page3_img3.jpg" alt="" class="img_inner fleft">
-                  <div class="extra_wrapper">
-                     <div class="text1 col1" id="hotRe4"><a href="#">성산일출봉</a></div>
+                     <div class="text1 col1" id="hotRe4"><a href="#"><b>오션 팰리스 호텔</b></a></div>
                      <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel
                      <br>
 
