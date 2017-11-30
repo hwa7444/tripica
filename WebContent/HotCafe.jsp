@@ -221,7 +221,7 @@
             <div class="grid_12">
                 <h3><span style="color:#C73430;">HOT</span> RESTAURANT</h3>
                <div class="block2">
-                  <img src="images/page3_img2.jpg" alt="" class="img_inner fleft">
+                  <img style="width:180px; height:300px;" src="images/page3_img2.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
                      <div class="text1 col1" id="hotRe1"><a href="#" id="hotRe1">魂崩何府</a></div>
                      <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel
@@ -230,7 +230,7 @@
                   </div>
                </div>
                <div class="block2">
-                  <img src="images/page3_img2.jpg" alt="" class="img_inner fleft">
+                  <img style="width:180px; height:300px;" src="images/page3_img2.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
                      <div class="text1 col1" id="hotRe2"><a href="#">Moscow</a></div>
                      <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel
@@ -239,7 +239,7 @@
                   </div>
                </div>
                <div class="block2">
-                  <img src="images/page3_img3.jpg" alt="" class="img_inner fleft">
+                  <img style="width:180px; height:300px;" src="images/page3_img3.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
                      <div class="text1 col1" id="hotRe3"><a href="#">Thailand</a></div>
                      <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel
@@ -248,7 +248,7 @@
                   </div>
                </div>
                <div class="block2">
-                  <img src="images/page3_img3.jpg" alt="" class="img_inner fleft">
+                  <img style="width:180px; height:300px;" src="images/page3_img3.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
                      <div class="text1 col1" id="hotRe4"><a href="#">己魂老免豪</a></div>
                      <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel

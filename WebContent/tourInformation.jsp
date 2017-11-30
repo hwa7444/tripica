@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>Special Offers</title>
+      <title>HOT RESTAURANT</title>
       <meta charset="utf-8">
       <meta name="format-detection" content="telephone=no" />
       <link rel="icon" href="images/favicon.ico">
@@ -221,38 +221,52 @@
             <div class="grid_12">
                 <h3><span style="color:#C73430;">HOT</span> RESTAURANT</h3>
                <div class="block2">
-                  <img src="images/page3_img2.jpg" alt="" class="img_inner fleft">
+                  <img style="width:180px; height:340px;" src="images/sepecial/re1_1.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
-                     <div class="text1 col1" id="hotRe1"><a href="#" id="hotRe1">산굼부리</a></div>
-                     <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel
-                     <br>
+                     <div class="text1 col1" id="hotRe1"><a href="#" id="hotRe1">명진 전복</a></div>
+                     <p>시푸드, 아시아 요리</p>
+                     <p>위치 : 제주 구좌읍 해맞이해안로 1282</p> 
+                     <p>전화번호 : 064-782-9944</p>                   
+                     <p>운영시간</p>
+                     <p>오전 9:30 오후 3:00</p>
+                     <p>오후4:00 오후7:00</p>
 
                   </div>
                </div>
                <div class="block2">
-                  <img src="images/page3_img2.jpg" alt="" class="img_inner fleft">
+                  <img style="width:180px; height:301px;" src="images/sepecial/re2_1.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
-                     <div class="text1 col1" id="hotRe2"><a href="#">Moscow</a></div>
-                     <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel
-                     <br>
+                     <div class="text1 col1" id="hotRe2"><a href="#">우진해장국 </a></div>
+                     <p>아시아 요리</p>
+                     <p>위치 : 제주 서사로 11</p> 
+                     <p>전화번호 : 064-757-3393p>                   
+                     <p>운영시간</p>
+                     <p>오전 5:30 오전 12:00</p>
+                 
 
                   </div>
                </div>
                <div class="block2">
-                  <img src="images/page3_img3.jpg" alt="" class="img_inner fleft">
+                  <img style="width:180px; height:255px;" src="images/sepecial/re3_1.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
-                     <div class="text1 col1" id="hotRe3"><a href="#">Thailand</a></div>
-                     <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel
-                     <br>
+                     <div class="text1 col1" id="hotRe3"><a href="#">소울 키친</a></div>
+                     <p>미국, 이탈리아 요리</p>
+                     <p>위치 : 서귀포 천제연로 131-7</p> 
+                     <p>전화번호 : 064-739-8765</p>                   
+                     <p>운영시간</p>
+                     <p>오전 11:30 오후 9:00</p>
 
                   </div>
                </div>
                <div class="block2">
-                  <img src="images/page3_img3.jpg" alt="" class="img_inner fleft">
+                  <img style="width:180px; height:300px;" src="images/sepecial/re4_1.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
-                     <div class="text1 col1" id="hotRe4"><a href="#">성산일출봉</a></div>
-                     <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel
-                     <br>
+                     <div class="text1 col1" id="hotRe4"><a href="#">자매국수</a></div>
+                     <p>아시아 요리</p>
+                     <p>위치 : 제주 삼성로 67</p> 
+                     <p>전화번호 : 064-727-1112</p>                   
+                     <p>운영시간</p>
+                     <p>오전 12:00 오후 11:59</p>
 
                   </div>
                </div>

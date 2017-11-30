@@ -221,19 +221,18 @@
             <div class="grid_12">
                 <h3><span style="color:#C73430;">HOT</span> HOTEL</h3>
                <div class="block2">
-                  <img src="images/page3_img2.jpg" alt="" class="img_inner fleft">
+                  <img style="width:180px; height:300px;"src="images/sepecial/hotel1.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
                      <div class="text1 col1" id="hotRe1"><a href="#" id="hotRe1"><b>호텔 리젠트 마린 더 블루</b></a></div>
                      <p>위치 : 서부두 2 길 20, 제주</p> 
-                     <p>가격 : 77,000원 성인 2 명 주말 기준</p>
-                     
+                     <p>가격 : 77,000원 성인 2 명 주말 기준</p>                   
                      <p>이용가능 시설</p>
-                     <table style="border:1px solid black;">
+                     <table style="text-align:center;">
                      <tr>
-                     <td>d</td><td>d</td><td>d</td><td>d</td>
+                     <td>와이파이</td><td>주차장</td><td>매점</td><td>헤어드라이어</td>
                      <tr>
                      </tr>
-                     <td>d</td><td>d</td><td>d</td><td>d</td>
+                     <td>에어컨</td><td>회의실</td><td>엘레베이터</td><td>금연실</td>
                      </tr>
                      </table>
                      <br>
@@ -241,18 +240,18 @@
                   </div>
                </div>
                <div class="block2">
-                  <img src="images/page3_img2.jpg" alt="" class="img_inner fleft">
+                  <img style="width:180px; height:300px;" src="images/sepecial/hotel2.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
                      <div class="text1 col1" id="hotRe2"><a href="#"><b>라마다 앙코르 이스트 호텔</b></a></div>
                      <p>위치 : 서호중로 65, 서귀포, 제주도, 대한민국</p>
-                     <p>가격 :40,000원 성인2명 주말 기준</p>
+                     <p>가격 : 40,000원 성인2명 주말 기준</p>
                      <p>이용가능 시설</p>
-                     <table style="border:1px solid black;">
+                     <table style="text-align:center;">
                      <tr>
-                     <td>d</td><td>d</td><td>d</td><td>d</td>
+                     <td>와이파이</td><td>주차장</td><td>레스토랑</td><td>엘레베이터</td>
                      <tr>
                      </tr>
-                     <td>d</td><td>d</td><td>d</td><td>d</td>
+                     <td>자전거 대여</td><td>회의실</td><td>냉장고</td><td>에어컨</td>
                      </tr>
                      </table>
                      <br>
@@ -260,20 +259,42 @@
                   </div>
                </div>
                <div class="block2">
-                  <img src="images/page3_img3.jpg" alt="" class="img_inner fleft">
+                  <img style="width:250px; height:318px;" src="images/sepecial/hotel3.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
                      <div class="text1 col1" id="hotRe3"><a href="#"><b>데이즈 호텔 제주 서귀포 오션</b></a></div>
-                     <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel
+                     <p>위치 : 동홍로 7, 서귀포, 대한민국</p>
+                     <p>가격 : 55200원 주말 성인 2인 기준</p>
+                     <p>이용가능 시설</p>
+                     <table style="text-align:center;">
+                     <tr>
+                     <td>와이파이</td><td>룸 서비스</td><td>주차장</td><td>바/라운지</td>
+                     <tr>
+                     </tr>
+                     <td>24시간리셉션</td><td>환전</td><td>엘레베이터</td><td>에어컨</td>
+                     </tr>
+                     </table>
                      <br>
+                     <a href="https://sp.booking.com/hotel/kr/ramada-plaza-jeju.ko.html?aid=1350181;label=naver_nologin;sid=6ade69b5e032667284a4a45e5f99a28a;all_sr_blocks=134218017_102369122_2_2_0;bshb=2;checkin=2017-12-01;checkout=2017-12-02;dest_id=-714191;dest_type=city;dist=0;group_adults=2;hapos=1;highlighted_blocks=134218017_102369122_2_2_0;hpos=1;room1=A%2CA;sb_price_type=total;srepoch=1512010371;srfid=7ceede6608b75128809b46115bb0462c6a8d5375X1;srpvid=452e14418d8f03a7;type=total;ucfs=1&#hotelTmpl">예약사이트 바로가기</a>
 
                   </div>
                </div>
                <div class="block2">
-                  <img src="images/page3_img3.jpg" alt="" class="img_inner fleft">
+                  <img style="width:180px; height:300px;" src="images/sepecial/hotel4.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
                      <div class="text1 col1" id="hotRe4"><a href="#"><b>오션 팰리스 호텔</b></a></div>
-                     <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel
+                     <p>위치 : 중앙로 14, 서귀포, 제주도, 대한민국</p>
+                     <p>가격 : 66000원 성인2인 주말 기준</p>
+                     <p style="color:#737272">이용가능 시설</p>
+                     <table style="text-align:center;">
+                     <tr>
+                     <td>와이파이</td><td>에어컨</td><td>24시간리셉션</td><td>주차장</td>
+                     <tr>
+                     </tr>
+                     <td>회의실</td><td>바/라운지</td><td>레스토랑</td><td>금연실</td>
+                     </tr>
+                     </table>
                      <br>
+                     <a href="http://www.hotelnjoy.com/svc/kor/roomview.php?v_agent=hotelscombined&v_pcode=HJJ_SG1687&v_sttdate=2017-12-01&v_enddate=2017-12-02&v_rcount=1&v_tcode=143545_2&ConversionID=826561989">예약사이트 바로가기</a>
 
                   </div>
                </div>

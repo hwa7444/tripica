@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>Hot Tours</title>
+      <title>SPECIAL OFFER</title>
       <meta charset="utf-8">
       <meta name="format-detection" content="telephone=no" />
       <link rel="icon" href="images/favicon.ico">
@@ -228,41 +228,41 @@
             <h3><span style="color:#C73430;">HOT</span> RESTAURANT</h3>
                <div class="grid_3">
                   <div class="banner special">
-                     <img onclick="moving(1)" src="images/page2_img1.jpg" alt="">
+                     <img style="width:250px;height:280px;" onclick="moving(1)" src="images/sepecial/re1.jpg" alt="">
                      <div class="label">
-                        <div class="title">산굼부리</div>
+                        <div class="title">명진 전복</div>
                         <div class="price">from<span>★★★★☆</span></div>
-                        <a onclick="moving(1)">LEARN MORE</a>
+                        <a onclick="moving(1)">더보기</a>
                      </div>
                   </div>
                </div>
                <div class="grid_3">
                   <div class="banner special">
-                     <img onclick="moving(2)" src="images/page2_img2.jpg" alt="">
+                     <img style="width:250px;height:280px;" onclick="moving(2)" src="images/sepecial/re2.jpg" alt="">
                      <div class="label">
-                        <div class="title">GOA</div>
-                        <div class="price">from<span>★★★☆☆</span></div>
-                        <a onclick="moving(2)">LEARN MORE</a>
+                        <div class="title">우진해장국</div>
+                        <div class="price">from<span>★★★★☆</span></div>
+                        <a onclick="moving(2)">더보기</a>
                      </div>
                   </div>
                </div>
                <div class="grid_3">
                   <div class="banner special">
-                     <img onclick="moving(3)" src="images/page2_img2.jpg" alt="">
+                     <img style="width:250px;height:280px;" onclick="moving(3)" src="images/sepecial/re3.jpg" alt="">
                      <div class="label">
-                        <div class="title">GOA</div>
-                        <div class="price">from<span>★★★☆☆</span></div>
-                        <a onclick="moving(3)">LEARN MORE</a>
+                        <div class="title">소울 키친</div>
+                        <div class="price">from<span>★★★★☆</span></div>
+                        <a onclick="moving(3)">더보기</a>
                      </div>
                   </div>
                </div>
                 <div class="grid_3">
                   <div class="banner special">
-                     <img onclick="moving(4)" src="images/page2_img2.jpg" alt="">
+                     <img style="width:250px;height:280px;" onclick="moving(4)" src="images/sepecial/re4.jpg" alt="">
                      <div class="label">
-                        <div class="title">성산일출봉</div>
-                        <div class="price">from<span>★★★☆☆</span></div>
-                        <a onclick="moving(4)">LEARN MORE</a>
+                        <div class="title">자매국수</div>
+                        <div class="price">from<span>★★★★☆</span></div>
+                        <a onclick="moving(4)">더보기</a>
                      </div>
                   </div>
                </div>
@@ -275,7 +275,7 @@
             <h3><span style="color:#C73430;">HOT</span> HOTEL</h3>
                <div class="grid_3">
                   <div class="banner special">
-                     <img onclick="moving(5)" src="images/page2_img1.jpg" alt="">
+                     <img style="width:250px;height:280px;" onclick="moving(5)" src="images/sepecial/hotel1.jpg" alt="">
                      <div class="label">
                         <div style="font-size:1.5em;">호텔 리젠트<br> 마린 더 블루</div>
                         <div class="price">from<span>★★★★☆</span></div>
@@ -285,7 +285,7 @@
                </div>
                <div class="grid_3">
                   <div class="banner special">
-                     <img  onclick="moving(6)" src="images/page2_img2.jpg" alt="">
+                     <img style="width:250px;height:280px;" onclick="moving(6)" src="images/sepecial/hotel2.jpg" alt="">
                      <div class="label">
                         <div style="font-size:1.5em;">라마다 앙코르<br> 이스트 호텔</div>
                         <div class="price">from<span>★★★★☆</span></div>
@@ -295,17 +295,18 @@
                </div>
                <div class="grid_3">
                   <div class="banner special">
-                     <img  onclick="moving(7)" src="images/page2_img2.jpg" alt="">
+                     <img style="width:250px;height:280px;" onclick="moving(7)" src="images/sepecial/hotel3.jpg" alt="">
                      <div class="label">
                         <div style="font-size:1.5em;">데이즈 호텔 <br>제주 서귀포 오션</div>
                         <div class="price">from<span>★★★★☆</span></div>
-                        <a  onclick="moving(7)">더 보기</a>
+                        <a align="center" onclick="moving(7)">더 보기</a>
                      </div>
+                     
                   </div>
                </div>
                 <div class="grid_3">
                   <div class="banner special">
-                     <img  onclick="moving(8)" src="images/page2_img2.jpg" alt="">
+                     <img style="width:250px;height:280px;" onclick="moving(8)" src="images/sepecial/hotel4.jpg" alt="">
                      <div class="label">
                         <div style="font-size:1.5em;">오션 팰리스 호텔</div>
                         <div class="price">from<span>★★★☆☆</span></div>
@@ -320,37 +321,37 @@
             <h3><span style="color:#C73430;">HOT</span> CAFE</h3>
                <div class="grid_3">
                   <div class="banner special">
-                     <img src="images/page2_img1.jpg" alt="">
+                     <img style="width:250px;height:280px;" src="images/page2_img1.jpg" alt="">
                      <div class="label">
-                        <div class="title">NEW ZEALAND</div>
+                        <div class="title">메이비 카페</div>
                         <div class="price">from<span>★★★★☆</span></div>
-                        <a href="tourInformation.jsp">LEARN MORE</a>
+                        <a href="tourInformation.jsp">더 보기</a>
                      </div>
                   </div>
                </div>
                <div class="grid_3">
                   <div class="banner special">
-                     <img src="images/page2_img2.jpg" alt="">
+                     <img style="width:250px;height:280px;" src="images/page2_img2.jpg" alt="">
                      <div class="label">
-                        <div class="title">GOA</div>
-                        <div class="price">from<span>★★★★★</span></div>
-                        <a href="tourInformation.jsp">LEARN MORE</a>
+                        <div class="title">에이팩토리카페</div>
+                        <div class="price">from<span>★★★★☆</span></div>
+                        <a href="tourInformation.jsp">더 보기</a>
                      </div>
                   </div>
                </div>
                <div class="grid_3">
                   <div class="banner special">
-                     <img src="images/page2_img2.jpg" alt="">
+                     <img style="width:250px;height:280px;" src="images/page2_img2.jpg" alt="">
                      <div class="label">
-                        <div class="title">GOA</div>
-                        <div class="price">from<span>★★★☆☆</span></div>
-                        <a href="tourInformation.jsp">LEARN MORE</a>
+                        <div class="title">몽상</div>
+                        <div class="price">from<span>★★★★☆</span></div>
+                        <a href="tourInformation.jsp">더 보기</a>
                      </div>
                   </div>
                </div>
                 <div class="grid_3">
                   <div class="banner special">
-                     <img src="images/page2_img2.jpg" alt="">
+                     <img style="width:250px;height:280px;" src="images/page2_img2.jpg" alt="">
                      <div class="label">
                         <div class="title">GOA</div>
                         <div class="price">from<span>★★☆☆☆</span></div>
@@ -366,14 +367,11 @@
        <script type="text/javascript">
       function moving(result){
     	  if(result==1){
-    		  location.href="tourInformation.jsp#hotRe1";
-    		
+    		  location.href="tourInformation.jsp#hotRe1"; 		
     	  }else if (result ==2){
-    		 location.href="tourInformation.jsp#hotRe2";
-    		  
+    		 location.href="tourInformation.jsp#hotRe2";		  
     	  }else if (result ==3){
-    		 location.href="tourInformation.jsp#hotRe3";
-    		  
+    		 location.href="tourInformation.jsp#hotRe3";  		  
     	  }else if (result ==4){
     		 location.href="tourInformation.jsp#hotRe4";
     		  
