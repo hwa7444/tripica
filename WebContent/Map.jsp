@@ -237,17 +237,16 @@
 					<h3 style="margin-left:50px;">MAKE YOUR ROUT</h3>
  
 					<div class="grid_4 suffix_1" style="margin-left:50px;">
-						<div
-							style="background-color: lightgreen; width: 320px; height: 700px;"></div>
+						<div class="MAP"
+							style="background-color: lightgreen; width: 1300px; height: 700px;"></div>
 					</div>
+		
 		
 					<div class=".grid_12">
 						<div class="MAP"
 							style="background-color: lightblue; width: 100px; height: 700px;"></div>
 					</div>
 	
-<div class="allFor">
-   <!-- ^allfor you -->
 
       </div>
    
