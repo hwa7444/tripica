@@ -5,51 +5,285 @@
 <html>
 <head>
 <style type="text/css">
-/* css [line] */ 
-.dot {overflow:hidden;float:left;width:12px;height:12px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/mini_circle.png');}    
-.dotOverlay {position:relative;bottom:10px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;float:left;font-size:12px;padding:5px;background:#fff;}
-.dotOverlay:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}    
-.number {font-weight:bold;color:#ee6152;}
-.dotOverlay:after {content:'';position:absolute;margin-left:-6px;left:50%;bottom:-8px;width:11px;height:8px;background:url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white_small.png')}
-.distanceInfo {position:relative;top:5px;left:5px;list-style:none;margin:0;}
-.distanceInfo .label {display:inline-block;width:50px;}
-.distanceInfo:after {content:none;}
+/* css [line] */
+.dot {
+	overflow: hidden;
+	float: left;
+	width: 12px;
+	height: 12px;
+	background:
+		url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/mini_circle.png');
+}
 
-/* css [customoverlay] */ 
-.customoverlay {position:relative;bottom:85px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;float:left;}
-.customoverlay:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
-.customoverlay a {display:block;text-decoration:none;color:#000;text-align:center;border-radius:6px;font-size:14px;font-weight:bold;overflow:hidden;background: #d95050;background: #d95050 url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
-.customoverlay .title {display:block;text-align:center;background:#fff;margin-right:35px;padding:10px 15px;font-size:14px;font-weight:bold;}
-.customoverlay:after {content:'';position:absolute;margin-left:-12px;left:50%;bottom:-12px;width:22px;height:12px;background:url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+.dotOverlay {
+	position: relative;
+	bottom: 10px;
+	border-radius: 6px;
+	border: 1px solid #ccc;
+	border-bottom: 2px solid #ddd;
+	float: left;
+	font-size: 12px;
+	padding: 5px;
+	background: #fff;
+}
+
+.dotOverlay:nth-of-type(n) {
+	border: 0;
+	box-shadow: 0px 1px 2px #888;
+}
+
+.number {
+	font-weight: bold;
+	color: #ee6152;
+}
+
+.dotOverlay:after {
+	content: '';
+	position: absolute;
+	margin-left: -6px;
+	left: 50%;
+	bottom: -8px;
+	width: 11px;
+	height: 8px;
+	background:
+		url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white_small.png')
+}
+
+.distanceInfo {
+	position: relative;
+	top: 5px;
+	left: 5px;
+	list-style: none;
+	margin: 0;
+}
+
+.distanceInfo .label {
+	display: inline-block;
+	width: 50px;
+}
+
+.distanceInfo:after {
+	content: none;
+}
+
+/* css [customoverlay] */
+.customoverlay {
+	position: relative;
+	bottom: 85px;
+	border-radius: 6px;
+	border: 1px solid #ccc;
+	border-bottom: 2px solid #ddd;
+	float: left;
+}
+
+.customoverlay:nth-of-type(n) {
+	border: 0;
+	box-shadow: 0px 1px 2px #888;
+}
+
+.customoverlay a {
+	display: block;
+	text-decoration: none;
+	color: #000;
+	text-align: center;
+	border-radius: 6px;
+	font-size: 14px;
+	font-weight: bold;
+	overflow: hidden;
+	background: #d95050;
+	background: #d95050
+		url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png)
+		no-repeat right 14px center;
+}
+
+.customoverlay .title {
+	display: block;
+	text-align: center;
+	background: #fff;
+	margin-right: 35px;
+	padding: 10px 15px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.customoverlay:after {
+	content: '';
+	position: absolute;
+	margin-left: -12px;
+	left: 50%;
+	bottom: -12px;
+	width: 22px;
+	height: 12px;
+	background:
+		url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
+}
 
 /* css [category map] */
-.map_wrap, .map_wrap * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
-.map_wrap {position:relative;width:100%;height:350px;}
-#category {position:absolute;top:1370px;left:1px;border-radius: 5px; border:1px solid #909090;box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);background: #fff;overflow: hidden;z-index: 2;}
-#category li {float:left;list-style: none;width:50px;px;border-right:1px solid #acacac;padding:6px 0;text-align: center; cursor: pointer;}
-#category li.on {background: #eee;}
-#category li:hover {background: #ffe6e6;border-left:1px solid #acacac;margin-left: -1px;}
-#category li:last-child{margin-right:0;border-right:0;}
-#category li span {display: block;margin:0 auto 3px;width:27px;height: 28px;}
-#category li .category_bg {background:url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png) no-repeat;}
-#category li .bank {background-position: -10px 0;}
-#category li .mart {background-position: -10px -36px;}
-#category li .pharmacy {background-position: -10px -72px;}
-#category li .oil {background-position: -10px -108px;}
-#category li .cafe {background-position: -10px -144px;}
-#category li .store {background-position: -10px -180px;}
-#category li.on .category_bg {background-position-x:-46px;}
-.placeinfo_wrap {position:absolute;bottom:28px;left:-150px;width:300px;}
-.placeinfo {position:relative;width:100%;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;padding-bottom: 10px;background: #fff;}
-.placeinfo:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
-.placeinfo_wrap .after {content:'';position:relative;margin-left:-12px;left:50%;width:22px;height:12px;background:url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
-.placeinfo a, .placeinfo a:hover, .placeinfo a:active{color:#fff;text-decoration: none;}
-.placeinfo a, .placeinfo span {display: block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
-.placeinfo span {margin:5px 5px 0 5px;cursor: default;font-size:13px;}
-.placeinfo .title {font-weight: bold; font-size:14px;border-radius: 6px 6px 0 0;margin: -1px -1px 0 -1px;padding:10px; color: #fff;background: #d95050;background: #d95050 url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
-.placeinfo .tel {color:#0f7833;}
-.placeinfo .jibun {color:#999;font-size:11px;margin-top:0;}
+.map_wrap, .map_wrap * {
+	margin: 0px;
+	padding: 0;
+	font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
+	font-size: 12px;
+}
 
+.map_wrap {
+	position: relative;
+	width: 100%;
+	top:50px;
+	height: 350px;
+}
+
+#category {
+	position: absolute;
+	top: 0px;
+	left: 1px;
+	border-radius: 5px;
+	border: 1px solid #909090;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+	background: #fff;
+	overflow: hidden;
+	z-index: 2;
+}
+
+#category li {
+	float: left;
+	list-style: none;
+	width: 50px; px;
+	border-right: 1px solid #acacac;
+	padding: 6px 0;
+	text-align: center;
+	cursor: pointer;
+}
+
+#category li.on {
+	background: #eee;
+}
+
+#category li:hover {
+	background: #ffe6e6;
+	border-left: 1px solid #acacac;
+	margin-left: -1px;
+}
+
+#category li:last-child {
+	margin-right: 0;
+	border-right: 0;
+}
+
+#category li span {
+	display: block;
+	margin: 0 auto 3px;
+	width: 27px;
+	height: 28px;
+}
+
+#category li .category_bg {
+	background:
+		url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png)
+		no-repeat;
+}
+
+#category li .bank {
+	background-position: -10px 0;
+}
+
+#category li .mart {
+	background-position: -10px -36px;
+}
+
+#category li .pharmacy {
+	background-position: -10px -72px;
+}
+
+#category li .oil {
+	background-position: -10px -108px;
+}
+
+#category li .cafe {
+	background-position: -10px -144px;
+}
+
+#category li .store {
+	background-position: -10px -180px;
+}
+
+#category li.on .category_bg {
+	background-position-x: -46px;
+}
+
+.placeinfo_wrap {
+	position: absolute;
+	bottom: 28px;
+	left: -150px;
+	width: 300px;
+}
+
+.placeinfo {
+	position: relative;
+	width: 100%;
+	border-radius: 6px;
+	border: 1px solid #ccc;
+	border-bottom: 2px solid #ddd;
+	padding-bottom: 10px;
+	background: #fff;
+}
+
+.placeinfo:nth-of-type(n) {
+	border: 0;
+	box-shadow: 0px 1px 2px #888;
+}
+
+.placeinfo_wrap .after {
+	content: '';
+	position: relative;
+	margin-left: -12px;
+	left: 50%;
+	width: 22px;
+	height: 12px;
+	background:
+		url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
+}
+
+.placeinfo a, .placeinfo a:hover, .placeinfo a:active {
+	color: #fff;
+	text-decoration: none;
+}
+
+.placeinfo a, .placeinfo span {
+	display: block;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.placeinfo span {
+	margin: 5px 5px 0 5px;
+	cursor: default;
+	font-size: 13px;
+}
+
+.placeinfo .title {
+	font-weight: bold;
+	font-size: 14px;
+	border-radius: 6px 6px 0 0;
+	margin: -1px -1px 0 -1px;
+	padding: 10px;
+	color: #fff;
+	background: #d95050;
+	background: #d95050
+		url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png)
+		no-repeat right 14px center;
+}
+
+.placeinfo .tel {
+	color: #0f7833;
+}
+
+.placeinfo .jibun {
+	color: #999;
+	font-size: 11px;
+	margin-top: 0;
+}
 </style>
 <title>Hot Tours</title>
 <meta charset="euc-kr">
@@ -277,689 +511,706 @@
 			</div>
 		</header>
 		<!--==============================Content=================================-->
-		 <div class="content"><div class="ic"></div>
-         <div class="container_12">
-         <!--================ blogPost ================-->
-            <div class="grid_7">
-               <h3>Recent Posts</h3>
-               <div class="blog">
-                  <time datetime="2014-10-01">15<span>Feb</span></time>
-                  <div class="extra_wrapper">
-                     <div class="text1 col1"><a href="#">uamnibh Edet Mertolo numi</a></div>Posted by
-                     <a href="#">Admin</a>
-                  </div>
-                  <div class="clear"></div>
-                  <img src="images/page4_img1.jpg" alt="" class="img_inner">
-                  <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel aliquet sit amet erat. Nullam eget dignissim nisi, aliquam feugiat nibh.
-                  <br>
-                  <a href="#" class="link1">LEARN MORE</a>
-               </div>
-               <div class="blog">
-                  <time datetime="2014-10-01">17<span>Feb</span></time>
-                  <div class="extra_wrapper">
-                     <div class="text1 col1"><a href="#">ERh EMertlo numolo</a></div>Posted by
-                     <a href="#">Admin</a>
-                  </div>
-                  <div class="clear"></div>
-                  <img src="images/page4_img2.jpg" alt="" class="img_inner">
-                  <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel aliquet sit amet erat. Nullam eget dignissim nisi, aliquam feugiat nibh.
-                  <br>
-                  <a href="#" class="link1">LEARN MORE</a>
-               </div>
-            </div>
-            <!--================= ^blogPost ==================-->
-            <!--================================= Category =================================-->
-            <div class="grid_3 prefix_1" style="position:;">
-               <h3 class="head1">CATEGORIES</h3>
-               <ul class="list">
-                  <li><a href="#">Suspendisse massa mi </a></li>
-                  <li><a href="#">Porttitor at velit id </a></li>
-                  <li><a href="#">Congue adipiscing </a></li>
-                  <li><a href="#">Vestibulum vitae porta </a></li>
-                  <li><a href="#">Vivamus ac sodales </a></li>
-                  <li><a href="#">Massa quis adipiscing </a></li>
-                  <li><a href="#">Phasellus hendrerit </a></li>
-                  <li><a href="#">Libero in sapien </a></li>
-                  <li><a href="#">Dignissim vel imperdiet </a></li>
-               </ul>
-               <h3 class="head1">ARchives</h3>
-               <ul class="list">
-                  <li><a href="#">November 2013</a></li>
-                  <li><a href="#">October 2013</a></li>
-                  <li><a href="#">September 2013</a></li>
-                  <li><a href="#">August 2013</a></li>
-                  <li><a href="#">July 2013</a></li>
-               </ul>
-            </div>
-            
- <div class="map_wrap">
-  
-    <ul id="category">
-        <li id="BK9" data-order="0"> 
-            <span class="category_bg bank"></span>
-            은행
-        </li>       
-        <li id="MT1" data-order="1"> 
-            <span class="category_bg mart"></span>
-            마트
-        </li>  
-        <li id="PM9" data-order="2"> 
-            <span class="category_bg pharmacy"></span>
-            약국
-        </li>  
-        <li id="OL7" data-order="3"> 
-            <span class="category_bg oil"></span>
-            주유소
-        </li>  
-        <li id="CE7" data-order="4"> 
-            <span class="category_bg cafe"></span>
-            카페
-        </li>  
-        <li id="CS2" data-order="5"> 
-            <span class="category_bg store"></span>
-            편의점
-        </li>
-           <li id="AD5" data-order="5"> 
-            <span class="category_bg store"></span>
-            숙박
-        </li>  
-             <li id="AT4" data-order="5"> 
-            <span class="category_bg store"></span>
-            관광지
-        </li> 
-        <li id="CT1" data-order="5"> 
-            <span class="category_bg store"></span>
-            문화시설
-        </li> 
-    </ul>
-    
-      <div id="map" style="width:100%;height:100%;"></div>
-</div>
-        
-        
-        
-        
-        
-        
-        
-        <button onclick="drawing()" >소요시간측정하기</button>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7b2110a6aaef5104b2ce89c704a24ed3&libraries=services"></script>
-<script>
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
-    mapOption = { 
-		center: new daum.maps.LatLng(33.37137, 126.56695), // 지도의 중심좌표
-        level: 8 // 지도의 확대 레벨
-    };
-
-var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
- 
-// 지도 타입 변경 컨트롤을 생성한다
-var mapTypeControl = new daum.maps.MapTypeControl();
-
-// 지도의 상단 우측에 지도 타입 변경 컨트롤을 추가한다
-map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);	
-
-// 지도에 확대 축소 컨트롤을 생성한다
-var zoomControl = new daum.maps.ZoomControl();
-
-// 지도의 우측에 확대 축소 컨트롤을 추가한다
-map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT); 
-
-// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
-var positions = [
-    {
-        content: '<div class="customoverlay">' +
-        '  <a href="http://map.daum.net/?itemId=11394059" target="_blank">' +
-        '    <span class="title">제주시청</span>' +
-        '  </a>' +
-        '</div>', 
-        latlng: new daum.maps.LatLng(33.499565 , 126.531241)
-    },
-    {
-        content: '<div class="customoverlay">' +
-        '  <a href="http://map.daum.net/?itemId=11394059" target="_blank">' +
-        '    <span class="title">섭지코지</span>' +
-        '  </a>' +
-        '</div>', 
-        latlng: new daum.maps.LatLng(33.42377208326678, 126.93045722895785)
-    },
-    {
-        content:  '<div class="customoverlay">' +
-        '  <a href="http://map.daum.net/?itemId=11394059" target="_blank">' +
-        '    <span class="title">성산 일출봉</span>' +
-        '  </a>' +
-        '</div>', 
-        latlng: new daum.maps.LatLng(33.45943569514741, 126.93968216363504)
-    },
-    {
-        content:  '<div class="customoverlay">' +
-        '  <a href="http://map.daum.net/?itemId=11394059" target="_blank">' +
-        '    <span class="title">한라산</span>' +
-        '  </a>' +
-        '</div>',
-        latlng: new daum.maps.LatLng(33.36083380810028, 126.53581319393376)
-    }
-];
-
-
-var latlng = new daum.maps.LatLng(37, 127);
-
-for (var i = 0; i < positions.length; i ++) {
-    // 마커를 생성합니다
-    var marker = new daum.maps.Marker({
-        map: map, // 마커를 표시할 지도
-        clickable: true,
-        position: positions[i].latlng // 마커의 위치
-    });
-
-
-    // 커스텀 오버레이를 생성합니다
-    var customOverlay = new daum.maps.CustomOverlay({
-        map: map,
-        clickable: true,
-        position: positions[i].latlng,
-        content: positions[i].content,
-        yAnchor: 1 
-    });
-
-    customOverlay.setMap(null);
-   
-
-    
-    daum.maps.event.addListener(marker, 'click', makeOverListener(map, marker, customOverlay));
-}
-
-//인포윈도우를 표시하는 클로저를 만드는 함수입니다 
-function makeOverListener(map, marker, customOverlay) {
- return function() {
-	 customOverlay.setMap(map);
- };
-}
-
-//인포윈도우를 닫는 클로저를 만드는 함수입니다 
-function makeOutListener(customOverlay) {
- return function() {
-	 customOverlay.setMap(null);
- };
-}
-
-/* ##############################LINE SCRIPT############################### */
- var drawingOK = false;
- function drawing(){
-	 if(!drawingOK){
-		drawingOK = true;		 
-	 }else{
-		drawingOK = false;
-		deleteClickLine();
-        deleteDistnce();
-        deleteCircleDot();
-	 }
- }
- 
- 
-
- var drawingFlag = false; // 선이 그려지고 있는 상태를 가지고 있을 변수입니다
- var moveLine; // 선이 그려지고 있을때 마우스 움직임에 따라 그려질 선 객체 입니다
- var clickLine // 마우스로 클릭한 좌표로 그려질 선 객체입니다
- var distanceOverlay; // 선의 거리정보를 표시할 커스텀오버레이 입니다
- var dots = {}; // 선이 그려지고 있을때 클릭할 때마다 클릭 지점과 거리를 표시하는 커스텀 오버레이 배열입니다.
-
- // 지도에 클릭 이벤트를 등록합니다
- // 지도를 클릭하면 선 그리기가 시작됩니다 그려진 선이 있으면 지우고 다시 그립니다
- daum.maps.event.addListener(map, 'click', function(mouseEvent) {
-
-     // 마우스로 클릭한 위치입니다 
-     var clickPosition = mouseEvent.latLng;
-
-     if(drawingOK){
-     // 지도 클릭이벤트가 발생했는데 선을 그리고있는 상태가 아니면
-     if (!drawingFlag) {
-
-         // 상태를 true로, 선이 그리고있는 상태로 변경합니다
-         drawingFlag = true;
-         
-         // 지도 위에 선이 표시되고 있다면 지도에서 제거합니다
-         deleteClickLine();
-         
-         // 지도 위에 커스텀오버레이가 표시되고 있다면 지도에서 제거합니다
-         deleteDistnce();
-
-         // 지도 위에 선을 그리기 위해 클릭한 지점과 해당 지점의 거리정보가 표시되고 있다면 지도에서 제거합니다
-         deleteCircleDot();
-     
-         // 클릭한 위치를 기준으로 선을 생성하고 지도위에 표시합니다
-         clickLine = new daum.maps.Polyline({
-             map: map, // 선을 표시할 지도입니다 
-             path: [clickPosition], // 선을 구성하는 좌표 배열입니다 클릭한 위치를 넣어줍니다
-             strokeWeight: 3, // 선의 두께입니다 
-             strokeColor: '#db4040', // 선의 색깔입니다
-             strokeOpacity: 1, // 선의 불투명도입니다 0에서 1 사이값이며 0에 가까울수록 투명합니다
-             strokeStyle: 'solid' // 선의 스타일입니다
-         });
-         
-         // 선이 그려지고 있을 때 마우스 움직임에 따라 선이 그려질 위치를 표시할 선을 생성합니다
-         moveLine = new daum.maps.Polyline({
-             strokeWeight: 3, // 선의 두께입니다 
-             strokeColor: '#db4040', // 선의 색깔입니다
-             strokeOpacity: 0.5, // 선의 불투명도입니다 0에서 1 사이값이며 0에 가까울수록 투명합니다
-             strokeStyle: 'solid' // 선의 스타일입니다    
-         });
-     
-         // 클릭한 지점에 대한 정보를 지도에 표시합니다
-         displayCircleDot(clickPosition, 0);
-
-             
-     } else { // 선이 그려지고 있는 상태이면
-
-         // 그려지고 있는 선의 좌표 배열을 얻어옵니다
-         var path = clickLine.getPath();
-
-         // 좌표 배열에 클릭한 위치를 추가합니다
-         path.push(clickPosition);
-         
-         // 다시 선에 좌표 배열을 설정하여 클릭 위치까지 선을 그리도록 설정합니다
-         clickLine.setPath(path);
-
-         var distance = Math.round(clickLine.getLength());
-         displayCircleDot(clickPosition, distance);
-     }
-     }
- 		
-  
- });
-     
- // 지도에 마우스무브 이벤트를 등록합니다
- // 선을 그리고있는 상태에서 마우스무브 이벤트가 발생하면 그려질 선의 위치를 동적으로 보여주도록 합니다
- daum.maps.event.addListener(map, 'mousemove', function (mouseEvent) {
-
-     // 지도 마우스무브 이벤트가 발생했는데 선을 그리고있는 상태이면
-     if (drawingFlag){
-         
-         // 마우스 커서의 현재 위치를 얻어옵니다 
-         var mousePosition = mouseEvent.latLng; 
-
-         // 마우스 클릭으로 그려진 선의 좌표 배열을 얻어옵니다
-         var path = clickLine.getPath();
-         
-         // 마우스 클릭으로 그려진 마지막 좌표와 마우스 커서 위치의 좌표로 선을 표시합니다
-         var movepath = [path[path.length-1], mousePosition];
-         moveLine.setPath(movepath);    
-         moveLine.setMap(map);
-         
-         var distance = Math.round(clickLine.getLength() + moveLine.getLength()), // 선의 총 거리를 계산합니다
-             content = '<div class="dotOverlay distanceInfo">총거리 <span class="number">' + distance + '</span>m</div>'; // 커스텀오버레이에 추가될 내용입니다
-         
-         // 거리정보를 지도에 표시합니다
-         showDistance(content, mousePosition);   
-     }             
- });                 
-
- // 지도에 마우스 오른쪽 클릭 이벤트를 등록합니다
- // 선을 그리고있는 상태에서 마우스 오른쪽 클릭 이벤트가 발생하면 선 그리기를 종료합니다
- daum.maps.event.addListener(map, 'rightclick', function (mouseEvent) {
-
-     // 지도 오른쪽 클릭 이벤트가 발생했는데 선을 그리고있는 상태이면
-     if (drawingFlag) {
-         
-         // 마우스무브로 그려진 선은 지도에서 제거합니다
-         moveLine.setMap(null);
-         moveLine = null;  
-         
-         // 마우스 클릭으로 그린 선의 좌표 배열을 얻어옵니다
-         var path = clickLine.getPath();
-     
-         // 선을 구성하는 좌표의 개수가 2개 이상이면
-         if (path.length > 1) {
-
-             // 마지막 클릭 지점에 대한 거리 정보 커스텀 오버레이를 지웁니다
-             if (dots[dots.length-1].distance) {
-                 dots[dots.length-1].distance.setMap(null);
-                 dots[dots.length-1].distance = null;    
-             }
-
-             var distance = Math.round(clickLine.getLength()), // 선의 총 거리를 계산합니다
-                 content = getTimeHTML(distance); // 커스텀오버레이에 추가될 내용입니다
-                 
-             // 그려진 선의 거리정보를 지도에 표시합니다
-             showDistance(content, path[path.length-1]);  
-              
-         } else {
-
-             // 선을 구성하는 좌표의 개수가 1개 이하이면 
-             // 지도에 표시되고 있는 선과 정보들을 지도에서 제거합니다.
-             deleteClickLine();
-             deleteCircleDot(); 
-             deleteDistnce();
-
-         }
-         
-         // 상태를 false로, 그리지 않고 있는 상태로 변경합니다
-         drawingFlag = false;          
-     }  
- });    
-
- // 클릭으로 그려진 선을 지도에서 제거하는 함수입니다
- function deleteClickLine() {
-     if (clickLine) {
-         clickLine.setMap(null);    
-         clickLine = null;        
-     }
- }
-
- // 마우스 드래그로 그려지고 있는 선의 총거리 정보를 표시하거
- // 마우스 오른쪽 클릭으로 선 그리가 종료됐을 때 선의 정보를 표시하는 커스텀 오버레이를 생성하고 지도에 표시하는 함수입니다
- function showDistance(content, position) {
-     
-     if (distanceOverlay) { // 커스텀오버레이가 생성된 상태이면
-         
-         // 커스텀 오버레이의 위치와 표시할 내용을 설정합니다
-         distanceOverlay.setPosition(position);
-         distanceOverlay.setContent(content);
-         
-     } else { // 커스텀 오버레이가 생성되지 않은 상태이면
-         
-         // 커스텀 오버레이를 생성하고 지도에 표시합니다
-         distanceOverlay = new daum.maps.CustomOverlay({
-             map: map, // 커스텀오버레이를 표시할 지도입니다
-             content: content,  // 커스텀오버레이에 표시할 내용입니다
-             position: position, // 커스텀오버레이를 표시할 위치입니다.
-             xAnchor: 0,
-             yAnchor: 0,
-             zIndex: 3  
-         });      
-     }
- }
-
- // 그려지고 있는 선의 총거리 정보와 
- // 선 그리가 종료됐을 때 선의 정보를 표시하는 커스텀 오버레이를 삭제하는 함수입니다
- function deleteDistnce () {
-     if (distanceOverlay) {
-         distanceOverlay.setMap(null);
-         distanceOverlay = null;
-     }
- }
-
- // 선이 그려지고 있는 상태일 때 지도를 클릭하면 호출하여 
- // 클릭 지점에 대한 정보 (동그라미와 클릭 지점까지의 총거리)를 표출하는 함수입니다
- function displayCircleDot(position, distance) {
-
-     // 클릭 지점을 표시할 빨간 동그라미 커스텀오버레이를 생성합니다
-     var circleOverlay = new daum.maps.CustomOverlay({
-         content: '<span class="dot"></span>',
-         position: position,
-         zIndex: 1
-     });
-
-     // 지도에 표시합니다
-     circleOverlay.setMap(map);
-
-     if (distance > 0) {
-         // 클릭한 지점까지의 그려진 선의 총 거리를 표시할 커스텀 오버레이를 생성합니다
-         var distanceOverlay = new daum.maps.CustomOverlay({
-             content: '<div class="dotOverlay">거리 <span class="number">' + distance + '</span>m</div>',
-             position: position,
-             yAnchor: 1,
-             zIndex: 2
-         });
-
-         // 지도에 표시합니다
-         distanceOverlay.setMap(map);
-     }
-
-     // 배열에 추가합니다
-     dots.push({circle:circleOverlay, distance: distanceOverlay});
- }
-
- // 클릭 지점에 대한 정보 (동그라미와 클릭 지점까지의 총거리)를 지도에서 모두 제거하는 함수입니다
- function deleteCircleDot() {
-     var i;
-
-     for ( i = 0; i < dots.length; i++ ){
-         if (dots[i].circle) { 
-             dots[i].circle.setMap(null);
-         }
-
-         if (dots[i].distance) {
-             dots[i].distance.setMap(null);
-         }
-     }
-
-     dots = [];
- }
-
- // 마우스 우클릭 하여 선 그리기가 종료됐을 때 호출하여 
- // 그려진 선의 총거리 정보와 거리에 대한 도보, 자전거 시간을 계산하여
- // HTML Content를 만들어 리턴하는 함수입니다
- function getTimeHTML(distance) {
-
-     // 도보의 시속은 평균 4km/h 이고 도보의 분속은 67m/min입니다
-     var walkkTime = distance / 67 | 0;
-     var walkHour = '', walkMin = '';
-
-     // 계산한 도보 시간이 60분 보다 크면 시간으로 표시합니다
-     if (walkkTime > 60) {
-         walkHour = '<span class="number">' + Math.floor(walkkTime / 60) + '</span>시간 '
-     }
-     walkMin = '<span class="number">' + walkkTime % 60 + '</span>분'
-
-     // 자전거의 평균 시속은 16km/h 이고 이것을 기준으로 자전거의 분속은 267m/min입니다
-     var bycicleTime = distance / 227 | 0;
-     var bycicleHour = '', bycicleMin = '';
-
-     // 계산한 자전거 시간이 60분 보다 크면 시간으로 표출합니다
-     if (bycicleTime > 60) {
-         bycicleHour = '<span class="number">' + Math.floor(bycicleTime / 60) + '</span>시간 '
-     }
-     bycicleMin = '<span class="number">' + bycicleTime % 60 + '</span>분'
-
-     // 거리와 도보 시간, 자전거 시간을 가지고 HTML Content를 만들어 리턴합니다
-     var content = '<ul class="dotOverlay distanceInfo">';
-     content += '    <li>';
-     content += '        <span class="label">총거리</span><span class="number">' + distance + '</span>m';
-     content += '    </li>';
-     content += '    <li>';
-     content += '        <span class="label">도보</span>' + walkHour + walkMin;
-     content += '    </li>';
-     content += '    <li>';
-     content += '        <span class="label">자전거</span>' + bycicleHour + bycicleMin;
-     content += '    </li>';
-     content += '</ul>'
-
-     return content;
-     
- }
-
- 
- 
- 
- ////////////////////////////// PLACE SCRIPT ///////////////////////////////////////////////
- 
- 
- 
- 
- 
- //마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
-   var placeOverlay = new daum.maps.CustomOverlay({zIndex:1}), 
-       contentNode = document.createElement('div'), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다 
-       markers = [], // 마커를 담을 배열입니다
-       currCategory = ''; // 현재 선택된 카테고리를 가지고 있을 변수입니다
-       
-   // 장소 검색 객체를 생성합니다
-   var ps = new daum.maps.services.Places(map); 
-
-   // 지도에 idle 이벤트를 등록합니다
-   daum.maps.event.addListener(map, 'idle', searchPlaces);
-
-   // 커스텀 오버레이의 컨텐츠 노드에 css class를 추가합니다 
-   contentNode.className = 'placeinfo_wrap';
-
-   // 커스텀 오버레이의 컨텐츠 노드에 mousedown, touchstart 이벤트가 발생했을때
-   // 지도 객체에 이벤트가 전달되지 않도록 이벤트 핸들러로 daum.maps.event.preventMap 메소드를 등록합니다 
-   addEventHandle(contentNode, 'mousedown', daum.maps.event.preventMap);
-   addEventHandle(contentNode, 'touchstart', daum.maps.event.preventMap);
-
-   // 커스텀 오버레이 컨텐츠를 설정합니다
-   placeOverlay.setContent(contentNode);  
-
-   // 각 카테고리에 클릭 이벤트를 등록합니다
-   addCategoryClickEvent();
-
-   // 엘리먼트에 이벤트 핸들러를 등록하는 함수입니다
-   function addEventHandle(target, type, callback) {
-       if (target.addEventListener) {
-           target.addEventListener(type, callback);
-       } else {
-           target.attachEvent('on' + type, callback);
-       }
-   }
-
-   // 카테고리 검색을 요청하는 함수입니다
-   function searchPlaces() {
-       if (!currCategory) {
-           return;
-       }
-       
-       // 커스텀 오버레이를 숨깁니다 
-       placeOverlay.setMap(null);
-
-       // 지도에 표시되고 있는 마커를 제거합니다
-       removeMarker();
-       
-       ps.categorySearch(currCategory, placesSearchCB, {useMapBounds:true}); 
-   }
-
-   // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
-   function placesSearchCB(data, status, pagination) {
-       if (status === daum.maps.services.Status.OK) {
-
-           // 정상적으로 검색이 완료됐으면 지도에 마커를 표출합니다
-           displayPlaces(data);
-       } else if (status === daum.maps.services.Status.ZERO_RESULT) {
-           // 검색결과가 없는경우 해야할 처리가 있다면 이곳에 작성해 주세요
-   	alert("현재 범위에 검색 결과가 없습니다.")
-       } else if (status === daum.maps.services.Status.ERROR) {
-           // 에러로 인해 검색결과가 나오지 않은 경우 해야할 처리가 있다면 이곳에 작성해 주세요
-           alert("error")
-       }
-   }
-
-   // 지도에 마커를 표출하는 함수입니다
-   function displayPlaces(places) {
-
-       // 몇번째 카테고리가 선택되어 있는지 얻어옵니다
-       // 이 순서는 스프라이트 이미지에서의 위치를 계산하는데 사용됩니다
-       var order = document.getElementById(currCategory).getAttribute('data-order');
-
-       
-
-       for ( var i=0; i<places.length; i++ ) {
-   			console.log(places[i].place_name);
-               // 마커를 생성하고 지도에 표시합니다
-               var marker = addMarker(new daum.maps.LatLng(places[i].y, places[i].x), order);
-
-               // 마커와 검색결과 항목을 클릭 했을 때
-               // 장소정보를 표출하도록 클릭 이벤트를 등록합니다
-               (function(marker, place) {
-                   daum.maps.event.addListener(marker, 'click', function() {
-                       displayPlaceInfo(place);
-                   });
-               })(marker, places[i]);
-       }
-   }
-
-   // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
-   function addMarker(position, order) {
-       var imageSrc = 'http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
-           imageSize = new daum.maps.Size(27, 28),  // 마커 이미지의 크기
-           imgOptions =  {
-               spriteSize : new daum.maps.Size(72, 208), // 스프라이트 이미지의 크기
-               spriteOrigin : new daum.maps.Point(46, (order*36)), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
-               offset: new daum.maps.Point(11, 28) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
-           },
-           markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imgOptions),
-               marker = new daum.maps.Marker({
-               position: position, // 마커의 위치
-               image: markerImage 
-           });
-
-       marker.setMap(map); // 지도 위에 마커를 표출합니다
-       markers.push(marker);  // 배열에 생성된 마커를 추가합니다
-
-       return marker;
-   }
-
-   // 지도 위에 표시되고 있는 마커를 모두 제거합니다
-   function removeMarker() {
-       for ( var i = 0; i < markers.length; i++ ) {
-           markers[i].setMap(null);
-       }   
-       markers = [];
-   }
-
-   // 클릭한 마커에 대한 장소 상세정보를 커스텀 오버레이로 표시하는 함수입니다
-   function displayPlaceInfo (place) {
-       var content = '<div class="placeinfo">' +
-                       '   <a class="title" href="' + place.place_url + '" target="_blank" title="' + place.place_name + '">' + place.place_name + '</a>';   
-
-       if (place.road_address_name) {
-           content += '    <span title="' + place.road_address_name + '">' + place.road_address_name + '</span>' +
-                       '  <span class="jibun" title="' + place.address_name + '">(지번 : ' + place.address_name + ')</span>';
-       }  else {
-           content += '    <span title="' + place.address_name + '">' + place.address_name + '</span>';
-       }                
-      
-       content += '    <span class="tel">' + place.phone + '</span>' + 
-                   '</div>' + 
-                   '<div class="after"></div>';
-
-       contentNode.innerHTML = content;
-       placeOverlay.setPosition(new daum.maps.LatLng(place.y, place.x));
-       placeOverlay.setMap(map);  
-   }
-
-
-   // 각 카테고리에 클릭 이벤트를 등록합니다
-   function addCategoryClickEvent() {
-       var category = document.getElementById('category'),
-           children = category.children;
-
-       for (var i=0; i<children.length; i++) {
-           children[i].onclick = onClickCategory;
-       }
-   }
-
-   // 카테고리를 클릭했을 때 호출되는 함수입니다
-   function onClickCategory() {
-       var id = this.id,
-           className = this.className;
-
-       placeOverlay.setMap(null);
-
-       if (className === 'on') {
-           currCategory = '';
-           changeCategoryClass();
-           removeMarker();
-       } else {
-           currCategory = id;
-           changeCategoryClass(this);
-           searchPlaces();
-       }
-   }
-
-   // 클릭된 카테고리에만 클릭된 스타일을 적용하는 함수입니다
-   function changeCategoryClass(el) {
-       var category = document.getElementById('category'),
-           children = category.children,
-           i;
-
-       for ( i=0; i<children.length; i++ ) {
-           children[i].className = '';
-       }
-
-       if (el) {
-           el.className = 'on';
-       } 
-   } 
- 
-</script>		
-		
+		<div class="content">
+		<div class="ic"></div>
+		<div class="container_12">
+			<!--================ blogPost ================-->
+			<div class="grid_8">
+				<h3>Recommend Tour Info</h3>
+				<div class="blog">
+					<time datetime="2014-10-01">
+						15<span>Feb</span>
+					</time>
+					<div class="extra_wrapper">
+						<div class="text1 col1">
+							<a href="#">uamnibh Edet Mertolo numi</a>
+						</div>
+						Posted by <a href="#">Admin</a>
+					</div>
+					<div class="clear"></div>
+					<img src="images/page4_img1.jpg" alt="" class="img_inner">
+					<p>Cras facilisis, nulla vel viverra auctor, leo gna sodales
+						felis, quis malesuada nibh odio ut velit. Proin pharetra luctus
+						diam, a celerisque eros convallis accumsan.</p>
+					Maecenas vehicula egestas venenatis. Duis massa elit, auctor non
+					pellentesque vel aliquet sit amet erat. Nullam eget dignissim nisi,
+					aliquam feugiat nibh. <br> <a href="#" class="link1">LEARN
+						MORE</a>
+				</div>
+			</div>
+
+			<!--================= ^blogPost ==================-->
+			<!--================================= Category =================================-->
+			<div class="grid_4 prefix_1">
+				<h3 class="head1">CATEGORIES</h3>
+				<ul class="list">
+					<li><a href="#">Suspendisse massa mi </a></li>
+					<li><a href="#">Porttitor at velit id </a></li>
+					<li><a href="#">Congue adipiscing </a></li>
+					<li><a href="#">Vestibulum vitae porta </a></li>
+					<li><a href="#">Vivamus ac sodales </a></li>
+					<li><a href="#">Massa quis adipiscing </a></li>
+					<li><a href="#">Phasellus hendrerit </a></li>
+					<li><a href="#">Libero in sapien </a></li>
+					<li><a href="#">Dignissim vel imperdiet </a></li>
+				</ul>
+				<h3 class="head1">ARchives</h3>
+				<ul class="list">
+					<li><a href="#">November 2013</a></li>
+					<li><a href="#">October 2013</a></li>
+					<li><a href="#">September 2013</a></li>
+					<li><a href="#">August 2013</a></li>
+					<li><a href="#">July 2013</a></li>
+				</ul>
+			</div>
+			</div>
+			<div class="container_12">
+			<div class="content">
+				<div class="ic"></div>
+				<div class="grid_12">
+
+					<div class="map_wrap">
+						<ul id="category">
+							<li id="BK9" data-order="0"><span class="category_bg bank"></span>
+								은행</li>
+							<li id="MT1" data-order="1"><span class="category_bg mart"></span>
+								마트</li>
+							<li id="PM9" data-order="2"><span
+								class="category_bg pharmacy"></span> 약국</li>
+							<li id="OL7" data-order="3"><span class="category_bg oil"></span>
+								주유소</li>
+							<li id="CE7" data-order="4"><span class="category_bg cafe"></span>
+								카페</li>
+							<li id="CS2" data-order="5"><span class="category_bg store"></span>
+								편의점</li>
+							<li id="AD5" data-order="5"><span class="category_bg store"></span>
+								숙박</li>
+							<li id="AT4" data-order="5"><span class="category_bg store"></span>
+								관광지</li>
+							<li id="CT1" data-order="5"><span class="category_bg store"></span>
+								문화시설</li>
+						</ul>
+						<div id="map" style="width: 100%; height: 100%;"></div>
+					</div>
+
+					<button onclick="drawing()">소요시간측정하기</button>
+				</div>
+			</div>
+		</div>
+		</div>
+		<!--======================================스크립트 실행====================================-->
+		<script type="text/javascript"
+			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7b2110a6aaef5104b2ce89c704a24ed3&libraries=services"></script>
+		<script>
+			var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+			mapOption = {
+				center : new daum.maps.LatLng(33.37137, 126.56695), // 지도의 중심좌표
+				level : 8
+			// 지도의 확대 레벨
+			};
+
+			var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+			// 지도 타입 변경 컨트롤을 생성한다
+			var mapTypeControl = new daum.maps.MapTypeControl();
+
+			// 지도의 상단 우측에 지도 타입 변경 컨트롤을 추가한다
+			map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
+
+			// 지도에 확대 축소 컨트롤을 생성한다
+			var zoomControl = new daum.maps.ZoomControl();
+
+			// 지도의 우측에 확대 축소 컨트롤을 추가한다
+			map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
+
+			// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+			var positions = [
+					{
+						content : '<div class="customoverlay">'
+								+ '  <a href="http://map.daum.net/?itemId=11394059" target="_blank">'
+								+ '    <span class="title">제주시청</span>'
+								+ '  </a>' + '</div>',
+						latlng : new daum.maps.LatLng(33.499565, 126.531241)
+					},
+					{
+						content : '<div class="customoverlay">'
+								+ '  <a href="http://map.daum.net/?itemId=11394059" target="_blank">'
+								+ '    <span class="title">섭지코지</span>'
+								+ '  </a>' + '</div>',
+						latlng : new daum.maps.LatLng(33.42377208326678,
+								126.93045722895785)
+					},
+					{
+						content : '<div class="customoverlay">'
+								+ '  <a href="http://map.daum.net/?itemId=11394059" target="_blank">'
+								+ '    <span class="title">성산 일출봉</span>'
+								+ '  </a>' + '</div>',
+						latlng : new daum.maps.LatLng(33.45943569514741,
+								126.93968216363504)
+					},
+					{
+						content : '<div class="customoverlay">'
+								+ '  <a href="http://map.daum.net/?itemId=11394059" target="_blank">'
+								+ '    <span class="title">한라산</span>'
+								+ '  </a>' + '</div>',
+						latlng : new daum.maps.LatLng(33.36083380810028,
+								126.53581319393376)
+					} ];
+
+			var latlng = new daum.maps.LatLng(37, 127);
+
+			for (var i = 0; i < positions.length; i++) {
+				// 마커를 생성합니다
+				var marker = new daum.maps.Marker({
+					map : map, // 마커를 표시할 지도
+					clickable : true,
+					position : positions[i].latlng
+				// 마커의 위치
+				});
+
+				// 커스텀 오버레이를 생성합니다
+				var customOverlay = new daum.maps.CustomOverlay({
+					map : map,
+					clickable : true,
+					position : positions[i].latlng,
+					content : positions[i].content,
+					yAnchor : 1
+				});
+
+				customOverlay.setMap(null);
+
+				daum.maps.event.addListener(marker, 'click', makeOverListener(
+						map, marker, customOverlay));
+			}
+
+			//인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+			function makeOverListener(map, marker, customOverlay) {
+				return function() {
+					customOverlay.setMap(map);
+				};
+			}
+
+			//인포윈도우를 닫는 클로저를 만드는 함수입니다 
+			function makeOutListener(customOverlay) {
+				return function() {
+					customOverlay.setMap(null);
+				};
+			}
+
+			/* ##############################LINE SCRIPT############################### */
+			var drawingOK = false;
+			function drawing() {
+				if (!drawingOK) {
+					drawingOK = true;
+				} else {
+					drawingOK = false;
+					deleteClickLine();
+					deleteDistnce();
+					deleteCircleDot();
+				}
+			}
+
+			var drawingFlag = false; // 선이 그려지고 있는 상태를 가지고 있을 변수입니다
+			var moveLine; // 선이 그려지고 있을때 마우스 움직임에 따라 그려질 선 객체 입니다
+			var clickLine // 마우스로 클릭한 좌표로 그려질 선 객체입니다
+			var distanceOverlay; // 선의 거리정보를 표시할 커스텀오버레이 입니다
+			var dots = {}; // 선이 그려지고 있을때 클릭할 때마다 클릭 지점과 거리를 표시하는 커스텀 오버레이 배열입니다.
+
+			// 지도에 클릭 이벤트를 등록합니다
+			// 지도를 클릭하면 선 그리기가 시작됩니다 그려진 선이 있으면 지우고 다시 그립니다
+			daum.maps.event.addListener(map, 'click', function(mouseEvent) {
+
+				// 마우스로 클릭한 위치입니다 
+				var clickPosition = mouseEvent.latLng;
+
+				if (drawingOK) {
+					// 지도 클릭이벤트가 발생했는데 선을 그리고있는 상태가 아니면
+					if (!drawingFlag) {
+
+						// 상태를 true로, 선이 그리고있는 상태로 변경합니다
+						drawingFlag = true;
+
+						// 지도 위에 선이 표시되고 있다면 지도에서 제거합니다
+						deleteClickLine();
+
+						// 지도 위에 커스텀오버레이가 표시되고 있다면 지도에서 제거합니다
+						deleteDistnce();
+
+						// 지도 위에 선을 그리기 위해 클릭한 지점과 해당 지점의 거리정보가 표시되고 있다면 지도에서 제거합니다
+						deleteCircleDot();
+
+						// 클릭한 위치를 기준으로 선을 생성하고 지도위에 표시합니다
+						clickLine = new daum.maps.Polyline({
+							map : map, // 선을 표시할 지도입니다 
+							path : [ clickPosition ], // 선을 구성하는 좌표 배열입니다 클릭한 위치를 넣어줍니다
+							strokeWeight : 3, // 선의 두께입니다 
+							strokeColor : '#db4040', // 선의 색깔입니다
+							strokeOpacity : 1, // 선의 불투명도입니다 0에서 1 사이값이며 0에 가까울수록 투명합니다
+							strokeStyle : 'solid' // 선의 스타일입니다
+						});
+
+						// 선이 그려지고 있을 때 마우스 움직임에 따라 선이 그려질 위치를 표시할 선을 생성합니다
+						moveLine = new daum.maps.Polyline({
+							strokeWeight : 3, // 선의 두께입니다 
+							strokeColor : '#db4040', // 선의 색깔입니다
+							strokeOpacity : 0.5, // 선의 불투명도입니다 0에서 1 사이값이며 0에 가까울수록 투명합니다
+							strokeStyle : 'solid' // 선의 스타일입니다    
+						});
+
+						// 클릭한 지점에 대한 정보를 지도에 표시합니다
+						displayCircleDot(clickPosition, 0);
+
+					} else { // 선이 그려지고 있는 상태이면
+
+						// 그려지고 있는 선의 좌표 배열을 얻어옵니다
+						var path = clickLine.getPath();
+
+						// 좌표 배열에 클릭한 위치를 추가합니다
+						path.push(clickPosition);
+
+						// 다시 선에 좌표 배열을 설정하여 클릭 위치까지 선을 그리도록 설정합니다
+						clickLine.setPath(path);
+
+						var distance = Math.round(clickLine.getLength());
+						displayCircleDot(clickPosition, distance);
+					}
+				}
+
+			});
+
+			// 지도에 마우스무브 이벤트를 등록합니다
+			// 선을 그리고있는 상태에서 마우스무브 이벤트가 발생하면 그려질 선의 위치를 동적으로 보여주도록 합니다
+			daum.maps.event
+					.addListener(
+							map,
+							'mousemove',
+							function(mouseEvent) {
+
+								// 지도 마우스무브 이벤트가 발생했는데 선을 그리고있는 상태이면
+								if (drawingFlag) {
+
+									// 마우스 커서의 현재 위치를 얻어옵니다 
+									var mousePosition = mouseEvent.latLng;
+
+									// 마우스 클릭으로 그려진 선의 좌표 배열을 얻어옵니다
+									var path = clickLine.getPath();
+
+									// 마우스 클릭으로 그려진 마지막 좌표와 마우스 커서 위치의 좌표로 선을 표시합니다
+									var movepath = [ path[path.length - 1],
+											mousePosition ];
+									moveLine.setPath(movepath);
+									moveLine.setMap(map);
+
+									var distance = Math.round(clickLine
+											.getLength()
+											+ moveLine.getLength()), // 선의 총 거리를 계산합니다
+									content = '<div class="dotOverlay distanceInfo">총거리 <span class="number">'
+											+ distance + '</span>m</div>'; // 커스텀오버레이에 추가될 내용입니다
+
+									// 거리정보를 지도에 표시합니다
+									showDistance(content, mousePosition);
+								}
+							});
+
+			// 지도에 마우스 오른쪽 클릭 이벤트를 등록합니다
+			// 선을 그리고있는 상태에서 마우스 오른쪽 클릭 이벤트가 발생하면 선 그리기를 종료합니다
+			daum.maps.event
+					.addListener(
+							map,
+							'rightclick',
+							function(mouseEvent) {
+
+								// 지도 오른쪽 클릭 이벤트가 발생했는데 선을 그리고있는 상태이면
+								if (drawingFlag) {
+
+									// 마우스무브로 그려진 선은 지도에서 제거합니다
+									moveLine.setMap(null);
+									moveLine = null;
+
+									// 마우스 클릭으로 그린 선의 좌표 배열을 얻어옵니다
+									var path = clickLine.getPath();
+
+									// 선을 구성하는 좌표의 개수가 2개 이상이면
+									if (path.length > 1) {
+
+										// 마지막 클릭 지점에 대한 거리 정보 커스텀 오버레이를 지웁니다
+										if (dots[dots.length - 1].distance) {
+											dots[dots.length - 1].distance
+													.setMap(null);
+											dots[dots.length - 1].distance = null;
+										}
+
+										var distance = Math.round(clickLine
+												.getLength()), // 선의 총 거리를 계산합니다
+										content = getTimeHTML(distance); // 커스텀오버레이에 추가될 내용입니다
+
+										// 그려진 선의 거리정보를 지도에 표시합니다
+										showDistance(content,
+												path[path.length - 1]);
+
+									} else {
+
+										// 선을 구성하는 좌표의 개수가 1개 이하이면 
+										// 지도에 표시되고 있는 선과 정보들을 지도에서 제거합니다.
+										deleteClickLine();
+										deleteCircleDot();
+										deleteDistnce();
+
+									}
+
+									// 상태를 false로, 그리지 않고 있는 상태로 변경합니다
+									drawingFlag = false;
+								}
+							});
+
+			// 클릭으로 그려진 선을 지도에서 제거하는 함수입니다
+			function deleteClickLine() {
+				if (clickLine) {
+					clickLine.setMap(null);
+					clickLine = null;
+				}
+			}
+
+			// 마우스 드래그로 그려지고 있는 선의 총거리 정보를 표시하거
+			// 마우스 오른쪽 클릭으로 선 그리가 종료됐을 때 선의 정보를 표시하는 커스텀 오버레이를 생성하고 지도에 표시하는 함수입니다
+			function showDistance(content, position) {
+
+				if (distanceOverlay) { // 커스텀오버레이가 생성된 상태이면
+
+					// 커스텀 오버레이의 위치와 표시할 내용을 설정합니다
+					distanceOverlay.setPosition(position);
+					distanceOverlay.setContent(content);
+
+				} else { // 커스텀 오버레이가 생성되지 않은 상태이면
+
+					// 커스텀 오버레이를 생성하고 지도에 표시합니다
+					distanceOverlay = new daum.maps.CustomOverlay({
+						map : map, // 커스텀오버레이를 표시할 지도입니다
+						content : content, // 커스텀오버레이에 표시할 내용입니다
+						position : position, // 커스텀오버레이를 표시할 위치입니다.
+						xAnchor : 0,
+						yAnchor : 0,
+						zIndex : 3
+					});
+				}
+			}
+
+			// 그려지고 있는 선의 총거리 정보와 
+			// 선 그리가 종료됐을 때 선의 정보를 표시하는 커스텀 오버레이를 삭제하는 함수입니다
+			function deleteDistnce() {
+				if (distanceOverlay) {
+					distanceOverlay.setMap(null);
+					distanceOverlay = null;
+				}
+			}
+
+			// 선이 그려지고 있는 상태일 때 지도를 클릭하면 호출하여 
+			// 클릭 지점에 대한 정보 (동그라미와 클릭 지점까지의 총거리)를 표출하는 함수입니다
+			function displayCircleDot(position, distance) {
+
+				// 클릭 지점을 표시할 빨간 동그라미 커스텀오버레이를 생성합니다
+				var circleOverlay = new daum.maps.CustomOverlay({
+					content : '<span class="dot"></span>',
+					position : position,
+					zIndex : 1
+				});
+
+				// 지도에 표시합니다
+				circleOverlay.setMap(map);
+
+				if (distance > 0) {
+					// 클릭한 지점까지의 그려진 선의 총 거리를 표시할 커스텀 오버레이를 생성합니다
+					var distanceOverlay = new daum.maps.CustomOverlay(
+							{
+								content : '<div class="dotOverlay">거리 <span class="number">'
+										+ distance + '</span>m</div>',
+								position : position,
+								yAnchor : 1,
+								zIndex : 2
+							});
+
+					// 지도에 표시합니다
+					distanceOverlay.setMap(map);
+				}
+
+				// 배열에 추가합니다
+				dots.push({
+					circle : circleOverlay,
+					distance : distanceOverlay
+				});
+			}
+
+			// 클릭 지점에 대한 정보 (동그라미와 클릭 지점까지의 총거리)를 지도에서 모두 제거하는 함수입니다
+			function deleteCircleDot() {
+				var i;
+
+				for (i = 0; i < dots.length; i++) {
+					if (dots[i].circle) {
+						dots[i].circle.setMap(null);
+					}
+
+					if (dots[i].distance) {
+						dots[i].distance.setMap(null);
+					}
+				}
+
+				dots = [];
+			}
+
+			// 마우스 우클릭 하여 선 그리기가 종료됐을 때 호출하여 
+			// 그려진 선의 총거리 정보와 거리에 대한 도보, 자전거 시간을 계산하여
+			// HTML Content를 만들어 리턴하는 함수입니다
+			function getTimeHTML(distance) {
+
+				// 도보의 시속은 평균 4km/h 이고 도보의 분속은 67m/min입니다
+				var walkkTime = distance / 67 | 0;
+				var walkHour = '', walkMin = '';
+
+				// 계산한 도보 시간이 60분 보다 크면 시간으로 표시합니다
+				if (walkkTime > 60) {
+					walkHour = '<span class="number">'
+							+ Math.floor(walkkTime / 60) + '</span>시간 '
+				}
+				walkMin = '<span class="number">' + walkkTime % 60 + '</span>분'
+
+				// 자전거의 평균 시속은 16km/h 이고 이것을 기준으로 자전거의 분속은 267m/min입니다
+				var bycicleTime = distance / 227 | 0;
+				var bycicleHour = '', bycicleMin = '';
+
+				// 계산한 자전거 시간이 60분 보다 크면 시간으로 표출합니다
+				if (bycicleTime > 60) {
+					bycicleHour = '<span class="number">'
+							+ Math.floor(bycicleTime / 60) + '</span>시간 '
+				}
+				bycicleMin = '<span class="number">' + bycicleTime % 60
+						+ '</span>분'
+
+				// 거리와 도보 시간, 자전거 시간을 가지고 HTML Content를 만들어 리턴합니다
+				var content = '<ul class="dotOverlay distanceInfo">';
+				content += '    <li>';
+				content += '        <span class="label">총거리</span><span class="number">'
+						+ distance + '</span>m';
+				content += '    </li>';
+				content += '    <li>';
+				content += '        <span class="label">도보</span>' + walkHour
+						+ walkMin;
+				content += '    </li>';
+				content += '    <li>';
+				content += '        <span class="label">자전거</span>'
+						+ bycicleHour + bycicleMin;
+				content += '    </li>';
+				content += '</ul>'
+
+				return content;
+
+			}
+
+			////////////////////////////// PLACE SCRIPT ///////////////////////////////////////////////
+
+			//마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
+			var placeOverlay = new daum.maps.CustomOverlay({
+				zIndex : 1
+			}), contentNode = document.createElement('div'), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다 
+			markers = [], // 마커를 담을 배열입니다
+			currCategory = ''; // 현재 선택된 카테고리를 가지고 있을 변수입니다
+
+			// 장소 검색 객체를 생성합니다
+			var ps = new daum.maps.services.Places(map);
+
+			// 지도에 idle 이벤트를 등록합니다
+			daum.maps.event.addListener(map, 'idle', searchPlaces);
+
+			// 커스텀 오버레이의 컨텐츠 노드에 css class를 추가합니다 
+			contentNode.className = 'placeinfo_wrap';
+
+			// 커스텀 오버레이의 컨텐츠 노드에 mousedown, touchstart 이벤트가 발생했을때
+			// 지도 객체에 이벤트가 전달되지 않도록 이벤트 핸들러로 daum.maps.event.preventMap 메소드를 등록합니다 
+			addEventHandle(contentNode, 'mousedown', daum.maps.event.preventMap);
+			addEventHandle(contentNode, 'touchstart',
+					daum.maps.event.preventMap);
+
+			// 커스텀 오버레이 컨텐츠를 설정합니다
+			placeOverlay.setContent(contentNode);
+
+			// 각 카테고리에 클릭 이벤트를 등록합니다
+			addCategoryClickEvent();
+
+			// 엘리먼트에 이벤트 핸들러를 등록하는 함수입니다
+			function addEventHandle(target, type, callback) {
+				if (target.addEventListener) {
+					target.addEventListener(type, callback);
+				} else {
+					target.attachEvent('on' + type, callback);
+				}
+			}
+
+			// 카테고리 검색을 요청하는 함수입니다
+			function searchPlaces() {
+				if (!currCategory) {
+					return;
+				}
+
+				// 커스텀 오버레이를 숨깁니다 
+				placeOverlay.setMap(null);
+
+				// 지도에 표시되고 있는 마커를 제거합니다
+				removeMarker();
+
+				ps.categorySearch(currCategory, placesSearchCB, {
+					useMapBounds : true
+				});
+			}
+
+			// 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
+			function placesSearchCB(data, status, pagination) {
+				if (status === daum.maps.services.Status.OK) {
+
+					// 정상적으로 검색이 완료됐으면 지도에 마커를 표출합니다
+					displayPlaces(data);
+				} else if (status === daum.maps.services.Status.ZERO_RESULT) {
+					// 검색결과가 없는경우 해야할 처리가 있다면 이곳에 작성해 주세요
+					alert("현재 범위에 검색 결과가 없습니다.")
+				} else if (status === daum.maps.services.Status.ERROR) {
+					// 에러로 인해 검색결과가 나오지 않은 경우 해야할 처리가 있다면 이곳에 작성해 주세요
+					alert("error")
+				}
+			}
+
+			// 지도에 마커를 표출하는 함수입니다
+			function displayPlaces(places) {
+
+				// 몇번째 카테고리가 선택되어 있는지 얻어옵니다
+				// 이 순서는 스프라이트 이미지에서의 위치를 계산하는데 사용됩니다
+				var order = document.getElementById(currCategory).getAttribute(
+						'data-order');
+
+				for (var i = 0; i < places.length; i++) {
+					console.log(places[i].place_name);
+					// 마커를 생성하고 지도에 표시합니다
+					var marker = addMarker(new daum.maps.LatLng(places[i].y,
+							places[i].x), order);
+
+					// 마커와 검색결과 항목을 클릭 했을 때
+					// 장소정보를 표출하도록 클릭 이벤트를 등록합니다
+					(function(marker, place) {
+						daum.maps.event.addListener(marker, 'click',
+								function() {
+									displayPlaceInfo(place);
+								});
+					})(marker, places[i]);
+				}
+			}
+
+			// 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
+			function addMarker(position, order) {
+				var imageSrc = 'http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+				imageSize = new daum.maps.Size(27, 28), // 마커 이미지의 크기
+				imgOptions = {
+					spriteSize : new daum.maps.Size(72, 208), // 스프라이트 이미지의 크기
+					spriteOrigin : new daum.maps.Point(46, (order * 36)), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
+					offset : new daum.maps.Point(11, 28)
+				// 마커 좌표에 일치시킬 이미지 내에서의 좌표
+				}, markerImage = new daum.maps.MarkerImage(imageSrc, imageSize,
+						imgOptions), marker = new daum.maps.Marker({
+					position : position, // 마커의 위치
+					image : markerImage
+				});
+
+				marker.setMap(map); // 지도 위에 마커를 표출합니다
+				markers.push(marker); // 배열에 생성된 마커를 추가합니다
+
+				return marker;
+			}
+
+			// 지도 위에 표시되고 있는 마커를 모두 제거합니다
+			function removeMarker() {
+				for (var i = 0; i < markers.length; i++) {
+					markers[i].setMap(null);
+				}
+				markers = [];
+			}
+
+			// 클릭한 마커에 대한 장소 상세정보를 커스텀 오버레이로 표시하는 함수입니다
+			function displayPlaceInfo(place) {
+				var content = '<div class="placeinfo">'
+						+ '   <a class="title" href="' + place.place_url + '" target="_blank" title="' + place.place_name + '">'
+						+ place.place_name + '</a>';
+
+				if (place.road_address_name) {
+					content += '    <span title="' + place.road_address_name + '">'
+							+ place.road_address_name
+							+ '</span>'
+							+ '  <span class="jibun" title="' + place.address_name + '">(지번 : '
+							+ place.address_name + ')</span>';
+				} else {
+					content += '    <span title="' + place.address_name + '">'
+							+ place.address_name + '</span>';
+				}
+
+				content += '    <span class="tel">' + place.phone + '</span>'
+						+ '</div>' + '<div class="after"></div>';
+
+				contentNode.innerHTML = content;
+				placeOverlay
+						.setPosition(new daum.maps.LatLng(place.y, place.x));
+				placeOverlay.setMap(map);
+			}
+
+			// 각 카테고리에 클릭 이벤트를 등록합니다
+			function addCategoryClickEvent() {
+				var category = document.getElementById('category'), children = category.children;
+
+				for (var i = 0; i < children.length; i++) {
+					children[i].onclick = onClickCategory;
+				}
+			}
+
+			// 카테고리를 클릭했을 때 호출되는 함수입니다
+			function onClickCategory() {
+				var id = this.id, className = this.className;
+
+				placeOverlay.setMap(null);
+
+				if (className === 'on') {
+					currCategory = '';
+					changeCategoryClass();
+					removeMarker();
+				} else {
+					currCategory = id;
+					changeCategoryClass(this);
+					searchPlaces();
+				}
+			}
+
+			// 클릭된 카테고리에만 클릭된 스타일을 적용하는 함수입니다
+			function changeCategoryClass(el) {
+				var category = document.getElementById('category'), children = category.children, i;
+
+				for (i = 0; i < children.length; i++) {
+					children[i].className = '';
+				}
+
+				if (el) {
+					el.className = 'on';
+				}
+			}
+		</script>
+
+		<!--==============================footer=================================-->
+		<footer>
+			<div class="container_12">
+				<div class="grid_12">
+					<div class="socials">
+						<a href="#" class="fa fa-facebook"></a> <a href="#"
+							class="fa fa-twitter"></a> <a href="#" class="fa fa-google-plus"></a>
+					</div>
+					<div class="copy">
+						Tripicker (c) 2017 | <a href="#">Privacy Policy</a> | Website
+						Template Designed by <a href="http://www.templatemonster.com/"
+							rel="nofollow">TemplateMonster.com</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+</body>
+</html>
