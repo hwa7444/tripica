@@ -52,7 +52,7 @@
 
 </style>
 <title>Hot Tours</title>
-<meta charset="utf-8">
+<meta charset="euc-kr">
 <meta name="format-detection" content="telephone=no" />
 <link rel="icon" href="images/favicon.ico">
 <link rel="shortcut icon" href="images/favicon.ico" />

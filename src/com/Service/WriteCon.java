@@ -28,6 +28,8 @@ public class WriteCon extends HttpServlet {
 		 * 절대경로에 대한 정보를 반환
 		 */
 		// 파일전송 Form인지를 체크
+		
+		/*request.setCharacterEncoding("UTF-8");*/
 		boolean isMulti = ServletFileUpload.isMultipartContent(request);
 		MultipartRequest multi = null;
 
@@ -36,7 +38,7 @@ public class WriteCon extends HttpServlet {
 		String saveDir = context.getRealPath("upload");
 		
 		int maxSize = 10 * 1024 * 1024; // 3MB
-		String encoding = "utf-8";
+		String encoding = "euc-kr";
 		System.out.println("절대경로 >>" + saveDir);
 		
 		if(isMulti) {

@@ -7,15 +7,18 @@
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-
+<%
+	request.setCharacterEncoding("EUC-KR");
+	%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <title>Blog</title>
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
 <!-- ºÎÆ®½ºÆ®·¦ -->
 <!-- <meta name="viewport" content="width=device-width" , initial-scale="1">
 <link rel="stylesheet" href="css/bootstrap.css"> -->
+<meta charset="euc-kr">
 <meta name="format-detection" content="telephone=no" />
 <link rel="icon" href="images/favicon.ico">
 <link rel="shortcut icon" href="images/favicon.ico" />
@@ -225,7 +228,7 @@
 								<li><a href="HotTour.jsp">HOT TOURS</a></li>
 								<li><a href="specialOffer.jsp">SPECIAL OFFERS</a></li>
 								<li class="current"><a href="SelectService?start=0&end=8">POST</a></li>
-								<li><a href="Index04_Map.jsp">CONTACTS</a></li>
+								<li><a href="Map.jsp">MAP</a></li>
 							</ul>
 						</nav>
 						<div class="clear"></div>

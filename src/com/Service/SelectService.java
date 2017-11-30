@@ -18,6 +18,9 @@ public class SelectService extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//DB에 저장된 file정보를 모두 검색해서 jsp로 전송
+		
+		request.setCharacterEncoding("EUC-KR");
+		
 		int start = Integer.parseInt(request.getParameter("start"));
 		int end = Integer.parseInt(request.getParameter("end"));
 		
