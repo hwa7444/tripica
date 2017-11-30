@@ -323,13 +323,16 @@
 			} else if (aa == 2) {
 				if (result1 == 1) {
 					alert(document.getElementById("first1").src);
-					
+					location.href="HotTour.jsp";
 				} else if (result1 == 2) {
 					alert(document.getElementById("first2").src);
+					location.href="HotTour.jsp";
 				} else if (result1 == 3) {
 					alert(document.getElementById("first3").src);
+					location.href="HotTour.jsp";
 				} else if (result1 == 4) {
 					alert(document.getElementById("first4").src);
+					location.href="HotTour.jsp";
 				}
 
 			}
