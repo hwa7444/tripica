@@ -1123,6 +1123,16 @@
 		<script type="text/javascript"
 			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7b2110a6aaef5104b2ce89c704a24ed3"></script>
 		<script>
+		
+		var mapContainerhot = document.getElementById('minimap1'), // 지도를 표시할 div  
+		mapOption = {
+			center : new daum.maps.LatLng(33.37137, 126.56695), // 지도의 중심좌표
+			level : 10
+		// 지도의 확대 레벨
+		};
+		var hotmap = new daum.maps.Map(mapContainerhot, mapOption); // 지도를 생성합니다
+		
+		
 			var mapContainer = document.getElementById('minimap1'), // 지도를 표시할 div  
 			mapOption = {
 				center : new daum.maps.LatLng(33.37137, 126.56695), // 지도의 중심좌표
@@ -1173,7 +1183,16 @@
 			map2.setMapTypeId(daum.maps.MapTypeId.HYBRID);
 			map3.setMapTypeId(daum.maps.MapTypeId.HYBRID);
 			map4.setMapTypeId(daum.maps.MapTypeId.HYBRID);
-
+			var n = 0;
+			setInterval(function() {
+				if(n<=3)	{
+					map.panTo(positions[n].latlng);
+					n++;
+				}else{
+					n=0;
+				}
+				
+				}, 3000);
 			/* // 지도에 확대 축소 컨트롤을 생성한다
 			 var zoomControl = new daum.maps.ZoomControl();
 			 var zoomControl2 = new daum.maps.ZoomControl();
