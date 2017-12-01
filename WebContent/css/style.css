@@ -468,6 +468,7 @@ h1, h2, h3, h4, h5, h6 {
 /* 메인 화면 큰글씨 색깔 바꾸기*/
 h2 {
 	font-family:'SeoulNamsanEB';
+	text-shadow: 0.05em 0.05em 0.15em #193c46;
 	z-index: 2;
 	font-size: 72px;
 	line-height: 30px;
@@ -488,6 +489,7 @@ h3 {
 	padding-top: 116px;
 	margin-bottom: 17px;
 	font-weight: normal;
+	text-shadow: 0.05em 0.05em 0.15em #193c46; !important
 }
 
 h3.head1 {
@@ -739,7 +741,7 @@ header h1 a img {
 }
 /**Content**/
 .content {
-	background-color: #fff;
+	background-color: #eee;
 	padding-bottom: 120px;
 }
 

@@ -517,45 +517,47 @@
 			<!--================ blogPost ================-->
 			<div class="grid_8">
 				<h3>Recommend Tour Info</h3>
-				<div class="blog">
+				<!-- 경도 : 여행지 사진, 설명 이 출력되는 부분-->
+				
+				<div class="blog"> <!-- 경도 :기본 틀입니다. 카테고리클릭시 여기 div에 id 값을 주어 불러 들이면 됩니다.-->
 					<time datetime="2014-10-01">
-						15<span>Feb</span>
+						<!-- 경도 : 날짜가 출력도니느 부분이지만 여행지 순서출력하면 좋을 합니다.  -->1<span>번째</span> 
 					</time>
 					<div class="extra_wrapper">
 						<div class="text1 col1">
-							<a href="#">uamnibh Edet Mertolo numi</a>
+							<a href="#">교육박물관</a> <!-- 경도 : 여행지 제목 출력하기 -->
 						</div>
-						Posted by <a href="#">Admin</a>
+						<!-- 경도 : 원한다면 여기에 여행지 타입 출력 -->				
+						타입: 박물관
+						<!-- 경도 : 원한다면 여기에 여행지 타입 출력 end -->	
 					</div>
-					<div class="clear"></div>
-					<img src="images/page4_img1.jpg" alt="" class="img_inner">
-					<p>Cras facilisis, nulla vel viverra auctor, leo gna sodales
-						felis, quis malesuada nibh odio ut velit. Proin pharetra luctus
-						diam, a celerisque eros convallis accumsan.</p>
-					Maecenas vehicula egestas venenatis. Duis massa elit, auctor non
-					pellentesque vel aliquet sit amet erat. Nullam eget dignissim nisi,
-					aliquam feugiat nibh. <br> <a href="#" class="link1">LEARN
-						MORE</a>
+					<div class="clear"></div> <!-- 그대로 두면되는 클래스 입니다. -->
+					<img src="images/page4_img1.jpg" alt="" class="img_inner"> <!-- 경도: 여행지 사진 출력 -->
+					<p><br> 
+					
+					
+					<!-- <a href="#" class="link1">LEARN
+						MORE</a>  --><!-- 필요없는 버튼입니다 -->
 				</div>
 			</div>
+			
+			<!-- 경도 : 여행지 사진, 설명 이 출력되는 부분 end-->
 
 			<!--================= ^blogPost ==================-->
 			<!--================================= Category =================================-->
+			
 			<div class="grid_4 prefix_1">
-				<h3 class="head1">TRIP TYPE</h3>
-				<ul class="list">
-					<li><a href="#">자연 및 풍경 감상</a></li>
-					<li><a href="#">테마파크, 놀이시설</a></li>
-					<li><a href="#">야외 위락, 스포츠 활동</a></li>
-					<li><a href="#">박물관, 유적지</a></li>
-					<li><a href="#">Vivamus ac sodales </a></li>
-					<li><a href="#">Massa quis adipiscing </a></li>
-					<li><a href="#">Phasellus hendrerit </a></li>
-					<li><a href="#">Libero in sapien </a></li>
-					<li><a href="#">Dignissim vel imperdiet </a></li>
+				<h3 class="head1">YOUR ROUT</h3> <!-- 경도 : 여행지 목록 출력 부분-->
+				<ul class="list"> <!--foransdms li 태그 안에서 돌리면 됩니다.-->
+					<li><a href="#">교육박물관</a></li>
+					<li><a href="#">카멜리아힐</a></li>
+					<li><a href="#">미니랜드</a></li>
+					<li><a href="#">에코피아</a></li>
 				</ul>
 			</div>
 			</div>
+			
+			<!--======================================== 지도 출력부분입니다 밑에는 안보셔도 되요 ======================================-->
 			<div class="container_12">
 			<div class="content">
 				<div class="ic"></div>
