@@ -542,25 +542,17 @@
 			<!--================= ^blogPost ==================-->
 			<!--================================= Category =================================-->
 			<div class="grid_4 prefix_1">
-				<h3 class="head1">CATEGORIES</h3>
+				<h3 class="head1">TRIP TYPE</h3>
 				<ul class="list">
-					<li><a href="#">Suspendisse massa mi </a></li>
-					<li><a href="#">Porttitor at velit id </a></li>
-					<li><a href="#">Congue adipiscing </a></li>
-					<li><a href="#">Vestibulum vitae porta </a></li>
+					<li><a href="#">자연 및 풍경 감상</a></li>
+					<li><a href="#">테마파크, 놀이시설</a></li>
+					<li><a href="#">야외 위락, 스포츠 활동</a></li>
+					<li><a href="#">박물관, 유적지</a></li>
 					<li><a href="#">Vivamus ac sodales </a></li>
 					<li><a href="#">Massa quis adipiscing </a></li>
 					<li><a href="#">Phasellus hendrerit </a></li>
 					<li><a href="#">Libero in sapien </a></li>
 					<li><a href="#">Dignissim vel imperdiet </a></li>
-				</ul>
-				<h3 class="head1">ARchives</h3>
-				<ul class="list">
-					<li><a href="#">November 2013</a></li>
-					<li><a href="#">October 2013</a></li>
-					<li><a href="#">September 2013</a></li>
-					<li><a href="#">August 2013</a></li>
-					<li><a href="#">July 2013</a></li>
 				</ul>
 			</div>
 			</div>

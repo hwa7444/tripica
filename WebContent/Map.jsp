@@ -525,7 +525,7 @@
 					<div clas="special_banner"
 						style="background-color: red; position: absolute; width: 800px; height: 10px;"> <!--///위에 공간 입니당///-->
 						위에 공간 입니다.
-						<br>넣고 싶은거 다 넣으세여 제가 공간 조정할께요!</div>
+						<br>지도가 저장될 공간?</div>
 				</div>
 		</div>
 		<div class="content">
@@ -561,6 +561,11 @@
 			<div class="content">
 			<div class="ic"></div>
 			<h3 style="margin-left: 100px;!important top:0;">SHOW YOUR ROUT</h3>
+			여기에다가 게시판을 ...? 
+	<div class="grid_12"> <!-- 지도 게시판 -->
+	여기!!
+	</div>
+			</table>
 			</div>
 		<!--===================================^지도 게시판 만들기=======================================-->
 

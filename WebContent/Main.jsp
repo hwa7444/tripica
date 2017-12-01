@@ -3,13 +3,14 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	request.setCharacterEncoding("EUC-KR");
-	%>
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <style>
 .menu_block nav {
-font-family:'SeoulNamsanEB';}
+	font-family: 'SeoulNamsanEB';
+}
 
 /* css [line] */
 .dot {
@@ -130,9 +131,9 @@ font-family:'SeoulNamsanEB';}
 <link rel="icon" href="images/favicon.ico">
 <link rel="shortcut icon" href="images/favicon.ico" />
 <link rel="stylesheet" href="booking/css/booking.css">
-<link rel="stylesheet" href="css/camera.css?ver=1">
+<link rel="stylesheet" href="css/camera.css">
 <link rel="stylesheet" href="css/owl.carousel.css">
-<link rel="stylesheet" href="css/style.css?ver=1">
+<link rel="stylesheet" href="css/style.css">
 
 
 <script
@@ -205,22 +206,22 @@ font-family:'SeoulNamsanEB';}
 			<div class="clear"></div>
 			<ul align="center">
 
-				<li><div class="grid_4"  id="no1">
-						<img style="width: 300px; height: 200px;" class="tripImg" id="first1" src="images/page2_img6.jpg"
-							onclick="moveFrom(1)">
+				<li><div class="grid_4" id="no1">
+						<img style="width: 300px; height: 200px;" class="tripImg"
+							id="first1" src="images/page2_img6.jpg" onclick="moveFrom(1)">
 					</div></li>
 				<li><div class="grid_4" id="no2">
-						<img style="width: 300px; height: 200px;" class="tripImg" id="first2" src="images/page2_img6.jpg"
-							onclick="moveFrom(2)">
+						<img style="width: 300px; height: 200px;" class="tripImg"
+							id="first2" src="images/page2_img6.jpg" onclick="moveFrom(2)">
 					</div></li>
 				<div class="clear"></div>
 				<li><div class="grid_4" id="no3">
-						<img style="width: 300px; height: 200px;" class="tripImg" id="first3" src="images/page2_img6.jpg"
-							onclick="moveFrom(3)">
+						<img style="width: 300px; height: 200px;" class="tripImg"
+							id="first3" src="images/page2_img6.jpg" onclick="moveFrom(3)">
 					</div></li>
 				<li><div class="grid_4" id="no4">
-						<img style="width: 300px; height: 200px;" class="tripImg" id="first4" src="images/page2_img6.jpg"
-							onclick="moveFrom(4)">
+						<img style="width: 300px; height: 200px;" class="tripImg"
+							id="first4" src="images/page2_img6.jpg" onclick="moveFrom(4)">
 					</div></li>
 				<div class="clear"></div>
 
@@ -326,16 +327,16 @@ font-family:'SeoulNamsanEB';}
 			} else if (aa == 2) {
 				if (result1 == 1) {
 					alert(document.getElementById("first1").src);
-					location.href="specialOffer.jsp";
+					location.href = "specialOffer.jsp";
 				} else if (result1 == 2) {
 					alert(document.getElementById("first2").src);
-					location.href="specialOffer.jsp";
+					location.href = "specialOffer.jsp";
 				} else if (result1 == 3) {
 					alert(document.getElementById("first3").src);
-					location.href="specialOffer.jsp";
+					location.href = "specialOffer.jsp";
 				} else if (result1 == 4) {
 					alert(document.getElementById("first4").src);
-					location.href="specialOffer.jsp";
+					location.href = "specialOffer.jsp";
 				}
 
 			}
@@ -607,8 +608,16 @@ font-family:'SeoulNamsanEB';}
 			<div class="ic"></div>
 			<!-- ================= banner ====================== -->
 			<div class="container_12">
+			<h3>Hot Map</h3>
+			<h2 style="font-size: 1.3em;">많은 사람들이 선호하는 여행루트 입니다.</h2>
+				<div class="grid_12">
+					<!-- MINIMAP 1번 사용자 맞춤 추천 루트 -->
+					<div style="background-color: lightblue; width: 930px; height: 460px;" id="minimap5"></div>
+				</div>
+			</div>
+			<div class="container_12">
 				<h3>Recommend</h3>
-				<h2 style="font-size:1.3em;">많은 이용자들이 선호하는 식당입니다.</h2>
+				<h2 style="font-size: 1.3em;">많은 이용자들이 선호하는 식당입니다.</h2>
 				<div class="grid_6">
 					<!-- MINIMAP 1번 사용자 맞춤 추천 루트 -->
 					<div id="minimap1"></div>
@@ -623,7 +632,7 @@ font-family:'SeoulNamsanEB';}
 			<div class="container_12">
 
 				<h3>Tirpicker's Choice</h3>
-				<h2 style="font-size:1.3em;">많은 이용자들이 선호하는 식당입니다.</h2>
+				<h2 style="font-size: 1.3em;">많은 이용자들이 선호하는 식당입니다.</h2>
 				<div class="grid_6">
 					<!-- MINIMAP 3번 우리사이트 자체 추천 루트 -->
 					<div id="minimap3"></div>
@@ -686,60 +695,75 @@ font-family:'SeoulNamsanEB';}
 					<!-- ===========================^Lastest News=================================== -->
 				</div>
 			</div>
-			
+
 			<script type="text/javascript">
-			document.getElementById("news1").addEventListener("mouseover",
-					function(e) {
-						lastCon.style.background="url('images/slide2.jpg')";
-					});
-			document.getElementById("news1").addEventListener("mouseout",
-					function(e) {
-				lastCon.style.background = "url('images/page1_img1.jpg')";
+				document
+						.getElementById("news1")
+						.addEventListener(
+								"mouseover",
+								function(e) {
+									lastCon.style.background = "url('images/slide2.jpg')";
+								});
+				document
+						.getElementById("news1")
+						.addEventListener(
+								"mouseout",
+								function(e) {
+									lastCon.style.background = "url('images/page1_img1.jpg')";
 
-					});
-			document.getElementById("news2").addEventListener("mouseover",
-					function(e) {
-						lastCon.style.background="url('images/slide.jpg')";
-					});
-			document.getElementById("news2").addEventListener("mouseout",
-					function(e) {
-				lastCon.style.background = "url('images/page1_img1.jpg')";
+								});
+				document
+						.getElementById("news2")
+						.addEventListener(
+								"mouseover",
+								function(e) {
+									lastCon.style.background = "url('images/slide.jpg')";
+								});
+				document
+						.getElementById("news2")
+						.addEventListener(
+								"mouseout",
+								function(e) {
+									lastCon.style.background = "url('images/page1_img1.jpg')";
 
-					});
-			document.getElementById("news3").addEventListener("mouseover",
-					function(e) {
-						lastCon.style.background="url('images/page4_img2.jpg')";
-					});
-			document.getElementById("news3").addEventListener("mouseout",
-					function(e) {
-				lastCon.style.background = "url('images/page1_img1.jpg')";
+								});
+				document
+						.getElementById("news3")
+						.addEventListener(
+								"mouseover",
+								function(e) {
+									lastCon.style.background = "url('images/page4_img2.jpg')";
+								});
+				document
+						.getElementById("news3")
+						.addEventListener(
+								"mouseout",
+								function(e) {
+									lastCon.style.background = "url('images/page1_img1.jpg')";
 
-					});
+								});
 			</script>
 			<!--==============================Content=================================-->
 			<div class="content">
 				<div class="ic"></div>
 				<div class="container_12">
 					<div class="grid_4 suffix_1">
-					<h3>Welcome!</h3>
-						<div
-							style=" width: 320px; height: 460px;">
-							
-							Tripicker는 여행자의 취향을 반영하여, 맞춤형 루트를 추천해주는 사이트 입니다.
-							</div>
+						<h3>Welcome!</h3>
+						<div style="width: 320px; height: 460px;">Tripicker는 여행자의
+							취향을 반영하여, 맞춤형 루트를 추천해주는 사이트 입니다.</div>
 					</div>
 					<div class="grid_7">
-					<h3>Welcome!</h3>
+						<h3>Welcome!</h3>
 						<div
 							style="background-color: lightblue; width: 560px; height: 460px;"></div>
-							
+
 					</div>
 				</div>
 
 				<div class="clear"></div>
-				
-					<!-- ==================== ^banner ======================= -->
-				
+
+				<!-- ==================== ^banner ======================= -->
+
 				<!-- ============== welcome ===================== -->
 				<!-- <div class="grid_4">
 							<h3>Welcome</h3>
@@ -1147,16 +1171,14 @@ font-family:'SeoulNamsanEB';}
 		<script type="text/javascript"
 			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7b2110a6aaef5104b2ce89c704a24ed3"></script>
 		<script>
-		
-		var mapContainerhot = document.getElementById('minimap1'), // 지도를 표시할 div  
-		mapOption = {
-			center : new daum.maps.LatLng(33.37137, 126.56695), // 지도의 중심좌표
-			level : 10
-		// 지도의 확대 레벨
-		};
-		var hotmap = new daum.maps.Map(mapContainerhot, mapOption); // 지도를 생성합니다
-		
-		
+			var mapContainerhot = document.getElementById('minimap1'), // 지도를 표시할 div  
+			mapOption = {
+				center : new daum.maps.LatLng(33.37137, 126.56695), // 지도의 중심좌표
+				level : 10
+			// 지도의 확대 레벨
+			};
+			var hotmap = new daum.maps.Map(mapContainerhot, mapOption); // 지도를 생성합니다
+
 			var mapContainer = document.getElementById('minimap1'), // 지도를 표시할 div  
 			mapOption = {
 				center : new daum.maps.LatLng(33.37137, 126.56695), // 지도의 중심좌표
@@ -1209,14 +1231,14 @@ font-family:'SeoulNamsanEB';}
 			map4.setMapTypeId(daum.maps.MapTypeId.HYBRID);
 			var n = 0;
 			setInterval(function() {
-				if(n<=3)	{
+				if (n <= 3) {
 					map.panTo(positions[n].latlng);
 					n++;
-				}else{
-					n=0;
+				} else {
+					n = 0;
 				}
-				
-				}, 3000);
+
+			}, 3000);
 			/* // 지도에 확대 축소 컨트롤을 생성한다
 			 var zoomControl = new daum.maps.ZoomControl();
 			 var zoomControl2 = new daum.maps.ZoomControl();

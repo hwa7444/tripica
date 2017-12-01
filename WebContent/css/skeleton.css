@@ -26,17 +26,21 @@
 	padding: 0;
 	
 }
-#minimap1{
+
+#minimap1{ /*메인 recommend 1번째 지도*/
 	background-color: lightblue; width: 460px; height: 460px;
 }
-#minimap2{
+#minimap2{ /*메인 recommend 2번째 지도*/
 	background-color: lightblue; width: 460px; height: 460px;
 }
-#minimap3{
+#minimap3{ /*메인 Tripciker 1번째 지도*/
 	background-color: lightblue; width: 460px; height: 460px;
 }
-#minimap4{
+#minimap4{ /*메인 Tripciker 2번째 지도*/
 	background-color: lightblue; width: 460px; height: 460px;
+}
+#minimap5{ /*메인 hot map 1번째 지도*/
+	background-color: lightblue; width: 930px; height: 460px;
 }
 /*===========================LOGIN / OUT 하는 사이드 메뉴======================*/
 .allFor .grid_13{
