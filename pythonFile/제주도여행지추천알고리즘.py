@@ -149,9 +149,6 @@ members = {
 
 # In[41]:
 
-k=members['박병관']['제주추사관'][1]
-k
-
 
 # # 피어슨상관계수
 
@@ -188,16 +185,7 @@ def sim_pearson(data, person1, person2):
     r=coval/sqrt(varX*varY)
     
     return r
-   
 
-
-# In[43]:
-
-print(sim_pearson(members, '황해도', '임명진'))
-print(sim_pearson(members, '심수정', '차현석'))
-
-
-# In[54]:
 
 def sim_distance(data,person1,person2):
    
@@ -267,14 +255,20 @@ def getRecommendation(data, person,sim_funciton=sim_pearson):
        
     for tour in score_dic:
         rate=score_dic[tour]/simsum_list[tour]
+        
+        
+       
+        cur.execute('select t_location from tour_list where tour=(:k) ',k=tour)
+        loca = cur.fetchone()
+        
         if data[person]['type'][1]=='mus':
-            recom_list.append((rate*1.2,tour)) #선호 여행지에대한 가중치 1.2 줌
-        else :recom_list.append((rate,tour))
+            recom_list.append((rate*1.2,tour,loca[0])) #선호 여행지에대한 가중치 1.2 줌
+        else :recom_list.append((rate,tour,loca[0]))
         
     recom_list.sort()
     recom_list.reverse()
          
-    return(recom_list)           
+    return(recom_list)          
                 
 print(getRecommendation(members, '차현석',sim_pearson))            
 
