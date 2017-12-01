@@ -133,7 +133,7 @@
 <link rel="stylesheet" href="booking/css/booking.css">
 <link rel="stylesheet" href="css/camera.css">
 <link rel="stylesheet" href="css/owl.carousel.css">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?ver=1">
 
 
 <script
@@ -194,6 +194,15 @@
 		<script src="js/html5shiv.js"></script>
 		<link rel="stylesheet" media="screen" href="css/ie.css">
 		<![endif]-->
+<style type="text/css">
+.content {
+	background-color: #FBFBFB;
+	background-image: url('images/large.jpg');
+	background-repeat: repeat;
+	padding-bottom: 120px;
+}
+</style>
+
 </head>
 <body class="page1" id="top">
 	<!-- ==========================설문조사 팝업 만들기============================ -->
@@ -202,7 +211,7 @@
 	<div class="popup2">
 
 		<div class="container_12">
-			<span>SELECT YOUR TRAVEL TYPE</span><br> 당신이 마음에 드는 사진을 선택하세요!
+			<span>SELECT YOUR TRAVEL TYPE</span><br> <p style="font-size:1.4em;">당신이 마음에 드는 사진을 선택하세요!</p>
 			<div class="clear"></div>
 			<ul align="center">
 
@@ -352,11 +361,12 @@
 	<!-- ==========================^설문조사 팝업 만들기============================ -->
 
 	<!--==========================try me==============================-->
+	
 	<!-- login form -->
-	<a href="#x" class="overlay" id="login_form"></a>
+	<a href="#x" class="overlay" id="login_form2"></a>
 	<div class="popup">
-		<span>Welcome Guest!</span>
-		<p>Please enter your login and password here</p>
+		<span>Warning!</span>
+		<p>로그인 후 이용가능한 서비스 입니다.</p>
 		<form action="LoginCon" method="post">
 			<table>
 				<tr>
@@ -370,6 +380,7 @@
 					<td><input type="password" name="pw" required /></td>
 			</table>
 		</form>
+		<p>If you don't have account >><a href="#join_form" id="join_pop">Join</a></p>
 		<a class="close" href="#close"></a>
 	</div>
 	<div class="popup">
@@ -391,14 +402,37 @@
 		<a class="close" href="#close"></a>
 	</div>
 	<!-- /login form -->
+	
+	<!-- login form -->
+	<a href="#x" class="overlay" id="login_form"></a>
+	<div class="popup">
+		<span>Welcome Guest!</span>
+		<p>아이디와 비밀번호를 입력하세요.</p>
+		<form action="LoginCon" method="post">
+			<table>
+				<tr>
+					<td>Login ID</td>
+					<td><input type="text" name="id" required /></td>
+					<td rowspan="2" align="center"><input type="submit"
+						value="Log In" class="submit" /></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><input type="password" name="pw" required /></td>
+			</table>
+		</form>
+		<p>If you don't have account >><a href="#join_form" id="join_pop">Join</a></p>
+		<a class="close" href="#close"></a>
+	</div>
+	<!-- /login form -->
 
 
 
 	<!-- join form -->
 	<a href="#x" class="overlay" id="join_form"></a>
 	<div class="popup">
-		<span>회원가입</span>
-		<p>Please enter your details here</p>
+		<span>Join Us</span>
+		<p>아래의 항목을 채워주세요.</p>
 		<form action="JoinCon" method="post">
 			<table>
 				<tr>
@@ -406,7 +440,6 @@
 					<td><input type="text" id="id" name="id" required
 						maxlength="10" size="10" onkeydown="nonHangulSpecialKey()">
 						<button onclick="idCheck()">중복확인</button></td>
-
 				</tr>
 				<tr>
 					<td>비밀번호</td>
@@ -425,20 +458,18 @@
 					<td>전화번호</td>
 					<td><input type="text" name="phone" required
 						onfocus="OnCheckPhone(this)" onKeyup="OnCheckPhone(this)" size=14></td>
-
-
 				</tr>
 				<tr>
 					<td>생일</td>
 					<td><input type="date" name="birth" required></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" value="회원가입"
+					<td colspan="2"><input type="submit" value="Join Us"
 						class="submit" /></td>
 				</tr>
 			</table>
 		</form>
-		If you have account >><a href="#login_form" id="login_pop">Log In</a>
+		<p>If you have account >><a href="#login_form" id="login_pop">Log In</a></p>
 		<a class="close" href="#close"></a>
 	</div>
 
@@ -458,15 +489,13 @@
 
 	<!-- /join form -->
 
-
 	<!-- update form -->
 	<a href="#x" class="overlay" id="update_form"></a>
 	<div class="popup">
-		<span>개인정보 수정</span>
+		<span>Update your Information!</span>
 		<p>수정할 개인정보를 입력하세요</p>
 		<form action="UpdateCon" method="post">
 			<table>
-
 				<tr>
 					<td>비밀번호</td>
 					<td><input type="password" name="pw" required maxlength="10"></td>
@@ -479,7 +508,6 @@
 					<td>전화번호</td>
 					<td><input type="text" name="phone" required
 						onfocus="OnCheckPhone(this)" onKeyup="OnCheckPhone(this)" size=14></td>
-
 				</tr>
 				<tr>
 					<td>생일</td>
@@ -493,10 +521,7 @@
 		</form>
 		<a class="close" href="#close"></a>
 	</div>
-
-
 	<!-- /update form -->
-
 
 	<!--==========================try me==============================-->
 
@@ -507,14 +532,11 @@
 			<img src="images/logo/tripickerLogo9.png">
 			<c:choose>
 				<c:when test="${empty id}">
-
 					<ul>
 						<li><a href="#login_form" id="login_pop">로그인</a></li>
 						<li><a href="#join_form" id="join_pop">회원가입</a></li>
 					</ul>
-
 				</c:when>
-
 				<c:otherwise>
 					<ul>
 						<li><h1 style="color: white;">${nick}님</h1></li>
@@ -532,7 +554,7 @@
 				}
 			</script>
 		</div>
-
+		
 		<!-- ======^SIDE MENU===== -->
 		<!--==============================header=================================-->
 		<header>
@@ -542,7 +564,15 @@
 					<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 					<ul class="sf-menu">
 						<li class="current"><a href="Main.jsp">HOME</a></li>
-						<li><a href="HotTour.jsp">HOT TOURS</a></li>
+						<c:choose>
+							<c:when test="${empty id}">
+								<li><a href="#login_form2">HOT
+										TOURS</a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="HotTour.jsp">HOT TOURS</a></li>
+							</c:otherwise>
+						</c:choose>
 						<li><a href="specialOffer.jsp">SPECIAL OFFERS</a></li>
 						<li><a href="SelectService?start=0&end=8">POST</a></li>
 						<li><a href="Map.jsp">MAP DIY</a></li>
@@ -570,7 +600,14 @@
 						<div class="price">
 							FROM <span>$1000</span>
 						</div>
-						<a href="HotTour.jsp">더 보기</a>
+						<c:choose>
+							<c:when test="${empty id}">
+						<a href="#login_form2">더 보기</a>
+							</c:when>
+							<c:otherwise>
+							<a href="HotTour.jsp">더 보기</a>
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 				<div data-src="images/Main/slide2.jpg">
@@ -579,7 +616,14 @@
 						<div class="price">
 							FROM <span>$2000</span>
 						</div>
-						<a href="HotTour.jsp">더 보기</a>
+						<c:choose>
+							<c:when test="${empty id}">
+						<a href="#login_form2">더 보기</a>
+							</c:when>
+							<c:otherwise>
+							<a href="HotTour.jsp">더 보기</a>
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 				<div data-src="images/slide1.jpg">
@@ -588,7 +632,14 @@
 						<div class="price">
 							FROM <span>$1600</span>
 						</div>
-						<a href="HotTour.jsp">더 보기</a>
+						<c:choose>
+							<c:when test="${empty id}">
+						<a href="#login_form2">더 보기</a>
+							</c:when>
+							<c:otherwise>
+							<a href="HotTour.jsp">더 보기</a>
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 				<div data-src="images/slide2.jpg">
@@ -597,7 +648,14 @@
 						<div class="price">
 							FROM <span>$2000</span>
 						</div>
-						<a href="HotTour.jsp">더 보기</a>
+						<c:choose>
+							<c:when test="${empty id}">
+						<a href="#login_form2">더 보기</a>
+							</c:when>
+							<c:otherwise>
+							<a href="HotTour.jsp">더 보기</a>
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 			</div>
@@ -608,11 +666,13 @@
 			<div class="ic"></div>
 			<!-- ================= banner ====================== -->
 			<div class="container_12">
-			<h3>Hot Map</h3>
-			<h2 style="font-size: 1.3em;">많은 사람들이 선호하는 여행루트 입니다.</h2>
+				<h3>Hot Map</h3>
+				<h2 style="font-size: 1.3em;">많은 사람들이 선호하는 여행루트 입니다.</h2>
 				<div class="grid_12">
 					<!-- MINIMAP 1번 사용자 맞춤 추천 루트 -->
-					<div style="background-color: lightblue; width: 930px; height: 460px;" id="minimap5"></div>
+					<div
+						style="background-color: lightblue; width: 930px; height: 460px;"
+						id="minimap5"></div>
 				</div>
 			</div>
 			<div class="container_12">
@@ -764,53 +824,7 @@
 
 				<!-- ==================== ^banner ======================= -->
 
-				<!-- ============== welcome ===================== -->
-				<!-- <div class="grid_4">
-							<h3>Welcome</h3>
-							<img src="images/page2_img2.jpg" alt="" class="img_inner fleft">
-							<div class="extra_wrapper">
-								<p>Lorem ipsum dolor sit ere amet, consectetur ipiscin.</p>
-								In mollis erat mattis neque facilisis, sit ametiol
-							</div>
-							<div class="clear cl1"></div>
-							<p>
-								Find the detailed description of this <span class="col1"><a
-									href="http://blog.templatemonster.com/free-website-templates/"
-									rel="dofollow">freebie</a></span> at TemplateMonster blog.
-							</p>
-							<p>
-								<span class="col1"><a
-									href="http://www.templatemonster.com/category/travel-website-templates/"
-									rel="nofollow">Travel Website Templates</a></span> category offers you
-								a variety of designs that are perfect for travel sphere of
-								business.
-							</p>
-							랄랄ㄹ라라라라라라ㅏ -->
-
-				<!--====================================video==================================-->
-
-
-				<!--====================================^video==================================-->
-
-				<!-- ============== ^welcome ===================== -->
-				<!-- <h4>Clients’ Quotes</h4>
-							<blockquote class="bq1">
-								<img src="images/page1_img2.jpg" alt=""
-									class="img_inner noresize fleft">
-								<div class="extra_wrapper">
-									<p>Duis massa elit, auctor non pellentesque vel, aliquet
-										sit amet erat. Nullam eget dignissim nisi, aliquam feugiat
-										nibh.</p>
-									<div class="alright">
-										<div class="col1">Miranda Brown</div>
-										<a href="#" class="btn">More</a>
-									</div>
-								</div>
-							</blockquote>
-						</div> -->
 			</div>
-			<!-- container_12 -->
-
 
 			<!-- ^allfor you -->
 		</div>
@@ -831,7 +845,7 @@
 			</div>
 		</div>
 		</footer>
-		<!-- ************* booking java script *********** -->
+		<!-- ****************************** booking java script ************************************************* -->
 		<script>
 			$(function() {
 				$('#bookingForm').bookingForm({

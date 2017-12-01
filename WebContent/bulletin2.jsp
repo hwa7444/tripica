@@ -2,6 +2,7 @@
 <%@page import="com.DAO.bulletinDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.DAO.bulletinVO"%>
+<%@page import="java.net.URLEncoder"%>
 <%-- <%@page import="com.sun.xml.internal.txw2.Document"%> --%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
@@ -9,7 +10,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%
 	request.setCharacterEncoding("EUC-KR");
-	%>
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,7 +63,7 @@
 			nick = (String) session.getAttribute("nick");
 		}
 	%>
-<!--==========================try me==============================-->
+	<!--==========================try me==============================-->
 	<!-- login form -->
 	<a href="#x" class="overlay" id="login_form"></a>
 	<div class="popup">
@@ -184,7 +185,7 @@
 				</tr>
 			</table>
 		</form>
-	
+
 		<a class="close" href="#close"></a>
 	</div>
 
@@ -225,10 +226,18 @@
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 							<ul class="sf-menu">
 								<li><a href="Main.jsp">HOME</a></li>
+								<c:choose>
+							<c:when test="${empty id}">
+								<li><a href="#login_form2">HOT
+										TOURS</a></li>
+							</c:when>
+							<c:otherwise>
 								<li><a href="HotTour.jsp">HOT TOURS</a></li>
+							</c:otherwise>
+						</c:choose>
 								<li><a href="specialOffer.jsp">SPECIAL OFFERS</a></li>
 								<li class="current"><a href="SelectService?start=0&end=8">POST</a></li>
-								<li><a href="Map.jsp">MAP</a></li>
+								<li><a href="Map.jsp">MAP DIY</a></li>
 							</ul>
 						</nav>
 						<div class="clear"></div>
@@ -236,20 +245,26 @@
 				</div>
 				<div class="grid_12">
 					<h1>
-						<a href="SelectService?start=0&end=8"> <img src="images/logo/tripickerLogo9.png"
-							alt="Your Happy Family">
+						<a href="SelectService?start=0&end=8"> <img
+							src="images/logo/tripickerLogo9.png" alt="Your Happy Family">
 						</a>
 					</h1>
 				</div>
 			</div>
 		</header>
 		<!--==============================Content=================================-->
+		
+		
 		<div class="content">
 			<div class="ic"></div>
 			<div class="container_12">
+			<h3>Best Post</h3>
+			<div class="grid_12">
+			<div style="background-color:blue; width:930px; height:460px;"></div>
+			</div>
 				<!--================ blogPost ================-->
 				<div class="grid_12">
-					<h3>Recent Posts</h3>
+					<h3 >Recent Posts</h3>
 					<!-- <div class="row">
 						<table class="table table-striped"
 							style="text-align: center; border: 1pxx solid #dddddd;">
@@ -264,136 +279,113 @@
 							</thead>
 							<tbody> -->
 
-								<%
-									int start = Integer.parseInt(request.getParameter("start"));
-									int end = Integer.parseInt(request.getParameter("end"));
-									ArrayList<bulletinVO> arr = null;
-									if (request.getParameter("start") != null || request.getParameter("end") != null) {
-										bulletinDAO dao = bulletinDAO.getInstance();
-										arr = dao.selectAll();
+					<%
+						int start = Integer.parseInt(request.getParameter("start"));
+						int end = Integer.parseInt(request.getParameter("end"));
+						ArrayList<bulletinVO> arr = null;
+						if (request.getParameter("start") != null || request.getParameter("end") != null) {
+							bulletinDAO dao = bulletinDAO.getInstance();
+							arr = dao.selectAll();
 
-										request.setAttribute("list", arr);
-									}
-								%>
-
-								<c:forEach items="${list}" var="vo" begin="<%=start %>"
-									end="<%=end %>" step="1" varStatus="idx">
-									<%-- <tr>
+							request.setAttribute("list", arr);
+						}
+						int cnt=0;
+					%>
+				
+					<c:forEach items="${list}" var="vo" begin="<%=start %>"
+						end="<%=end %>" step="1" varStatus="idx">
+						<%-- <tr>
 										<td>${vo.num}</td>
 										<td><a href="SelectOne?num=${vo.num}">${vo.title}</a></td>
 										<td colspan="2"><img style="max-width:200px !important; height:200px;" src="upload/${vo.fileName}"></td>
 										<td>${vo.nick}</td>
 										<td>${vo.writeDay}</td>
 									</tr> --%>
-									<div class="grid_3">
-									<a href="SelectOne?num=${vo.num}"><img style="max-width:200px !important; height:200px;" src="upload/${vo.fileName}"></a>
-									<hr>
-									<a href="SelectOne?num=${vo.num}">${vo.num}. ${vo.title} <span style="color:red;">BY</span> ${vo.nick}<br>
-									${vo.writeDay}</a>
-									<hr>
-									</div>
-									<%-- <c:if test="${size > idx.index}">
+									
+						<div class="grid_3" style="font-size: 1.3em;">
+						
+							<a href="SelectOne?num=${vo.num}"><img
+								style="align: center; max-width: 220px !important; height: 200px;"
+								src="upload/<%=URLEncoder.encode(arr.get(cnt).getFileName(), "euc-kr")%>"></a> <!--EL 문....?-->
+								<%-- <img src="upload/<%=URLEncoder.encode("만장굴","euc-kr")%>.jpg"> --%>
+							<hr>
+							<a href="SelectOne?num=${vo.num}">${vo.num}. ${vo.title} <span
+								style="color: #C73430;">by</span> ${vo.nick}<br>
+								${vo.writeDay}
+							</a>
+							<hr>
+					
+						</div>
+						<%-- <c:if test="${size > idx.index}">
 										<c:if test="${idx.index % 9 == 0}">
 											<a href="" onclick="izn(${in })">${in }</a>
 											<c:set var="in" value="${in+1 }"></c:set>
 										</c:if>
 									</c:if> --%>
-								</c:forEach>
+						<% cnt++; %>
+					</c:forEach>
 
-								<%-- <c:set var="size" value="${fn:length(list)}"></c:set>
-								<c:set var="in" value="1"></c:set>
-								<c:choose>
+						</div>
 
-									<c:when test="${not empty list}">
-										<c:forEach items="${list}" var="vo" begin="0" end="9" step="1"
-											varStatus="idx">
-											<tr>
-												<td>${vo.num}</td>
-												<td><a href="SelectOne?num=${vo.num}">${vo.title}</a></td>
-												<td><img style="max-width:200px !important; height:200px;" src="upload/${vo.fileName}"></td>
-												<td>${vo.nick}</td>
-												<td>${vo.writeDay}</td>
-											</tr>
-											<c:if test="${size > idx.index}">
-												<c:if test="${idx.index % 9 == 0}">
-													<a href="" onclick="izn(${in })">${in }</a>
-													<c:set var="in" value="${in+1 }"></c:set>
-												</c:if>
-											</c:if>
-										</c:forEach>
-									</c:when>
-									<c:otherwise>
-										<tr>
-											<td colspan="4">현재 데이터가 존재하지 않습니다.</td>
-										</tr>
-									</c:otherwise>
-								</c:choose> --%>
+	<c:if test="<%=start > 1%>">
+						<a href="bulletin2.jsp?start=<%=start - 9%>&end=<%=end - 9%>"
+							class="btn btn-success btn-arraw-left" style="font-size: 1.2em;">이전</a>
+					</c:if>
+					<!-- 페이징 다시 하기!! -->
+					<c:if test="<%=arr.size() > end%>">
+						<a href="bulletin2.jsp?start=<%=start + 9%>&end=<%=end + 9%>"
+							class="btn btn-success btn-arraw-left" style="font-size: 1.2em;">다음</a>
+						<%
+							start = Integer.parseInt(request.getParameter("start"));
+						%>
+					</c:if>
 
-							<!-- </tbody>
-						</table> -->
-						
-						<hr>
 
-						<c:if test="<%=start > 1%>">
-							<a href="bulletin2.jsp?start=<%=start - 9%>&end=<%=end - 9%>"
-								class="btn btn-success btn-arraw-left">이전</a>
-						</c:if>
-						<!-- 페이징 다시 하기!! -->
-						<c:if test="<%=arr.size() > end%>">
-							<a href="bulletin2.jsp?start=<%=start + 9%>&end=<%=end + 9%>"
-								class="btn btn-success btn-arraw-left">다음</a>
-							<%
-								start = Integer.parseInt(request.getParameter("start"));
-							%>
-						</c:if>
-						
+					<c:choose>
+						<c:when test="${not empty id}">
+							<!-- 로그인 했을 때 -->
+							<a href="write.jsp" class="btn btn-success btn-arraw-left"
+								style="font-size: 1.2em;">글쓰기</a>
+						</c:when>
+						<c:otherwise>
 
-						<c:choose>
-							<c:when test="${not empty id}">
-								<!-- 로그인 했을 때 -->
-								<a href="write.jsp" class="btn btn-success btn-arraw-left">글쓰기</a>
-							</c:when>
-							<c:otherwise>
-
-							</c:otherwise>
-						</c:choose>
-					</div>
-				</div>
-
+						</c:otherwise>
+					</c:choose>
+			
 			</div>
-			<!-- container_12 -->
-			<!--================= ^blogPost ==================-->
 
-			<!-- ^allfor you -->
 		</div>
-		<!--==============================footer=================================-->
-		<footer>
-			<div class="container_12">
-				<div class="grid_12">
-					<div class="socials">
-						<a href="#" class="fa fa-facebook"></a> <a href="#"
-							class="fa fa-twitter"></a> <a href="#" class="fa fa-google-plus"></a>
-					</div>
-					<div class="copy">
-						Tripicker (c) 2017 | <a href="#">Privacy Policy</a> | Website
-						Template Designed by <a href="http://www.templatemonster.com/"
-							rel="nofollow">TemplateMonster.com</a>
-					</div>
+		<!-- container_12 -->
+		<!--================= ^blogPost ==================-->
+
+		<!-- ^allfor you -->
+	</div>
+	<!--==============================footer=================================-->
+	<footer>
+		<div class="container_12">
+			<div class="grid_12">
+				<div class="socials">
+					<a href="#" class="fa fa-facebook"></a> <a href="#"
+						class="fa fa-twitter"></a> <a href="#" class="fa fa-google-plus"></a>
+				</div>
+				<div class="copy">
+					Tripicker (c) 2017 | <a href="#">Privacy Policy</a> | Website
+					Template Designed by <a href="http://www.templatemonster.com/"
+						rel="nofollow">TemplateMonster.com</a>
 				</div>
 			</div>
-		</footer>
-		<script>
-		function izn(num){
+		</div>
+	</footer>
+	<script>
+		function izn(num) {
 			alert(num);
 		}
-		
-		
-		
-			$(function() {
-				$('#bookingForm').bookingForm({
-					ownerEmail : '#'
-				});
-			})
-		</script>
+
+		$(function() {
+			$('#bookingForm').bookingForm({
+				ownerEmail : '#'
+			});
+		})
+	</script>
 </body>
 </html>

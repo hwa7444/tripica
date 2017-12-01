@@ -130,8 +130,8 @@
 	position: relative;
 	width: 90%;
 	height: 550px;
-	left:70px;
-	top:50px;
+	left: 70px;
+	top: 50px;
 }
 
 #category {
@@ -286,12 +286,25 @@
 	margin-top: 0;
 }
 </style>
+<style type="text/css">
+.mapPost tr td {
+	padding: 10px;
+	border: 1px solid #dddddd;
+	background-color: white;
+}
+
+.mapPost tr th {
+	padding: 10px;
+}
+</style>
+
 <title>Blog</title>
 <meta charset="utf-8">
+
 <meta name="format-detection" content="telephone=no" />
 <link rel="icon" href="images/favicon.ico">
 <link rel="shortcut icon" href="images/favicon.ico" />
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?ver=1">
 <script src="js/jquery.js"></script>
 <script src="js/jquery-migrate-1.2.1.js"></script>
 <script src="js/script.js"></script>
@@ -327,8 +340,30 @@
 		}
 	%>
 	<!--==========================try me==============================-->
+
 	<!-- login form -->
-	<a href="#x" class="overlay" id="login_form"></a>
+	<a href="#x" class="overlay" id="login_form2"></a>
+	<div class="popup">
+		<span>Warning!</span>
+		<p>로그인 후 이용가능한 서비스 입니다.</p>
+		<form action="LoginCon" method="post">
+			<table>
+				<tr>
+					<td>Login ID</td>
+					<td><input type="text" name="id" required /></td>
+					<td rowspan="2" align="center"><input type="submit"
+						value="Log In" class="submit" /></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><input type="password" name="pw" required /></td>
+			</table>
+		</form>
+		<p>
+			If you don't have account >><a href="#join_form" id="join_pop">Join</a>
+		</p>
+		<a class="close" href="#close"></a>
+	</div>
 	<div class="popup">
 		<span>Welcome Guest!</span>
 		<p>Please enter your login and password here</p>
@@ -349,13 +384,38 @@
 	</div>
 	<!-- /login form -->
 
+	<!-- login form -->
+	<a href="#x" class="overlay" id="login_form"></a>
+	<div class="popup">
+		<span>Welcome Guest!</span>
+		<p>아이디와 비밀번호를 입력하세요.</p>
+		<form action="LoginCon" method="post">
+			<table>
+				<tr>
+					<td>Login ID</td>
+					<td><input type="text" name="id" required /></td>
+					<td rowspan="2" align="center"><input type="submit"
+						value="Log In" class="submit" /></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><input type="password" name="pw" required /></td>
+			</table>
+		</form>
+		<p>
+			If you don't have account >><a href="#join_form" id="join_pop">Join</a>
+		</p>
+		<a class="close" href="#close"></a>
+	</div>
+	<!-- /login form -->
+
 
 
 	<!-- join form -->
 	<a href="#x" class="overlay" id="join_form"></a>
 	<div class="popup">
-		<span>회원가입</span>
-		<p>Please enter your details here</p>
+		<span>Join Us</span>
+		<p>아래의 항목을 채워주세요.</p>
 		<form action="JoinCon" method="post">
 			<table>
 				<tr>
@@ -390,12 +450,14 @@
 					<td><input type="date" name="birth" required></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" value="회원가입"
+					<td colspan="2"><input type="submit" value="Join Us"
 						class="submit" /></td>
 				</tr>
 			</table>
 		</form>
-		If you have account >><a href="#login_form" id="login_pop">Log In</a>
+		<p>
+			If you have account >><a href="#login_form" id="login_pop">Log In</a>
+		</p>
 		<a class="close" href="#close"></a>
 	</div>
 
@@ -419,7 +481,7 @@
 	<!-- update form -->
 	<a href="#x" class="overlay" id="update_form"></a>
 	<div class="popup">
-		<span>개인정보 수정</span>
+		<span>Update your Information!</span>
 		<p>수정할 개인정보를 입력하세요</p>
 		<form action="UpdateCon" method="post">
 			<table>
@@ -448,7 +510,6 @@
 				</tr>
 			</table>
 		</form>
-
 		<a class="close" href="#close"></a>
 	</div>
 
@@ -457,22 +518,18 @@
 
 
 	<!--==========================try me==============================-->
+
 	<div class="allFor">
 		<!-- ======SIDE MENU===== -->
 		<div class="grid_13">
 			<img src="images/logo/tripickerLogo9.png">
 			<c:choose>
 				<c:when test="${empty id}">
-
 					<ul>
 						<li><a href="#login_form" id="login_pop">로그인</a></li>
 						<li><a href="#join_form" id="join_pop">회원가입</a></li>
 					</ul>
-
-
-
 				</c:when>
-
 				<c:otherwise>
 					<ul>
 						<li><h1 style="color: white;">${nick}님</h1></li>
@@ -494,10 +551,17 @@
 							<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 								<ul class="sf-menu">
 									<li><a href="Main.jsp">HOME</a></li>
-									<li><a href="HotTour.jsp">HOT TOURS</a></li>
+									<c:choose>
+										<c:when test="${empty id}">
+											<li><a href="#login_form2">HOT TOURS</a></li>
+										</c:when>
+										<c:otherwise>
+											<li><a href="HotTour.jsp">HOT TOURS</a></li>
+										</c:otherwise>
+									</c:choose>
 									<li><a href="specialOffer.jsp">SPECIAL OFFERS</a></li>
 									<li><a href="SelectService?start=0&end=8">Post</a></li>
-									<li class="current"><a href="Map.jsp">Map Info</a></li>
+									<li class="current"><a href="Map.jsp">MAP DIY</a></li>
 								</ul>
 							</nav>
 							<div class="clear"></div>
@@ -513,60 +577,88 @@
 				</div>
 			</header>
 			<!-- ^allfor you -->
-		</div>
-		<!--==============================Content=================================-->
-		<div class="content">
-			<div class="ic"></div>
-			<h3 style="margin-left: 100px;!important">MAEK YOUR ROUT</h3>
-		</div>
-		<div class="content">
-			<div class="ic"></div>	
+
+			<!--==============================Content=================================-->
+			<div class="content">
+				<div class="ic"></div>
+				<h3 style="margin-left: 100px;!important">MAEK YOUR ROUT</h3>
+			</div>
+			<div class="content">
+				<div class="ic"></div>
 				<div class="grid_12" style="margin-left: 100px;">
 					<div clas="special_banner"
-						style="background-color: red; position: absolute; width: 800px; height: 10px;"> <!--///위에 공간 입니당///-->
-						위에 공간 입니다.
-						<br>지도가 저장될 공간?</div>
+						style="background-color: red; position: absolute; width: 800px; height: 10px;">
+						<!--///위에 공간 입니당///-->
+						위에 공간 입니다. <br>지도가 저장될 공간?
+					</div>
 				</div>
-		</div>
-		<div class="content">
-			<div class="ic"></div>
-			<div class="map_wrap choice">
-				<ul id="category">
-					<li id="BK9" data-order="0"><span class="category_bg bank"></span>
-						은행</li>
-					<li id="MT1" data-order="1"><span class="category_bg mart"></span>
-						마트</li>
-					<li id="PM9" data-order="2"><span class="category_bg pharmacy"></span>
-						약국</li>
-					<li id="OL7" data-order="3"><span class="category_bg oil"></span>
-						주유소</li>
-					<li id="CE7" data-order="4"><span class="category_bg cafe"></span>
-						카페</li>
-					<li id="CS2" data-order="5"><span class="category_bg store"></span>
-						편의점</li>
-					<li id="AD5" data-order="5"><span class="category_bg store"></span>
-						숙박</li>
-					<li id="AT4" data-order="5"><span class="category_bg store"></span>
-						관광지</li>
-					<li id="CT1" data-order="5"><span class="category_bg store"></span>
-						문화시설</li>
-				</ul>
-				<div id="map" style="width: 100%; height: 100%;"></div>
 			</div>
-			<button onclick="drawing()" style="margin-top:80px; margin-left:100px; position:relative;">소요시간측정하기</button>
-
-		</div>
-		
-		<!--====================================지도 게시판 만들기=======================================-->
 			<div class="content">
-			<div class="ic"></div>
-			<h3 style="margin-left: 100px;!important top:0;">SHOW YOUR ROUT</h3>
-			여기에다가 게시판을 ...? 
-	<div class="grid_12"> <!-- 지도 게시판 -->
-	여기!!
-	</div>
-			</table>
+				<div class="ic"></div>
+				<div class="map_wrap choice">
+					<ul id="category">
+						<li id="BK9" data-order="0"><span class="category_bg bank"></span>
+							은행</li>
+						<li id="MT1" data-order="1"><span class="category_bg mart"></span>
+							마트</li>
+						<li id="PM9" data-order="2"><span
+							class="category_bg pharmacy"></span> 약국</li>
+						<li id="OL7" data-order="3"><span class="category_bg oil"></span>
+							주유소</li>
+						<li id="CE7" data-order="4"><span class="category_bg cafe"></span>
+							카페</li>
+						<li id="CS2" data-order="5"><span class="category_bg store"></span>
+							편의점</li>
+						<li id="AD5" data-order="5"><span class="category_bg store"></span>
+							숙박</li>
+						<li id="AT4" data-order="5"><span class="category_bg store"></span>
+							관광지</li>
+						<li id="CT1" data-order="5"><span class="category_bg store"></span>
+							문화시설</li>
+					</ul>
+					<div id="map" style="width: 100%; height: 100%;"></div>
+				</div>
+				<button onclick="drawing()"
+					style="margin-top: 80px; margin-left: 100px; position: relative;">소요시간측정하기</button>
+
 			</div>
+
+			<!--====================================지도 게시판 만들기=======================================-->
+			<div class="content">
+				<div class="ic"></div>
+				<h3 style="margin-left: 100px; ! important top: 0;">SHOW YOUR
+					ROUT</h3>
+				<div
+					style="margin-left: 100px; margin-right: 100px; background-color: blue; width: 87%;; height: 460px;"></div>
+
+				<div class="grid_12" style="margin-left: 100px; top: 50px;">
+					<!-- 지도 게시판 -->
+					<table class="mapPost"
+						style="margin: 20px; border: 1px solid #dddddd; text-align: center; width: 1200px; font-size: 1.2em;">
+						<tr style="background-color: #002141;">
+							<th>번호</th>
+							<th>지도 이름</th>
+							<th>작성자</th>
+							<th>추천 수</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td><a href="">송하의 제주도 오름 탐방기</a></td>
+							<td>123</td>
+							<td>23</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td><a href="">송하의 제주도 오름 탐방기</a></td>
+							<td>123</td>
+							<td>23</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+
+
 		<!--===================================^지도 게시판 만들기=======================================-->
 
 		<!--================================여기는 지도 스크랩트 문!!======================================-->

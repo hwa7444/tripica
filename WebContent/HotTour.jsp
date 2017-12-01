@@ -129,7 +129,7 @@
 .map_wrap {
 	position: relative;
 	width: 100%;
-	top:50px;
+	top: 50px;
 	height: 350px;
 }
 
@@ -326,9 +326,29 @@
 			nick = (String) session.getAttribute("nick");
 		}
 	%>
-	<!--==========================try me==============================-->
+<!--==========================try me==============================-->
+	
 	<!-- login form -->
-	<a href="#x" class="overlay" id="login_form"></a>
+	<a href="#x" class="overlay" id="login_form2"></a>
+	<div class="popup">
+		<span>Warning!</span>
+		<p>로그인 후 이용가능한 서비스 입니다.</p>
+		<form action="LoginCon" method="post">
+			<table>
+				<tr>
+					<td>Login ID</td>
+					<td><input type="text" name="id" required /></td>
+					<td rowspan="2" align="center"><input type="submit"
+						value="Log In" class="submit" /></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><input type="password" name="pw" required /></td>
+			</table>
+		</form>
+		<p>If you don't have account >><a href="#join_form" id="join_pop">Join</a></p>
+		<a class="close" href="#close"></a>
+	</div>
 	<div class="popup">
 		<span>Welcome Guest!</span>
 		<p>Please enter your login and password here</p>
@@ -348,14 +368,37 @@
 		<a class="close" href="#close"></a>
 	</div>
 	<!-- /login form -->
+	
+	<!-- login form -->
+	<a href="#x" class="overlay" id="login_form"></a>
+	<div class="popup">
+		<span>Welcome Guest!</span>
+		<p>아이디와 비밀번호를 입력하세요.</p>
+		<form action="LoginCon" method="post">
+			<table>
+				<tr>
+					<td>Login ID</td>
+					<td><input type="text" name="id" required /></td>
+					<td rowspan="2" align="center"><input type="submit"
+						value="Log In" class="submit" /></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><input type="password" name="pw" required /></td>
+			</table>
+		</form>
+		<p>If you don't have account >><a href="#join_form" id="join_pop">Join</a></p>
+		<a class="close" href="#close"></a>
+	</div>
+	<!-- /login form -->
 
 
 
 	<!-- join form -->
 	<a href="#x" class="overlay" id="join_form"></a>
 	<div class="popup">
-		<span>회원가입</span>
-		<p>Please enter your details here</p>
+		<span>Join Us</span>
+		<p>아래의 항목을 채워주세요.</p>
 		<form action="JoinCon" method="post">
 			<table>
 				<tr>
@@ -363,7 +406,6 @@
 					<td><input type="text" id="id" name="id" required
 						maxlength="10" size="10" onkeydown="nonHangulSpecialKey()">
 						<button onclick="idCheck()">중복확인</button></td>
-
 				</tr>
 				<tr>
 					<td>비밀번호</td>
@@ -382,20 +424,18 @@
 					<td>전화번호</td>
 					<td><input type="text" name="phone" required
 						onfocus="OnCheckPhone(this)" onKeyup="OnCheckPhone(this)" size=14></td>
-
-
 				</tr>
 				<tr>
 					<td>생일</td>
 					<td><input type="date" name="birth" required></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" value="회원가입"
+					<td colspan="2"><input type="submit" value="Join Us"
 						class="submit" /></td>
 				</tr>
 			</table>
 		</form>
-		If you have account >><a href="#login_form" id="login_pop">Log In</a>
+		<p>If you have account >><a href="#login_form" id="login_pop">Log In</a></p>
 		<a class="close" href="#close"></a>
 	</div>
 
@@ -415,15 +455,13 @@
 
 	<!-- /join form -->
 
-
 	<!-- update form -->
 	<a href="#x" class="overlay" id="update_form"></a>
 	<div class="popup">
-		<span>개인정보 수정</span>
+		<span>Update your Information!</span>
 		<p>수정할 개인정보를 입력하세요</p>
 		<form action="UpdateCon" method="post">
 			<table>
-
 				<tr>
 					<td>비밀번호</td>
 					<td><input type="password" name="pw" required maxlength="10"></td>
@@ -436,7 +474,6 @@
 					<td>전화번호</td>
 					<td><input type="text" name="phone" required
 						onfocus="OnCheckPhone(this)" onKeyup="OnCheckPhone(this)" size=14></td>
-
 				</tr>
 				<tr>
 					<td>생일</td>
@@ -448,31 +485,23 @@
 				</tr>
 			</table>
 		</form>
-
 		<a class="close" href="#close"></a>
 	</div>
-
-
 	<!-- /update form -->
 
-
 	<!--==========================try me==============================-->
+
 	<div class="allFor">
 		<!-- ======SIDE MENU===== -->
 		<div class="grid_13">
 			<img src="images/logo/tripickerLogo9.png">
 			<c:choose>
 				<c:when test="${empty id}">
-
 					<ul>
 						<li><a href="#login_form" id="login_pop">로그인</a></li>
 						<li><a href="#join_form" id="join_pop">회원가입</a></li>
 					</ul>
-
-
-
 				</c:when>
-
 				<c:otherwise>
 					<ul>
 						<li><h1 style="color: white;">${nick}님</h1></li>
@@ -482,7 +511,6 @@
 				</c:otherwise>
 			</c:choose>
 		</div>
-
 		<!-- ======^SIDE MENU===== -->
 		<!--==============================header=================================-->
 		<header>
@@ -492,7 +520,14 @@
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 							<ul class="sf-menu">
 								<li><a href="Main.jsp">HOME</a></li>
-								<li class="current"><a href="HotTour.jsp">HOT TOURS</a></li>
+								<c:choose>
+									<c:when test="${empty id}">
+										<li class="current"><a href="#" onclick="warning()">HOT TOURS</a></li>
+									</c:when>
+									<c:otherwise>
+										<li class="current"><a href="HotTour.jsp">HOT TOURS</a></li>
+									</c:otherwise>
+								</c:choose>
 								<li><a href="specialOffer.jsp">SPECIAL OFFERS</a></li>
 								<li><a href="SelectService?start=0&end=8">POST</a></li>
 								<li><a href="Map.jsp">MAP INFO</a></li>
@@ -510,89 +545,105 @@
 				</div>
 			</div>
 		</header>
+		
+		<script type="text/javascript">
+		function warning(){
+			alert("로그인하세요!")
+			location.href="Main.jsp#login_form";
+		}
+		</script>
 		<!--==============================Content=================================-->
 		<div class="content">
-		<div class="ic"></div>
-		<div class="container_12">
-			<!--================ blogPost ================-->
-			<div class="grid_8">
-				<h3>Recommend Tour Info</h3>
-				<!-- 경도 : 여행지 사진, 설명 이 출력되는 부분-->
-				
-				<div class="blog"> <!-- 경도 :기본 틀입니다. 카테고리클릭시 여기 div에 id 값을 주어 불러 들이면 됩니다.-->
-					<time datetime="2014-10-01">
-						<!-- 경도 : 날짜가 출력도니느 부분이지만 여행지 순서출력하면 좋을 합니다.  -->${vo.num}<span>번째</span> 
-					</time>
-					<div class="extra_wrapper">
-						<div class="text1 col1">
-							<a href="#">${vo.name}</a> <!-- 경도 : 여행지 제목 출력하기 -->
+			<div class="ic"></div>
+			<div class="container_12">
+				<!--================ blogPost ================-->
+				<div class="grid_8">
+					<h3>Recommend Tour Info</h3>
+					<!-- 경도 : 여행지 사진, 설명 이 출력되는 부분-->
+
+					<div class="blog">
+						<!-- 경도 :기본 틀입니다. 카테고리클릭시 여기 div에 id 값을 주어 불러 들이면 됩니다.-->
+						<time datetime="2014-10-01">
+							<!-- 경도 : 날짜가 출력도니느 부분이지만 여행지 순서출력하면 좋을 합니다.  -->${vo.num}<span>번째</span>
+						</time>
+						<div class="extra_wrapper">
+							<div class="text1 col1">
+								<a href="#">${vo.name}</a>
+								<!-- 경도 : 여행지 제목 출력하기 -->
+							</div>
+							<!-- 경도 : 원한다면 여기에 여행지 타입 출력 -->
+							${vo.type }
+							<!-- 경도 : 원한다면 여기에 여행지 타입 출력 end -->
 						</div>
-						<!-- 경도 : 원한다면 여기에 여행지 타입 출력 -->				
-						${vo.type }
-						<!-- 경도 : 원한다면 여기에 여행지 타입 출력 end -->	
+						<div class="clear"></div>
+						<!-- 그대로 두면되는 클래스 입니다. -->
+						<img src="${vo.img}" alt="" class="img_inner">
+						<!-- 경도: 여행지 사진 출력 -->
+						<p>
+							<!-- 경도: 여행설명 출력-->
+							${vo.comment }
+						</p>
+						<br>
+
+
+						<!-- <a href="#" class="link1">LEARN
+						MORE</a>  -->
+						<!-- 필요없는 버튼입니다 -->
 					</div>
-					<div class="clear"></div> <!-- 그대로 두면되는 클래스 입니다. -->
-					<img src="${vo.img}" alt="" class="img_inner"> <!-- 경도: 여행지 사진 출력 -->
-					<p><!-- 경도: 여행설명 출력-->
-					${vo.comment }
-					</p><br> 
-					
-					
-					<!-- <a href="#" class="link1">LEARN
-						MORE</a>  --><!-- 필요없는 버튼입니다 -->
+				</div>
+
+				<!-- 경도 : 여행지 사진, 설명 이 출력되는 부분 end-->
+
+				<!--================= ^blogPost ==================-->
+				<!--================================= Category =================================-->
+
+				<div class="grid_4 prefix_1">
+					<h3 class="head1">YOUR ROUT</h3>
+					<!-- 경도 : 여행지 목록 출력 부분-->
+					<ul class="list">
+						<!--foransdms li 태그 안에서 돌리면 됩니다.-->
+						<li><a href="tourSelectCon?name=건강과성박물관">건강과성박물관</a></li>
+						<li><a href="tourSelectCon?name=명도암">명도암</a></li>
+						<li><a href="tourSelectCon?name=김만덕기념관">김만덕기념관</a></li>
+						<li><a href="tourSelectCon?name=무병장수테마파크">무병장수테마파크</a></li>
+					</ul>
 				</div>
 			</div>
-			
-			<!-- 경도 : 여행지 사진, 설명 이 출력되는 부분 end-->
 
-			<!--================= ^blogPost ==================-->
-			<!--================================= Category =================================-->
-			
-			<div class="grid_4 prefix_1">
-				<h3 class="head1">YOUR ROUT</h3> <!-- 경도 : 여행지 목록 출력 부분-->
-				<ul class="list"> <!--foransdms li 태그 안에서 돌리면 됩니다.-->
-					<li><a href="tourSelectCon?name=건강과성박물관">건강과성박물관</a></li>
-					<li><a href="tourSelectCon?name=명도암">명도암</a></li>
-					<li><a href="tourSelectCon?name=김만덕기념관">김만덕기념관</a></li>
-					<li><a href="tourSelectCon?name=무병장수테마파크">무병장수테마파크</a></li>
-				</ul>
-			</div>
-			</div>
-			
 			<!--======================================== 지도 출력부분입니다 밑에는 안보셔도 되요 ======================================-->
 			<div class="container_12">
-			<div class="content">
-				<div class="ic"></div>
-				<div class="grid_12">
+				<div class="content">
+					<div class="ic"></div>
+					<div class="grid_12">
 
-					<div class="map_wrap">
-						<ul id="category">
-							<li id="BK9" data-order="0"><span class="category_bg bank"></span>
-								은행</li>
-							<li id="MT1" data-order="1"><span class="category_bg mart"></span>
-								마트</li>
-							<li id="PM9" data-order="2"><span
-								class="category_bg pharmacy"></span> 약국</li>
-							<li id="OL7" data-order="3"><span class="category_bg oil"></span>
-								주유소</li>
-							<li id="CE7" data-order="4"><span class="category_bg cafe"></span>
-								카페</li>
-							<li id="CS2" data-order="5"><span class="category_bg store"></span>
-								편의점</li>
-							<li id="AD5" data-order="5"><span class="category_bg store"></span>
-								숙박</li>
-							<li id="AT4" data-order="5"><span class="category_bg store"></span>
-								관광지</li>
-							<li id="CT1" data-order="5"><span class="category_bg store"></span>
-								문화시설</li>
-						</ul>
-						<div id="map" style="width: 100%; height: 100%;"></div>
+						<div class="map_wrap">
+							<ul id="category">
+								<li id="BK9" data-order="0"><span class="category_bg bank"></span>
+									은행</li>
+								<li id="MT1" data-order="1"><span class="category_bg mart"></span>
+									마트</li>
+								<li id="PM9" data-order="2"><span
+									class="category_bg pharmacy"></span> 약국</li>
+								<li id="OL7" data-order="3"><span class="category_bg oil"></span>
+									주유소</li>
+								<li id="CE7" data-order="4"><span class="category_bg cafe"></span>
+									카페</li>
+								<li id="CS2" data-order="5"><span class="category_bg store"></span>
+									편의점</li>
+								<li id="AD5" data-order="5"><span class="category_bg store"></span>
+									숙박</li>
+								<li id="AT4" data-order="5"><span class="category_bg store"></span>
+									관광지</li>
+								<li id="CT1" data-order="5"><span class="category_bg store"></span>
+									문화시설</li>
+							</ul>
+							<div id="map" style="width: 100%; height: 100%;"></div>
+						</div>
+
+						<button onclick="drawing()">소요시간측정하기</button>
 					</div>
-
-					<button onclick="drawing()">소요시간측정하기</button>
 				</div>
 			</div>
-		</div>
 		</div>
 		<!--======================================스크립트 실행====================================-->
 		<script type="text/javascript"
