@@ -533,7 +533,9 @@
 					</div>
 					<div class="clear"></div> <!-- 그대로 두면되는 클래스 입니다. -->
 					<img src="images/page4_img1.jpg" alt="" class="img_inner"> <!-- 경도: 여행지 사진 출력 -->
-					<p><br> 
+					<p><!-- 경도: 여행설명 출력-->
+					설명을 설명 설명
+					</p><br> 
 					
 					
 					<!-- <a href="#" class="link1">LEARN

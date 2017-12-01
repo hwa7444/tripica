@@ -215,7 +215,7 @@
                         <li><a href="HotTour.jsp">HOT TOURS</a></li>
                         <li class="current"><a href="specialOffer.jsp">SPECIAL OFFERS</a></li>
                         <li><a href="SelectService?start=0&end=8">POST</a></li>
-                        <li><a href="Map.jsp">Map Info</a></li>
+                        <li><a href="Map.jsp">Map DIY</a></li>
                      </ul>
                   </nav>
                   <div class="clear"></div>
