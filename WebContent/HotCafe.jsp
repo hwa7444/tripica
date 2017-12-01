@@ -59,24 +59,7 @@
 		<p>If you don't have account >><a href="#join_form" id="join_pop">Join</a></p>
 		<a class="close" href="#close"></a>
 	</div>
-	<div class="popup">
-		<span>Welcome Guest!</span>
-		<p>Please enter your login and password here</p>
-		<form action="LoginCon" method="post">
-			<table>
-				<tr>
-					<td>Login ID</td>
-					<td><input type="text" name="id" required /></td>
-					<td rowspan="2" align="center"><input type="submit"
-						value="Log In" class="submit" /></td>
-				</tr>
-				<tr>
-					<td>Password</td>
-					<td><input type="password" name="pw" required /></td>
-			</table>
-		</form>
-		<a class="close" href="#close"></a>
-	</div>
+	
 	<!-- /login form -->
 	
 	<!-- login form -->
@@ -101,8 +84,6 @@
 		<a class="close" href="#close"></a>
 	</div>
 	<!-- /login form -->
-
-
 
 	<!-- join form -->
 	<a href="#x" class="overlay" id="join_form"></a>
@@ -262,9 +243,9 @@
             <div class="grid_12">
                 <h3><span style="color:#C73430;">HOT</span> RESTAURANT</h3>
                <div class="block2">
-                  <img style="width:250px; height:300px;" src="images/sepecial/ca1_1.jpg" alt="" class="img_inner fleft">
+                  <img style="width:250px; height:266px;" src="images/sepecial/ca1_1.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
-                     <div class="text1 col1" id="hotRe1"><a href="#" id="hotRe1">메이비 카페</a></div>
+                     <div class="text1 col1" id="hotRe1"><a href="#">메이비 카페</a></div>
                      <p>위치 : 서귀포 이중섭로 34</p> 
                      <p>전화번호 : 010-6666-0639</p>                   
                      <p>운영시간</p>
@@ -279,18 +260,18 @@
                      <p>위치 : 제주 탑동로 11</p> 
                      <p>전화번호 : 064-720-8222</p>                   
                      <p>운영시간</p>
-                     <p>오전 8:00 ~ 오후 8:00</p>
+                     <p id="hotRe2">오전 8:00 ~ 오후 8:00</p>
 
                   </div>
                </div>
                <div class="block2">
-                  <img style="width:250px; height:300px;" src="images/sepecial/ca3.jpg" alt="" class="img_inner fleft">
+                  <img style="width:250px; height:319px;" src="images/sepecial/ca3_1.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
                      <div class="text1 col1" id="hotRe3"><a href="#">몽상</a></div>
                      <p>위치 : 제주 애월읍 애월북서길 56-1</p> 
                      <p>전화번호 : 064-799-8900</p>                   
                      <p>운영시간</p>
-                     <p>오전 9:00 ~ 오후 8:00</p>
+                     <p id="hotRe3">오전 9:00 ~ 오후 8:00</p>
                   </div>
                </div>
                <div class="block2">
@@ -325,9 +306,8 @@
          <div class="container_12">
             <div class="grid_12">
                <div class="socials">
-                  <a href="#" class="fa fa-facebook"></a>
-                  <a href="#" class="fa fa-twitter"></a>
-                  <a href="#" class="fa fa-google-plus"></a>
+                  <a href="https://ko-kr.facebook.com/" class="fa fa-facebook"></a> <a href="https://twitter.com/"
+							class="fa fa-twitter"></a> <a href="https://plus.google.com/" class="fa fa-google-plus"></a>
                </div>
                <div class="copy">
                   Tripicker (c) 2017 | <a href="#">Privacy Policy</a> | Website Template Designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a>

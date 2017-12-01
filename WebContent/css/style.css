@@ -805,6 +805,22 @@ padding-bottom: 120px;
 	background-color: #c73430;
 	color: #fff;
 }
+
+/******************special offer******************/
+.extra_wrapper p {
+	font-size:1.4em;
+}
+.extra_wrapper a {
+	font-size:1.4em;
+}
+.extra_wrapper table tr td {
+	padding:4px;
+	font-size:1.4em;
+}
+.extra_wrapper div {
+	font-size:1.5em;
+}
+/*****************^special offer******************/
 /************^banner ********************/
 .cl1 {
 	height: 25px;
@@ -989,6 +1005,20 @@ a.link1:hover {
 	box-sizing: border-box;
 }
 /********** 지도 들어갈 자리 ***********/
+
+.mapPost > tbody > tr > td{
+	padding: 10px;
+	border: 1px solid #dddddd;
+	background-color: #F6F6F6;
+	z-index: 400;
+}
+
+.mapPost > tbody > tr > th{
+		padding: 10px;
+		z-index: 400;
+}
+
+/* ==============================지도 테이블======================= */
 .map figure iframe {
 	width: 100%;
 	height: 311px;

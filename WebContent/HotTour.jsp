@@ -326,8 +326,8 @@
 			nick = (String) session.getAttribute("nick");
 		}
 	%>
-<!--==========================try me==============================-->
-	
+	<!--==========================try me==============================-->
+
 	<!-- login form -->
 	<a href="#x" class="overlay" id="login_form2"></a>
 	<div class="popup">
@@ -346,7 +346,9 @@
 					<td><input type="password" name="pw" required /></td>
 			</table>
 		</form>
-		<p>If you don't have account >><a href="#join_form" id="join_pop">Join</a></p>
+		<p>
+			If you don't have account >><a href="#join_form" id="join_pop">Join</a>
+		</p>
 		<a class="close" href="#close"></a>
 	</div>
 	<div class="popup">
@@ -368,7 +370,7 @@
 		<a class="close" href="#close"></a>
 	</div>
 	<!-- /login form -->
-	
+
 	<!-- login form -->
 	<a href="#x" class="overlay" id="login_form"></a>
 	<div class="popup">
@@ -387,7 +389,9 @@
 					<td><input type="password" name="pw" required /></td>
 			</table>
 		</form>
-		<p>If you don't have account >><a href="#join_form" id="join_pop">Join</a></p>
+		<p>
+			If you don't have account >><a href="#join_form" id="join_pop">Join</a>
+		</p>
 		<a class="close" href="#close"></a>
 	</div>
 	<!-- /login form -->
@@ -435,7 +439,9 @@
 				</tr>
 			</table>
 		</form>
-		<p>If you have account >><a href="#login_form" id="login_pop">Log In</a></p>
+		<p>
+			If you have account >><a href="#login_form" id="login_pop">Log In</a>
+		</p>
 		<a class="close" href="#close"></a>
 	</div>
 
@@ -522,7 +528,8 @@
 								<li><a href="Main.jsp">HOME</a></li>
 								<c:choose>
 									<c:when test="${empty id}">
-										<li class="current"><a href="#" onclick="warning()">HOT TOURS</a></li>
+										<li class="current"><a href="#" onclick="warning()">HOT
+												TOURS</a></li>
 									</c:when>
 									<c:otherwise>
 										<li class="current"><a href="HotTour.jsp">HOT TOURS</a></li>
@@ -545,12 +552,12 @@
 				</div>
 			</div>
 		</header>
-		
+
 		<script type="text/javascript">
-		function warning(){
-			alert("로그인하세요!")
-			location.href="Main.jsp#login_form";
-		}
+			function warning() {
+				alert("로그인하세요!")
+				location.href = "Main.jsp#login_form";
+			}
 		</script>
 		<!--==============================Content=================================-->
 		<div class="content">
@@ -563,9 +570,15 @@
 
 					<div class="blog">
 						<!-- 경도 :기본 틀입니다. 카테고리클릭시 여기 div에 id 값을 주어 불러 들이면 됩니다.-->
-						<time datetime="2014-10-01">
-							<!-- 경도 : 날짜가 출력도니느 부분이지만 여행지 순서출력하면 좋을 합니다.  -->${vo.num}<span>번째</span>
-						</time>
+						<c:choose>
+							<c:when test="${empty vo.num}">
+							</c:when>
+							<c:otherwise>
+								<time datetime="2014-10-01">
+									<!-- 경도 : 날짜가 출력도니느 부분이지만 여행지 순서출력하면 좋을 합니다.  -->${vo.num}<span>번째</span>
+								</time>
+							</c:otherwise>
+						</c:choose>
 						<div class="extra_wrapper">
 							<div class="text1 col1">
 								<a href="#">${vo.name}</a>
@@ -1248,8 +1261,9 @@
 			<div class="container_12">
 				<div class="grid_12">
 					<div class="socials">
-						<a href="#" class="fa fa-facebook"></a> <a href="#"
-							class="fa fa-twitter"></a> <a href="#" class="fa fa-google-plus"></a>
+						<a href="https://ko-kr.facebook.com/" class="fa fa-facebook"></a>
+						<a href="https://twitter.com/" class="fa fa-twitter"></a> <a
+							href="https://plus.google.com/" class="fa fa-google-plus"></a>
 					</div>
 					<div class="copy">
 						Tripicker (c) 2017 | <a href="#">Privacy Policy</a> | Website

@@ -383,24 +383,7 @@
 		<p>If you don't have account >><a href="#join_form" id="join_pop">Join</a></p>
 		<a class="close" href="#close"></a>
 	</div>
-	<div class="popup">
-		<span>Welcome Guest!</span>
-		<p>Please enter your login and password here</p>
-		<form action="LoginCon" method="post">
-			<table>
-				<tr>
-					<td>Login ID</td>
-					<td><input type="text" name="id" required /></td>
-					<td rowspan="2" align="center"><input type="submit"
-						value="Log In" class="submit" /></td>
-				</tr>
-				<tr>
-					<td>Password</td>
-					<td><input type="password" name="pw" required /></td>
-			</table>
-		</form>
-		<a class="close" href="#close"></a>
-	</div>
+	
 	<!-- /login form -->
 	
 	<!-- login form -->
@@ -598,7 +581,7 @@
 					<div class="caption fadeIn">
 						<h2 class="mainLogo">성산일출봉</h2>
 						<div class="price">
-							FROM <span>멋있는 일출을 보고 싶다면</span>
+							 &nbsp<span>멋있는 일출을 보고 싶다면?</span>
 						</div>
 						<c:choose>
 							<c:when test="${empty id}">
@@ -612,9 +595,9 @@
 				</div>
 				<div data-src="images/Main/slide2.jpg">
 					<div class="caption fadeIn">
-						<h2 class="mainLogo">성산일출봉 겨울</h2>
+						<h2 class="mainLogo">제주허브 동산</h2>
 						<div class="price">
-							FROM <span>$2000</span>
+							&nbsp<span>향기로운 허브동산에서 멋있는 야경을!</span>
 						</div>
 						<c:choose>
 							<c:when test="${empty id}">
@@ -626,11 +609,11 @@
 						</c:choose>
 					</div>
 				</div>
-				<div data-src="images/slide1.jpg">
+				<div data-src="images/Main/slide3.jpg">
 					<div class="caption fadeIn">
-						<h2 class="mainLogo">산굼부리</h2>
+						<h2 class="mainLogo">한라산국립공원</h2>
 						<div class="price">
-							FROM <span>$1600</span>
+							&nbsp<span>멋진 설경을 보고싶다면?</span>
 						</div>
 						<c:choose>
 							<c:when test="${empty id}">
@@ -642,11 +625,11 @@
 						</c:choose>
 					</div>
 				</div>
-				<div data-src="images/slide2.jpg">
+				<div data-src="images/Main/slide4.jpg">
 					<div class="caption fadeIn">
-						<h2 class="mainLogo">실험용</h2>
+						<h2 class="mainLogo">월령선인장군락지</h2>
 						<div class="price">
-							FROM <span>$2000</span>
+							&nbsp<span>선인장이 가득한 해변가에서 산책을!</span>
 						</div>
 						<c:choose>
 							<c:when test="${empty id}">
@@ -666,8 +649,8 @@
 			<div class="ic"></div>
 			<!-- ================= banner ====================== -->
 			<div class="container_12">
-				<h3>Hot Map</h3>
-				<h2 style="font-size: 1.3em;">많은 사람들이 선호하는 여행루트 입니다.</h2>
+				<h3><span style="color:#C73430;">Hot</span> Map</h3>
+				<h2 style="font-size: 1.3em;">예비 여행자들이 추천한 인기 루트입니다.</h2>
 				<div class="grid_12">
 					<!-- MINIMAP 1번 사용자 맞춤 추천 루트 -->
 					<div
@@ -677,7 +660,7 @@
 			</div>
 			<div class="container_12">
 				<h3>Recommend</h3>
-				<h2 style="font-size: 1.3em;">많은 이용자들이 선호하는 식당입니다.</h2>
+				<h2 style="font-size: 1.3em;">당신 만을 위한 추천여행 루트 입니다.</h2>
 				<div class="grid_6">
 					<!-- MINIMAP 1번 사용자 맞춤 추천 루트 -->
 					<div id="minimap1"></div>
@@ -692,7 +675,7 @@
 			<div class="container_12">
 
 				<h3>Tirpicker's Choice</h3>
-				<h2 style="font-size: 1.3em;">많은 이용자들이 선호하는 식당입니다.</h2>
+				<h2 style="font-size: 1.3em;">저희 사이트가 추천하는 여행 루트 입니다.</h2>
 				<div class="grid_6">
 					<!-- MINIMAP 3번 우리사이트 자체 추천 루트 -->
 					<div id="minimap3"></div>
@@ -834,8 +817,8 @@
 		<div class="container_12">
 			<div class="grid_12">
 				<div class="socials">
-					<a href="#" class="fa fa-facebook"></a> <a href="#"
-						class="fa fa-twitter"></a> <a href="#" class="fa fa-google-plus"></a>
+					<a href="https://ko-kr.facebook.com/" class="fa fa-facebook"></a> <a href="https://twitter.com/"
+							class="fa fa-twitter"></a> <a href="https://plus.google.com/" class="fa fa-google-plus"></a>
 				</div>
 				<div class="copy">
 					Tripicker (c) 2017 | <a href="#">Privacy Policy</a> | Website

@@ -74,24 +74,7 @@
 		<p>If you don't have account >><a href="#join_form" id="join_pop">Join</a></p>
 		<a class="close" href="#close"></a>
 	</div>
-	<div class="popup">
-		<span>Welcome Guest!</span>
-		<p>Please enter your login and password here</p>
-		<form action="LoginCon" method="post">
-			<table>
-				<tr>
-					<td>Login ID</td>
-					<td><input type="text" name="id" required /></td>
-					<td rowspan="2" align="center"><input type="submit"
-						value="Log In" class="submit" /></td>
-				</tr>
-				<tr>
-					<td>Password</td>
-					<td><input type="password" name="pw" required /></td>
-			</table>
-		</form>
-		<a class="close" href="#close"></a>
-	</div>
+	
 	<!-- /login form -->
 	
 	<!-- login form -->
@@ -285,13 +268,13 @@
       <div class="content"><div class="ic"></div>
          <div class="container_12">      
             <h3><span style="color:#C73430;">HOT</span> RESTAURANT</h3>
-            	<h2 style="font-size:1.3em;">많은 이용자들이 선호하는 식당입니다.</h2>
+            	<h2 style="font-size:1.3em;">맛있고 특색있는 음식을 파는 추천 식당 입니다.</h2>
                <div class="grid_3">
                   <div class="banner special">
                      <img style="width:250px;height:280px;" onclick="moving(1)" src="images/sepecial/re1.jpg" alt="">
                      <div class="label">
                         <div class="title">명진 전복</div>
-                        <div class="price">from<span>★★★★☆</span></div>
+                        <div class="price">&nbsp<span>★★★★☆</span></div>
                         <a onclick="moving(1)">더보기</a>
                      </div>
                   </div>
@@ -301,7 +284,7 @@
                      <img style="width:250px;height:280px;" onclick="moving(2)" src="images/sepecial/re2.jpg" alt="">
                      <div class="label">
                         <div class="title">우진해장국</div>
-                        <div class="price">from<span>★★★★☆</span></div>
+                        <div class="price">&nbsp<span>★★★★☆</span></div>
                         <a onclick="moving(2)">더보기</a>
                      </div>
                   </div>
@@ -311,7 +294,7 @@
                      <img style="width:250px;height:280px;" onclick="moving(3)" src="images/sepecial/re3.jpg" alt="">
                      <div class="label">
                         <div class="title">소울 키친</div>
-                        <div class="price">from<span>★★★★☆</span></div>
+                        <div class="price">&nbsp<span>★★★★☆</span></div>
                         <a onclick="moving(3)">더보기</a>
                      </div>
                   </div>
@@ -321,25 +304,22 @@
                      <img style="width:250px;height:280px;" onclick="moving(4)" src="images/sepecial/re4.jpg" alt="">
                      <div class="label">
                         <div class="title">자매국수</div>
-                        <div class="price">from<span>★★★★☆</span></div>
+                        <div class="price">&nbsp<span>★★★★☆</span></div>
                         <a onclick="moving(4)">더보기</a>
                      </div>
                   </div>
-               </div>
-
-               
+               </div> 
       </div>
-      
-     
+ 
       <div class="container_12">      
             <h3><span style="color:#C73430;">HOT</span> HOTEL</h3>
-            <h2 style="font-size:1.3em;">많은 이용자들이 선호하는 식당입니다.</h2>
+            <h2 style="font-size:1.3em;">머무는 동안 편안히 지내다 갈 수 있는 추천 호텔 입니다.</h2>
                <div class="grid_3">
                   <div class="banner special">
                      <img style="width:250px;height:280px;" onclick="moving(5)" src="images/sepecial/hotel1.jpg" alt="">
                      <div class="label">
                         <div style="font-size:1.5em; text-shadow: 0.05em 0.05em 0.15em #193c46;">호텔 리젠트<br> 마린 더 블루</div>
-                        <div class="price">from<span>★★★★☆</span></div>
+                        <div class="price">&nbsp<span>★★★★☆</span></div>
                         <a onclick="moving(5)">더 보기</a>
                      </div>
                   </div>
@@ -349,7 +329,7 @@
                      <img style="width:250px;height:280px;" onclick="moving(6)" src="images/sepecial/hotel2.jpg" alt="">
                      <div class="label">
                         <div style="font-size:1.5em; text-shadow: 0.05em 0.05em 0.15em #193c46;">라마다 앙코르<br> 이스트 호텔</div>
-                        <div class="price">from<span>★★★★☆</span></div>
+                        <div class="price">&nbsp<span>★★★★☆</span></div>
                         <a  onclick="moving(6)">더 보기</a>
                      </div>
                   </div>
@@ -359,7 +339,7 @@
                      <img style="width:250px;height:280px;" onclick="moving(7)" src="images/sepecial/hotel3.jpg" alt="">
                      <div class="label">
                         <div style="font-size:1.5em; text-shadow: 0.05em 0.05em 0.15em #193c46;">데이즈 호텔 <br>제주 서귀포 오션</div>
-                        <div class="price">from<span>★★★★☆</span></div>
+                        <div class="price">&nbsp<span>★★★★☆</span></div>
                         <a align="center" onclick="moving(7)">더 보기</a>
                      </div>
                      
@@ -370,23 +350,22 @@
                      <img style="width:250px;height:280px;" onclick="moving(8)" src="images/sepecial/hotel4.jpg" alt="">
                      <div class="label">
                         <div style="font-size:1.5em; text-shadow: 0.05em 0.05em 0.15em #193c46;">오션 팰리스 호텔</div>
-                        <div class="price">from<span>★★★☆☆</span></div>
+                        <div class="price">&nbsp<span>★★★☆☆</span></div>
                         <a  onclick="moving(8)">더 보기</a>
                      </div>
                   </div>
                </div>
 
-               
       </div>
       <div class="container_12">      
             <h3><span style="color:#C73430;">HOT</span> CAFE</h3>
-            <h2 style="font-size:1.3em;">많은 이용자들이 선호하는 식당입니다.</h2>
+            <h2 style="font-size:1.3em;">멋진 풍경이 함께하는 추천 카페 입니다.</h2>
                <div class="grid_3">
                   <div class="banner special">
                      <img onclick="moving(9)" style="width:250px;height:280px;" src="images/sepecial/ca1.jpg" alt="">
                      <div class="label">
                         <div class="title">메이비 카페</div>
-                        <div class="price">from<span>★★★★☆</span></div>
+                        <div class="price">&nbsp<span>★★★★☆</span></div>
                         <a onclick="moving(9)">더 보기</a>
                      </div>
                   </div>
@@ -396,7 +375,7 @@
                      <img onclick="moving(10)" style="width:250px;height:280px;" src="images/sepecial/ca2.jpg" alt="">
                      <div class="label">
                         <div class="title">에이팩토리카페</div>
-                        <div class="price">from<span>★★★★☆</span></div>
+                        <div class="price">&nbsp<span>★★★★☆</span></div>
                         <a onclick="moving(10)">더 보기</a>
                      </div>
                   </div>
@@ -406,7 +385,7 @@
                      <img onclick="moving(11)" style="width:250px;height:280px;" src="images/sepecial/ca3.jpg" alt="">
                      <div class="label">
                         <div class="title">몽상</div>
-                        <div class="price">from<span>★★★★☆</span></div>
+                        <div class="price">&nbsp<span>★★★★☆</span></div>
                         <a onclick="moving(11)">더 보기</a>
                      </div>
                   </div>
@@ -416,7 +395,7 @@
                      <img onclick="moving(12)" style="width:250px;height:280px;" src="images/sepecial/ca4.jpg" alt="">
                      <div class="label">
                         <div class="title">델문도</div>
-                        <div class="price">from<span>★★★★☆</span></div>
+                        <div class="price">&nbsp<span>★★★★☆</span></div>
                         <a onclick="moving(12)">더 보기</a>
                      </div>
                   </div>
@@ -470,12 +449,11 @@
          <div class="container_12">
             <div class="grid_12">
                <div class="socials">
-                  <a href="#" class="fa fa-facebook"></a>
-                  <a href="#" class="fa fa-twitter"></a>
-                  <a href="#" class="fa fa-google-plus"></a>
+                  <a href="https://ko-kr.facebook.com/" class="fa fa-facebook"></a> <a href="https://twitter.com/"
+							class="fa fa-twitter"></a> <a href="https://plus.google.com/" class="fa fa-google-plus"></a>
                </div>
                <div class="copy">
-                  Your Trip (c) 2014 | <a href="#">Privacy Policy</a> | Website Template Designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a>
+                  Tripicker (c) 2017 | <a href="#">Privacy Policy</a> | Website Template Designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a>
                </div>
             </div>
          </div>

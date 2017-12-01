@@ -286,7 +286,7 @@
 	margin-top: 0;
 }
 </style>
-<style type="text/css">
+<!-- <style type="text/css">
 .mapPost tr td {
 	padding: 10px;
 	border: 1px solid #dddddd;
@@ -296,7 +296,7 @@
 .mapPost tr th {
 	padding: 10px;
 }
-</style>
+</style> -->
 
 <title>Blog</title>
 <meta charset="utf-8">
@@ -362,24 +362,6 @@
 		<p>
 			If you don't have account >><a href="#join_form" id="join_pop">Join</a>
 		</p>
-		<a class="close" href="#close"></a>
-	</div>
-	<div class="popup">
-		<span>Welcome Guest!</span>
-		<p>Please enter your login and password here</p>
-		<form action="LoginCon" method="post">
-			<table>
-				<tr>
-					<td>Login ID</td>
-					<td><input type="text" name="id" required /></td>
-					<td rowspan="2" align="center"><input type="submit"
-						value="Log In" class="submit" /></td>
-				</tr>
-				<tr>
-					<td>Password</td>
-					<td><input type="password" name="pw" required /></td>
-			</table>
-		</form>
 		<a class="close" href="#close"></a>
 	</div>
 	<!-- /login form -->
@@ -621,21 +603,20 @@
 				<button onclick="drawing()"
 					style="margin-top: 80px; margin-left: 100px; position: relative;">소요시간측정하기</button>
 
-			</div>
+			
 
 			<!--====================================지도 게시판 만들기=======================================-->
-			<div class="content">
-				<div class="ic"></div>
+		
 				<h3 style="margin-left: 100px; ! important top: 0;">SHOW YOUR
 					ROUT</h3>
 				<div
 					style="margin-left: 100px; margin-right: 100px; background-color: blue; width: 87%;; height: 460px;"></div>
-
-				<div class="grid_12" style="margin-left: 100px; top: 50px;">
+	
+				<div class="grid_12" style="margin-left: 150px; top: 50px;">
 					<!-- 지도 게시판 -->
 					<table class="mapPost"
-						style="margin: 20px; border: 1px solid #dddddd; text-align: center; width: 1200px; font-size: 1.2em;">
-						<tr style="background-color: #002141;">
+						style="margin: 20px; border: 1px solid #dddddd; text-align: center; width: 1300px; font-size: 1.2em;">
+						<tr style="background-color: #002141; color:#F6F6F6;">
 							<th>번호</th>
 							<th>지도 이름</th>
 							<th>작성자</th>
@@ -653,11 +634,28 @@
 							<td>123</td>
 							<td>23</td>
 						</tr>
+						<tr>
+							<td>2</td>
+							<td><a href="">송하의 제주도 오름 탐방기</a></td>
+							<td>123</td>
+							<td>23</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td><a href="">송하의 제주도 오름 탐방기</a></td>
+							<td>123</td>
+							<td>23</td>
+						</tr>
 					</table>
 				</div>
+				
 			</div>
-		</div>
-
+<div class="content">
+				<div class="ic"></div>
+				<div class="grid_12" style="margin-left: 100px; top: 50px;">
+				
+				</div>
+				</div>
 
 		<!--===================================^지도 게시판 만들기=======================================-->
 
@@ -1263,11 +1261,11 @@
 			<div class="container_12">
 				<div class="grid_12">
 					<div class="socials">
-						<a href="#" class="fa fa-facebook"></a> <a href="#"
-							class="fa fa-twitter"></a> <a href="#" class="fa fa-google-plus"></a>
+						<a href="https://ko-kr.facebook.com/" class="fa fa-facebook"></a> <a href="https://twitter.com/"
+							class="fa fa-twitter"></a> <a href="https://plus.google.com/" class="fa fa-google-plus"></a>
 					</div>
 					<div class="copy">
-						Your Trip (c) 2014 | <a href="#">Privacy Policy</a> | Website
+						Tripicker (c) 2017 | <a href="#">Privacy Policy</a> | Website
 						Template Designed by <a href="http://www.templatemonster.com/"
 							rel="nofollow">TemplateMonster.com</a>
 					</div>
