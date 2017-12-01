@@ -29,6 +29,7 @@ public class SelectOne extends HttpServlet {
 
 					if (vo != null) {
 						request.setAttribute("vo", vo);
+						request.setAttribute("num", num);
 					}
 					RequestDispatcher dis = request.getRequestDispatcher("view.jsp");
 					dis.forward(request, response);

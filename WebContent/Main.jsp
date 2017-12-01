@@ -596,9 +596,9 @@
 			<div id="camera_wrap" class="">
 				<div data-src="images/Main/slide1.jpg">
 					<div class="caption fadeIn">
-						<h2 class="mainLogo">성산일출봉 등반</h2>
+						<h2 class="mainLogo">성산일출봉</h2>
 						<div class="price">
-							FROM <span>$1000</span>
+							FROM <span>멋있는 일출을 보고 싶다면</span>
 						</div>
 						<c:choose>
 							<c:when test="${empty id}">
@@ -722,7 +722,7 @@
 							<time datetime="2014-01-01">10<span>Jan</span></time>
 							<div class="extra_wrapper" id="news1">
 								<div class="text1 col1">
-									<a href="#" id="news1">성산일출봉 투어</a>
+									<a href="#" id="news1">성산일출봉</a>
 								</div>
 								하루동안 성산일출봉에서 시간을 보내세요
 							</div>
@@ -810,7 +810,7 @@
 					<div class="grid_4 suffix_1">
 						<h3>Welcome!</h3>
 						<div style="width: 320px; height: 460px;">Tripicker는 여행자의
-							취향을 반영하여, 맞춤형 루트를 추천해주는 사이트 입니다.</div>
+							취향을 반영하여, 맞춤형 루트를 추천해주는 사이트 입니다. </div>
 					</div>
 					<div class="grid_7">
 						<h3>Welcome!</h3>

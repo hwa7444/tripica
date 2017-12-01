@@ -530,7 +530,7 @@
 								</c:choose>
 								<li><a href="specialOffer.jsp">SPECIAL OFFERS</a></li>
 								<li><a href="SelectService?start=0&end=8">POST</a></li>
-								<li><a href="Map.jsp">MAP INFO</a></li>
+								<li><a href="Map.jsp">MAP DIY</a></li>
 							</ul>
 						</nav>
 						<div class="clear"></div>

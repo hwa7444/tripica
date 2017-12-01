@@ -1,3 +1,8 @@
+<%@page import="com.sun.xml.internal.bind.v2.schemagen.xmlschema.List"%>
+<%@page import="com.DAO.bulletinVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.DAO.bulletinDAO"%>
+<%@page import="java.net.URLEncoder"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -268,7 +273,7 @@
 								</c:choose>
 								<li><a href="specialOffer.jsp">SPECIAL OFFERS</a></li>
 								<li class="current"><a href="SelectService?start=0&end=8">POST</a></li>
-								<li><a href="Map.jsp">MAP INFO</a></li>
+								<li><a href="Map.jsp">MAP DIY</a></li>
 							</ul>
 						</nav>
 						<div class="clear"></div>
@@ -288,6 +293,17 @@
 			<div class="ic"></div>
 			<div class="container_12">
 				<!--================ blogPost ================-->
+				
+				<% 
+				int num = Integer.parseInt(request.getParameter("num"));
+				
+				bulletinVO arr = null;
+				bulletinDAO dao = bulletinDAO.getInstance();
+				arr = dao.selectOne(num);
+
+				request.setAttribute("vo", arr); 
+				
+				%>
 				<div class="grid_12">
 					<h3>Write Posts</h3>
 					<div class="row">
@@ -308,7 +324,8 @@
 										<td>${vo.writeDay}</td>
 									</tr>
 									<tr>
-										<td colspan="4"><img style="max-width:500px !important; height:auto;" src="upload/${vo.fileName}"></td>
+										<td colspan="4"><img style="max-width:500px !important; height:auto;" src="upload/<%=URLEncoder.encode(arr.getFileName(), "euc-kr")%>"></td>
+				
 									</tr>
 									<tr>
 										<td colspan="4" style="min-height:200px !important;">${vo.content}</td>

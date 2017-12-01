@@ -31,6 +31,9 @@ public class WriteCon extends HttpServlet {
 		
 		/*request.setCharacterEncoding("UTF-8");*/
 		boolean isMulti = ServletFileUpload.isMultipartContent(request);
+		
+		String computerName = null;
+      
 		MultipartRequest multi = null;
 
 		// ServletContext: 웹 어플리케이션에 대한 정보를 가지고 있는 객체
