@@ -521,20 +521,20 @@
 				
 				<div class="blog"> <!-- 경도 :기본 틀입니다. 카테고리클릭시 여기 div에 id 값을 주어 불러 들이면 됩니다.-->
 					<time datetime="2014-10-01">
-						<!-- 경도 : 날짜가 출력도니느 부분이지만 여행지 순서출력하면 좋을 합니다.  -->1<span>번째</span> 
+						<!-- 경도 : 날짜가 출력도니느 부분이지만 여행지 순서출력하면 좋을 합니다.  -->${vo.num}<span>번째</span> 
 					</time>
 					<div class="extra_wrapper">
 						<div class="text1 col1">
-							<a href="#">교육박물관</a> <!-- 경도 : 여행지 제목 출력하기 -->
+							<a href="#">${vo.name}</a> <!-- 경도 : 여행지 제목 출력하기 -->
 						</div>
 						<!-- 경도 : 원한다면 여기에 여행지 타입 출력 -->				
-						타입: 박물관
+						${vo.type }
 						<!-- 경도 : 원한다면 여기에 여행지 타입 출력 end -->	
 					</div>
 					<div class="clear"></div> <!-- 그대로 두면되는 클래스 입니다. -->
-					<img src="images/page4_img1.jpg" alt="" class="img_inner"> <!-- 경도: 여행지 사진 출력 -->
+					<img src="${vo.img}" alt="" class="img_inner"> <!-- 경도: 여행지 사진 출력 -->
 					<p><!-- 경도: 여행설명 출력-->
-					설명을 설명 설명
+					${vo.comment }
 					</p><br> 
 					
 					
@@ -551,10 +551,10 @@
 			<div class="grid_4 prefix_1">
 				<h3 class="head1">YOUR ROUT</h3> <!-- 경도 : 여행지 목록 출력 부분-->
 				<ul class="list"> <!--foransdms li 태그 안에서 돌리면 됩니다.-->
-					<li><a href="#">교육박물관</a></li>
-					<li><a href="#">카멜리아힐</a></li>
-					<li><a href="#">미니랜드</a></li>
-					<li><a href="#">에코피아</a></li>
+					<li><a href="tourSelectCon?name=건강과성박물관">건강과성박물관</a></li>
+					<li><a href="tourSelectCon?name=명도암">명도암</a></li>
+					<li><a href="tourSelectCon?name=김만덕기념관">김만덕기념관</a></li>
+					<li><a href="tourSelectCon?name=무병장수테마파크">무병장수테마파크</a></li>
 				</ul>
 			</div>
 			</div>
