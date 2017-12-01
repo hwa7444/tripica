@@ -6,153 +6,40 @@
 
 # In[1]:
 
-import matplotlib.pyplot as plt
-from matplotlib import font_manager, rc
-font_name = font_manager.FontProperties(fname="c:/Windows/Fonts/malgun.ttf").get_name()
-rc('font', family=font_name)
 from math import sqrt
 
 
-# In[69]:
+# 1.Member 딕셔너리 생성
+members={}
 
-members = {
-    '차현석': {
-        'type':['L','mus'],
-        '비자림':['res',3.5],
-        '솔트리':['res',2.0],
-        '노리매':['amu',3.5],
-        '오설록':['amu',1.5],
-        '이중섭미술관':['art',3.8],
-        '두모악':['art',3.5],
-        '제주경마공원':['spo',4],
-        '제주레일바이크':['spo',4.5],
-        
-    },
-    '황해도': {
-        'type':['V','nat'],
-        '비자림':['res',4.5],
-        '솔트리':['res',3.5],
-        '노리매':['amu',3.5],
-        '오설록':['amu',4.5],
-        '이중섭미술관':['art',5],
-        '두모악':['art',3.8],
-        '넥슨컴퓨터박물관':['mus',4.1],
-        '믿거나말거나박물관':['mus',3.7],
-        '제주경마공원':['spo',4.3],
-        '제주레일바이크':['spo',2.5],
-        '제주목관아':['his',4.7],
-        '제주추사관':['his',3.4],
-        '만장굴':['nat',5],
-        '용두암':['nat',5],
-    },
-    '김미희': {
-        'type':['A','amu'],
-        '비자림':['res',3.5],
-        '솔트리':['res',4.0],
-        '노리매':['amu',4.5],
-        '오설록':['amu',2.5],
-        '이중섭미술관':['art',4],
-        '두모악':['art',4.5],
-        '넥슨컴퓨터박물관':['mus',4.5],
-        '믿거나말거나박물관':['mus',3],
-        '제주경마공원':['spo',4.2],
-        '제주레일바이크':['spo',4],
-        '제주목관아':['his',3.9],
-        '제주추사관':['his',4.3],
-        '만장굴':['nat',5],
-        '용두암':['nat',3.5],
-    },
-    '김준형': {
-        'type':['A','spo'],
-        '비자림':['res',4.5],
-        '솔트리':['res',3],
-        '노리매':['amu',4.1],
-        '오설록':['amu',3.5],
-        '이중섭미술관':['art',4.5],
-        '두모악':['art',4],
-        '넥슨컴퓨터박물관':['mus',2.5],
-        '믿거나말거나박물관':['mus',3.8],
-        '제주경마공원':['spo',4.3],
-        '제주레일바이크':['spo',4.5],
-        '제주목관아':['his',4.9],
-        '제주추사관':['his',5],
-        '만장굴':['nat',4.2],
-        '용두암':['nat',3.8],
-    },
-    '이은비': {
-         'type':['R','res'],
-        '비자림':['res',3.5],
-        '솔트리':['res',4.0],
-        '노리매':['amu',4.5],
-        '오설록':['amu',2.5],
-        '이중섭미술관':['art',4],
-        '두모악':['art',4.5],
-        '넥슨컴퓨터박물관':['mus',4.5],
-        '믿거나말거나박물관':['mus',3],
-        '제주경마공원':['spo',4.2],
-        '제주레일바이크':['spo',4],
-        '제주목관아':['his',3.9],
-        '제주추사관':['his',4.3],
-        '만장굴':['nat',5],
-        '용두암':['nat',3.5],
-    },
-    '임명진': {
-        'type':['V','his'],
-        '비자림':['res',2.5],
-        '솔트리':['res',2.0],
-        '노리매':['amu',3.5],
-        '오설록':['amu',4.5],
-        '이중섭미술관':['art',3.4],
-        '두모악':['art',2.5],
-        '넥슨컴퓨터박물관':['mus',3.5],
-        '믿거나말거나박물관':['mus',4.3],
-        '제주경마공원':['spo',4],
-        '제주레일바이크':['spo',3.4],
-        '제주목관아':['his',3.2],
-        '제주추사관':['his',4.3],
-        '만장굴':['nat',3],
-        '용두암':['nat',2.5],
-    },
-    '심수정': {
-         'type':['L','art'],
-        '비자림':['res',3.5],
-        '솔트리':['res',4.0],
-        '노리매':['amu',4.5],
-        '오설록':['amu',2.5],
-        '이중섭미술관':['art',4],
-        '두모악':['art',4.5],
-        '넥슨컴퓨터박물관':['mus',4.5],
-        '믿거나말거나박물관':['mus',3],
-        '제주경마공원':['spo',4.2],
-        '제주레일바이크':['spo',4],
-        '제주목관아':['his',3.9],
-        '제주추사관':['his',4.3],
-        '만장굴':['nat',5],
-        '용두암':['nat',3.5],
-    },
-    '박병관': {
-        'type':['V','nat'],
-        '비자림':['res',3.5],
-        '솔트리':['res',4.0],
-        '노리매':['amu',3.5],
-        '두모악':['art',4.5],
-        '넥슨컴퓨터박물관':['mus',3.5],
-        '믿거나말거나박물관':['mus',3],
-        '제주경마공원':['spo',3.2],
-        '제주레일바이크':['spo',3],
-        '제주목관아':['his',3.9],
-        '제주추사관':['his',4.3],
-    }
-        
-}
+# 2. Members 딕셔너리에 회원의 여행 속성 추가
+def member_group():
+    cur.execute('SELECT * FROM mem_test')
+    mem_test=cur.fetchall()
+    for result in mem_test:
+        idp = result[0]
+        name=result[1]
+        type_1=result[2]
+        type_2=result[3]
+        members[idp]={'type':[type_1,type_2]}
+    return members
 
+# 3. 회원들의 id값 불러오기
+memberi=cur.execute("SELECT id FROM mem_test")
+memberid=[]
+for i in memberi:
+    memberid.append(i[0])
 
-# In[41]:
+# 4. Members 딕셔너리에 회원들이 다녀온 여행지 및 평점 추가
 
+for i in memberid: 
+    cur.execute('select * from member_tour where id=(:k)',k=i) 
+    k=cur.fetchall()
+    for j in k:
+        members[i][j[1]]=[j[0],j[2]]
+       
 
-# # 피어슨상관계수
-
-# In[53]:
+# 피어슨상관계수
 
 def sim_pearson(data, person1, person2):
     sumX = 0;
@@ -221,16 +108,6 @@ def top_match(data, person, n=3, sim_function=sim_distance):#default값 설정�
     return match_list[:n]
 
 
-# In[47]:
-
-pearson_list=top_match(members,'박병관',5,sim_pearson)
-
-
-# In[48]:
-
-pearson_list
-
-
 # In[71]:
 
 def getRecommendation(data, person,sim_funciton=sim_pearson):
@@ -252,23 +129,27 @@ def getRecommendation(data, person,sim_funciton=sim_pearson):
                 score_dic[tour]+=sim*data[name][tour][1]
                 simsum_list.setdefault(tour,0)
                 simsum_list[tour]+=sim
-       
+    
+    cur.execute('select t_type2 from mem_test where id=(:k) ',k=person) #회원속성 불러오기
+    t_type = cur.fetchone()
+    
     for tour in score_dic:
         rate=score_dic[tour]/simsum_list[tour]
         
         
-       
-        cur.execute('select t_location from tour_list where tour=(:k) ',k=tour)
+        cur.execute('select t_location from tour_list where tour=(:k) ',k=tour) #여행지 위치 불러오기
         loca = cur.fetchone()
         
-        if data[person]['type'][1]=='mus':
+        if data[person]['type'][1]==t_type: 
             recom_list.append((rate*1.2,tour,loca[0])) #선호 여행지에대한 가중치 1.2 줌
         else :recom_list.append((rate,tour,loca[0]))
         
     recom_list.sort()
     recom_list.reverse()
          
-    return(recom_list)          
+    return(recom_list)           
                 
-print(getRecommendation(members, '차현석',sim_pearson))            
+print(getRecommendation(members,'chs',sim_pearson))    
+
+            
 
