@@ -55,7 +55,7 @@ public class memberDAO {
 
 		// DBMS에 id의 pw를 인증을 받고 DB를 핸들링 할 수 있는 Connection 객체를 생성
 		// insert into fileboard values(1,'a','b','c',to_char(sysdate, 'YYYY-MM-DD'))
-		pst = conn.prepareStatement("insert into member values(?,?,?,?,?,?)");
+		pst = conn.prepareStatement("insert into member values(member_num.nextval,?,?,?,?,?,?)");
 		pst.setString(1, id);
 		pst.setString(2, pw);
 		pst.setString(3, nick);
