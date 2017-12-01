@@ -542,7 +542,7 @@
 										</c:otherwise>
 									</c:choose>
 									<li><a href="specialOffer.jsp">SPECIAL OFFERS</a></li>
-									<li><a href="SelectService?start=0&end=8">Post</a></li>
+									<li><a href="SelectService?start=0&end=8">POST</a></li>
 									<li class="current"><a href="Map.jsp">MAP DIY</a></li>
 								</ul>
 							</nav>
@@ -916,7 +916,6 @@
 										deleteClickLine();
 										deleteCircleDot();
 										deleteDistnce();
-
 									}
 
 									// 상태를 false로, 그리지 않고 있는 상태로 변경합니다
@@ -931,7 +930,6 @@
 					clickLine = null;
 				}
 			}
-
 			// 마우스 드래그로 그려지고 있는 선의 총거리 정보를 표시하거
 			// 마우스 오른쪽 클릭으로 선 그리가 종료됐을 때 선의 정보를 표시하는 커스텀 오버레이를 생성하고 지도에 표시하는 함수입니다
 			function showDistance(content, position) {
@@ -955,7 +953,6 @@
 					});
 				}
 			}
-
 			// 그려지고 있는 선의 총거리 정보와 
 			// 선 그리가 종료됐을 때 선의 정보를 표시하는 커스텀 오버레이를 삭제하는 함수입니다
 			function deleteDistnce() {

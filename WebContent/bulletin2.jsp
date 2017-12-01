@@ -63,12 +63,13 @@
 			nick = (String) session.getAttribute("nick");
 		}
 	%>
-	<!--==========================try me==============================-->
+<!--==========================try me==============================-->
+
 	<!-- login form -->
-	<a href="#x" class="overlay" id="login_form"></a>
+	<a href="#x" class="overlay" id="login_form2"></a>
 	<div class="popup">
-		<span>Welcome Guest!</span>
-		<p>Please enter your login and password here</p>
+		<span>Warning!</span>
+		<p>로그인 후 이용가능한 서비스 입니다.</p>
 		<form action="LoginCon" method="post">
 			<table>
 				<tr>
@@ -82,6 +83,34 @@
 					<td><input type="password" name="pw" required /></td>
 			</table>
 		</form>
+		<p>
+			If you don't have account >><a href="#join_form" id="join_pop">Join</a>
+		</p>
+		<a class="close" href="#close"></a>
+	</div>
+	<!-- /login form -->
+
+	<!-- login form -->
+	<a href="#x" class="overlay" id="login_form"></a>
+	<div class="popup">
+		<span>Welcome Guest!</span>
+		<p>아이디와 비밀번호를 입력하세요.</p>
+		<form action="LoginCon" method="post">
+			<table>
+				<tr>
+					<td>Login ID</td>
+					<td><input type="text" name="id" required /></td>
+					<td rowspan="2" align="center"><input type="submit"
+						value="Log In" class="submit" /></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><input type="password" name="pw" required /></td>
+			</table>
+		</form>
+		<p>
+			If you don't have account >><a href="#join_form" id="join_pop">Join</a>
+		</p>
 		<a class="close" href="#close"></a>
 	</div>
 	<!-- /login form -->
@@ -91,8 +120,8 @@
 	<!-- join form -->
 	<a href="#x" class="overlay" id="join_form"></a>
 	<div class="popup">
-		<span>회원가입</span>
-		<p>Please enter your details here</p>
+		<span>Join Us</span>
+		<p>아래의 항목을 채워주세요.</p>
 		<form action="JoinCon" method="post">
 			<table>
 				<tr>
@@ -127,12 +156,14 @@
 					<td><input type="date" name="birth" required></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" value="회원가입"
+					<td colspan="2"><input type="submit" value="Join Us"
 						class="submit" /></td>
 				</tr>
 			</table>
 		</form>
-		If you have account >><a href="#login_form" id="login_pop">Log In</a>
+		<p>
+			If you have account >><a href="#login_form" id="login_pop">Log In</a>
+		</p>
 		<a class="close" href="#close"></a>
 	</div>
 
@@ -146,21 +177,17 @@
 					alert(result);
 				}
 			})
-
 		}
 	</script>
-
 	<!-- /join form -->
-
 
 	<!-- update form -->
 	<a href="#x" class="overlay" id="update_form"></a>
 	<div class="popup">
-		<span>개인정보 수정</span>
+		<span>Update your Information!</span>
 		<p>수정할 개인정보를 입력하세요</p>
 		<form action="UpdateCon" method="post">
 			<table>
-
 				<tr>
 					<td>비밀번호</td>
 					<td><input type="password" name="pw" required maxlength="10"></td>
@@ -173,7 +200,6 @@
 					<td>전화번호</td>
 					<td><input type="text" name="phone" required
 						onfocus="OnCheckPhone(this)" onKeyup="OnCheckPhone(this)" size=14></td>
-
 				</tr>
 				<tr>
 					<td>생일</td>
@@ -185,22 +211,17 @@
 				</tr>
 			</table>
 		</form>
-
 		<a class="close" href="#close"></a>
 	</div>
-
-
 	<!-- /update form -->
-
-
-	<!--==========================try me==============================-->
+	<!--==========================^try me==============================-->
+	
 	<div class="allFor">
 		<!-- ======SIDE MENU===== -->
 		<div class="grid_13">
 			<img src="images/logo/tripickerLogo9.png">
 			<c:choose>
 				<c:when test="${empty id}">
-
 					<ul>
 						<li><a href="#login_form" id="login_pop">로그인</a></li>
 						<li><a href="#join_form" id="join_pop">회원가입</a></li>
@@ -261,6 +282,8 @@
 			<h3>Best Post</h3>
 			<div class="grid_12">
 			<div style="background-color:blue; width:930px; height:460px;"></div>
+			
+			
 			</div>
 				<!--================ blogPost ================-->
 				<div class="grid_12">

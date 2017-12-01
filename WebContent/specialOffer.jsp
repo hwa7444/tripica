@@ -44,7 +44,6 @@
       </style>
    </head>
    <body>
-   
    <%
 		String nick = null;
 		if (session.getAttribute("nick") != null) {
@@ -100,8 +99,6 @@
 	</div>
 	<!-- /login form -->
 
-
-
 	<!-- join form -->
 	<a href="#x" class="overlay" id="join_form"></a>
 	<div class="popup">
@@ -114,7 +111,6 @@
 					<td><input type="text" id="id" name="id" required
 						maxlength="10" size="10" onkeydown="nonHangulSpecialKey()">
 						<button onclick="idCheck()">중복확인</button></td>
-
 				</tr>
 				<tr>
 					<td>비밀번호</td>
@@ -133,8 +129,6 @@
 					<td>전화번호</td>
 					<td><input type="text" name="phone" required
 						onfocus="OnCheckPhone(this)" onKeyup="OnCheckPhone(this)" size=14></td>
-
-
 				</tr>
 				<tr>
 					<td>생일</td>
@@ -160,12 +154,10 @@
 					alert(result);
 				}
 			})
-
 		}
 	</script>
 
 	<!-- /join form -->
-
 
 	<!-- update form -->
 	<a href="#x" class="overlay" id="update_form"></a>
@@ -174,7 +166,6 @@
 		<p>수정할 개인정보를 입력하세요</p>
 		<form action="UpdateCon" method="post">
 			<table>
-
 				<tr>
 					<td>비밀번호</td>
 					<td><input type="password" name="pw" required maxlength="10"></td>
@@ -187,7 +178,6 @@
 					<td>전화번호</td>
 					<td><input type="text" name="phone" required
 						onfocus="OnCheckPhone(this)" onKeyup="OnCheckPhone(this)" size=14></td>
-
 				</tr>
 				<tr>
 					<td>생일</td>
@@ -414,34 +404,24 @@
     	  }else if (result ==3){
     		 location.href="tourInformation.jsp#hotRe3";  		  
     	  }else if (result ==4){
-    		 location.href="tourInformation.jsp#hotRe4";
-    		  
+    		 location.href="tourInformation.jsp#hotRe4"; 		  
     	  }else if (result ==5){
-    		 location.href="HotHotel.jsp#hotRe1";
-    		  
+    		 location.href="HotHotel.jsp#hotRe1";  		  
     	  }else if (result ==6){
-    		 location.href="HotHotel.jsp#hotRe2";
-    		  
+    		 location.href="HotHotel.jsp#hotRe2";		  
     	  }else if (result ==7){
-    		 location.href="HotHotel.jsp#hotRe3";
-    		  
+    		 location.href="HotHotel.jsp#hotRe3";    		  
     	  }else if (result ==8){
-    		 location.href="HotHotel.jsp#hotRe4";
-    		  
+    		 location.href="HotHotel.jsp#hotRe4"; 		  
     	  }else if (result ==9){
-    		 location.href="HotCafe.jsp#hotRe1";
-    		  
+    		 location.href="HotCafe.jsp#hotRe1"; 		  
     	  }else if (result ==10){
-    		 location.href="HotCafe.jsp#hotRe2";
-    		  
+    		 location.href="HotCafe.jsp#hotRe2";   		  
     	  }else if (result ==11){
-    		 location.href="HotCafe.jsp#hotRe3";
-    		  
+    		 location.href="HotCafe.jsp#hotRe3";   		  
     	  }else if (result ==12){
-    		 location.href="HotCafe.jsp#hotRe4";
-    		  
-    	  }
-    	  
+    		 location.href="HotCafe.jsp#hotRe4";   		  
+    	  }   	  
       }
       </script>
 <!--==============================footer=================================-->

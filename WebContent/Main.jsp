@@ -685,7 +685,6 @@
 					<div id="minimap4"></div>
 				</div>
 
-
 				<!-- ==================== ^banner ======================= -->
 			</div>
 
@@ -745,7 +744,7 @@
 						.addEventListener(
 								"mouseover",
 								function(e) {
-									lastCon.style.background = "url('images/slide2.jpg')";
+									lastCon.style.background = "url('images/Main/pano1.jpg')";
 								});
 				document
 						.getElementById("news1")
