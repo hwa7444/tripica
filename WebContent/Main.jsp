@@ -8,6 +8,9 @@
 <html>
 <head>
 <style>
+.menu_block nav {
+font-family:'SeoulNamsanEB';}
+
 /* css [line] */
 .dot {
 	overflow: hidden;
@@ -127,9 +130,9 @@
 <link rel="icon" href="images/favicon.ico">
 <link rel="shortcut icon" href="images/favicon.ico" />
 <link rel="stylesheet" href="booking/css/booking.css">
-<link rel="stylesheet" href="css/camera.css">
+<link rel="stylesheet" href="css/camera.css?ver=1">
 <link rel="stylesheet" href="css/owl.carousel.css">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?ver=1">
 
 
 <script
@@ -566,7 +569,7 @@
 						<div class="price">
 							FROM <span>$1000</span>
 						</div>
-						<a href="HotTour.jsp">여행더보기</a>
+						<a href="HotTour.jsp">더 보기</a>
 					</div>
 				</div>
 				<div data-src="images/Main/slide2.jpg">
@@ -575,25 +578,25 @@
 						<div class="price">
 							FROM <span>$2000</span>
 						</div>
-						<a href="HotTour.jsp">여행더보기</a>
+						<a href="HotTour.jsp">더 보기</a>
 					</div>
 				</div>
-				<div data-src="images/slide2.jpg">
+				<div data-src="images/slide1.jpg">
 					<div class="caption fadeIn">
 						<h2 class="mainLogo">산굼부리</h2>
 						<div class="price">
 							FROM <span>$1600</span>
 						</div>
-						<a href="HotTour.jsp">LEARN MORE</a>
+						<a href="HotTour.jsp">더 보기</a>
 					</div>
 				</div>
-				<div data-src="images/slide1.jpg">
+				<div data-src="images/slide2.jpg">
 					<div class="caption fadeIn">
 						<h2 class="mainLogo">실험용</h2>
 						<div class="price">
 							FROM <span>$2000</span>
 						</div>
-						<a href="HotTour.jsp">LEARN MORE</a>
+						<a href="HotTour.jsp">더 보기</a>
 					</div>
 				</div>
 			</div>
@@ -601,12 +604,11 @@
 
 		<!--==============================Content=================================-->
 		<div class="content">
-			<div class="ic">More Website Templates @ TemplateMonster.com -
-				February 10, 2014!</div>
+			<div class="ic"></div>
 			<!-- ================= banner ====================== -->
 			<div class="container_12">
 				<h3>Recommend</h3>
-
+				<h2 style="font-size:1.3em;">많은 이용자들이 선호하는 식당입니다.</h2>
 				<div class="grid_6">
 					<!-- MINIMAP 1번 사용자 맞춤 추천 루트 -->
 					<div id="minimap1"></div>
@@ -621,6 +623,7 @@
 			<div class="container_12">
 
 				<h3>Tirpicker's Choice</h3>
+				<h2 style="font-size:1.3em;">많은 이용자들이 선호하는 식당입니다.</h2>
 				<div class="grid_6">
 					<!-- MINIMAP 3번 우리사이트 자체 추천 루트 -->
 					<div id="minimap3"></div>
@@ -639,25 +642,25 @@
 		<!-- allfor you -->
 		<div class="allFor">
 
-			<div class="color">
+			<div class="color" id="lastCon">
 				<!-- =========================== Lastest News=================================== -->
 				<div class="container_12" align="center">
 					<div class="grid_12">
-						<h3 class="head1">Latest News</h3>
+						<h3 class="head1">This Week's Choice</h3>
 					</div>
 					<div class="grid_4">
 						<div class="block1">
 							<time datetime="2014-01-01">10<span>Jan</span></time>
-							<div class="extra_wrapper">
+							<div class="extra_wrapper" id="news1">
 								<div class="text1 col1">
-									<a href="#">성산일출봉 투어</a>
+									<a href="#" id="news1">성산일출봉 투어</a>
 								</div>
 								하루동안 성산일출봉에서 시간을 보내세요
 							</div>
 						</div>
 					</div>
 					<div class="grid_4">
-						<div class="block1">
+						<div class="block1" id="news2">
 							<time datetime="2014-01-01">21<span>Jan</span></time>
 							<div class="extra_wrapper">
 								<div class="text1 col1">
@@ -668,7 +671,7 @@
 						</div>
 					</div>
 					<div class="grid_4">
-						<div class="block1">
+						<div class="block1" id="news3">
 							<time datetime="2014-01-01">15<span>Feb</span></time>
 							<div class="extra_wrapper">
 								<div class="text1 col1">
@@ -683,39 +686,60 @@
 					<!-- ===========================^Lastest News=================================== -->
 				</div>
 			</div>
+			
+			<script type="text/javascript">
+			document.getElementById("news1").addEventListener("mouseover",
+					function(e) {
+						lastCon.style.background="url('images/slide2.jpg')";
+					});
+			document.getElementById("news1").addEventListener("mouseout",
+					function(e) {
+				lastCon.style.background = "url('images/page1_img1.jpg')";
+
+					});
+			document.getElementById("news2").addEventListener("mouseover",
+					function(e) {
+						lastCon.style.background="url('images/slide.jpg')";
+					});
+			document.getElementById("news2").addEventListener("mouseout",
+					function(e) {
+				lastCon.style.background = "url('images/page1_img1.jpg')";
+
+					});
+			document.getElementById("news3").addEventListener("mouseover",
+					function(e) {
+						lastCon.style.background="url('images/page4_img2.jpg')";
+					});
+			document.getElementById("news3").addEventListener("mouseout",
+					function(e) {
+				lastCon.style.background = "url('images/page1_img1.jpg')";
+
+					});
+			</script>
 			<!--==============================Content=================================-->
 			<div class="content">
-				<div class="ic">More Website Templates @ TemplateMonster.com -
-					February 10, 2014!</div>
+				<div class="ic"></div>
 				<div class="container_12">
-					<h3>statistical</h3>
-
 					<div class="grid_4 suffix_1">
+					<h3>Welcome!</h3>
 						<div
-							style="background-color: lightgreen; width: 320px; height: 460px;"></div>
+							style=" width: 320px; height: 460px;">
+							
+							Tripicker는 여행자의 취향을 반영하여, 맞춤형 루트를 추천해주는 사이트 입니다.
+							</div>
 					</div>
 					<div class="grid_7">
+					<h3>Welcome!</h3>
 						<div
 							style="background-color: lightblue; width: 560px; height: 460px;"></div>
+							
 					</div>
 				</div>
 
 				<div class="clear"></div>
-				<div class="container_12">
-
-					<h3>Tirpicker's Choice</h3>
-					<div class="grid_6">
-						<div
-							style="background-color: lightblue; width: 460px; height: 460px;"></div>
-					</div>
-					<div class="grid_6">
-						<div
-							style="background-color: lightblue; width: 460px; height: 460px;"></div>
-					</div>
-
-
+				
 					<!-- ==================== ^banner ======================= -->
-				</div>
+				
 				<!-- ============== welcome ===================== -->
 				<!-- <div class="grid_4">
 							<h3>Welcome</h3>

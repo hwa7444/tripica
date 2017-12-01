@@ -556,7 +556,13 @@
 			<button onclick="drawing()" style="margin-top:80px; margin-left:100px; position:relative;">소요시간측정하기</button>
 
 		</div>
-
+		
+		<!--====================================지도 게시판 만들기=======================================-->
+			<div class="content">
+			<div class="ic"></div>
+			<h3 style="margin-left: 100px;!important top:0;">SHOW YOUR ROUT</h3>
+			</div>
+		<!--===================================^지도 게시판 만들기=======================================-->
 
 		<!--================================여기는 지도 스크랩트 문!!======================================-->
 		<script type="text/javascript"

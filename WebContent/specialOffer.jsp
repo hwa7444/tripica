@@ -34,6 +34,14 @@
       <script src="js/html5shiv.js"></script>
       <link rel="stylesheet" media="screen" href="css/ie.css">
       <![endif]-->
+      <style>
+      .title{
+      text-shadow: 0.05em 0.05em 0.15em #193c46;
+      }
+      .price{
+      text-shadow: 0.05em 0.05em 0.15em #193c46;
+      }
+      </style>
    </head>
    <body>
    
@@ -226,6 +234,7 @@
       <div class="content"><div class="ic"></div>
          <div class="container_12">      
             <h3><span style="color:#C73430;">HOT</span> RESTAURANT</h3>
+            	<h2 style="font-size:1.3em;">많은 이용자들이 선호하는 식당입니다.</h2>
                <div class="grid_3">
                   <div class="banner special">
                      <img style="width:250px;height:280px;" onclick="moving(1)" src="images/sepecial/re1.jpg" alt="">
@@ -273,11 +282,12 @@
      
       <div class="container_12">      
             <h3><span style="color:#C73430;">HOT</span> HOTEL</h3>
+            <h2 style="font-size:1.3em;">많은 이용자들이 선호하는 식당입니다.</h2>
                <div class="grid_3">
                   <div class="banner special">
                      <img style="width:250px;height:280px;" onclick="moving(5)" src="images/sepecial/hotel1.jpg" alt="">
                      <div class="label">
-                        <div style="font-size:1.5em;">호텔 리젠트<br> 마린 더 블루</div>
+                        <div style="font-size:1.5em; text-shadow: 0.05em 0.05em 0.15em #193c46;">호텔 리젠트<br> 마린 더 블루</div>
                         <div class="price">from<span>★★★★☆</span></div>
                         <a onclick="moving(5)">더 보기</a>
                      </div>
@@ -287,7 +297,7 @@
                   <div class="banner special">
                      <img style="width:250px;height:280px;" onclick="moving(6)" src="images/sepecial/hotel2.jpg" alt="">
                      <div class="label">
-                        <div style="font-size:1.5em;">라마다 앙코르<br> 이스트 호텔</div>
+                        <div style="font-size:1.5em; text-shadow: 0.05em 0.05em 0.15em #193c46;">라마다 앙코르<br> 이스트 호텔</div>
                         <div class="price">from<span>★★★★☆</span></div>
                         <a  onclick="moving(6)">더 보기</a>
                      </div>
@@ -297,7 +307,7 @@
                   <div class="banner special">
                      <img style="width:250px;height:280px;" onclick="moving(7)" src="images/sepecial/hotel3.jpg" alt="">
                      <div class="label">
-                        <div style="font-size:1.5em;">데이즈 호텔 <br>제주 서귀포 오션</div>
+                        <div style="font-size:1.5em; text-shadow: 0.05em 0.05em 0.15em #193c46;">데이즈 호텔 <br>제주 서귀포 오션</div>
                         <div class="price">from<span>★★★★☆</span></div>
                         <a align="center" onclick="moving(7)">더 보기</a>
                      </div>
@@ -308,7 +318,7 @@
                   <div class="banner special">
                      <img style="width:250px;height:280px;" onclick="moving(8)" src="images/sepecial/hotel4.jpg" alt="">
                      <div class="label">
-                        <div style="font-size:1.5em;">오션 팰리스 호텔</div>
+                        <div style="font-size:1.5em; text-shadow: 0.05em 0.05em 0.15em #193c46;">오션 팰리스 호텔</div>
                         <div class="price">from<span>★★★☆☆</span></div>
                         <a  onclick="moving(8)">더 보기</a>
                      </div>
@@ -319,43 +329,44 @@
       </div>
       <div class="container_12">      
             <h3><span style="color:#C73430;">HOT</span> CAFE</h3>
+            <h2 style="font-size:1.3em;">많은 이용자들이 선호하는 식당입니다.</h2>
                <div class="grid_3">
                   <div class="banner special">
-                     <img style="width:250px;height:280px;" src="images/page2_img1.jpg" alt="">
+                     <img onclick="moving(9)" style="width:250px;height:280px;" src="images/sepecial/ca1.jpg" alt="">
                      <div class="label">
                         <div class="title">메이비 카페</div>
                         <div class="price">from<span>★★★★☆</span></div>
-                        <a href="tourInformation.jsp">더 보기</a>
+                        <a onclick="moving(9)">더 보기</a>
                      </div>
                   </div>
                </div>
                <div class="grid_3">
                   <div class="banner special">
-                     <img style="width:250px;height:280px;" src="images/page2_img2.jpg" alt="">
+                     <img onclick="moving(10)" style="width:250px;height:280px;" src="images/sepecial/ca2.jpg" alt="">
                      <div class="label">
                         <div class="title">에이팩토리카페</div>
                         <div class="price">from<span>★★★★☆</span></div>
-                        <a href="tourInformation.jsp">더 보기</a>
+                        <a onclick="moving(10)">더 보기</a>
                      </div>
                   </div>
                </div>
                <div class="grid_3">
                   <div class="banner special">
-                     <img style="width:250px;height:280px;" src="images/page2_img2.jpg" alt="">
+                     <img onclick="moving(11)" style="width:250px;height:280px;" src="images/sepecial/ca3.jpg" alt="">
                      <div class="label">
                         <div class="title">몽상</div>
                         <div class="price">from<span>★★★★☆</span></div>
-                        <a href="tourInformation.jsp">더 보기</a>
+                        <a onclick="moving(11)">더 보기</a>
                      </div>
                   </div>
                </div>
                 <div class="grid_3">
                   <div class="banner special">
-                     <img style="width:250px;height:280px;" src="images/page2_img2.jpg" alt="">
+                     <img onclick="moving(12)" style="width:250px;height:280px;" src="images/sepecial/ca4.jpg" alt="">
                      <div class="label">
-                        <div class="title">GOA</div>
-                        <div class="price">from<span>★★☆☆☆</span></div>
-                        <a href="tourInformation.jsp">LEARN MORE</a>
+                        <div class="title">델문도</div>
+                        <div class="price">from<span>★★★★☆</span></div>
+                        <a onclick="moving(12)">더 보기</a>
                      </div>
                   </div>
                </div>

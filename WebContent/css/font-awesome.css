@@ -12,27 +12,15 @@
   font-style: normal;
 }
 @font-face{
-	font-family:'NanumSquareB';
-	src: url('../fonts/NanumSquareB.ttf') format('truetype');
-}
-@font-face{
-	font-family:'NanumSquareEB';
-	src: url('../fonts/NanumSquareEB.ttf') format('truetype');
-}
-@font-face{
-	font-family:'NanumSquareL';
-	src: url('../fonts/NanumSquareL.ttf') format('truetype');
-}
-@font-face{
-	font-family:'NanumSquareR';
-	src: url('../fonts/NanumSquareR.ttf') format('truetype');
+	font-family:'SeoulNamsanEB';
+	src: url('../fonts/SeoulNamsanEB.ttf') format('truetype');
 }
 body{
-font-family: 'FontAwesome';
+font-family: 'SeoulNamsanEB','FontAwesome';
 }
 .fa {
   display: inline-block;
-  font-family: 'FontAwesome';
+  font-family: 'SeoulNamsanEB','FontAwesome';
   font-style: normal;
   font-weight: normal;
   line-height: 1;

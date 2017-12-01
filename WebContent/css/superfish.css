@@ -7,12 +7,13 @@
 	margin-bottom: 68px;
 	border-radius: 0 0 6px 6px;
 	box-shadow: 3px 3px 3px #001c35;
+	font-family: 'NEXONFootballGothicL';
 }
 
 
 .menu_block nav {
 	position: relative;
-	font-family: 'PT Sans Narrow', sans-serif;
+	font-family:'SeoulNamsanEB',serif;
 }
 
 
@@ -32,6 +33,7 @@ nav{ position:relative;padding: 0px 0 0 0;}
 	font-size: 18px;
 	text-transform: uppercase;
 	line-height: 20px;
+
 
 }
 
@@ -53,6 +55,7 @@ nav{ position:relative;padding: 0px 0 0 0;}
 .sf-menu>li>ul>li {
   float: none;
   position: static;
+
 }
 
 
@@ -62,6 +65,7 @@ nav{ position:relative;padding: 0px 0 0 0;}
 	color: #433d45;
 	display: block;
 	padding: 17px 0 22px;
+
 }
 
 .sf-menu>li.sfHover>a, .sf-menu>li.current>a, .sf-menu>li>a:hover {
@@ -81,6 +85,7 @@ nav{ position:relative;padding: 0px 0 0 0;}
 	pointer-events: none;
 	z-index: 999;
 	display: block;
+
 }
 
 .sf-menu>li.current>a.sf-with-ul:after, 
@@ -89,7 +94,6 @@ nav{ position:relative;padding: 0px 0 0 0;}
  
 .sf-menu>li>ul>li>a.sf-with-ul:after {
 	content: '';
-    font-family: 'FontAwesome';
 	position: absolute;
 	width: 5px;
 	font-size: 15px;
@@ -140,6 +144,7 @@ nav{ position:relative;padding: 0px 0 0 0;}
 	font-weight: 600;
 	text-transform: uppercase;
 	color: #fff;
+
 }
 
 .sf-menu li ul li+li {
@@ -151,16 +156,20 @@ nav{ position:relative;padding: 0px 0 0 0;}
 }
 
 .sf-menu li ul li+li a {
+
 }
 
 
 .sf-menu li ul li a{
+
 	text-transform: uppercase;
 	position: relative;
 	z-index: 999;
 	color: #fff;	
 }
-
+body > div.allFor > header > div > div > div > nav > ul > li > a{
+	
+}
 
 
 
@@ -168,6 +177,7 @@ nav{ position:relative;padding: 0px 0 0 0;}
 .sf-menu li li a:hover, 
 .sf-menu li.sfHover li.sfHover>a {  
 	color: #3d454b;
+
 }
 
 /*================================>> 3 Level <<========================================*/
@@ -179,11 +189,13 @@ nav{ position:relative;padding: 0px 0 0 0;}
 	top: -9px;
 	width: 135px;
 	background-color: #3d454b;
+
 }
 
 .sf-menu li ul ul li a:hover
 {
 	color: #3498db;
+
 }
 
 
@@ -215,7 +227,9 @@ nav{ position:relative;padding: 0px 0 0 0;}
   .menu_block  nav{
   	border: none !important;
 		float:none !important;
-		font:12px/15px Arial, Helvetica, sans-serif;
+		
+		font:12px/15px Arial, Helvetica, sans-serif; 
+/* font:12px/15px Arial, Helvetica, sans-serif;  */
 		text-transform:uppercase;
 		color:#927c67;
 		margin: 0 auto;
@@ -233,7 +247,8 @@ nav{ position:relative;padding: 0px 0 0 0;}
 	.sf-menu{display:none !important; float: none;}
 
 	#mm0{
-		font:12px/15px Arial, Helvetica, sans-serif;
+		/* font:12px/15px Arial, Helvetica, sans-serif; */
+
 		color:#202020;
 		width:100%;
 		margin: 0 auto;

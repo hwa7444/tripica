@@ -221,38 +221,45 @@
             <div class="grid_12">
                 <h3><span style="color:#C73430;">HOT</span> RESTAURANT</h3>
                <div class="block2">
-                  <img style="width:180px; height:300px;" src="images/page3_img2.jpg" alt="" class="img_inner fleft">
+                  <img style="width:250px; height:300px;" src="images/sepecial/ca1_1.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
-                     <div class="text1 col1" id="hotRe1"><a href="#" id="hotRe1">산굼부리</a></div>
-                     <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel
-                     <br>
+                     <div class="text1 col1" id="hotRe1"><a href="#" id="hotRe1">메이비 카페</a></div>
+                     <p>위치 : 서귀포 이중섭로 34</p> 
+                     <p>전화번호 : 010-6666-0639</p>                   
+                     <p>운영시간</p>
+                     <p>오전 10:00 ~ 오전 1:00</p>
 
                   </div>
                </div>
                <div class="block2">
-                  <img style="width:180px; height:300px;" src="images/page3_img2.jpg" alt="" class="img_inner fleft">
+                  <img style="width:250px; height:300px;" src="images/sepecial/ca2.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
-                     <div class="text1 col1" id="hotRe2"><a href="#">Moscow</a></div>
-                     <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel
-                     <br>
+                     <div class="text1 col1" id="hotRe2"><a href="#">에이팩토리카페</a></div>
+                     <p>위치 : 제주 탑동로 11</p> 
+                     <p>전화번호 : 064-720-8222</p>                   
+                     <p>운영시간</p>
+                     <p>오전 8:00 ~ 오후 8:00</p>
 
                   </div>
                </div>
                <div class="block2">
-                  <img style="width:180px; height:300px;" src="images/page3_img3.jpg" alt="" class="img_inner fleft">
+                  <img style="width:250px; height:300px;" src="images/sepecial/ca3.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
-                     <div class="text1 col1" id="hotRe3"><a href="#">Thailand</a></div>
-                     <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel
-                     <br>
-
+                     <div class="text1 col1" id="hotRe3"><a href="#">몽상</a></div>
+                     <p>위치 : 제주 애월읍 애월북서길 56-1</p> 
+                     <p>전화번호 : 064-799-8900</p>                   
+                     <p>운영시간</p>
+                     <p>오전 9:00 ~ 오후 8:00</p>
                   </div>
                </div>
                <div class="block2">
-                  <img style="width:180px; height:300px;" src="images/page3_img3.jpg" alt="" class="img_inner fleft">
+                  <img style="width:250px; height:300px;" src="images/sepecial/ca4_1.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
-                     <div class="text1 col1" id="hotRe4"><a href="#">성산일출봉</a></div>
-                     <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel
-                     <br>
+                     <div class="text1 col1" id="hotRe4"><a href="#">델문도</a></div>
+                     <p>위치 : 제주 조천읍 조함해안로 519-10</p> 
+                     <p>전화번호 : 064-702-0007</p>                   
+                     <p>운영시간</p>
+                     <p>오전 8:00 ~ 오전 12:00</p>
 
                   </div>
                </div>

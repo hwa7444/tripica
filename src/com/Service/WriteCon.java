@@ -37,7 +37,7 @@ public class WriteCon extends HttpServlet {
 		ServletContext context = getServletContext();
 		String saveDir = context.getRealPath("upload");
 		
-		int maxSize = 10 * 1024 * 1024; // 3MB
+		int maxSize = 100 * 1024 * 1024; // 3MB
 		String encoding = "euc-kr";
 		System.out.println("절대경로 >>" + saveDir);
 		
