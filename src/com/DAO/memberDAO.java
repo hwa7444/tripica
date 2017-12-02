@@ -97,6 +97,7 @@ public class memberDAO {
 	public memberVO idselect(String id) throws Exception { // 해당아이디 정보 불러오는 메소드
 		getConn();
 
+		
 		pst = conn.prepareStatement("select * from member where mem_id=?");
 		pst.setString(1, id);
 
@@ -105,13 +106,14 @@ public class memberDAO {
 		rs = pst.executeQuery();
 		if (rs.next()) {
 			id = rs.getString(1);
-
 			vo = new memberVO(id);
 
 		}
 		return vo;
 	}
 
+	
+	
 	public int update(String pw, String nick, String ph, String birth, String id) throws Exception {// 회원정보 수정 메소드
 		getConn();
 
