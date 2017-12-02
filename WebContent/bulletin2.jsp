@@ -45,16 +45,16 @@
 	});
 </script>
 <!--[if lt IE 8]>
-		<div style=' clear: both; text-align:center; position: relative;'>
-			<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-				<img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
-			</a>
-		</div>
-		<![endif]-->
+      <div style=' clear: both; text-align:center; position: relative;'>
+         <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+            <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+         </a>
+      </div>
+      <![endif]-->
 <!--[if lt IE 9]>
-		<script src="js/html5shiv.js"></script>
-		<link rel="stylesheet" media="screen" href="css/ie.css">
-		<![endif]-->
+      <script src="js/html5shiv.js"></script>
+      <link rel="stylesheet" media="screen" href="css/ie.css">
+      <![endif]-->
 </head>
 <body>
 	<%
@@ -63,7 +63,7 @@
 			nick = (String) session.getAttribute("nick");
 		}
 	%>
-<!--==========================try me==============================-->
+	<!--==========================try me==============================-->
 
 	<!-- login form -->
 	<a href="#x" class="overlay" id="login_form2"></a>
@@ -215,7 +215,7 @@
 	</div>
 	<!-- /update form -->
 	<!--==========================^try me==============================-->
-	
+
 	<div class="allFor">
 		<!-- ======SIDE MENU===== -->
 		<div class="grid_13">
@@ -248,14 +248,13 @@
 							<ul class="sf-menu">
 								<li><a href="Main.jsp">HOME</a></li>
 								<c:choose>
-							<c:when test="${empty id}">
-								<li><a href="#login_form2">HOT
-										TOURS</a></li>
-							</c:when>
-							<c:otherwise>
-								<li><a href="HotTour.jsp">HOT TOURS</a></li>
-							</c:otherwise>
-						</c:choose>
+									<c:when test="${empty id}">
+										<li><a href="#login_form2">HOT TOURS</a></li>
+									</c:when>
+									<c:otherwise>
+										<li><a href="HotTour.jsp">HOT TOURS</a></li>
+									</c:otherwise>
+								</c:choose>
 								<li><a href="specialOffer.jsp">SPECIAL OFFERS</a></li>
 								<li class="current"><a href="SelectService?start=0&end=8">POST</a></li>
 								<li><a href="Map.jsp">MAP DIY</a></li>
@@ -274,121 +273,126 @@
 			</div>
 		</header>
 		<!--==============================Content=================================-->
-		
-		
+		<%
+			int start = Integer.parseInt(request.getParameter("start"));
+			int end = Integer.parseInt(request.getParameter("end"));
+			ArrayList<bulletinVO> arr = null;
+			if (request.getParameter("start") != null || request.getParameter("end") != null) {
+				bulletinDAO dao = bulletinDAO.getInstance();
+				arr = dao.selectAll();
+
+				request.setAttribute("list", arr);
+			}
+			int cnt = 0;
+		%>
+
 		<div class="content">
 			<div class="ic"></div>
 			<div class="container_12">
-			<h3>Best Post</h3>
-			<div class="grid_12">
-			<div style="width:930px; height:460px;">
-			<img src="">
-			</div>
-	
-			</div>
+				<c:choose>
+
+					<c:when test="${empty list}">
+						<div class="grid_12"></div>
+
+					</c:when>
+
+					<c:otherwise>
+						<h3>Best Post</h3>
+						<div class="grid_12">
+						<div style="width: 500px; height: 300px;">
+							<%
+								int max = 0;
+										for (int i = 0; i < arr.size(); i++) {
+							%>
+							
+								<%
+									if (arr.get(i).getCheckD() > max) {
+													max = arr.get(i).getCheckD();
+								%>
+								<img
+									src="upload/<%=URLEncoder.encode(arr.get(i).getFileName(), "euc-kr")%>">
+							
+							<%
+								}
+								}
+							%>
+							</div>
+						</div>
+					</c:otherwise>
+				</c:choose>
+				<div class="clear"></div>
+
 				<!--================ blogPost ================-->
 				<div class="grid_12">
-					<h3 >Recent Posts</h3>
-					<!-- <div class="row">
-						<table class="table table-striped"
-							style="text-align: center; border: 1pxx solid #dddddd;">
-							<thead>
-								<tr>
-									<th style="background-color: #eeeeee; text-align: center;">번호</th>
-									<th style="background-color: #eeeeee; text-align: center;">제목</th>
-									<th colspan="2" style="background-color: #eeeeee; text-align: center;">올린 사진</th>
-									<th style="background-color: #eeeeee; text-align: center;">작성자</th>
-									<th style="background-color: #eeeeee; text-align: center;">작성일</th>
-								</tr>
-							</thead>
-							<tbody> -->
-
-					<%
-						int start = Integer.parseInt(request.getParameter("start"));
-						int end = Integer.parseInt(request.getParameter("end"));
-						ArrayList<bulletinVO> arr = null;
-						if (request.getParameter("start") != null || request.getParameter("end") != null) {
-							bulletinDAO dao = bulletinDAO.getInstance();
-							arr = dao.selectAll();
-
-							request.setAttribute("list", arr);
-						}
-						int cnt=0;
-					%>
+					<h3>Recent Posts</h3>
 				
 					<c:forEach items="${list}" var="vo" begin="<%=start %>"
 						end="<%=end %>" step="1" varStatus="idx">
-						<%-- <tr>
-										<td>${vo.num}</td>
-										<td><a href="SelectOne?num=${vo.num}">${vo.title}</a></td>
-										<td colspan="2"><img style="max-width:200px !important; height:200px;" src="upload/${vo.fileName}"></td>
-										<td>${vo.nick}</td>
-										<td>${vo.writeDay}</td>
-									</tr> --%>
-									
 						<div class="grid_3" style="font-size: 1.3em;">
-						
 							<a href="SelectOne?num=${vo.num}"><img
 								style="align: center; max-width: 220px !important; height: 200px;"
-								src="upload/<%=URLEncoder.encode(arr.get(cnt).getFileName(), "euc-kr")%>"></a> <!--EL 문....?-->
-								<%-- <img src="upload/<%=URLEncoder.encode("만장굴","euc-kr")%>.jpg"> --%>
+								src="upload/<%=URLEncoder.encode(arr.get(cnt).getFileName(), "euc-kr")%>"></a>
+							<!--EL 문....?-->
+							<%-- <img src="upload/<%=URLEncoder.encode("만장굴","euc-kr")%>.jpg"> --%>
 							<hr>
 							<a href="SelectOne?num=${vo.num}">${vo.num}. ${vo.title} <span
 								style="color: #C73430;">by</span> ${vo.nick}<br>
 								${vo.writeDay}&nbsp추천수 ${vo.checkD}
 							</a>
 							<hr>
-					
 						</div>
-						<%-- <c:if test="${size > idx.index}">
-										<c:if test="${idx.index % 9 == 0}">
-											<a href="" onclick="izn(${in })">${in }</a>
-											<c:set var="in" value="${in+1 }"></c:set>
-										</c:if>
-									</c:if> --%>
-						<% cnt++; %>
-					</c:forEach>
-
-						</div>
-
-	<c:if test="<%=start > 1%>">
-						<a href="bulletin2.jsp?start=<%=start - 9%>&end=<%=end - 9%>"
-							class="btn btn-success btn-arraw-left" style="font-size: 1.2em;">이전</a>
-					</c:if>
-					<!-- 페이징 다시 하기!! -->
-					<c:if test="<%=arr.size() > end%>">
-						<a href="bulletin2.jsp?start=<%=start + 9%>&end=<%=end + 9%>"
-							class="btn btn-success btn-arraw-left" style="font-size: 1.2em;">다음</a>
 						<%
-							start = Integer.parseInt(request.getParameter("start"));
+							cnt++;
 						%>
-					</c:if>
-					<c:choose>
-						<c:when test="${not empty id}">
-							<!-- 로그인 했을 때 -->
-							<a href="write.jsp" class="btn btn-success btn-arraw-left"
-								style="font-size: 1.2em;">글쓰기</a>
-						</c:when>
-						<c:otherwise>
+					</c:forEach>
+				</div>
 
-						</c:otherwise>
-					</c:choose>
-			
+				<c:if test="<%=start > 1%>">
+					<a href="bulletin2.jsp?start=<%=start - 9%>&end=<%=end - 9%>"
+						class="btn btn-success btn-arraw-left" style="font-size: 1.2em;">이전</a>
+				</c:if>
+				<!-- 페이징 다시 하기!! -->
+				<c:if test="<%=arr.size() > end%>">
+					<a href="bulletin2.jsp?start=<%=start + 9%>&end=<%=end + 9%>"
+						class="btn btn-success btn-arraw-left" style="font-size: 1.2em;">다음</a>
+					<%
+						start = Integer.parseInt(request.getParameter("start"));
+					%>
+				</c:if>
+
+				<c:choose>
+					<c:when test="${not empty id}">
+						<!-- 로그인 했을 때 -->
+						<a href="write.jsp" class="btn btn-success btn-arraw-left"
+							style="font-size: 1.2em;">글쓰기</a>
+					</c:when>
+					<c:otherwise>
+					</c:otherwise>
+				</c:choose>
+				
+				<div class="clear"></div>
+				<div class="grid_12">
+				</div>
+				<div class="clear"></div>
+			<!-- container_12 -->
 			</div>
 
+			<!--^content -->
 		</div>
-		<!-- container_12 -->
+
 		<!--================= ^blogPost ==================-->
 
 		<!-- ^allfor you -->
 	</div>
+	
 	<!--==============================footer=================================-->
 	<footer>
 		<div class="container_12">
 			<div class="grid_12">
 				<div class="socials">
-					<a href="https://ko-kr.facebook.com/" class="fa fa-facebook"></a> <a href="https://twitter.com/"
-							class="fa fa-twitter"></a> <a href="https://plus.google.com/" class="fa fa-google-plus"></a>
+					<a href="https://ko-kr.facebook.com/" class="fa fa-facebook"></a> <a
+						href="https://twitter.com/" class="fa fa-twitter"></a> <a
+						href="https://plus.google.com/" class="fa fa-google-plus"></a>
 				</div>
 				<div class="copy">
 					Tripicker (c) 2017 | <a href="#">Privacy Policy</a> | Website
