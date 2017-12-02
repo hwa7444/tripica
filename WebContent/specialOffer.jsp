@@ -399,23 +399,23 @@
       document.getElementById("pic3").addEventListener("mouseover",
 				function(e) {pic3.style.cursor ="pointer";});
       document.getElementById("pic4").addEventListener("mouseover",
-				function(e) {pic3.style.cursor ="pointer";});
+				function(e) {pic4.style.cursor ="pointer";});
       document.getElementById("pic5").addEventListener("mouseover",
-				function(e) {pic3.style.cursor ="pointer";});
+				function(e) {pic5.style.cursor ="pointer";});
       document.getElementById("pic6").addEventListener("mouseover",
-				function(e) {pic3.style.cursor ="pointer";});
+				function(e) {pic6.style.cursor ="pointer";});
       document.getElementById("pic7").addEventListener("mouseover",
-				function(e) {pic3.style.cursor ="pointer";});
+				function(e) {pic7.style.cursor ="pointer";});
       document.getElementById("pic8").addEventListener("mouseover",
-				function(e) {pic3.style.cursor ="pointer";});
+				function(e) {pic8.style.cursor ="pointer";});
       document.getElementById("pic9").addEventListener("mouseover",
-				function(e) {pic3.style.cursor ="pointer";});
+				function(e) {pic9.style.cursor ="pointer";});
       document.getElementById("pic10").addEventListener("mouseover",
-				function(e) {pic3.style.cursor ="pointer";});
+				function(e) {pic10.style.cursor ="pointer";});
       document.getElementById("pic11").addEventListener("mouseover",
-				function(e) {pic3.style.cursor ="pointer";});
+				function(e) {pic11.style.cursor ="pointer";});
       document.getElementById("pic12").addEventListener("mouseover",
-				function(e) {pic3.style.cursor ="pointer";});
+				function(e) {pic12.style.cursor ="pointer";});
       </script>
          <!-- ^allfor you -->
       </div>
