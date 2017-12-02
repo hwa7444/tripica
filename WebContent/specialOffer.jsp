@@ -260,9 +260,9 @@
             <h3><span style="color:#C73430;">HOT</span> RESTAURANT</h3>
             	<h2 style="font-size:1.3em;">맛있고 특색있는 음식을 파는 추천 식당 입니다.</h2>
                <div class="grid_3">
-                  <div class="banner special">
-                     <img style="width:250px;height:280px;" onclick="moving(1)" src="images/sepecial/re1.jpg" alt="">
-                     <div class="label">
+                  <div class="banner special" id="pic1">
+                     <img style="width:250px;height:280px;" onclick="moving(1)" src="images/sepecial/re1.jpg" >
+                     <div class="label" onclick="moving(1)">
                         <div class="title">명진 전복</div>
                         <div class="price">&nbsp<span>★★★★☆</span></div>
                         <a onclick="moving(1)">더보기</a>
@@ -270,9 +270,9 @@
                   </div>
                </div>
                <div class="grid_3">
-                  <div class="banner special">
+                  <div class="banner special"  id="pic2">
                      <img style="width:250px;height:280px;" onclick="moving(2)" src="images/sepecial/re2.jpg" alt="">
-                     <div class="label">
+                     <div class="label" onclick="moving(2)">
                         <div class="title">우진해장국</div>
                         <div class="price">&nbsp<span>★★★★☆</span></div>
                         <a onclick="moving(2)">더보기</a>
@@ -280,9 +280,9 @@
                   </div>
                </div>
                <div class="grid_3">
-                  <div class="banner special">
+                  <div class="banner special" id="pic3">
                      <img style="width:250px;height:280px;" onclick="moving(3)" src="images/sepecial/re3.jpg" alt="">
-                     <div class="label">
+                     <div class="label" onclick="moving(3)">
                         <div class="title">소울 키친</div>
                         <div class="price">&nbsp<span>★★★★☆</span></div>
                         <a onclick="moving(3)">더보기</a>
@@ -290,9 +290,9 @@
                   </div>
                </div>
                 <div class="grid_3">
-                  <div class="banner special">
+                  <div class="banner special" id="pic4">
                      <img style="width:250px;height:280px;" onclick="moving(4)" src="images/sepecial/re4.jpg" alt="">
-                     <div class="label">
+                     <div class="label" onclick="moving(4)">
                         <div class="title">자매국수</div>
                         <div class="price">&nbsp<span>★★★★☆</span></div>
                         <a onclick="moving(4)">더보기</a>
@@ -305,9 +305,9 @@
             <h3><span style="color:#C73430;">HOT</span> HOTEL</h3>
             <h2 style="font-size:1.3em;">머무는 동안 편안히 지내다 갈 수 있는 추천 호텔 입니다.</h2>
                <div class="grid_3">
-                  <div class="banner special">
+                  <div class="banner special"  id="pic5">
                      <img style="width:250px;height:280px;" onclick="moving(5)" src="images/sepecial/hotel1_1.jpg" alt="">
-                     <div class="label">
+                     <div class="label" onclick="moving(5)">
                         <div style="font-size:1.5em; text-shadow: 0.05em 0.05em 0.15em #193c46;">호텔 리젠트<br> 마린 더 블루</div>
                         <div class="price">&nbsp<span>★★★★☆</span></div>
                         <a onclick="moving(5)">더 보기</a>
@@ -315,9 +315,9 @@
                   </div>
                </div>
                <div class="grid_3">
-                  <div class="banner special">
+                  <div class="banner special"  id="pic6">
                      <img style="width:250px;height:280px;" onclick="moving(6)" src="images/sepecial/hotel2_1.jpg" alt="">
-                     <div class="label">
+                     <div class="label" onclick="moving(6)">
                         <div style="font-size:1.5em; text-shadow: 0.05em 0.05em 0.15em #193c46;">라마다 앙코르<br> 이스트 호텔</div>
                         <div class="price">&nbsp<span>★★★★☆</span></div>
                         <a  onclick="moving(6)">더 보기</a>
@@ -325,9 +325,9 @@
                   </div>
                </div>
                <div class="grid_3">
-                  <div class="banner special">
+                  <div class="banner special"  id="pic7">
                      <img style="width:250px;height:280px;" onclick="moving(7)" src="images/sepecial/hotel3_1.jpg" alt="">
-                     <div class="label">
+                     <div class="label" onclick="moving(7)">
                         <div style="font-size:1.5em; text-shadow: 0.05em 0.05em 0.15em #193c46;">데이즈 호텔 <br>제주 서귀포 오션</div>
                         <div class="price">&nbsp<span>★★★★☆</span></div>
                         <a align="center" onclick="moving(7)">더 보기</a>
@@ -336,9 +336,9 @@
                   </div>
                </div>
                 <div class="grid_3">
-                  <div class="banner special">
+                  <div class="banner special"  id="pic8">
                      <img style="width:250px;height:280px;" onclick="moving(8)" src="images/sepecial/hotel4_1.jpg" alt="">
-                     <div class="label">
+                     <div class="label" onclick="moving(8)">
                         <div style="font-size:1.5em; text-shadow: 0.05em 0.05em 0.15em #193c46;">오션 팰리스 호텔</div>
                         <div class="price">&nbsp<span>★★★☆☆</span></div>
                         <a  onclick="moving(8)">더 보기</a>
@@ -351,9 +351,9 @@
             <h3><span style="color:#C73430;">HOT</span> CAFE</h3>
             <h2 style="font-size:1.3em;">멋진 풍경이 함께하는 추천 카페 입니다.</h2>
                <div class="grid_3">
-                  <div class="banner special">
+                  <div class="banner special"  id="pic9">
                      <img onclick="moving(9)" style="width:250px;height:280px;" src="images/sepecial/ca1.jpg" alt="">
-                     <div class="label">
+                     <div class="label" onclick="moving(9)">
                         <div class="title">메이비 카페</div>
                         <div class="price">&nbsp<span>★★★★☆</span></div>
                         <a onclick="moving(9)">더 보기</a>
@@ -361,9 +361,9 @@
                   </div>
                </div>
                <div class="grid_3">
-                  <div class="banner special">
+                  <div class="banner special"  id="pic10">
                      <img onclick="moving(10)" style="width:250px;height:280px;" src="images/sepecial/ca2.jpg" alt="">
-                     <div class="label">
+                     <div class="label" onclick="moving(10)">
                         <div class="title">에이팩토리카페</div>
                         <div class="price">&nbsp<span>★★★★☆</span></div>
                         <a onclick="moving(10)">더 보기</a>
@@ -371,9 +371,9 @@
                   </div>
                </div>
                <div class="grid_3">
-                  <div class="banner special">
+                  <div class="banner special"  id="pic11">
                      <img onclick="moving(11)" style="width:250px;height:280px;" src="images/sepecial/ca3.jpg" alt="">
-                     <div class="label">
+                     <div class="label" onclick="moving(11)">
                         <div class="title">몽상</div>
                         <div class="price">&nbsp<span>★★★★☆</span></div>
                         <a onclick="moving(11)">더 보기</a>
@@ -381,18 +381,42 @@
                   </div>
                </div>
                 <div class="grid_3">
-                  <div class="banner special">
+                  <div class="banner special"  id="pic12">
                      <img onclick="moving(12)" style="width:250px;height:280px;" src="images/sepecial/ca4_1.jpg" alt="">
-                     <div class="label">
+                     <div class="label" onclick="moving(12)">
                         <div class="title">델문도</div>
                         <div class="price">&nbsp<span>★★★★☆</span></div>
                         <a onclick="moving(12)">더 보기</a>
                      </div>
                   </div>
-               </div>
-
-               
+               </div>              
       </div>
+      <script type="text/javascript">
+      document.getElementById("pic1").addEventListener("mouseover",
+				function(e) {pic1.style.cursor ="pointer";});
+      document.getElementById("pic2").addEventListener("mouseover",
+				function(e) {pic2.style.cursor ="pointer";});
+      document.getElementById("pic3").addEventListener("mouseover",
+				function(e) {pic3.style.cursor ="pointer";});
+      document.getElementById("pic4").addEventListener("mouseover",
+				function(e) {pic3.style.cursor ="pointer";});
+      document.getElementById("pic5").addEventListener("mouseover",
+				function(e) {pic3.style.cursor ="pointer";});
+      document.getElementById("pic6").addEventListener("mouseover",
+				function(e) {pic3.style.cursor ="pointer";});
+      document.getElementById("pic7").addEventListener("mouseover",
+				function(e) {pic3.style.cursor ="pointer";});
+      document.getElementById("pic8").addEventListener("mouseover",
+				function(e) {pic3.style.cursor ="pointer";});
+      document.getElementById("pic9").addEventListener("mouseover",
+				function(e) {pic3.style.cursor ="pointer";});
+      document.getElementById("pic10").addEventListener("mouseover",
+				function(e) {pic3.style.cursor ="pointer";});
+      document.getElementById("pic11").addEventListener("mouseover",
+				function(e) {pic3.style.cursor ="pointer";});
+      document.getElementById("pic12").addEventListener("mouseover",
+				function(e) {pic3.style.cursor ="pointer";});
+      </script>
          <!-- ^allfor you -->
       </div>
        <script type="text/javascript">
