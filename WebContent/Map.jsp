@@ -463,7 +463,7 @@
 
 	<!-- update form -->
 	<a href="#x" class="overlay" id="update_form"></a>
-	<div class="popup"> o
+	<div class="popup">
 		<span>Update your Information!</span>
 		<p>수정할 개인정보를 입력하세요</p>
 		<form action="UpdateCon" method="post">
