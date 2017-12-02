@@ -281,9 +281,10 @@
 			<div class="container_12">
 			<h3>Best Post</h3>
 			<div class="grid_12">
-			<div style="background-color:blue; width:930px; height:460px;"></div>
-			
-			
+			<div style="width:930px; height:460px;">
+			<img src="">
+			</div>
+	
 			</div>
 				<!--================ blogPost ================-->
 				<div class="grid_12">
@@ -334,7 +335,7 @@
 							<hr>
 							<a href="SelectOne?num=${vo.num}">${vo.num}. ${vo.title} <span
 								style="color: #C73430;">by</span> ${vo.nick}<br>
-								${vo.writeDay}
+								${vo.writeDay}&nbsp추천수 ${vo.checkD}
 							</a>
 							<hr>
 					
@@ -362,8 +363,6 @@
 							start = Integer.parseInt(request.getParameter("start"));
 						%>
 					</c:if>
-
-
 					<c:choose>
 						<c:when test="${not empty id}">
 							<!-- 로그인 했을 때 -->

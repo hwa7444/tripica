@@ -312,7 +312,7 @@
 								style="text-align: left; border: 1px solid #dddddd;">
 								<thead>
 									<tr>
-										<th colspan="4"
+										<th colspan="6"
 											style="background-color: #002141; text-align: center; color: white; font-size: 1.3em">${vo.num}.${vo.title}</th>
 									</tr>
 								</thead>
@@ -322,19 +322,26 @@
 										<td>${vo.nick}</td>
 									<td>작성 일자</td>
 										<td>${vo.writeDay}</td>
+									
+									<td>추천수</td>
+										<td>${vo.checkD}</td>
 									</tr>
 									<tr>
-										<td colspan="4"><img style="max-width:500px !important; height:auto;" src="upload/<%=URLEncoder.encode(arr.getFileName(), "euc-kr")%>"></td>
+										<td colspan="6"><img style="max-width:500px !important; height:auto;" src="upload/<%=URLEncoder.encode(arr.getFileName(), "euc-kr")%>"></td>
 				
 									</tr>
 									<tr>
-										<td colspan="4" style="min-height:200px !important;">${vo.content}</td>
+										<td colspan="6" style="min-height:200px !important;">${vo.content}</td>
 									</tr>
 								</tbody>
 							</table>
 							<a href="SelectService?start=0&end=8" class="btn btn-primary" style="border-color: #eee; font-size:1.2em;">목록</a>
-							<!-- <a href="updateBlu.jsp" class="btn btn-primary">수정</a> --> <!-- 아직 안만 들어짐 -->
+							<% if(nick.equals(arr.getNick())){ %>
+							
 							<a href="deleteCon?num=${vo.num}" class="btn btn-primary" style="border-color: #eee; font-size:1.2em">삭제</a>
+						<%}else if(arr.getNick() != null){ %>
+						<a href="SelectBest?num=${vo.num}&checkD=${vo.checkD}" class="btn btn-primary" style="border-color: #eee; font-size:1.2em">추천</a>
+						<%} %>
 						</form>
 					</div>
 				</div>

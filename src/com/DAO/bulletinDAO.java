@@ -187,4 +187,22 @@ public class bulletinDAO {
 		return false; // 삭제 실패
 
 	}
+
+	public boolean updateCheckD(int num, int checkD) throws Exception {
+		
+		getConn();
+		
+		pst = conn.prepareStatement("update bulletin set checkD = ? where bulletin_num = ?");
+		pst.setInt(1, checkD);
+		pst.setInt(2, num);
+		
+		rs = pst.executeQuery();
+		
+		if(rs.next()) {
+			return true; //업데이트 성공
+		}
+		close();
+		
+		return false; //업데이트 실패
+	}
 }

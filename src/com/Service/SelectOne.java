@@ -21,7 +21,7 @@ public class SelectOne extends HttpServlet {
 		request.setCharacterEncoding("EUC-KR");
 		
 				int num = Integer.parseInt(request.getParameter("num"));
-
+		
 				bulletinDAO dao = bulletinDAO.getInstance();
 				
 				try {
