@@ -34,9 +34,7 @@ public class SelectOne extends HttpServlet {
 					RequestDispatcher dis = request.getRequestDispatcher("view.jsp");
 					dis.forward(request, response);
 
-				} catch (
-
-				Exception e) {
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 	}
