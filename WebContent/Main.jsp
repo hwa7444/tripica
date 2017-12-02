@@ -259,8 +259,9 @@
 				function(e) {no4.style.border = "none";});
 
 		var aa = 1;
-		function moveFrom(result1) {
-
+		var type1 = null;
+		var type2 = null;
+		function moveFrom(result1) {			
 			if (aa == 1) {
 				aa += 1;
 				if (result1 == 1) {
@@ -268,52 +269,67 @@
 					var first2 = document.getElementById("first2");
 					var first3 = document.getElementById("first3");
 					var first4 = document.getElementById("first4");
+					type1 = document.getElementById("first1").src;
+					alert(type1);
 					first1.src = "images/Activity/amu/A_amu_1.jpg"; /*형선 : Activity_amu_1*/
 					first2.src = "images/Activity/amu/A_amu_2.jpg"; /*형선 : Activity_amu_2*/
 					first3.src = "images/Activity/spo/A_spo_1.jpg"; /*형선 : Activity_spo_1*/
 					first4.src = "images/Activity/spo/A_spo_2.jpg"; /*형선 : Activity_spo_2*/
-
+					
 				} else if (result1 == 2) {
 					var first1 = document.getElementById("first1");
 					var first2 = document.getElementById("first2"); /* 형선 : Learning */
 					var first3 = document.getElementById("first3");
 					var first4 = document.getElementById("first4");
+					type1 = document.getElementById("first2").src;
+					alert(type1);
 					first1.src = "images/Learning/art/L_art_1.jpg"; /* 형선 : Learning_art_1 */
 					first2.src = "images/Learning/art/L_art_2.jpg"; /* 형선 : Learning_art_2 */
 					first3.src = "images/Learning/mus/L_mus_1.jpg"; /* 형선 : Learning_mus_1 */
 					first4.src = "images/Learning/mus/L_mus_2.jpg"; /* 형선 : Learning_mus_1 */
+					
 				} else if (result1 == 3) { 
 					var first1 = document.getElementById("first1");
 					var first2 = document.getElementById("first2");
 					var first3 = document.getElementById("first3"); /* 형선 : Relaxation */
 					var first4 = document.getElementById("first4");
+					type1 = document.getElementById("first3").src;
+					alert(type1);
 					first1.src = "images/Relaxation/res/R_res_1.jpg"; /* 형선 : Relaxation_res_1 */
 					first2.src = "images/Relaxation/res/R_res_2.jpg"; /* 형선 : Relaxation_res_2 */
 					first3.src = "images/Relaxation/res/R_res_3.jpg"; /* 형선 : Relaxation_res_3 */
 					first4.src = "images/Relaxation/res/R_res_4.jpg"; /* 형선 : Relaxation_res_4 */
+					
 				} else if (result1 == 4) {
 					var first1 = document.getElementById("first1");
 					var first2 = document.getElementById("first2");
 					var first3 = document.getElementById("first3");
 					var first4 = document.getElementById("first4"); /* 형선 : View */
+					type1 = document.getElementById("first4").src;
+					alert(type1); /*형선 : 이미지 값 넘어 가는 부분*/
 					first1.src = "images/View/his/V_his_1.jpg"; /* 형선 : View_his_1 */
 					first2.src = "images/View/his/V_his_2.JPG"; /* 형선 : View_his_2 */
 					first3.src = "images/View/nat/V_nat_1.jpg"; /* 형선 : View_nat_1 */
 					first4.src = "images/View/nat/V_nat_2.JPG"; /* 형선 : View_nat_2 */
+					
 				}
 			} else if (aa == 2) {
 				if (result1 == 1) {
-					alert(document.getElementById("first1").src); /*형선 : 이미지 값 넘어 가는 부분*/
-					location.href = "HotTour.jsp"; /*형선 : Hot tour 로 이동*/
+					type2 = document.getElementById("first1").src;
+					alert(type2); /*형선 : 이미지 값 넘어 가는 부분*/
+					location.href = "TypeUpdateCon?type1="+type1+"&type2="+type2; /*형선 : TypeUpdateCon으로 이동*/
 				} else if (result1 == 2) {
-					alert(document.getElementById("first2").src); /*형선 : 이미지 값 넘어 가는 부분*/
-					location.href = "HotTour.jsp"; /*형선 : Hot tour 로 이동*/
+					type2 = document.getElementById("first2").src;
+					alert(type2); /*형선 : 이미지 값 넘어 가는 부분*/
+					location.href = "TypeUpdateCon?type1="+type1+"&type2="+type2;
 				} else if (result1 == 3) {
-					alert(document.getElementById("first3").src); /*형선 : 이미지 값 넘어 가는 부분*/
-					location.href = "HotTour.jsp"; /*형선 : Hot tour 로 이동*/
+					type2 = document.getElementById("first3").src;
+					alert(type2); /*형선 : 이미지 값 넘어 가는 부분*/
+					location.href = "TypeUpdateCon?type1="+type1+"&type2="+type2;
 				} else if (result1 == 4) {
-					alert(document.getElementById("first4").src); /*형선 : 이미지 값 넘어 가는 부분*/
-					location.href = "HotTour.jsp"; /*형선 : Hot tour 로 이동*/
+					type2 = document.getElementById("first4").src;
+					alert(type2); /*형선 : 이미지 값 넘어 가는 부분*/
+					location.href = "TypeUpdateCon?type1="+type1+"&type2="+type2;
 				}
 
 			}
