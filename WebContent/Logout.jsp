@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:remove var="id" scope="session"/>
+	<c:remove var="vo1" scope="session"/>
 	<c:redirect url="Main.jsp"></c:redirect>
 </body>
 </html>

@@ -221,7 +221,7 @@
 		<div class="grid_13">
 			<img src="images/logo/tripickerLogo9.png">
 			<c:choose>
-				<c:when test="${empty id}">
+				<c:when test="${empty vo1.id}">
 					<ul>
 						<li><a href="#login_form" id="login_pop">로그인</a></li>
 						<li><a href="#join_form" id="join_pop">회원가입</a></li>
@@ -230,7 +230,7 @@
 
 				<c:otherwise>
 					<ul>
-						<li><h1 style="color: white;">${nick}님</h1></li>
+						<li><h1 style="color: white;">${vo1.nick}님</h1></li>
 						<li><a href="Logout.jsp" id="login_pop">로그아웃</a></li>
 						<li><a href="#update_form" id="join_pop">개인정보수정</a></li>
 					</ul>
@@ -248,7 +248,7 @@
 							<ul class="sf-menu">
 								<li><a href="Main.jsp">HOME</a></li>
 								<c:choose>
-									<c:when test="${empty id}">
+									<c:when test="${empty vo1.id}">
 										<li><a href="#login_form2">HOT TOURS</a></li>
 									</c:when>
 									<c:otherwise>
@@ -361,7 +361,7 @@
 				</c:if>
 
 				<c:choose>
-					<c:when test="${not empty id}">
+					<c:when test="${not empty vo1.id}">
 						<!-- 로그인 했을 때 -->
 						<a href="write.jsp" class="btn btn-success btn-arraw-left"
 							style="font-size: 1.2em;">글쓰기</a>
