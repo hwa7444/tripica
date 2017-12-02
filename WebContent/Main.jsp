@@ -533,7 +533,7 @@
 					<ul class="sf-menu">
 						<li class="current"><a href="Main.jsp">HOME</a></li>
 						<c:choose>
-							<c:when test="${empty id}">
+							<c:when test="${empty vo.id}">
 								<li><a href="#login_form2">HOT
 										TOURS</a></li>
 							</c:when>
@@ -569,7 +569,7 @@
 							 &nbsp<span>멋있는 일출을 보고 싶다면?</span>
 						</div>
 						<c:choose>
-							<c:when test="${empty id}">
+							<c:when test="${empty vo.id}">
 						<a href="#login_form2">더 보기</a>
 							</c:when>
 							<c:otherwise>
@@ -585,7 +585,7 @@
 							&nbsp<span>향기로운 허브동산에서 멋있는 야경을!</span>
 						</div>
 						<c:choose>
-							<c:when test="${empty id}">
+							<c:when test="${empty vo.id}">
 						<a href="#login_form2">더 보기</a>
 							</c:when>
 							<c:otherwise>
@@ -601,7 +601,7 @@
 							&nbsp<span>멋진 설경을 보고싶다면?</span>
 						</div>
 						<c:choose>
-							<c:when test="${empty id}">
+							<c:when test="${empty vo.id}">
 						<a href="#login_form2">더 보기</a>
 							</c:when>
 							<c:otherwise>
@@ -617,7 +617,7 @@
 							&nbsp<span>선인장이 가득한 해변가에서 산책을!</span>
 						</div>
 						<c:choose>
-							<c:when test="${empty id}">
+							<c:when test="${empty vo.id}">
 						<a href="#login_form2">더 보기</a>
 							</c:when>
 							<c:otherwise>
