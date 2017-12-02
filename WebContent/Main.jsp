@@ -658,6 +658,105 @@
 						id="minimap5"></div>
 				</div>
 			</div>
+		</div>
+		
+		<div class="color" id="lastCon">
+				<!-- =========================== Lastest News=================================== -->
+				<div class="container_12" align="center">
+					<div class="grid_12">
+						<h3 class="head1" style="color:#F08080"><span style="color:#B0E0E6">This</span> Week's <span style="color:#B0E0E6">Choice</span></h3>
+					</div>
+					<div class="grid_4">
+						<div class="block1" id="news1">
+							<time datetime="2014-01-01">1<span></span></time>
+							<div class="extra_wrapper">
+								<div class="text1 col1">
+									<a href="#" id="news1" style="text-shadow: 0.05em 0.05em 0.15em #193c46;">카멜리아힐</a>
+								</div>
+								<span style="color:#FFFAF0; font-size:1.4em; text-shadow: 0.05em 0.05em 0.15em #193c46;">사계절 이쁜 꽃들과 함께 인생사진 만들기!</span>
+							</div>
+						</div>
+					</div>
+					<div class="grid_4">
+						<div class="block1" id="news2">
+							<time datetime="2014-01-01">2<span></span></time>
+							<div class="extra_wrapper">
+								<div class="text1 col1">
+									<a href="#" style="text-shadow: 0.05em 0.05em 0.15em #193c46;">세화해변</a>
+								</div>
+								 <span style="color:#FFFAF0; font-size:1.4em; text-shadow: 0.05em 0.05em 0.15em #193c46;">인생사진을 남기고 싶다면 꼭 가야봐할 곳!
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="grid_4">
+						<div class="block1" id="news3">
+							<time datetime="2014-01-01">3<span></span></time>
+							<div class="extra_wrapper">
+								<div class="text1 col1">
+									<a href="#" style="text-shadow: 0.05em 0.05em 0.15em #193c46;">더럭분교</a>
+								</div>
+								<span style="color:#FFFAF0; font-size:1.4em; text-shadow: 0.05em 0.05em 0.15em #193c46;">
+								알록달록 이쁜 벽에서 친구, 연인과 함께 한 컷!
+								</span>							
+							</div>
+						</div>
+					</div>
+
+					<!-- ===========================^Lastest News=================================== -->
+				</div>
+			</div>
+
+			<script type="text/javascript">
+				document
+						.getElementById("news1")
+						.addEventListener(
+								"mouseover",
+								function(e) {
+									lastCon.style.background = "url('images/Main/back1.jpg')";
+								});
+				document
+						.getElementById("news1")
+						.addEventListener(
+								"mouseout",
+								function(e) {
+									lastCon.style.background = "url('images/page1_img1.jpg')";
+
+								});
+				document
+						.getElementById("news2")
+						.addEventListener(
+								"mouseover",
+								function(e) {
+									lastCon.style.background = "url('images/Main/back2.jpg')";
+								});
+				document
+						.getElementById("news2")
+						.addEventListener(
+								"mouseout",
+								function(e) {
+									lastCon.style.background = "url('images/page1_img1.jpg')";
+
+								});
+				document
+						.getElementById("news3")
+						.addEventListener(
+								"mouseover",
+								function(e) {
+									lastCon.style.background = "url('images/Main/back3.jpg')";
+								});
+				document
+						.getElementById("news3")
+						.addEventListener(
+								"mouseout",
+								function(e) {
+									lastCon.style.background = "url('images/page1_img1.jpg')";
+
+								});
+			</script>
+			
+		<div class="content">
+		<div class="ic"></div>
 			<div class="container_12">
 				<h3>Recommend</h3>
 				<h2 style="font-size: 1.3em;">당신 만을 위한 추천여행 루트 입니다.</h2>
@@ -693,98 +792,7 @@
 		<!-- allfor you -->
 		<div class="allFor">
 
-			<div class="color" id="lastCon">
-				<!-- =========================== Lastest News=================================== -->
-				<div class="container_12" align="center">
-					<div class="grid_12">
-						<h3 class="head1">This Week's Choice</h3>
-					</div>
-					<div class="grid_4">
-						<div class="block1">
-							<time datetime="2014-01-01">10<span>Jan</span></time>
-							<div class="extra_wrapper" id="news1">
-								<div class="text1 col1">
-									<a href="#" id="news1">성산일출봉</a>
-								</div>
-								하루동안 성산일출봉에서 시간을 보내세요
-							</div>
-						</div>
-					</div>
-					<div class="grid_4">
-						<div class="block1" id="news2">
-							<time datetime="2014-01-01">21<span>Jan</span></time>
-							<div class="extra_wrapper">
-								<div class="text1 col1">
-									<a href="#">효리네 일몰스팟</a>
-								</div>
-								효리네 민박집에서 나온 일몰이 멋있던 바닷가 방문하기
-							</div>
-						</div>
-					</div>
-					<div class="grid_4">
-						<div class="block1" id="news3">
-							<time datetime="2014-01-01">15<span>Feb</span></time>
-							<div class="extra_wrapper">
-								<div class="text1 col1">
-									<a href="#">uamnibh Edeto</a>
-								</div>
-								Ros convallisumsan. Maecenas vehicula egestas venenatis. Duis
-								massa elit, auctor non
-							</div>
-						</div>
-					</div>
-
-					<!-- ===========================^Lastest News=================================== -->
-				</div>
-			</div>
-
-			<script type="text/javascript">
-				document
-						.getElementById("news1")
-						.addEventListener(
-								"mouseover",
-								function(e) {
-									lastCon.style.background = "url('images/Main/pano1.jpg')";
-								});
-				document
-						.getElementById("news1")
-						.addEventListener(
-								"mouseout",
-								function(e) {
-									lastCon.style.background = "url('images/page1_img1.jpg')";
-
-								});
-				document
-						.getElementById("news2")
-						.addEventListener(
-								"mouseover",
-								function(e) {
-									lastCon.style.background = "url('images/slide.jpg')";
-								});
-				document
-						.getElementById("news2")
-						.addEventListener(
-								"mouseout",
-								function(e) {
-									lastCon.style.background = "url('images/page1_img1.jpg')";
-
-								});
-				document
-						.getElementById("news3")
-						.addEventListener(
-								"mouseover",
-								function(e) {
-									lastCon.style.background = "url('images/page4_img2.jpg')";
-								});
-				document
-						.getElementById("news3")
-						.addEventListener(
-								"mouseout",
-								function(e) {
-									lastCon.style.background = "url('images/page1_img1.jpg')";
-
-								});
-			</script>
+			
 			<!--==============================Content=================================-->
 			<div class="content">
 				<div class="ic"></div>

@@ -854,7 +854,7 @@ padding-bottom: 120px;
 .block1 time {
 	float: left;
 	display: block;
-	background: url(../images/time_bg.png) 0 0 repeat-x #d64842;
+	background: #d64842;
 	border-radius: 13px;
 	color: #fff;
 	width: 60px;
