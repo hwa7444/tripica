@@ -58,7 +58,7 @@ public class bulletinDAO {
 		System.out.println("DAO 동작");
 
 		// sql작성
-		pst = conn.prepareStatement("insert into bulletin values(num.nextval,?,?,?,?,to_char(sysdate,'YYYY-MM-DD'),?)");
+		pst = conn.prepareStatement("insert into bulletin values(b_num.nextval,?,?,?,?,to_char(sysdate,'YYYY-MM-DD'),?)");
 		System.out.println("DAO 동작 upload동작");
 		pst.setString(1, title);
 		System.out.println("DAO 동작 upload동작이름");
@@ -88,7 +88,7 @@ public class bulletinDAO {
 
 		// 모든 검색 sql 작성
 		pst = conn.prepareStatement(
-				"select * from (select * from bulletin order by num desc) where rownum between ? and ?");
+				"select * from (select * from bulletin order by bulletin_num desc) where rownum between ? and ?");
 		pst.setInt(1, start);
 		pst.setInt(2, end);
 
@@ -114,7 +114,7 @@ public class bulletinDAO {
 		System.out.println("select작동");
 
 		// 모든 검색 sql 작성
-		pst = conn.prepareStatement("select * from bulletin order by num desc");
+		pst = conn.prepareStatement("select * from bulletin order by bulletin_num desc");
 
 		rs = pst.executeQuery();
 
@@ -134,7 +134,7 @@ public class bulletinDAO {
 		getConn();
 
 		// num를 이용하여 db에서 하나의 file에 대한 정보를 검색
-		pst = conn.prepareStatement("select * from bulletin where num = ?");
+		pst = conn.prepareStatement("select * from bulletin where bulletin_num = ?");
 		pst.setInt(1, num);
 
 		rs = pst.executeQuery();
@@ -174,7 +174,7 @@ public class bulletinDAO {
 		getConn();
 
 		// num를 이용하여 db에서 하나의 file에 대한 정보를 검색
-		pst = conn.prepareStatement("delete from bulletin where num = ?");
+		pst = conn.prepareStatement("delete from bulletin where bulletin_num = ?");
 		pst.setInt(1, num);
 
 		rs = pst.executeQuery();
