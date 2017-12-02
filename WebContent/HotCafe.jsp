@@ -254,7 +254,7 @@
                   </div>
                </div>
                <div class="block2">
-                  <img style="width:250px; height:300px;" src="images/sepecial/ca2.jpg" alt="" class="img_inner fleft">
+                  <img style="width:250px; height:300px;" src="images/sepecial/ca2_1.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
                      <div class="text1 col1" id="hotRe2"><a href="#">에이팩토리카페</a></div>
                      <p>위치 : 제주 탑동로 11</p> 
@@ -275,7 +275,7 @@
                   </div>
                </div>
                <div class="block2">
-                  <img style="width:250px; height:300px;" src="images/sepecial/ca4_1.jpg" alt="" class="img_inner fleft">
+                  <img style="width:250px; height:267px;" src="images/sepecial/ca4.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
                      <div class="text1 col1" id="hotRe4"><a href="#">델문도</a></div>
                      <p>위치 : 제주 조천읍 조함해안로 519-10</p> 

@@ -306,7 +306,7 @@
             <h2 style="font-size:1.3em;">머무는 동안 편안히 지내다 갈 수 있는 추천 호텔 입니다.</h2>
                <div class="grid_3">
                   <div class="banner special">
-                     <img style="width:250px;height:280px;" onclick="moving(5)" src="images/sepecial/hotel1.jpg" alt="">
+                     <img style="width:250px;height:280px;" onclick="moving(5)" src="images/sepecial/hotel1_1.jpg" alt="">
                      <div class="label">
                         <div style="font-size:1.5em; text-shadow: 0.05em 0.05em 0.15em #193c46;">호텔 리젠트<br> 마린 더 블루</div>
                         <div class="price">&nbsp<span>★★★★☆</span></div>
@@ -316,7 +316,7 @@
                </div>
                <div class="grid_3">
                   <div class="banner special">
-                     <img style="width:250px;height:280px;" onclick="moving(6)" src="images/sepecial/hotel2.jpg" alt="">
+                     <img style="width:250px;height:280px;" onclick="moving(6)" src="images/sepecial/hotel2_1.jpg" alt="">
                      <div class="label">
                         <div style="font-size:1.5em; text-shadow: 0.05em 0.05em 0.15em #193c46;">라마다 앙코르<br> 이스트 호텔</div>
                         <div class="price">&nbsp<span>★★★★☆</span></div>
@@ -326,7 +326,7 @@
                </div>
                <div class="grid_3">
                   <div class="banner special">
-                     <img style="width:250px;height:280px;" onclick="moving(7)" src="images/sepecial/hotel3.jpg" alt="">
+                     <img style="width:250px;height:280px;" onclick="moving(7)" src="images/sepecial/hotel3_1.jpg" alt="">
                      <div class="label">
                         <div style="font-size:1.5em; text-shadow: 0.05em 0.05em 0.15em #193c46;">데이즈 호텔 <br>제주 서귀포 오션</div>
                         <div class="price">&nbsp<span>★★★★☆</span></div>
@@ -337,7 +337,7 @@
                </div>
                 <div class="grid_3">
                   <div class="banner special">
-                     <img style="width:250px;height:280px;" onclick="moving(8)" src="images/sepecial/hotel4.jpg" alt="">
+                     <img style="width:250px;height:280px;" onclick="moving(8)" src="images/sepecial/hotel4_1.jpg" alt="">
                      <div class="label">
                         <div style="font-size:1.5em; text-shadow: 0.05em 0.05em 0.15em #193c46;">오션 팰리스 호텔</div>
                         <div class="price">&nbsp<span>★★★☆☆</span></div>
@@ -382,7 +382,7 @@
                </div>
                 <div class="grid_3">
                   <div class="banner special">
-                     <img onclick="moving(12)" style="width:250px;height:280px;" src="images/sepecial/ca4.jpg" alt="">
+                     <img onclick="moving(12)" style="width:250px;height:280px;" src="images/sepecial/ca4_1.jpg" alt="">
                      <div class="label">
                         <div class="title">델문도</div>
                         <div class="price">&nbsp<span>★★★★☆</span></div>

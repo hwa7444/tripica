@@ -131,7 +131,7 @@
 <link rel="icon" href="images/favicon.ico">
 <link rel="shortcut icon" href="images/favicon.ico" />
 <link rel="stylesheet" href="booking/css/booking.css">
-<link rel="stylesheet" href="css/camera.css">
+<link rel="stylesheet" href="css/camera.css?ver=1">
 <link rel="stylesheet" href="css/owl.carousel.css">
 <link rel="stylesheet" href="css/style.css?ver=1">
 

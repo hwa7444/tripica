@@ -286,6 +286,8 @@
 	font-size: 48px;
 	line-height: 48px;
 	margin-top: -4px;
+	text-shadow: 0.05em 0.05em 0.15em #193c46;
+	color:#FFFAF0;
 }
 
 .caption a {
