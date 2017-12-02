@@ -445,7 +445,6 @@
 
 	<script>
 		function idCheck() {
-			alert("1");
 			var id = document.getElementById("id");
 			$.ajax({
 				url : "SearchId",
