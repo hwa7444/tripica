@@ -23,7 +23,7 @@ public class SelectOne extends HttpServlet {
 				int num = Integer.parseInt(request.getParameter("num"));
 		
 				bulletinDAO dao = bulletinDAO.getInstance();
-				
+				System.out.println("들어온다!");
 				try {
 					bulletinVO vo = dao.selectOne(num);
 
@@ -31,6 +31,7 @@ public class SelectOne extends HttpServlet {
 						request.setAttribute("vo", vo);
 						request.setAttribute("num", num);
 					}
+					System.out.println("들어온다5");
 					RequestDispatcher dis = request.getRequestDispatcher("view.jsp");
 					dis.forward(request, response);
 

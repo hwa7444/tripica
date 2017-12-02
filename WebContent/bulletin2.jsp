@@ -1,3 +1,4 @@
+<%@page import="com.DAO.memberVO"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="com.DAO.bulletinDAO"%>
 <%@page import="java.util.ArrayList"%>
@@ -58,10 +59,18 @@
 </head>
 <body>
 	<%
-		String nick = null;
+	memberVO vo1= null; // ´Ð³×ÀÓ
+	String nick = "";
+	
+	if (session.getAttribute("vo1") != null) {
+		vo1 = (memberVO) session.getAttribute("vo1");
+		nick = vo1.getNick();
+	}	
+	
+	/* 	String nick = null;
 		if (session.getAttribute("nick") != null) {
 			nick = (String) session.getAttribute("nick");
-		}
+		} */
 	%>
 	<!--==========================try me==============================-->
 

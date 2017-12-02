@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 import com.DAO.bulletinDAO;
+import com.DAO.memberVO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -50,11 +51,13 @@ public class WriteCon extends HttpServlet {
 			
 			String title = multi.getParameter("title"); //제목
 			
-			String nick= null; // 닉네임
+			memberVO vo1= null; // 닉네임
+			String nick = "";
 			HttpSession session = request.getSession();
 			
-			if (session.getAttribute("nick") != null) {
-				nick = (String) session.getAttribute("nick");
+			if (session.getAttribute("vo1") != null) {
+				vo1 = (memberVO) session.getAttribute("vo1");
+				nick = vo1.getNick();
 			}		
 
 			String fileName = multi.getFilesystemName("fileName"); //파일 이름

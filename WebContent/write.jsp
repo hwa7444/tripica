@@ -1,3 +1,4 @@
+<%@page import="com.DAO.memberVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -48,11 +49,19 @@
 <body>
 
 	<%
+	
+	memberVO vo1= null; // ´Ð³×ÀÓ
+	String nick = "";
+
+	if (session.getAttribute("vo1") != null) {
+		vo1 = (memberVO) session.getAttribute("vo1");
+		nick = vo1.getNick();
+	}
 		request.setCharacterEncoding("EUC-KR");
-		String nick = null;
+		/* String nick = null;
 		if (session.getAttribute("nick") != null) {
 			nick = (String) session.getAttribute("nick");
-		}
+		} */
 	%>
 	<!--==========================try me==============================-->
 

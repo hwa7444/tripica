@@ -1,3 +1,4 @@
+<%@page import="com.DAO.memberVO"%>
 <%@page import="com.sun.xml.internal.bind.v2.schemagen.xmlschema.List"%>
 <%@page import="com.DAO.bulletinVO"%>
 <%@page import="java.util.ArrayList"%>
@@ -50,11 +51,19 @@
 <body>
 
 <%
-		String nick= null;
+
+memberVO vo1= null; // ´Ð³×ÀÓ
+String nick = "";
+
+if (session.getAttribute("vo1") != null) {
+	vo1 = (memberVO) session.getAttribute("vo1");
+	nick = vo1.getNick();
+}	
+		/* String nick= null;
 		if (session.getAttribute("nick") != null) {
 			nick = (String) session.getAttribute("nick");
 		}
-		
+		 */
 	%>
 	
 <!--==========================try me==============================-->
