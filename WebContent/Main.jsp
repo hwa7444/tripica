@@ -420,7 +420,7 @@
 			<table>
 				<tr>
 					<td>아이디</td>
-					<td><input type="text" id="id" name="id" required
+					<td><input type="text" id="aa" name="id" required
 						maxlength="10" size="10" onkeydown="nonHangulSpecialKey()">
 						<button onclick="idCheck()">중복확인</button></td>
 				</tr>
@@ -458,15 +458,16 @@
 
 	<script>
 		function idCheck() {
-			var id = document.getElementById("id");
+			
+			var id = document.getElementById("aa").value;
 			$.ajax({
-				url : "SearchId",
-				data : "id=" + id.value,
+				url : "SearchId2",
+				data : "id=" + id,
 				success : function(result) {
 					alert(result);
 				}
 			})
-
+			alert("1");
 		}
 	</script>
 

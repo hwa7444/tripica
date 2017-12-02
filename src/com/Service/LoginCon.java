@@ -19,6 +19,7 @@ public class LoginCon extends HttpServlet {
    
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		System.out.println("로그인서블릿");
 		request.setCharacterEncoding("euc-kr");
 		response.setCharacterEncoding("text/html; charset=euc-kr");
 		memberDAO dao = memberDAO.getInstance();

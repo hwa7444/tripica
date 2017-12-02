@@ -13,12 +13,11 @@ import com.DAO.memberDAO;
 import com.DAO.memberVO;
 
 /**
- * Servlet implementation class SearchId
+ * Servlet implementation class SearchId2
  */
-@WebServlet("/SearchId")
-public class SearchId extends HttpServlet {
+@WebServlet("/SearchId2")
+public class SearchId2 extends HttpServlet {
 
-   
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
 		System.out.println("id°ª : "+id);
