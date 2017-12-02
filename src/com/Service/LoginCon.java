@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.DAO.memberDAO;
+import com.DAO.memberVO;
 
 
 @WebServlet("/LoginCon")
@@ -26,18 +27,14 @@ public class LoginCon extends HttpServlet {
 		
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-		
+		memberVO vo = null;
 		System.out.println(id+pw);
 		
 		try {
-			int cnt = dao.login(id, pw);
-			String nick = dao.nickselect(id);
-			if (cnt == 1) {
+			vo = dao.login(id,pw);
+			if (vo != null) {
 				HttpSession session = request.getSession();
-				session.setAttribute("id", id);
-				session.setAttribute("nick", nick);
-				System.out.println(id);
-				System.out.println("nick °ª : "+nick);
+				session.setAttribute("vo", vo);
 				response.sendRedirect("Main.jsp");
 			}else {
 				response.setContentType("text/html;charset=euc-kr");

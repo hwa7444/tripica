@@ -48,7 +48,7 @@ public class memberDAO {
 			conn.close();
 	}// 종료기능
 
-	public int Join(String id, String pw, String nick, int gender, String ph, String birth) throws Exception {//회원가입메소드
+	public int Join(String id, String pw, String nick, int gender, String ph, String birth) throws Exception {// 회원가입메소드
 
 		// throws와 try/catch 차이
 		getConn();
@@ -67,37 +67,39 @@ public class memberDAO {
 		return cnt;
 	}
 
-	public int login(String id, String pw) throws Exception { //로그인 메소드
+	public memberVO login(String id, String pw) throws Exception { // 로그인 메소드
 		getConn();
 		// DBMS에 id의 pw를 인증을 받고 DB를 핸들링 할 수 있는 Connection 객체를 생성
-
+		memberVO vo = null;
 		pst = conn.prepareStatement("select * from member where mem_id = ? ");
 		pst.setString(1, id);
 
 		rs = pst.executeQuery();
-		int cnt = 0;
+		
+
+		String getpw = null;
+
 		if (rs.next()) {
-			String getpw = rs.getString("pw");
-			String getnick = rs.getString("nick");
-
+			getpw = rs.getString("pw");
 			if (pw.equals(getpw)) {
-
-				cnt = 1;
+				
+				vo = new memberVO(rs.getInt("userid"), rs.getString("id"), rs.getString("pw"), rs.getString("nick"),
+						rs.getInt("gender"), rs.getString("ph"), rs.getString("birth"));
 
 			}
+
 		} else {
 
-			cnt = 2;
+			vo = null;
 
 		}
 
-		return cnt;
+		return vo;
 	}
 
 	public memberVO idselect(String id) throws Exception { // 해당아이디 정보 불러오는 메소드
 		getConn();
 
-		
 		pst = conn.prepareStatement("select * from member where mem_id=?");
 		pst.setString(1, id);
 
@@ -106,14 +108,13 @@ public class memberDAO {
 		rs = pst.executeQuery();
 		if (rs.next()) {
 			id = rs.getString(1);
+
 			vo = new memberVO(id);
 
 		}
 		return vo;
 	}
 
-	
-	
 	public int update(String pw, String nick, String ph, String birth, String id) throws Exception {// 회원정보 수정 메소드
 		getConn();
 
@@ -128,7 +129,7 @@ public class memberDAO {
 		return cnt;
 	}
 
-	public String nickselect(String id) throws Exception { //닉네임 세션에 저장하기 위해 값 가져오는 메소드
+	public String nickselect(String id) throws Exception { // 닉네임 세션에 저장하기 위해 값 가져오는 메소드
 		getConn();
 		pst = conn.prepareStatement("select * from member where mem_id=?");
 		pst.setString(1, id);
@@ -139,7 +140,7 @@ public class memberDAO {
 		}
 		return nick;
 	}
-	
+
 	public void typeUpdate(String type1, String type2, String id) throws Exception {
 		getConn();
 		pst = conn.prepareStatement("Upate MEMBER set t_type1=? and t_type2=? where id=?");
@@ -147,7 +148,7 @@ public class memberDAO {
 		pst.setString(2, type2);
 		pst.setString(3, id);
 		pst.executeUpdate();
-		
+
 	}
 
 }
