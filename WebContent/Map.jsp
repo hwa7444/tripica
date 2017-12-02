@@ -396,7 +396,7 @@
 	<!-- join form -->
 	<a href="#x" class="overlay" id="join_form"></a>
 	<div class="popup">
-		<span>Join Us</span>
+		<span>Join Us</span>   
 		<p>아래의 항목을 채워주세요.</p>
 		<form action="JoinCon" method="post">
 			<table>
@@ -445,6 +445,7 @@
 
 	<script>
 		function idCheck() {
+			alert("1");
 			var id = document.getElementById("id");
 			$.ajax({
 				url : "SearchId",
@@ -462,7 +463,7 @@
 
 	<!-- update form -->
 	<a href="#x" class="overlay" id="update_form"></a>
-	<div class="popup">
+	<div class="popup"> o
 		<span>Update your Information!</span>
 		<p>수정할 개인정보를 입력하세요</p>
 		<form action="UpdateCon" method="post">
