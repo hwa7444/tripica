@@ -59,7 +59,7 @@ public class WriteCon extends HttpServlet {
 
 			String fileName = multi.getFilesystemName("fileName"); //파일 이름
 			String content = multi.getParameter("content"); //content
-			int checkD = 1; //글 존재 여부
+			int checkD = 0; //글 존재 여부
 			
 			
 			try {

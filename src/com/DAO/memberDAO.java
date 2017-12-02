@@ -77,8 +77,8 @@ public class memberDAO {
 		rs = pst.executeQuery();
 		int cnt = 0;
 		if (rs.next()) {
-			String getpw = rs.getString(2);
-			String getnick = rs.getString(3);
+			String getpw = rs.getString("pw");
+			String getnick = rs.getString("nick");
 
 			if (pw.equals(getpw)) {
 
@@ -133,7 +133,7 @@ public class memberDAO {
 		rs = pst.executeQuery();
 		String nick = null;
 		if (rs.next()) {
-			nick = rs.getString(3);
+			nick = rs.getString("nick");
 		}
 		return nick;
 	}
