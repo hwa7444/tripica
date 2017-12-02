@@ -55,14 +55,23 @@ public class memberDAO {
 
 		// DBMS에 id의 pw를 인증을 받고 DB를 핸들링 할 수 있는 Connection 객체를 생성
 		// insert into fileboard values(1,'a','b','c',to_char(sysdate, 'YYYY-MM-DD'))
-		pst = conn.prepareStatement("insert into member values(member_num.nextval,?,?,?,?,?,?)");
+		pst = conn.prepareStatement("insert into member values(member_num.nextval,?,?,?,?,?,?,?,?)");
+		
 		pst.setString(1, id);
 		pst.setString(2, pw);
 		pst.setString(3, nick);
 		pst.setInt(4, gender);
 		pst.setString(5, ph);
 		pst.setString(6, birth);
+		
+		// 값이 필요한지? 삽입시 에러뜸 회원가입창 수정필요? //
+		pst.setString(7, "zz");
+		pst.setString(8, "bb");
+		//////////////////////
+		
+		
 		cnt = pst.executeUpdate();
+		
 		close();
 		return cnt;
 	}

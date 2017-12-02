@@ -29,7 +29,8 @@ public class JoinCon extends HttpServlet {
 		int gender = Integer.parseInt(request.getParameter("gender"));
 		String ph = request.getParameter("phone");
 		String birth = request.getParameter("birth");
-		System.out.println(birth);
+		
+	
 		try {
 			int cnt = dao.Join(id, pw, nick, gender, ph, birth);
 			
@@ -42,7 +43,7 @@ public class JoinCon extends HttpServlet {
 			response.sendRedirect("Main.jsp");
 			
 		}catch(Exception e) {
-			
+			e.printStackTrace();
 		}
 	}
 
