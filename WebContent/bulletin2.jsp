@@ -311,9 +311,7 @@
 							<div style="width: 500px; height: 300px;">
 								<%
 									int max = 0;
-				
-									for (int i = 0; i < arr.size(); i++) {
-									max = arr.get(i).getCheckD();
+								for (int i = 0; i < arr.size(); i++) {
 									if(arr.get(i).getCheckD()>max){
 										max = i;
 									}
