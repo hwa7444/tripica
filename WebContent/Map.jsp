@@ -602,7 +602,7 @@ padding-bottom: 120px;
 
 			<!--====================================지도 게시판 만들기=======================================-->
 		
-				<h3 style="margin-left: 100px; ! important top: 0;">POPULAR ROUT</h3>
+				<h3 style="margin-left: 100px; ! important top: 0;"><span style="color:#C73430;">HOT</span> ROUT</h3>
 				<div id="minimap6"></div>
 	
 				<div class="grid_12" style="margin-left: 150px; top: 50px;">
