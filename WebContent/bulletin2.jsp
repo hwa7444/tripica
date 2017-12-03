@@ -311,20 +311,17 @@
 							<div style="width: 500px; height: 300px;">
 								<%
 									int max = 0;
+									int f_max = 0;
+									
 											for (int i = 0; i < arr.size(); i++) {
-								%>
-
-								<%
-									if (arr.get(i).getCheckD() > max) {
-													max = arr.get(i).getCheckD();
+				
+										max = arr.get(i).getCheckD();
+								f_max=Math.max(max, i);	
+							}
+									
 								%>
 								<img
-									src="upload/<%=URLEncoder.encode(arr.get(i).getFileName(), "euc-kr")%>">
-
-								<%
-									}
-											}
-								%>
+									src="upload/<%=URLEncoder.encode(arr.get(f_max).getFileName(), "euc-kr")%>">
 							</div>
 						</div>
 					</c:otherwise>
