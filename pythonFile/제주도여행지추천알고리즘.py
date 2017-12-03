@@ -1,45 +1,56 @@
+# -*- coding: ms949 -*-
+'''
+Created on 2017. 11. 29.
 
-# coding: utf-8
-
-# #ìƒê´€ê´€ê³„ - ë‘ ë³€ì¸ X,Yì— ëŒ€í•´ì„œ Xê°€ ë³€í™”í•  ë•Œ Yê°€ ë³€í™”í•˜ë©´ ìƒê´€ê´€ê³„
-# #ì¸ê³¼ê´€ê³„ - Xê°€ ì›ì¸ìœ¼ë¡œ Yê°€ ê²°ê³¼ê°€ ë  ë•Œ ì¸ê³¼ê´€ê³„
+@author: home
+'''
 
 # In[1]:
-
+import cx_Oracle
 from math import sqrt
+conn = cx_Oracle.connect('system/1234@localhost:1521/xe')
+cur=conn.cursor()
 
 
-# 1.Member ë”•ì…”ë„ˆë¦¬ ìƒì„±
+# 1.Member µñ¼Å³Ê¸® »ı¼º
 members={}
 
-# 2. Members ë”•ì…”ë„ˆë¦¬ì— íšŒì›ì˜ ì—¬í–‰ ì†ì„± ì¶”ê°€
+# 2. Members µñ¼Å³Ê¸®¿¡ È¸¿øÀÇ ¿©Çà ¼Ó¼º Ãß°¡
 def member_group():
-    cur.execute('SELECT * FROM mem_test')
+    cur.execute('SELECT * FROM member')
     mem_test=cur.fetchall()
     for result in mem_test:
-        idp = result[0]
-        name=result[1]
-        type_1=result[2]
-        type_2=result[3]
+        idp = result[1]
+        name=result[3]
+        type_1=result[4]
+        type_2=result[5]
         members[idp]={'type':[type_1,type_2]}
     return members
 
-# 3. íšŒì›ë“¤ì˜ idê°’ ë¶ˆëŸ¬ì˜¤ê¸°
-memberi=cur.execute("SELECT id FROM mem_test")
+member_group()
+
+# 3. È¸¿øµéÀÇ id°ª ºÒ·¯¿À±â
+memberi=cur.execute("SELECT id FROM member")
 memberid=[]
 for i in memberi:
     memberid.append(i[0])
 
-# 4. Members ë”•ì…”ë„ˆë¦¬ì— íšŒì›ë“¤ì´ ë‹¤ë…€ì˜¨ ì—¬í–‰ì§€ ë° í‰ì  ì¶”ê°€
+# 4. Members µñ¼Å³Ê¸®¿¡ È¸¿øµéÀÌ ´Ù³à¿Â ¿©ÇàÁö ¹× ÆòÁ¡ Ãß°¡
 
-for i in memberid: 
-    cur.execute('select * from member_tour where id=(:k)',k=i) 
+for i in memberid: #iterating the list using index(int)
+    cur.execute('select * from goneTourList where id=(:b)',b=i) #here cursor is using the existing cursor objec
     k=cur.fetchall()
+    name = i
     for j in k:
-        members[i][j[1]]=[j[0],j[2]]
-       
+        cur.execute('select t_type from tour_list where tour=(:a)',a=j[1]) #here cursor is using the existing cursor objec
+        d=cur.fetchone()
+        
+        gone =  j[1]
+        
+        members[name][gone]=[d[0],j[2]]
+        
 
-# í”¼ì–´ìŠ¨ìƒê´€ê³„ìˆ˜
+# ÇÇ¾î½¼»ó°ü°è¼ö
 
 def sim_pearson(data, person1, person2):
     sumX = 0;
@@ -92,7 +103,7 @@ def sim_distance(data,person1,person2):
 
 # In[45]:
 
-def top_match(data, person, n=3, sim_function=sim_distance):#defaultê°’ ì„¤ì •ê°€ëŠ¥ í•¨ìˆ˜í˜¸ì¶œí• ë•Œ ì…ë ¥ì•ˆí•˜ë©´ ë””í´íŠ¸ê°’ìœ¼ë¡œ
+def top_match(data, person, n=3, sim_function=sim_distance):#default°ª ¼³Á¤°¡´É ÇÔ¼öÈ£ÃâÇÒ¶§ ÀÔ·Â¾ÈÇÏ¸é µğÆúÆ®°ªÀ¸·Î
     match_list=[]
     match_person=[]
     
@@ -130,18 +141,18 @@ def getRecommendation(data, person,sim_funciton=sim_pearson):
                 simsum_list.setdefault(tour,0)
                 simsum_list[tour]+=sim
     
-    cur.execute('select t_type2 from mem_test where id=(:k) ',k=person) #íšŒì›ì†ì„± ë¶ˆëŸ¬ì˜¤ê¸°
+    cur.execute('select t_type2 from member where id=(:k) ',k=person) #È¸¿ø¼Ó¼º ºÒ·¯¿À±â
     t_type = cur.fetchone()
     
     for tour in score_dic:
         rate=score_dic[tour]/simsum_list[tour]
         
         
-        cur.execute('select t_location from tour_list where tour=(:k) ',k=tour) #ì—¬í–‰ì§€ ìœ„ì¹˜ ë¶ˆëŸ¬ì˜¤ê¸°
+        cur.execute('select address from tour_list where tour=(:k) ',k=tour) #¿©ÇàÁö À§Ä¡ ºÒ·¯¿À±â
         loca = cur.fetchone()
         
         if data[person]['type'][1]==t_type: 
-            recom_list.append((rate*1.2,tour,loca[0])) #ì„ í˜¸ ì—¬í–‰ì§€ì—ëŒ€í•œ ê°€ì¤‘ì¹˜ 1.2 ì¤Œ
+            recom_list.append((rate*1.2,tour,loca[0])) #¼±È£ ¿©ÇàÁö¿¡´ëÇÑ °¡ÁßÄ¡ 1.2 ÁÜ
         else :recom_list.append((rate,tour,loca[0]))
         
     recom_list.sort()
