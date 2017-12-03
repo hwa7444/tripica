@@ -24,7 +24,8 @@ public class pyCon extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String python35 = "D:/Anaconda/Ananconda3/python.exe";
+		String python35 = "C:/ProgramData/Anaconda3/python.exe";
+		
 		int i = 0;
 		ArrayList<String> pyArr = new ArrayList<String>();
 		String id = (String) request.getAttribute("id");
