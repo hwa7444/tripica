@@ -316,6 +316,12 @@ border-top-left-radius: 10%;
 #soul{
 color: #002141;
 }
+#end:hover{
+cursor:pointer;
+}
+#end:after{
+background-color: #C73430; border-color: #C73430; color:#FFFAF0;
+}
 </style>
 
 <title>MAP DIY</title>
@@ -792,7 +798,7 @@ color: #002141;
 				<div class="map_wrap choice">
 					<div id="map" style="width: 100%; height: 100%;"></div>
 				</div>
-				<button onclick="ist()"
+				<button onclick="ist()" id="end" 
 					style="margin-top: 80px; margin-left: 88%;font-family: SeoulNamsanEB; font-size:1.5em; 100px; position: relative; padding:10px; background-color: #C73430; border-color: #C73430; color:#FFFAF0; border-radius: 10%; ">등록하기</button>
 
 				<!--====================================지도 게시판 만들기=======================================-->
@@ -1041,9 +1047,19 @@ request.setAttribute("hlist", hmlist);
 				var linePath = [];
 				var pok = "f";
 				function ist() {
+					document.getElementById("end").style.backgroundColor = "#eee";
+					document.getElementById("end").style.borderColor = "#eee";
+					document.getElementById("end").style.color = "#002141";
 					pok = "t";
 					send();
 				}
+				document.getElementById("end").addEventListener("mouseout",
+						function(e) {
+					document.getElementById("end").style.backgroundColor = "#C73430";
+					document.getElementById("end").style.borderColor = "#C73430";
+					document.getElementById("end").style.color = "#FFFAF0";
+						});
+						
 				function o() {
 					pgroup = document.getElementById("tname").value;
 					alert("이번 나만의여행 제목은 " + pgroup + " 입니다. 이제 시작해보세요!");

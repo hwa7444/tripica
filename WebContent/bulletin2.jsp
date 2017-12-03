@@ -15,7 +15,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Blog</title>
+<title>Post</title>
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
 <!-- 부트스트랩 -->
 <!-- <meta name="viewport" content="width=device-width" , initial-scale="1">
@@ -490,6 +490,7 @@ document.getElementById("move").scrollIntoView(true);
 								%>
 						<h3>Best Post</h3>
 						<span style="font-size:1.4em;">제목 : <span style="color:#002141;"><%=arr.get(max).getTitle()%></span>&nbsp 작성자 : <span style="color:#002141;"><%=arr.get(max).getNick()%></span>&nbsp 추천 수 : <span style="color:#002141;"><%=arr.get(max).getCheckD()%></span></span>
+						<p></p>
 						<div class="grid_12">
 							<div style="width: 500px; height: 300px;">
 								
