@@ -311,17 +311,23 @@
 							<div style="width: 500px; height: 300px;">
 								<%
 									int max = 0;
-									int f_max = 0;
-									
+											boolean check = false;
+
 											for (int i = 0; i < arr.size(); i++) {
-				
-										max = arr.get(i).getCheckD();
-								f_max=Math.max(max, i);	
-							}
-									
+												max = arr.get(i).getCheckD();
+												for (int j = 0; j < arr.size(); j++) {
+													if (max >= arr.get(j).getCheckD()) {
+														check = true;
+														if (check) {
 								%>
 								<img
-									src="upload/<%=URLEncoder.encode(arr.get(f_max).getFileName(), "euc-kr")%>">
+									src="upload/<%=URLEncoder.encode(arr.get(max).getFileName(), "euc-kr")%>">
+								<%
+									}
+													}
+												}
+											}
+								%>
 							</div>
 						</div>
 					</c:otherwise>
@@ -342,7 +348,7 @@
 							<%-- <img src="upload/<%=URLEncoder.encode("만장굴","euc-kr")%>.jpg"> --%>
 							<hr>
 							<a href="SelectOne?num=${vo.num}">${vo.num}. <span
-								style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;width: 220px;">${vo.title}</span>
+								style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 220px;">${vo.title}</span>
 								<span style="color: #C73430;"> <br>by
 							</span> ${vo.nick}<br> ${vo.writeDay}&nbsp추천수 ${vo.checkD}
 							</a>
