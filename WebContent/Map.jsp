@@ -651,7 +651,7 @@ padding-bottom: 120px;
 			</div>
 			<script type="text/javascript">
 			function showMap(){
-				
+				window.open('showMap.jsp','showMap','width=900px,left=100px,top=100px,height=450px,scrollbars = no,resizeable = no,menubar = no,menubar = no');
 			}
 			</script>
 

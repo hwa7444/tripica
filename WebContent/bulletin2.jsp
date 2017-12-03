@@ -59,20 +59,20 @@
 </head>
 <body>
 	<%
-	memberVO vo1= null; // 닉네임
-	String nick = "";
-	
-	if (session.getAttribute("vo1") != null) {
-		vo1 = (memberVO) session.getAttribute("vo1");
-		nick = vo1.getNick();
-	}	
-	
-	/* 	String nick = null;
-		if (session.getAttribute("nick") != null) {
-			nick = (String) session.getAttribute("nick");
-		} */
+		memberVO vo1 = null; // 닉네임
+		String nick = "";
+
+		if (session.getAttribute("vo1") != null) {
+			vo1 = (memberVO) session.getAttribute("vo1");
+			nick = vo1.getNick();
+		}
+
+		/* 	String nick = null;
+			if (session.getAttribute("nick") != null) {
+				nick = (String) session.getAttribute("nick");
+			} */
 	%>
-<!--==========================로그인/회원가입 모달 창입니다.==============================-->
+	<!--==========================로그인/회원가입 모달 창입니다.==============================-->
 
 	<!-- login form -->
 	<a href="#x" class="overlay" id="login_form2"></a>
@@ -223,7 +223,7 @@
 		<a class="close" href="#close"></a>
 	</div>
 	<!-- /update form -->
-<!--==========================로그인/회원가입 모달 창입니다. 끗==============================-->
+	<!--==========================로그인/회원가입 모달 창입니다. 끗==============================-->
 
 	<div class="allFor">
 		<!-- ======SIDE MENU===== -->
@@ -308,23 +308,23 @@
 					<c:otherwise>
 						<h3>Best Post</h3>
 						<div class="grid_12">
-						<div style="width: 500px; height: 300px;">
-							<%
-								int max = 0;
-										for (int i = 0; i < arr.size(); i++) {
-							%>
-							
+							<div style="width: 500px; height: 300px;">
+								<%
+									int max = 0;
+											for (int i = 0; i < arr.size(); i++) {
+								%>
+
 								<%
 									if (arr.get(i).getCheckD() > max) {
 													max = arr.get(i).getCheckD();
 								%>
 								<img
 									src="upload/<%=URLEncoder.encode(arr.get(i).getFileName(), "euc-kr")%>">
-							
-							<%
-								}
-								}
-							%>
+
+								<%
+									}
+											}
+								%>
 							</div>
 						</div>
 					</c:otherwise>
@@ -334,7 +334,7 @@
 				<!--================ blogPost ================-->
 				<div class="grid_12">
 					<h3>Recent Posts</h3>
-				
+
 					<c:forEach items="${list}" var="vo" begin="<%=start %>"
 						end="<%=end %>" step="1" varStatus="idx">
 						<div class="grid_3" style="font-size: 1.3em;">
@@ -344,9 +344,10 @@
 							<!--EL 문....?-->
 							<%-- <img src="upload/<%=URLEncoder.encode("만장굴","euc-kr")%>.jpg"> --%>
 							<hr>
-							<a href="SelectOne?num=${vo.num}">${vo.num}. ${vo.title} <span
-								style="color: #C73430;">by</span> ${vo.nick}<br>
-								${vo.writeDay}&nbsp추천수 ${vo.checkD}
+							<a href="SelectOne?num=${vo.num}">${vo.num}. <span
+								style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;width: 220px;">${vo.title}</span>
+								<span style="color: #C73430;"> <br>by
+							</span> ${vo.nick}<br> ${vo.writeDay}&nbsp추천수 ${vo.checkD}
 							</a>
 							<hr>
 						</div>
@@ -378,12 +379,11 @@
 					<c:otherwise>
 					</c:otherwise>
 				</c:choose>
-				
+
 				<div class="clear"></div>
-				<div class="grid_12">
-				</div>
+				<div class="grid_12"></div>
 				<div class="clear"></div>
-			<!-- container_12 -->
+				<!-- container_12 -->
 			</div>
 
 			<!--^content -->
@@ -393,7 +393,7 @@
 
 		<!-- ^allfor you -->
 	</div>
-	
+
 	<!--==============================footer=================================-->
 	<footer>
 		<div class="container_12">
