@@ -312,7 +312,7 @@
 								<%
 									int max = 0;
 								for (int i = 0; i < arr.size(); i++) {
-									if(arr.get(i).getCheckD()>max){
+									if(arr.get(i).getCheckD()>arr.get(max).getCheckD()){
 										max = i;
 									}
 									}											
