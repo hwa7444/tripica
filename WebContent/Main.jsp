@@ -489,7 +489,7 @@
 				url : "SearchId2",
 				data : "id=" + id,
 				success : function(result) {
-					alert(result);
+					alert(result); 
 				}
 			})
 			alert("1");
@@ -692,7 +692,7 @@
 			<div class="container_12" align="center">
 				<div class="grid_12">
 					<h3 class="head1" style="color: #C73430">
-						<span style="color: #002141">This</span> Week's <span
+						<span id="hu" style="color: #002141">This</span> Week's <span  id="hu2"
 							style="color: #002141">Choice</span>
 					</h3>
 				</div>
@@ -748,6 +748,8 @@
 							"mouseover",
 							function(e) {
 								lastCon.style.background = "url('images/Main/back1.jpg')";
+								document.getElementById("hu").style.color = "#E5D85C";
+								document.getElementById("hu2").style.color = "#E5D85C";
 							});
 			document
 					.getElementById("news1")
@@ -755,6 +757,8 @@
 							"mouseout",
 							function(e) {
 								lastCon.style.background = "url('images/Main/back1.jpg')";
+								document.getElementById("hu").style.color = "#E5D85C";
+								document.getElementById("hu2").style.color = "#E5D85C";
 
 							});
 			document
@@ -763,6 +767,8 @@
 							"mouseover",
 							function(e) {
 								lastCon.style.background = "url('images/Main/back2.jpg')";
+								document.getElementById("hu").style.color = "#002141";
+								document.getElementById("hu2").style.color = "#002141";
 							});
 			document
 					.getElementById("news2")
@@ -770,6 +776,8 @@
 							"mouseout",
 							function(e) {
 								lastCon.style.background = "url('images/Main/back2.jpg')";
+								document.getElementById("hu").style.color = "#002141";
+								document.getElementById("hu2").style.color = "#002141";
 
 							});
 			document
@@ -778,6 +786,8 @@
 							"mouseover",
 							function(e) {
 								lastCon.style.background = "url('images/Main/back3.jpg')";
+								document.getElementById("hu").style.color = "#002141";
+								document.getElementById("hu2").style.color = "#002141";
 							});
 			document
 					.getElementById("news3")
@@ -785,6 +795,8 @@
 							"mouseout",
 							function(e) {
 								lastCon.style.background = "url('images/Main/back3.jpg')";
+								document.getElementById("hu").style.color = "#002141";
+								document.getElementById("hu2").style.color = "#002141";
 
 							});
 		</script>
