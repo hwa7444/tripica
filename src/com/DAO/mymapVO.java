@@ -10,6 +10,8 @@ public class mymapVO {
 	String pgroup;
 	int userid;
 	int index;
+	String pimg;
+	
 	
 	public mymapVO() {
 	}
