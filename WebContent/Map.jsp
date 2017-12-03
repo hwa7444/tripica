@@ -1,3 +1,4 @@
+<%@page import="com.DAO.memberVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -301,7 +302,9 @@
 
 <title>Blog</title>
 <meta charset="utf-8">
-
+<%
+	request.setCharacterEncoding("EUC-KR");
+%>
 <meta name="format-detection" content="telephone=no" />
 <link rel="icon" href="images/favicon.ico">
 <link rel="shortcut icon" href="images/favicon.ico" />
@@ -332,15 +335,32 @@
       <script src="js/html5shiv.js"></script>
       <link rel="stylesheet" media="screen" href="css/ie.css">
       <![endif]-->
+      
+<style type="text/css">
+.content {
+background-color: #FBFBFB;
+background-image:url("images/large.jpg");
+background-repeat:repeat; 
+padding-bottom: 120px;
+}
+</style>
 </head>
 <body>
 	<%
-		String nick = null;
+	
+	memberVO vo1= null; // 닉네임
+	String nick = "";
+	
+	if (session.getAttribute("vo1") != null) {
+		vo1 = (memberVO) session.getAttribute("vo1");
+		nick = vo1.getNick();
+	}	
+		/* String nick = null;
 		if (session.getAttribute("nick") != null) {
 			nick = (String) session.getAttribute("nick");
-		}
+		} */
 	%>
-	<!--==========================try me==============================-->
+	<!--==========================로그인/회원가입 모달입니다.==============================-->
 
 	<!-- login form -->
 	<a href="#x" class="overlay" id="login_form2"></a>
@@ -392,8 +412,6 @@
 	</div>
 	<!-- /login form -->
 
-
-
 	<!-- join form -->
 	<a href="#x" class="overlay" id="join_form"></a>
 	<div class="popup">
@@ -425,8 +443,6 @@
 					<td>전화번호</td>
 					<td><input type="text" name="phone" required
 						onfocus="OnCheckPhone(this)" onKeyup="OnCheckPhone(this)" size=14></td>
-
-
 				</tr>
 				<tr>
 					<td>생일</td>
@@ -500,10 +516,10 @@
 	<!-- /update form -->
 
 
-	<!--==========================try me==============================-->
+	<!--==========================로그인/회원가입 모달 끗==============================-->
 
 	<div class="allFor">
-		<!-- ======SIDE MENU===== -->
+		<!-- ======SIDE MENU 옆의 메뉴 입니다.===== -->
 		<div class="grid_13">
 			<img src="images/logo/tripickerLogo9.png">
 			<c:choose>
@@ -523,10 +539,10 @@
 			</c:choose>
 		</div>
 
-		<!-- ======^SIDE MENU===== -->
+		<!-- ======^SIDE MENU 옆의 메뉴 끗===== -->
 		<div class="allFor">
 
-			<!--==============================header=================================-->
+			<!--==============================header 위의 메뉴=================================-->
 			<header>
 				<div class="container_12">
 					<div class="grid_12">
@@ -559,7 +575,7 @@
 					</div>
 				</div>
 			</header>
-			<!-- ^allfor you -->
+		<!--==============================header 위의 메뉴 끗=================================-->
 
 			<!--==============================Content=================================-->
 			<div class="content">
@@ -584,59 +600,60 @@
 				<button onclick="ist()"
 					style="margin-top: 80px; margin-left: 100px; position: relative;">등록하기</button>
 
-			
-
 			<!--====================================지도 게시판 만들기=======================================-->
 		
-				<h3 style="margin-left: 100px; ! important top: 0;">SHOW YOUR
-					ROUT</h3>
-				<div
-					style="margin-left: 100px; margin-right: 100px; background-color: blue; width: 87%;; height: 460px;"></div>
+				<h3 style="margin-left: 100px; ! important top: 0;">POPULAR ROUT</h3>
+				<div id="minimap6"></div>
 	
 				<div class="grid_12" style="margin-left: 150px; top: 50px;">
 					<!-- 지도 게시판 -->
+					<h3 style="margin-left: 100px; ! important top: 0;">POST YOUR ROUT</h3>
 					<table class="mapPost"
 						style="margin: 20px; border: 1px solid #dddddd; text-align: center; width: 1300px; font-size: 1.2em;">
 						<tr style="background-color: #002141; color:#F6F6F6;">
 							<th>번호</th>
 							<th>지도 이름</th>
 							<th>작성자</th>
+							<th>작성일자</th>
 							<th>추천 수</th>
 						</tr>
 						<tr>
 							<td>1</td>
-							<td><a href="">송하의 제주도 오름 탐방기</a></td>
+							<td><a onclick="showMap()">송하의 제주도 오름 탐방기</a></td>
 							<td>123</td>
+							<td>2017-12-03</td>
 							<td>23</td>
 						</tr>
 						<tr>
 							<td>2</td>
-							<td><a href="">송하의 제주도 오름 탐방기</a></td>
+							<td><a onclick="showMap()">송하의 제주도 오름 탐방기</a></td>
 							<td>123</td>
+							<td>2017-12-03</td>
 							<td>23</td>
 						</tr>
 						<tr>
 							<td>2</td>
-							<td><a href="">송하의 제주도 오름 탐방기</a></td>
+							<td><a onclick="showMap()">송하의 제주도 오름 탐방기</a></td>
 							<td>123</td>
+							<td>2017-12-03</td>
 							<td>23</td>
 						</tr>
 						<tr>
 							<td>2</td>
-							<td><a href="">송하의 제주도 오름 탐방기</a></td>
+							<td><a onclick="showMap()">송하의 제주도 오름 탐방기</a></td>
 							<td>123</td>
+							<td>2017-12-03</td>
 							<td>23</td>
 						</tr>
 					</table>
 				</div>
-				
+					<div class="clear"></div>
 			</div>
-<div class="content">
-				<div class="ic"></div>
-				<div class="grid_12" style="margin-left: 100px; top: 50px;">
+			<script type="text/javascript">
+			function showMap(){
 				
-				</div>
-				</div>
+			}
+			</script>
 
 		<!--===================================^지도 게시판 만들기=======================================-->
 

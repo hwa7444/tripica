@@ -772,7 +772,7 @@ header h1 a img {
 /**Content**/
 .content {
 background-color: #FBFBFB;
- background-image:url('images/large.jpg');
+background-image:url("images/large.jpg");
 background-repeat:repeat; 
 padding-bottom: 120px;
 }
