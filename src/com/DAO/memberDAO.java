@@ -124,17 +124,24 @@ public class memberDAO {
 		return vo;
 	}
 
-	public int update(String pw, String nick, String ph, String birth, String id) throws Exception {// 회원정보 수정 메소드
-		getConn();
+	public int update(String pw, String nick, String ph, String birth, String id) {// 회원정보 수정 메소드
+		int cnt = -1;
+		try {
+			getConn();
+			pst = conn.prepareStatement("update member set pw=?,nick=?,phone=?,birthday=? where mem_id=?");
+			pst.setString(1, pw);
+			pst.setString(2, nick);
+			pst.setString(3, ph);
+			pst.setString(4, birth);
+			pst.setString(5, id);
 
-		pst = conn.prepareStatement("update member set pw=?,nick=?,phone=?,birthday=? where mem_id=?");
-		pst.setString(1, pw);
-		pst.setString(2, nick);
-		pst.setString(3, ph);
-		pst.setString(4, birth);
-		pst.setString(5, id);
+			cnt = pst.executeUpdate();
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
 
-		int cnt = pst.executeUpdate();
+		
 		return cnt;
 	}
 

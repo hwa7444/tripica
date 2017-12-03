@@ -11,14 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.DAO.memberDAO;
+import com.DAO.memberVO;
 
 
 @WebServlet("/UpdateCon")
 public class UpdateCon extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("euc-kr");
+		//response.setCharacterEncoding("text/html; charset=euc-kr");
 		HttpSession session = request.getSession();
-		String id = (String)session.getAttribute("id");
+		memberVO vo = (memberVO) session.getAttribute("vo1");
+		String id = vo.getId();
 		String pw = request.getParameter("pw");
 		String nick = request.getParameter("nick");
 		String ph = request.getParameter("phone");
@@ -37,11 +41,12 @@ public class UpdateCon extends HttpServlet {
 			if (cnt >= 1) {
 				response.sendRedirect("Main.jsp");
 			} else {
+				response.setContentType("text/html;charset=euc-kr");
 				out.println("다시 입력하세요");
 			}
 
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}
 	}
 
