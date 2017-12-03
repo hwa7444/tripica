@@ -42,7 +42,8 @@ public class UpdateCon extends HttpServlet {
 				response.sendRedirect("Main.jsp");
 			} else {
 				response.setContentType("text/html;charset=euc-kr");
-				out.println("다시 입력하세요");
+/*				out.println("다시 입력하세요");*/
+				out.print("<script>alert('다시 입력하세요'); history.back();</script>");
 			}
 
 		} catch (Exception e) {

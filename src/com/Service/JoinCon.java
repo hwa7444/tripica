@@ -35,6 +35,7 @@ public class JoinCon extends HttpServlet {
 			int cnt = dao.Join(id, pw, nick, gender, ph, birth);
 			
 			if (cnt>0) {
+				
 				System.out.println("회원가입 성공");
 				
 			}else {

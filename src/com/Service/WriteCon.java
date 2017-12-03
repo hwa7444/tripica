@@ -1,6 +1,7 @@
 package com.Service;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -73,8 +74,10 @@ public class WriteCon extends HttpServlet {
 					System.out.println("저장완료");
 					moveUrl = "SelectService?start=0&end=8";
 				}else {
-					System.out.println("저장실패");
-					moveUrl = "bulletin.jsp";
+					PrintWriter out = response.getWriter();
+					out.print("<script>alert('저장 실패'); history.back();</script>");
+					/*System.out.println("저장실패");
+					moveUrl = "bulletin.jsp";*/
 				}
 				response.sendRedirect(moveUrl);
 			} catch (Exception e) {
