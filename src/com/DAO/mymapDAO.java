@@ -255,5 +255,29 @@ public class mymapDAO {
 		}
 		return result;
 	}
+	
+	
+	
+	public boolean updateRecom(int num, int recom) {
+boolean result = false;
+		
+		try {
+			getConnection();
+			PreparedStatement pst = conn.prepareStatement("update mymap set recom = ? where num = ?");
+			pst.setInt(1, recom);
+			pst.setInt(2, num);
+			
+			int r = pst.executeUpdate();
+			if (r > 0) {
+				result = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("예외발생:updateRecom()=> " + e.getMessage());
+		} finally {
+			dbClose();
+		}
+		return result;
+	}
 
 }
