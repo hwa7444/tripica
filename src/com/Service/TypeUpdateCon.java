@@ -21,7 +21,30 @@ public class TypeUpdateCon extends HttpServlet {
 		String id = (String)session.getAttribute("id");
 		String type1 = request.getParameter("type1");
 		String type2 = request.getParameter("type2");
+		type1=type1.replace("http://localhost:8082/tripica/images/Activity/", "");
+		type1=type1.replace(".jpg", "");
 		
+		
+		type2=type2.replace("http://localhost:8082/tripica/images/Activity/", "");
+		
+		if(type2.contains("nat")) {
+			type2="nat";
+		}else if(type2.contains("spo")) {
+			type2="spo";
+		}else if(type2.contains("amu")) {
+			type2="amu";
+		}else if(type2.contains("his")) {
+			type2="his";
+		}else if(type2.contains("mus")) {
+			type2="mus";
+		}else if(type2.contains("art")) {
+			type2="art";
+		}else if(type2.contains("res")) {
+			type2="res";
+		}
+		
+		System.out.println(type1);
+		System.out.println(type2);
 
 		try {
 			memberDAO dao = memberDAO.getInstance();
