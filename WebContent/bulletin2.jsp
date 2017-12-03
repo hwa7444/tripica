@@ -311,23 +311,17 @@
 							<div style="width: 500px; height: 300px;">
 								<%
 									int max = 0;
-											boolean check = false;
-
-											for (int i = 0; i < arr.size(); i++) {
-												max = arr.get(i).getCheckD();
-												for (int j = 0; j < arr.size(); j++) {
-													if (max >= arr.get(j).getCheckD()) {
-														check = true;
-														if (check) {
+				
+									for (int i = 0; i < arr.size(); i++) {
+									max = arr.get(i).getCheckD();
+									if(arr.get(i).getCheckD()>max){
+										max = i;
+									}
+									}											
 								%>
 								<img
 									src="upload/<%=URLEncoder.encode(arr.get(max).getFileName(), "euc-kr")%>">
-								<%
-									}
-													}
-												}
-											}
-								%>
+								
 							</div>
 						</div>
 					</c:otherwise>
