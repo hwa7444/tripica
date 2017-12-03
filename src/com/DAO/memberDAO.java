@@ -83,8 +83,8 @@ public class memberDAO {
 			getpw = rs.getString("pw");
 			if (pw.equals(getpw)) {
 				
-				vo = new memberVO(rs.getInt("userid"), rs.getString("id"), rs.getString("pw"), rs.getString("nick"),
-						rs.getInt("gender"), rs.getString("ph"), rs.getString("birth"));
+				vo = new memberVO(rs.getInt("userid"), rs.getString("mem_id"), rs.getString("pw"), rs.getString("nick"),
+						rs.getInt("gender"), rs.getString("phone"), rs.getString("birthday"));
 
 			}
 
@@ -141,13 +141,15 @@ public class memberDAO {
 		return nick;
 	}
 
-	public void typeUpdate(String type1, String type2, String id) throws Exception {
+	public int typeUpdate(String type1, String type2, String id) throws Exception {
 		getConn();
-		pst = conn.prepareStatement("Upate MEMBER set t_type1=? and t_type2=? where id=?");
+		pst = conn.prepareStatement("Upate MEMBER set t_type1=?, t_type2=? where mem_id=?");
 		pst.setString(1, type1);
 		pst.setString(2, type2);
 		pst.setString(3, id);
-		pst.executeUpdate();
+		int cnt = pst.executeUpdate();
+		
+		return cnt;
 
 	}
 

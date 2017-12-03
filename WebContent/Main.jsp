@@ -499,7 +499,7 @@
 		<div class="grid_13">
 			<img src="images/logo/tripickerLogo9.png">
 			<c:choose>
-				<c:when test="${empty id}">
+				<c:when test="${empty vo.id}">
 					<ul>
 						<li><a href="#login_form" id="login_pop">로그인</a></li>
 						<li><a href="#join_form" id="join_pop">회원가입</a></li>
@@ -507,7 +507,7 @@
 				</c:when>
 				<c:otherwise>
 					<ul>
-						<li><h1 style="color: white;">${nick}님</h1></li>
+						<li><h1 style="color: white;">${vo.nick}님</h1></li>
 						<li><a href="Logout.jsp" id="login_pop">로그아웃</a></li>
 						<li><a href="#update_form" id="join_pop">개인정보수정</a></li>
 						<li><a href="#trip_form1" id="trip_pop" onclick="move()">여행지추천

@@ -21,11 +21,11 @@ public class TypeUpdateCon extends HttpServlet {
 		String id = (String)session.getAttribute("id");
 		String type1 = request.getParameter("type1");
 		String type2 = request.getParameter("type2");
-		type1=type1.replace("http://localhost:8082/tripica/images/Activity/", "");
+		type1=type1.replace("http://192.168.0.21:8082/tripica/images/Activity/", "");
 		type1=type1.replace(".jpg", "");
 		
 		
-		type2=type2.replace("http://localhost:8082/tripica/images/Activity/", "");
+		type2=type2.replace("http://192.168.0.21:8082/tripica/images/Activity/", "");
 		
 		if(type2.contains("nat")) {
 			type2="nat";
@@ -42,18 +42,21 @@ public class TypeUpdateCon extends HttpServlet {
 		}else if(type2.contains("res")) {
 			type2="res";
 		}
-		
+		System.out.println(id);
 		System.out.println(type1);
 		System.out.println(type2);
 		
 		try {
 			memberDAO dao = memberDAO.getInstance();
-			PrintWriter out = response.getWriter();
-			dao.typeUpdate(type1, type2, id);
-			response.sendRedirect("HotTour.jsp");
-
+			int cnt = dao.typeUpdate(type1, type2, id);
 			
-
+			if(cnt>0) {
+				System.out.println("타입업데이트성공");
+				response.sendRedirect("HotTour.jsp");
+			}else {
+				System.out.println("타입업데이트실패");
+			}
+			
 		} catch (Exception e) {
 
 		}
