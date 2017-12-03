@@ -21,11 +21,16 @@ public class TypeUpdateCon extends HttpServlet {
 		String id = (String)session.getAttribute("id");
 		String type1 = request.getParameter("type1");
 		String type2 = request.getParameter("type2");
-		type1=type1.replace("http://192.168.0.21:8082/tripica/images/Activity/", "");
-		type1=type1.replace(".jpg", "");
+		if(type1.contains("Learning")) {
+			type1="L";
+		}else if(type2.contains("Activity")) {
+			type2="A";
+		}else if(type2.contains("View")) {
+			type2="V";
+		}else if(type2.contains("Relaxation")) {
+			type2="R";
+		}
 		
-		
-		type2=type2.replace("http://192.168.0.21:8082/tripica/images/Activity/", "");
 		
 		if(type2.contains("nat")) {
 			type2="nat";
@@ -45,6 +50,7 @@ public class TypeUpdateCon extends HttpServlet {
 		System.out.println(id);
 		System.out.println(type1);
 		System.out.println(type2);
+		
 		
 		try {
 			memberDAO dao = memberDAO.getInstance();
