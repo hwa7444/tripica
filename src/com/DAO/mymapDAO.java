@@ -36,24 +36,28 @@ public class mymapDAO {
 		System.out.println("DB연결완료");
 	}
 
-	public mymapVO getMap(String id) {
-		mymapVO dto = null;
+	public ArrayList<MymaplistVO> getAllMaplist() {
+		ArrayList<MymaplistVO> arr = new ArrayList<>();
+		mymapVO mvo = null;
 		try {
 			getConnection();
 
-			String sql = "SELECT * FROM member WHERE id = ?";
+			String sql = "SELECT * FROM mymap";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
-
 			ResultSet r = pstmt.executeQuery();
-
-			if (r.next()) {
-				String nid = r.getString("id");
-				String pw = r.getString("pw");
-				String nick = r.getString("nickname");
-				dto = new mymapVO();
-			} else {
-				return null;
+			int num;
+			String pgroup;
+			String nick;
+			int recom;
+			String day;
+			
+			while (r.next()) {
+				num = r.getInt("num");
+				pgroup = r.getString("pgroup");
+				nick = r.getString("nick");
+				recom = r.getInt("recom");
+				day = r.getString("day");
+				arr.add(new MymaplistVO(num, pgroup, nick, recom, day));
 			}
 
 		} catch (Exception e) {
@@ -63,7 +67,7 @@ public class mymapDAO {
 			dbClose();
 		}
 
-		return dto;
+		return arr;
 	}
 
 	public boolean insertMap(String pname, String pgroup) {
