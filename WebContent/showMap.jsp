@@ -4,8 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>SHOW MAP</title>
+<style type="text/css">
+#minimap7{ /*게시판 클릭 시 나타나는 것*/
+	background-color: lightblue; width: 100%; height: 490px;
+}
+</style>
 </head>
+
 <body>
 <div id="minimap7">
 

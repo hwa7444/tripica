@@ -45,9 +45,7 @@
 #minimap6{ /*메인 hot map 1번째 지도*/
 	margin-left: 100px; margin-right: 100px; background-color: blue; width: 87%;; height: 460px;
 }
-#minimap7{ /*메인 hot map 1번째 지도*/
-	background-color: lightblue; width: 930px; height: 460px;
-}
+
 /*===========================LOGIN / OUT 하는 사이드 메뉴======================*/
 .allFor .grid_13{
 	width:10%;
