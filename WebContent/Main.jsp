@@ -211,6 +211,13 @@
 
 </head>
 <body class="page1" id="top">
+
+<!-- map로드를위한 서블릿호출 -->
+<c:if test="${empty listmap}">
+<jsp:forward page="MainmaploadService"/>
+</c:if>
+<!-- ////////////////////// -->
+
 	<!-- ==========================설문조사 팝업  입니다.============================ -->
 	<!-- 1차 여행 설문 form -->
 	<a href="#x" class="overlay2" id="trip_form1"></a>
@@ -1278,9 +1285,48 @@
 		</script>
 
 
+
 		<script type="text/javascript"
 			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7b2110a6aaef5104b2ce89c704a24ed3"></script>
 		<script>
+/* 		var list = new Array();
+		var obj = {
+		 name:'홍길동',
+		 address:'서울시...'
+		};
+		list.push(obj);
+		for(var i=0;i<list.length;i++){
+			var obj =list[i];
+			for(var key in obj){
+				var val=obj[key];
+			}
+		} */
+		
+ 		var hmlist = new Array();
+		<c:forEach items="${listmap}" var="item1">
+		var mapobj = {
+				name : '${item1.name}',
+				lat : '${item1.lat}',
+				lng : '${item1.lng}'
+		};
+		hmlist.push(mapobj);
+		</c:forEach>
+		alert(hmlist[0].name);
+		var temp;
+		for (var i = 0; i < hmlist.length; i++) {
+			temp = new daum.maps.LatLng(hmlist[i].lat, hmlist[i].lng);
+			alert(temp);
+		}
+/* 		
+		for (var i = 0; i < hmlist.length; i++) {
+			var obj =hmlist[i];
+			for(var key in obj){
+				var val=obj[key];
+				alert(val);
+			}
+		}
+	 */
+		
 			var mapContainerhot = document.getElementById('minimap1'), // 지도를 표시할 div  
 			mapOption = {
 				center : new daum.maps.LatLng(33.37137, 126.56695), // 지도의 중심좌표
@@ -1289,6 +1335,8 @@
 			};
 			var hotmap = new daum.maps.Map(mapContainerhot, mapOption); // 지도를 생성합니다
 
+			
+			
 			var mapContainer = document.getElementById('minimap1'), // 지도를 표시할 div  
 			mapOption = {
 				center : new daum.maps.LatLng(33.37137, 126.56695), // 지도의 중심좌표
@@ -1366,7 +1414,7 @@
 								+ '  <a href="http://map.daum.net/?itemId=11394059" target="_blank">'
 								+ '    <span class="title">제주시청</span>'
 								+ '  </a>' + '</div>',
-						latlng : new daum.maps.LatLng(33.499565, 126.531241)
+						latlng : temp
 					},
 					{
 						content : '<div class="customoverlay">'
