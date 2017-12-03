@@ -578,7 +578,7 @@
 								<li><a href="#login_form2">HOT TOURS</a></li>
 							</c:when>
 							<c:otherwise>
-								<li><a href="HotTour.jsp">HOT TOURS</a></li>
+								<li><a href="#trip_form1" onclick="move()">HOT TOURS</a></li>
 							</c:otherwise>
 						</c:choose>
 						<li><a href="specialOffer.jsp">SPECIAL OFFERS</a></li>
