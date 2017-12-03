@@ -331,7 +331,7 @@
 									</tr>
 									<tr>
 										<td>업로드할 사진</td>
-										<td><input name="fileName" type="file"></td>
+										<td><input name="fileName" type="file" required="required"></td>
 									</tr>
 									<tr>
 										<td colspan="2"><textarea class="form-control"
