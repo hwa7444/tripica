@@ -56,6 +56,14 @@
       <script src="js/html5shiv.js"></script>
       <link rel="stylesheet" media="screen" href="css/ie.css">
       <![endif]-->
+      <style type="text/css">
+.content {
+background-color: #FBFBFB;
+background-image:url("images/large.jpg");
+background-repeat:repeat; 
+padding-bottom: 120px;
+}
+</style>
 </head>
 <body>
 	<%

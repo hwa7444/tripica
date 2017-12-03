@@ -34,6 +34,14 @@
       <script src="js/html5shiv.js"></script>
       <link rel="stylesheet" media="screen" href="css/ie.css">
       <![endif]-->
+      <style type="text/css">
+.content {
+background-color: #FBFBFB;
+background-image:url("images/large.jpg");
+background-repeat:repeat; 
+padding-bottom: 120px;
+}
+</style>
    </head>
    <body>
 		<!--==============================로그인/회원가입모달입니다.=================================-->
@@ -250,7 +258,7 @@
             <div class="grid_12">
                <h1>
                   <a href="tourInformation.jsp">
-                     <img src="images/logo/tripickerLogo9.png" alt="Your Happy Family">
+                     <img id="hotRe1" src="images/logo/tripickerLogo9.png" alt="Your Happy Family">
                   </a>
                </h1>
             </div>
@@ -264,7 +272,7 @@
                <div class="block2">
                   <img style="width:180px; height:340px;" src="images/sepecial/re1_1.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
-                     <div class="text1 col1" id="hotRe1"><a href="#" id="hotRe1">명진 전복</a></div>
+                     <div class="text1 col1"><a href="#" id="hotRe1">명진 전복</a></div>
                      <p>시푸드, 아시아 요리</p>
                      <p>위치 : 제주 구좌읍 해맞이해안로 1282</p> 
                      <p>전화번호 : 064-782-9944</p>                   

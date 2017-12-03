@@ -34,6 +34,14 @@
       <script src="js/html5shiv.js"></script>
       <link rel="stylesheet" media="screen" href="css/ie.css">
       <![endif]-->
+      <style type="text/css">
+.content {
+background-color: #FBFBFB;
+background-image:url("images/large.jpg");
+background-repeat:repeat; 
+padding-bottom: 120px;
+}
+</style>
    </head>
    <body>
   <!--==========================try me==============================-->
@@ -250,7 +258,7 @@
             <div class="grid_12">
                <h1>
                   <a href="tourInformation.jsp">
-                     <img src="images/logo/tripickerLogo9.png" alt="Your Happy Family">
+                     <img  id="hotRe1" src="images/logo/tripickerLogo9.png" alt="Your Happy Family">
                   </a>
                </h1>
             </div>
@@ -264,7 +272,7 @@
                <div class="block2">
                   <img style="width:180px; height:300px;"src="images/sepecial/hotel1.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
-                     <div class="text1 col1" id="hotRe1"><a href="#" id="hotRe1"><b>호텔 리젠트 마린 더 블루</b></a></div>
+                     <div class="text1 col1"><a href="#" id="hotRe1"><b>호텔 리젠트 마린 더 블루</b></a></div>
                      <p>위치 : 서부두 2 길 20, 제주</p> 
                      <p>가격 : 77,000원 성인 2 명 주말 기준</p>                   
                      <p>이용가능 시설</p>
