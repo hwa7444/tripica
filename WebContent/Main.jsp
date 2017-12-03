@@ -125,7 +125,7 @@
 		url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
 }
 </style>
-<title>Home</title>
+<title>HOME</title>
 <meta charset="utf-8">
 <meta name="format-detection" content="telephone=no" />
 <link rel="icon" href="images/favicon.ico">

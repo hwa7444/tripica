@@ -806,6 +806,8 @@ background-color: #C73430; border-color: #C73430; color:#FFFAF0;
 				<h3 style="margin-left: 100px; ! important top: 0;">
 					<span style="color: #C73430;">HOT</span> ROUT
 				</h3>
+				
+				<span id="ya3" style="margin-left: 100px; font-size:1.3em;">사용자 여행 루트 중 가장 인기 있는 루트입니다.</span><p></p>
 				<%
 					int max = 0;
 					for (int i = 0; i < mlist.size(); i++) {
@@ -816,15 +818,15 @@ background-color: #C73430; border-color: #C73430; color:#FFFAF0;
 		/* 시퀀스 뽑기 */
 		
 				%>
-				<span id="ya2" style="margin-left: 100px; font-size:1.6em; padding-bottom:30px;">제목 : <span style="color:#002141;"><%= mlist.get(max).getPgroup()%></span>
-				 &nbsp작성자 : <span style="color:#002141;"><%= mlist.get(max).getNick()%></span>&nbsp 추천수 : <span style="color:#002141;"><%= mlist.get(max).getRecom()%></span></span>
-				<p></p>
+				<span style="margin-left: 100px;color:#C73430;font-size:1.6em;">&lt;&nbsp</span><span id="ya2" style="font-size:1.6em; padding-bottom:30px;">제목 : <span style="color:#002141;"><%= mlist.get(max).getPgroup()%></span>
+				 &nbsp작성자 : <span style="color:#002141;"><%= mlist.get(max).getNick()%></span>&nbsp 추천수 : <span style="color:#002141;"><%= mlist.get(max).getRecom()%></span></span><span style="color:#C73430;font-size:1.6em;">&nbsp&gt;</span><p></p>
 				<div id="minimap6"></div>
 
 				<div class="grid_12" style="margin-left: 150px; top: 50px;">
 					<!-- 지도 게시판 -->
 					<h3 style="margin-left: 100px; ! important top: 0;">POST YOUR
 						ROUT</h3>
+						<span id="ya4" style="margin-left: 100px; font-size: 1.3em;">당신의 여행 루트를 공유하세요!</span>
 					<table class="mapPost"
 						style="margin: 20px; border: 1px solid #dddddd; text-align: center; width: 1300px; font-size: 1.2em;">
 						<tr style="background-color: #002141; color: #F6F6F6;">
@@ -855,7 +857,7 @@ background-color: #C73430; border-color: #C73430; color:#FFFAF0;
 							<td><%=mlist.get(i).getNick()%></td>
 							<td><%=mlist.get(i).getDay()%></td>
 							<td><%=mlist.get(i).getRecom()%></td>
-							<td><a href="MapBest?num=<%=mlist.get(i).getNum()%>&recom=<%=mlist.get(i).getRecom()%>"><span style="background-color: #;">추천</span></a></td>
+							<td><a href="MapBest?num=<%=mlist.get(i).getNum()%>&recom=<%=mlist.get(i).getRecom()%>"><span>추천</span></a></td>
 						</tr>
 						<%
 							}

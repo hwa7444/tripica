@@ -297,7 +297,7 @@ border-top-left-radius: 10%;
 color: #002141;
 }
 </style>
-<title>Hot Tours</title>
+<title>Hot Tour</title>
 <meta charset="euc-kr">
 <meta name="format-detection" content="telephone=no" />
 <link rel="icon" href="images/favicon.ico">
@@ -329,6 +329,17 @@ color: #002141;
       <script src="js/html5shiv.js"></script>
       <link rel="stylesheet" media="screen" href="css/ie.css">
       <![endif]-->
+      <style type="text/css">
+      .content {
+	background-color: #FBFBFB;
+	background-image: url('images/large.jpg');
+	background-repeat: repeat;
+	padding-bottom: 120px;
+}
+div.grid_4.prefix_1 > ul > li:hover{
+color:#C73430;
+}
+      </style>
 </head>
 <body>
 
@@ -760,12 +771,14 @@ document.getElementById("move").scrollIntoView(true);
 				<!--================ blogPost ================-->
 				<div class="grid_8">
 					<h3>Recommend Tour Info</h3>
+					<span style="font-size:1.3em;">추천 받은 여행지 기본 정보입니다.</span>
+					<p></p>
 					<!-- 경도 : 여행지 사진, 설명 이 출력되는 부분-->
 				
 						
 					<div class="blog">
 						<!-- 경도 :기본 틀입니다. 카테고리클릭시 여기 div에 id 값을 주어 불러 들이면 됩니다.-->
-						<c:choose>
+						<%-- <c:choose>
 							<c:when test="${empty vo.num}">
 							</c:when>
 							<c:otherwise>
@@ -773,7 +786,7 @@ document.getElementById("move").scrollIntoView(true);
 									<!-- 경도 : 날짜가 출력도니느 부분이지만 여행지 순서출력하면 좋을 합니다.  -->${vo.num}<span>번째</span>
 								</time>
 							</c:otherwise>
-						</c:choose>
+						</c:choose> --%>
 						<div class="extra_wrapper">
 							<div class="text1 col1">
 								<div id="mytitle">${testna }</div>
@@ -785,9 +798,10 @@ document.getElementById("move").scrollIntoView(true);
 						</div>
 						<div class="clear"></div>
 						<!-- 그대로 두면되는 클래스 입니다. -->
-						<img src="${testim}" alt="" id="myimg">
+						<img src="${testim}" alt="" id="myimg" style="max-width:500px; max-height:460px;">
 						<!-- 경도: 여행지 사진 출력 -->
-						<p id="mycon">
+						<p></p>
+						<p id="mycon" style="font-size:1.3em; padding:7px; margin:3px;">
 							<!-- 경도: 여행설명 출력-->
 							${testcon }
 						</p>
@@ -807,6 +821,7 @@ document.getElementById("move").scrollIntoView(true);
 
 				<div class="grid_4 prefix_1">
 					<h3 class="head1">YOUR ROUT</h3>
+					<span style="font-size:1.4em; color:#C73430;">여행지를 클릭하세요!</span><p></p>
 					<!-- 경도 : 여행지 목록 출력 부분-->
 					<ul class="list">
 						<!--foransdms li 태그 안에서 돌리면 됩니다.-->
@@ -824,7 +839,7 @@ document.getElementById("move").scrollIntoView(true);
 									String name = String.valueOf(i+1)+". " + resultMap.get(i).getPname();
 									String name2 = URLEncoder.encode(name,"euc-kr");
 							%>
-						<li onclick="change(<%=i%>)"><%=name %></li>
+						<li onclick="change(<%=i%>)" style="cursor:pointer;"><%=name %></li>
 						<%} %>
 												
 					</ul>
@@ -836,7 +851,8 @@ document.getElementById("move").scrollIntoView(true);
 				<div class="content">
 					<div class="ic"></div>
 					<div class="grid_12">
-
+<h3>Recommend Tour Map Info</h3>
+<span style="font-size:1.3em;">추천 받은 여행지의 장소 정보입니다.지도에 위치 찍어보고 이동경로를 계획하세요!</span>
 						<div class="map_wrap">
 							<ul id="category">
 								<li id="BK9" data-order="0"><span class="category_bg bank"></span>
@@ -861,7 +877,7 @@ document.getElementById("move").scrollIntoView(true);
 							<div id="map" style="width: 100%; height: 100%;"></div>
 						</div>
 
-						<button onclick="drawing()">소요시간측정하기</button>
+						<button id="hu3" onclick="drawing()" style="margin-top:100px; cursor:pointer; margin-left:83%;font-family: SeoulNamsanEB; font-size:1.3em; 100px; position: relative; padding:10px; background-color: #C73430; border-color: #C73430; color:#FFFAF0; border-radius: 10%; ">소요시간측정하기</button>
 					</div>
 				</div>
 			</div>
@@ -955,8 +971,14 @@ document.getElementById("move").scrollIntoView(true);
 			var drawingOK = false;
 			function drawing() {
 				if (!drawingOK) {
+					document.getElementById("hu3").style.backgroundColor = "#eee";
+					document.getElementById("hu3").style.borderColor = "#eee";
+					document.getElementById("hu3").style.color = "#002141";
 					drawingOK = true;
 				} else {
+					document.getElementById("hu3").style.backgroundColor = "#C73430";
+					document.getElementById("hu3").style.borderColor = "#C73430";
+					document.getElementById("hu3").style.color = "#FFFAF0";
 					drawingOK = false;
 					deleteClickLine();
 					deleteDistnce();

@@ -42,6 +42,14 @@
       text-shadow: 0.05em 0.05em 0.15em #193c46;
       }
       </style>
+      <style type="text/css">
+.content {
+background-color: #FBFBFB;
+background-image:url("images/large.jpg");
+background-repeat:repeat; 
+padding-bottom: 120px;
+}
+</style>
    </head>
    <body>
    <%

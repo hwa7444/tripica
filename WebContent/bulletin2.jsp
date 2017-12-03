@@ -489,7 +489,9 @@ document.getElementById("move").scrollIntoView(true);
 									}											
 								%>
 						<h3>Best Post</h3>
-						<span style="font-size:1.4em;">제목 : <span style="color:#002141;"><%=arr.get(max).getTitle()%></span>&nbsp 작성자 : <span style="color:#002141;"><%=arr.get(max).getNick()%></span>&nbsp 추천 수 : <span style="color:#002141;"><%=arr.get(max).getCheckD()%></span></span>
+						<span style="font-size:1.3em;">추천을 가장 많이 받은 사용자의 게시물 입니다.</span><p></p>
+						<span style="color:#C73430;font-size:1.4em;">&lt;&nbsp</span><span style="font-size:1.4em;">제목 : <span style="color:#002141;"><%=arr.get(max).getTitle()%></span>&nbsp 작성자 : <span style="color:#002141;"><%=arr.get(max).getNick()%></span>&nbsp 추천 수 : <span style="color:#002141;"><%=arr.get(max).getCheckD()%></span></span>
+						<span style="color:#C73430;font-size:1.4em;">&nbsp&gt;</span>
 						<p></p>
 						<div class="grid_12">
 							<div style="width: 500px; height: 300px;">
@@ -506,7 +508,7 @@ document.getElementById("move").scrollIntoView(true);
 				<!--================ blogPost ================-->
 				<div class="grid_12">
 					<h3>Recent Posts</h3>
-
+					<span style="font-size:1.3em;">인상깊었던 여행지를 사진으로 함께 공유해주세요!</span><p></p>
 					<c:forEach items="${list}" var="vo" begin="<%=start %>"
 						end="<%=end %>" step="1" varStatus="idx">
 						<div class="grid_3" style="font-size: 1.3em;">
