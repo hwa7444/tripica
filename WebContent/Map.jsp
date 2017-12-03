@@ -300,7 +300,7 @@
 }
 </style> -->
 
-<title>Blog</title>
+<title>MAP DIY</title>
 <meta charset="utf-8">
 <%
 	request.setCharacterEncoding("EUC-KR");
