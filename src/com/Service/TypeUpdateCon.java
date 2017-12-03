@@ -23,12 +23,12 @@ public class TypeUpdateCon extends HttpServlet {
 		String type2 = request.getParameter("type2");
 		if(type1.contains("Learning")) {
 			type1="L";
-		}else if(type2.contains("Activity")) {
-			type2="A";
-		}else if(type2.contains("View")) {
-			type2="V";
-		}else if(type2.contains("Relaxation")) {
-			type2="R";
+		}else if(type1.contains("Activity")) {
+			type1="A";
+		}else if(type1.contains("View")) {
+			type1="V";
+		}else if(type1.contains("Relaxation")) {
+			type1="R";
 		}
 		
 		

@@ -143,7 +143,7 @@ public class memberDAO {
 
 	public int typeUpdate(String type1, String type2, String id) throws Exception {
 		getConn();
-		pst = conn.prepareStatement("Upate MEMBER set t_type1=?, t_type2=? where mem_id=?");
+		pst = conn.prepareStatement("update member set t_type1=?,t_type2=? where mem_id=?");
 		pst.setString(1, type1);
 		pst.setString(2, type2);
 		pst.setString(3, id);
