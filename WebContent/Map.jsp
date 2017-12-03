@@ -8,7 +8,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style>
 /* css [line] */
 .dot {
@@ -338,46 +339,44 @@
       <script src="js/html5shiv.js"></script>
       <link rel="stylesheet" media="screen" href="css/ie.css">
       <![endif]-->
-      
+
 <style type="text/css">
 .content {
-background-color: #FBFBFB;
-background-image:url("images/large.jpg");
-background-repeat:repeat; 
-padding-bottom: 120px;
+	background-color: #FBFBFB;
+	background-image: url("images/large.jpg");
+	background-repeat: repeat;
+	padding-bottom: 120px;
 }
 </style>
 </head>
 <body>
 	<%
-	
-	memberVO vo1= null; // 닉네임
-	String nick = "";
-	
-	if (session.getAttribute("vo1") != null) {
-		vo1 = (memberVO) session.getAttribute("vo1");
-		nick = vo1.getNick();
-	}	
+		memberVO vo1 = null; // 닉네임
+		String nick = "";
+
+		if (session.getAttribute("vo1") != null) {
+			vo1 = (memberVO) session.getAttribute("vo1");
+			nick = vo1.getNick();
+		}
 		/* String nick = null;
 		if (session.getAttribute("nick") != null) {
 			nick = (String) session.getAttribute("nick");
 		} */
 	%>
 	<%
-	
-	mymapDAO dao = new mymapDAO();
-	ArrayList<MymaplistVO> mlist = null;
-	mlist = dao.getAllMaplist();
-	
-	/*  
-	
-	int num;			게시글번호
-	String pgroup;		지도이름
-	String nick;		작성자닉네임
-	int recom;			추천수
-	String day;			작성일
-	
-	*/
+		mymapDAO dao = new mymapDAO();
+		ArrayList<MymaplistVO> mlist = null;
+		mlist = dao.getAllMaplist();
+
+		/*  
+		
+		int num;			게시글번호
+		String pgroup;		지도이름
+		String nick;		작성자닉네임
+		int recom;			추천수
+		String day;			작성일
+		
+		*/
 	%>
 	<!--==========================로그인/회원가입 모달입니다.==============================-->
 
@@ -434,7 +433,7 @@ padding-bottom: 120px;
 	<!-- join form -->
 	<a href="#x" class="overlay" id="join_form"></a>
 	<div class="popup">
-		<span>Join Us</span>   
+		<span>Join Us</span>
 		<p>아래의 항목을 채워주세요.</p>
 		<form action="JoinCon" method="post">
 			<table>
@@ -594,7 +593,7 @@ padding-bottom: 120px;
 					</div>
 				</div>
 			</header>
-		<!--==============================header 위의 메뉴 끗=================================-->
+			<!--==============================header 위의 메뉴 끗=================================-->
 
 			<!--==============================Content=================================-->
 			<div class="content">
@@ -619,341 +618,367 @@ padding-bottom: 120px;
 				<button onclick="ist()"
 					style="margin-top: 80px; margin-left: 100px; position: relative;">등록하기</button>
 
-			<!--====================================지도 게시판 만들기=======================================-->
+				<!--====================================지도 게시판 만들기=======================================-->
+
+				<h3 style="margin-left: 100px; ! important top: 0;">
+					<span style="color: #C73430;">HOT</span> ROUT
+				</h3>
+				<%
+					int max = 0;
+					for (int i = 0; i < mlist.size(); i++) {
+						if (mlist.get(i).getRecom() > mlist.get(max).getRecom()) {
+							max = i;
+						}
+					}
+		/* 시퀀스 뽑기 */
 		
-				<h3 style="margin-left: 100px; ! important top: 0;"><span style="color:#C73430;">HOT</span> ROUT</h3>
+				%>
+				<%= mlist.get(max).getNum() %>
 				<div id="minimap6"></div>
-	
+
 				<div class="grid_12" style="margin-left: 150px; top: 50px;">
 					<!-- 지도 게시판 -->
-					<h3 style="margin-left: 100px; ! important top: 0;">POST YOUR ROUT</h3>
+					<h3 style="margin-left: 100px; ! important top: 0;">POST YOUR
+						ROUT</h3>
 					<table class="mapPost"
 						style="margin: 20px; border: 1px solid #dddddd; text-align: center; width: 1300px; font-size: 1.2em;">
-						<tr style="background-color: #002141; color:#F6F6F6;">
+						<tr style="background-color: #002141; color: #F6F6F6;">
 							<th>번호</th>
 							<th>지도 이름</th>
 							<th>작성자</th>
 							<th>작성일자</th>
 							<th>추천 수</th>
 						</tr>
+
+						<!-- 	/*  
+	리스트 이름은 mlist
+	
+	int num;			게시글번호
+	String pgroup;		지도이름
+	String nick;		작성자닉네임
+	int recom;			추천수
+	String day;			작성일
+	
+	*/ -->
+						<%
+							for (int i = 0; i < mlist.size(); i++) {
+						%>
 						<tr>
-							<td>1</td>
-							<td><a onclick="showMap(1)">송하의 제주도 오름 탐방기</a></td>
-							<td>123</td>
-							<td>2017-12-03</td>
-							<td>23</td>
+							<td><%=mlist.get(i).getNum()%></td>
+							<td><a onclick="showMap(<%=mlist.get(i).getNum()%>)"><%=mlist.get(i).getPgroup()%></a></td>
+							<td><%=mlist.get(i).getNick()%></td>
+							<td><%=mlist.get(i).getDay()%></td>
+							<td><%=mlist.get(i).getRecom()%></td>
 						</tr>
-						<tr>
-							<td>2</td>
-							<td><a onclick="showMap(2)">송하의 제주도 오름 탐방기</a></td>
-							<td>123</td>
-							<td>2017-12-03</td>
-							<td>23</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td><a onclick="showMap(3)">송하의 제주도 오름 탐방기</a></td>
-							<td>123</td>
-							<td>2017-12-03</td>
-							<td>23</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td><a onclick="showMap(4)">송하의 제주도 오름 탐방기</a></td>
-							<td>123</td>
-							<td>2017-12-03</td>
-							<td>23</td>
-						</tr>
+						<%
+							}
+						%>
+
 					</table>
 				</div>
-					<div class="clear"></div>
+				<div class="clear"></div>
 			</div>
 			<script type="text/javascript">
-			function showMap(num){
-				window.open('showMap.jsp?num='+num,'showMap','width=900px,left=100px,top=100px,height=450px,scrollbars = no,resizeable = no,menubar = no,menubar = no');
-			}
+				function showMap(num) {
+					window
+							.open(
+									'showMap.jsp?num=' + num,
+									'showMap',
+									'width=900px,left=100px,top=100px,height=450px,scrollbars = no,resizeable = no,menubar = no,menubar = no');
+				}
 			</script>
 
-		<!--===================================^지도 게시판 만들기=======================================-->
+			<!--===================================^지도 게시판 만들기=======================================-->
 
-		<!--================================여기는 지도 스크랩트 문!!======================================-->
-  
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7b2110a6aaef5104b2ce89c704a24ed3"></script>
+			<!--================================여기는 지도 스크랩트 문!!======================================-->
 
-<script>
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
-    mapOption = { 
-        center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
-    };
+			<script type="text/javascript"
+				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7b2110a6aaef5104b2ce89c704a24ed3"></script>
 
-var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+			<script>
+				var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+				mapOption = {
+					center : new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+					level : 3
+				// 지도의 확대 레벨
+				};
 
-// 지도를 클릭했을때 클릭한 위치에 마커를 추가하도록 지도에 클릭이벤트를 등록합니다
-daum.maps.event.addListener(map, 'click', function(mouseEvent) {        
-    // 클릭한 위치에 마커를 표시합니다 
-    addMarker(mouseEvent.latLng);             
-});
+				var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-// 지도에 표시된 마커 객체를 가지고 있을 배열입니다
-var markers = [];
-var getposition;
-var infowindow;
-var titleok = false;
-// 마커를 생성하고 지도위에 표시하는 함수입니다
-function addMarker(position) {
-	
-	if(markers.length == 0){
-		getposition = position;
-    // 마커를 생성합니다
-    var marker = new daum.maps.Marker({
-        position: position
-    });
-    console.log(markers.length);
-    // 마커가 지도 위에 표시되도록 설정합니다
-    markers.push(marker);
-    markers[0].setMap(map);
-    
-    if(!titleok){
-    	titleok = true;
-    // 마커에 표시할 인포윈도우를 생성합니다 
-    infowindow = new daum.maps.InfoWindow({
-        content: '여행경로의 제목을 입력하세요.<br><input type="text" id = "tname"><button id="button1" onclick="o();">넹!</button><button id="button1" onclick="no();">다시할래!</button>' // 인포윈도우에 표시할 내용
-      });
-   infowindow.open(map, marker);	
-    }else{
-    // 마커에 표시할 인포윈도우를 생성합니다 
-    infowindow = new daum.maps.InfoWindow({
-        content: '이 장소의 이름은?<br><input type="text" id = "title"><button id="button1" onclick="ok();">넹!</button><button id="button1" onclick="no();">다시할래!</button>' // 인포윈도우에 표시할 내용
-    });
-    infowindow.open(map, marker);
-    }
-    
-	}
-}
+				// 지도를 클릭했을때 클릭한 위치에 마커를 추가하도록 지도에 클릭이벤트를 등록합니다
+				daum.maps.event.addListener(map, 'click', function(mouseEvent) {
+					// 클릭한 위치에 마커를 표시합니다 
+					addMarker(mouseEvent.latLng);
+				});
 
-var openok = true;
-var pname;
-var pcon;
-var parr = new Array();
-var pobj = new Object();
-var plat;
-var plng;
-var pgroup;
-//선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
-var linePath = [];
-var pok = "f";
-function ist(){
-	pok = "t";
-	send();
-}
-function o(){
-	pgroup= document.getElementById("tname").value;
-	alert("이번 나만의여행 제목은 " + pgroup + " 입니다. 이제 시작해보세요!");
-	markers[0].setMap(null);
-	infowindow.close();
-	markers = [];
-}
+				// 지도에 표시된 마커 객체를 가지고 있을 배열입니다
+				var markers = [];
+				var getposition;
+				var infowindow;
+				var titleok = false;
+				// 마커를 생성하고 지도위에 표시하는 함수입니다
+				function addMarker(position) {
 
-function ok(){
-	pname = document.getElementById("title").value;
-	infowindow.setContent('이 장소는 어떤 곳 인가요?<br><input type="text" id = "pcon"><button id="button1" onclick="ok2();">넹!</button><button id="button1" onclick="no();">다시할래!</button>');
-}
+					if (markers.length == 0) {
+						getposition = position;
+						// 마커를 생성합니다
+						var marker = new daum.maps.Marker({
+							position : position
+						});
+						console.log(markers.length);
+						// 마커가 지도 위에 표시되도록 설정합니다
+						markers.push(marker);
+						markers[0].setMap(map);
 
-function ok2(){
-	pcon = document.getElementById("pcon").value;
-	plat = getposition.getLat().toString();
-	plng = getposition.getLng().toString();
-//	var r = new daum.maps.LatLng(plat,plng);
-	linePath.push(getposition);
-	markers[0].setMap(null);
-	infowindow.close();
-	markers = [];
-	rcd();
-	makearr();
-}
+						if (!titleok) {
+							titleok = true;
+							// 마커에 표시할 인포윈도우를 생성합니다 
+							infowindow = new daum.maps.InfoWindow(
+									{
+										content : '여행경로의 제목을 입력하세요.<br><input type="text" id = "tname"><button id="button1" onclick="o();">넹!</button><button id="button1" onclick="no();">다시할래!</button>' // 인포윈도우에 표시할 내용
+									});
+							infowindow.open(map, marker);
+						} else {
+							// 마커에 표시할 인포윈도우를 생성합니다 
+							infowindow = new daum.maps.InfoWindow(
+									{
+										content : '이 장소의 이름은?<br><input type="text" id = "title"><button id="button1" onclick="ok();">넹!</button><button id="button1" onclick="no();">다시할래!</button>' // 인포윈도우에 표시할 내용
+									});
+							infowindow.open(map, marker);
+						}
 
+					}
+				}
 
-var userid;
-var real;
-function makearr(){
-	
-	pobj.pname = pname;
-	pobj.pcontent = pcon;
-	pobj.plat = plat;
-	pobj.plng = plng;
-	
-	parr.push(pobj);
-	alert(parr[0].pname);
-	send();
-	
-}
+				var openok = true;
+				var pname;
+				var pcon;
+				var parr = new Array();
+				var pobj = new Object();
+				var plat;
+				var plng;
+				var pgroup;
+				//선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+				var linePath = [];
+				var pok = "f";
+				function ist() {
+					pok = "t";
+					send();
+				}
+				function o() {
+					pgroup = document.getElementById("tname").value;
+					alert("이번 나만의여행 제목은 " + pgroup + " 입니다. 이제 시작해보세요!");
+					markers[0].setMap(null);
+					infowindow.close();
+					markers = [];
+				}
 
-function send(){
-	$.ajax({
-		url: "mymap",
-		data:"pname="+pname+"&pcon="+pcon+"&plat="+plat+"&plng="+plng+"&pgroup="+pgroup+"&pok="+pok,
-		success:function(data){
-			if(data == "reload"){
-				alert("작성완료!!");
-				location.reload();
-			}else if(data == "nologin"){
-				alert("로그인이 필요한 작업입니다.");
-				location.reload();
-			}
-		}
-	});
-}
+				function ok() {
+					pname = document.getElementById("title").value;
+					infowindow
+							.setContent('이 장소는 어떤 곳 인가요?<br><input type="text" id = "pcon"><button id="button1" onclick="ok2();">넹!</button><button id="button1" onclick="no();">다시할래!</button>');
+				}
 
-function no(){
-	alert("Cancel OK, Select again! :D")
-	markers[0].setMap(null);
-	infowindow.close();
-	markers = [];
-}
-var markers2= [];
-function rcd(){
-	addMarker2(pname,getposition);
-}
-function addMarker2(pname,position) {
-	
-    // 마커를 생성합니다
-    var marker2 = new daum.maps.Marker({
-        position: position
-    });
-    markers2.push(marker2);
-    for(var i = 0; i < markers2.length; i++){
-    markers2[i].setMap(map);
-    } 
+				function ok2() {
+					pcon = document.getElementById("pcon").value;
+					plat = getposition.getLat().toString();
+					plng = getposition.getLng().toString();
+					//	var r = new daum.maps.LatLng(plat,plng);
+					linePath.push(getposition);
+					markers[0].setMap(null);
+					infowindow.close();
+					markers = [];
+					rcd();
+					makearr();
+				}
 
-	// 마커에 표시할 인포윈도우를 생성합니다 
-    infowindow = new daum.maps.InfoWindow({
-        content:'<span class="number">' + markers2.length +'. ' + pname + '</span>'
-    });
-    infowindow.open(map, marker2); 
-	
-    if(markers2.length > 1){
-    	line();
-    }
-}
+				var userid;
+				var real;
+				function makearr() {
 
+					pobj.pname = pname;
+					pobj.pcontent = pcon;
+					pobj.plat = plat;
+					pobj.plng = plng;
 
+					parr.push(pobj);
+					alert(parr[0].pname);
+					send();
 
+				}
 
-function line(){
-// 지도에 표시할 선을 생성합니다
-var polyline = new daum.maps.Polyline({
-    path: linePath, // 선을 구성하는 좌표배열 입니다
-    strokeWeight: 5, // 선의 두께 입니다
-    strokeColor: '#F44336', // 선의 색깔입니다
-    strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-    strokeStyle: 'solid' // 선의 스타일입니다
-});
-daum.maps.event.addListener(polyline, 'mouseover', function(mouseEvent) {  
-	alert("d");
-});
-// 지도에 선을 표시합니다 
-polyline.setMap(map); 
+				function send() {
+					$.ajax({
+						url : "mymap",
+						data : "pname=" + pname + "&pcon=" + pcon + "&plat="
+								+ plat + "&plng=" + plng + "&pgroup=" + pgroup
+								+ "&pok=" + pok,
+						success : function(data) {
+							if (data == "reload") {
+								alert("작성완료!!");
+								location.reload();
+							} else if (data == "nologin") {
+								alert("로그인이 필요한 작업입니다.");
+								location.reload();
+							}
+						}
+					});
+				}
 
+				function no() {
+					alert("Cancel OK, Select again! :D")
+					markers[0].setMap(null);
+					infowindow.close();
+					markers = [];
+				}
+				var markers2 = [];
+				function rcd() {
+					addMarker2(pname, getposition);
+				}
+				function addMarker2(pname, position) {
 
-// 마우스 클릭으로 그린 선의 좌표 배열을 얻어옵니다
-var path = polyline.getPath();
+					// 마커를 생성합니다
+					var marker2 = new daum.maps.Marker({
+						position : position
+					});
+					markers2.push(marker2);
+					for (var i = 0; i < markers2.length; i++) {
+						markers2[i].setMap(map);
+					}
 
-// 선을 구성하는 좌표의 개수가 2개 이상이면
-if (path.length > 1) {
+					// 마커에 표시할 인포윈도우를 생성합니다 
+					infowindow = new daum.maps.InfoWindow({
+						content : '<span class="number">' + markers2.length
+								+ '. ' + pname + '</span>'
+					});
+					infowindow.open(map, marker2);
 
-    var distance = Math.round(polyline.getLength()), // 선의 총 거리를 계산합니다
-        content = getTimeHTML(distance); // 커스텀오버레이에 추가될 내용입니다
-        
-    // 그려진 선의 거리정보를 지도에 표시합니다
-    showDistance(content, path[path.length-1]);  
+					if (markers2.length > 1) {
+						line();
+					}
+				}
 
+				function line() {
+					// 지도에 표시할 선을 생성합니다
+					var polyline = new daum.maps.Polyline({
+						path : linePath, // 선을 구성하는 좌표배열 입니다
+						strokeWeight : 5, // 선의 두께 입니다
+						strokeColor : '#F44336', // 선의 색깔입니다
+						strokeOpacity : 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+						strokeStyle : 'solid' // 선의 스타일입니다
+					});
+					daum.maps.event.addListener(polyline, 'mouseover',
+							function(mouseEvent) {
+								alert("d");
+							});
+					// 지도에 선을 표시합니다 
+					polyline.setMap(map);
 
-}
+					// 마우스 클릭으로 그린 선의 좌표 배열을 얻어옵니다
+					var path = polyline.getPath();
 
-}
-var distanceOverlay; // 선의 거리정보를 표시할 커스텀오버레이 입니다
-//마우스 드래그로 그려지고 있는 선의 총거리 정보를 표시하거
-//마우스 오른쪽 클릭으로 선 그리가 종료됐을 때 선의 정보를 표시하는 커스텀 오버레이를 생성하고 지도에 표시하는 함수입니다
-function showDistance(content, position) {
- 
- if (distanceOverlay) { // 커스텀오버레이가 생성된 상태이면
-     
-     // 커스텀 오버레이의 위치와 표시할 내용을 설정합니다
-     distanceOverlay.setPosition(position);
-     distanceOverlay.setContent(content);
-     
- } else { // 커스텀 오버레이가 생성되지 않은 상태이면
-     
-     // 커스텀 오버레이를 생성하고 지도에 표시합니다
-     distanceOverlay = new daum.maps.CustomOverlay({
-         map: map, // 커스텀오버레이를 표시할 지도입니다
-         content: content,  // 커스텀오버레이에 표시할 내용입니다
-         position: position, // 커스텀오버레이를 표시할 위치입니다.
-         xAnchor: 0,
-         yAnchor: 0,
-         zIndex: 3  
-     });      
- }
-}
+					// 선을 구성하는 좌표의 개수가 2개 이상이면
+					if (path.length > 1) {
 
-//마우스 우클릭 하여 선 그리기가 종료됐을 때 호출하여 
-//그려진 선의 총거리 정보와 거리에 대한 도보, 자전거 시간을 계산하여
-//HTML Content를 만들어 리턴하는 함수입니다
-function getTimeHTML(distance) {
+						var distance = Math.round(polyline.getLength()), // 선의 총 거리를 계산합니다
+						content = getTimeHTML(distance); // 커스텀오버레이에 추가될 내용입니다
 
- // 도보의 시속은 평균 4km/h 이고 도보의 분속은 67m/min입니다
- var walkkTime = distance / 67 | 0;
- var walkHour = '', walkMin = '';
+						// 그려진 선의 거리정보를 지도에 표시합니다
+						showDistance(content, path[path.length - 1]);
 
- // 계산한 도보 시간이 60분 보다 크면 시간으로 표시합니다
- if (walkkTime > 60) {
-     walkHour = '<span class="number">' + Math.floor(walkkTime / 60) + '</span>시간 '
- }
- walkMin = '<span class="number">' + walkkTime % 60 + '</span>분'
+					}
 
- // 자전거의 평균 시속은 16km/h 이고 이것을 기준으로 자전거의 분속은 267m/min입니다
- var bycicleTime = distance / 227 | 0;
- var bycicleHour = '', bycicleMin = '';
+				}
+				var distanceOverlay; // 선의 거리정보를 표시할 커스텀오버레이 입니다
+				//마우스 드래그로 그려지고 있는 선의 총거리 정보를 표시하거
+				//마우스 오른쪽 클릭으로 선 그리가 종료됐을 때 선의 정보를 표시하는 커스텀 오버레이를 생성하고 지도에 표시하는 함수입니다
+				function showDistance(content, position) {
 
- // 계산한 자전거 시간이 60분 보다 크면 시간으로 표출합니다
- if (bycicleTime > 60) {
-     bycicleHour = '<span class="number">' + Math.floor(bycicleTime / 60) + '</span>시간 '
- }
- bycicleMin = '<span class="number">' + bycicleTime % 60 + '</span>분'
+					if (distanceOverlay) { // 커스텀오버레이가 생성된 상태이면
 
- // 거리와 도보 시간, 자전거 시간을 가지고 HTML Content를 만들어 리턴합니다
- var content = '<ul class="dotOverlay distanceInfo">';
- content += '    <li>';
- content += '        <span class="label">총거리</span><span class="number">' + distance + '</span>m';
- content += '    </li>';
- content += '    <li>';
- content += '        <span class="label">도보</span>' + walkHour + walkMin;
- content += '    </li>';
- content += '    <li>';
- content += '        <span class="label">자전거</span>' + bycicleHour + bycicleMin;
- content += '    </li>';
- content += '</ul>'
+						// 커스텀 오버레이의 위치와 표시할 내용을 설정합니다
+						distanceOverlay.setPosition(position);
+						distanceOverlay.setContent(content);
 
- return content;
-}
-</script>
-		
-		<!--==============================footer=================================-->
-		<footer>
-			<div class="container_12">
-				<div class="grid_12">
-					<div class="socials">
-						<a href="https://ko-kr.facebook.com/" class="fa fa-facebook"></a> <a href="https://twitter.com/"
-							class="fa fa-twitter"></a> <a href="https://plus.google.com/" class="fa fa-google-plus"></a>
-					</div>
-					<div class="copy">
-						Tripicker (c) 2017 | <a href="#">Privacy Policy</a> | Website
-						Template Designed by <a href="http://www.templatemonster.com/"
-							rel="nofollow">TemplateMonster.com</a>
+					} else { // 커스텀 오버레이가 생성되지 않은 상태이면
+
+						// 커스텀 오버레이를 생성하고 지도에 표시합니다
+						distanceOverlay = new daum.maps.CustomOverlay({
+							map : map, // 커스텀오버레이를 표시할 지도입니다
+							content : content, // 커스텀오버레이에 표시할 내용입니다
+							position : position, // 커스텀오버레이를 표시할 위치입니다.
+							xAnchor : 0,
+							yAnchor : 0,
+							zIndex : 3
+						});
+					}
+				}
+
+				//마우스 우클릭 하여 선 그리기가 종료됐을 때 호출하여 
+				//그려진 선의 총거리 정보와 거리에 대한 도보, 자전거 시간을 계산하여
+				//HTML Content를 만들어 리턴하는 함수입니다
+				function getTimeHTML(distance) {
+
+					// 도보의 시속은 평균 4km/h 이고 도보의 분속은 67m/min입니다
+					var walkkTime = distance / 67 | 0;
+					var walkHour = '', walkMin = '';
+
+					// 계산한 도보 시간이 60분 보다 크면 시간으로 표시합니다
+					if (walkkTime > 60) {
+						walkHour = '<span class="number">'
+								+ Math.floor(walkkTime / 60) + '</span>시간 '
+					}
+					walkMin = '<span class="number">' + walkkTime % 60
+							+ '</span>분'
+
+					// 자전거의 평균 시속은 16km/h 이고 이것을 기준으로 자전거의 분속은 267m/min입니다
+					var bycicleTime = distance / 227 | 0;
+					var bycicleHour = '', bycicleMin = '';
+
+					// 계산한 자전거 시간이 60분 보다 크면 시간으로 표출합니다
+					if (bycicleTime > 60) {
+						bycicleHour = '<span class="number">'
+								+ Math.floor(bycicleTime / 60) + '</span>시간 '
+					}
+					bycicleMin = '<span class="number">' + bycicleTime % 60
+							+ '</span>분'
+
+					// 거리와 도보 시간, 자전거 시간을 가지고 HTML Content를 만들어 리턴합니다
+					var content = '<ul class="dotOverlay distanceInfo">';
+					content += '    <li>';
+					content += '        <span class="label">총거리</span><span class="number">'
+							+ distance + '</span>m';
+					content += '    </li>';
+					content += '    <li>';
+					content += '        <span class="label">도보</span>'
+							+ walkHour + walkMin;
+					content += '    </li>';
+					content += '    <li>';
+					content += '        <span class="label">자전거</span>'
+							+ bycicleHour + bycicleMin;
+					content += '    </li>';
+					content += '</ul>'
+
+					return content;
+				}
+			</script>
+
+			<!--==============================footer=================================-->
+			<footer>
+				<div class="container_12">
+					<div class="grid_12">
+						<div class="socials">
+							<a href="https://ko-kr.facebook.com/" class="fa fa-facebook"></a>
+							<a href="https://twitter.com/" class="fa fa-twitter"></a> <a
+								href="https://plus.google.com/" class="fa fa-google-plus"></a>
+						</div>
+						<div class="copy">
+							Tripicker (c) 2017 | <a href="#">Privacy Policy</a> | Website
+							Template Designed by <a href="http://www.templatemonster.com/"
+								rel="nofollow">TemplateMonster.com</a>
+						</div>
 					</div>
 				</div>
-			</div>
-		</footer>
+			</footer>
 </body>
 </html>
