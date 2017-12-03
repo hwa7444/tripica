@@ -54,6 +54,17 @@
 	padding:15px;
 	
 }
+.allFor .grid_14{
+	width:10%;
+	display: inline;
+	margin-right:85%;
+	margin-left:10px;
+	z-index: 999;
+	margin-top: 150px;
+	position: fixed;
+	padding:15px;
+	
+}
 /*===========================^LOGIN / OUT 하는 사이드 메뉴======================*/
 
 

@@ -201,17 +201,24 @@
 	background-repeat: repeat;
 	padding-bottom: 120px;
 }
+
+.color {
+	width: 100%;
+	height: 300px;
+	background-image: url("images/Main/back5.jpg");
+}
 </style>
 
 </head>
 <body class="page1" id="top">
-	<!-- ==========================설문조사 팝업 만들기============================ -->
+	<!-- ==========================설문조사 팝업  입니다.============================ -->
 	<!-- 1차 여행 설문 form -->
 	<a href="#x" class="overlay2" id="trip_form1"></a>
 	<div class="popup2">
 
 		<div class="container_12">
-			<span>SELECT YOUR TRAVEL TYPE</span><br> <p style="font-size:1.4em;">당신이 마음에 드는 사진을 선택하세요!</p>
+			<span>SELECT YOUR TRAVEL TYPE</span><br>
+			<p style="font-size: 1.4em;">당신이 마음에 드는 사진을 선택하세요!</p>
 			<div class="clear"></div>
 			<ul align="center">
 
@@ -239,33 +246,50 @@
 		</div>
 		<a class="close2" href="#close2"></a> <a class="close2" href="#close2"></a>
 	</div>
+	<!--=====================================설문조사 도달 자바스크립트JAVA SCRIPT===========================================-->
 	<!-- 2차 설문 조사로 이동-->
 	<script type="text/javascript">
 		document.getElementById("no1").addEventListener("mouseover",
-				function(e) {no1.style.border = "3px solid #C73430";});
+				function(e) {
+					no1.style.border = "3px solid #C73430";
+				});
 		document.getElementById("no1").addEventListener("mouseout",
-				function(e) {no1.style.border = "none";});
+				function(e) {
+					no1.style.border = "none";
+				});
 		document.getElementById("no2").addEventListener("mouseover",
-				function(e) {no2.style.border = "3px solid #C73430";});
+				function(e) {
+					no2.style.border = "3px solid #C73430";
+				});
 		document.getElementById("no2").addEventListener("mouseout",
-				function(e) {no2.style.border = "none";});
+				function(e) {
+					no2.style.border = "none";
+				});
 		document.getElementById("no3").addEventListener("mouseover",
-				function(e) {no3.style.border = "3px solid #C73430";});
+				function(e) {
+					no3.style.border = "3px solid #C73430";
+				});
 		document.getElementById("no3").addEventListener("mouseout",
-				function(e) {no3.style.border = "none";});
+				function(e) {
+					no3.style.border = "none";
+				});
 		document.getElementById("no4").addEventListener("mouseover",
-				function(e) {no4.style.border = "3px solid #C73430";});
+				function(e) {
+					no4.style.border = "3px solid #C73430";
+				});
 		document.getElementById("no4").addEventListener("mouseout",
-				function(e) {no4.style.border = "none";});
+				function(e) {
+					no4.style.border = "none";
+				});
 
 		var aa = 1;
 		var type1 = null;
 		var type2 = null;
-		function moveFrom(result1) {			
+		function moveFrom(result1) {
 			if (aa == 1) {
 				aa += 1;
 				if (result1 == 1) {
-					var first1 = document.getElementById("first1");  /*형선 : Activity*/
+					var first1 = document.getElementById("first1"); /*형선 : Activity*/
 					var first2 = document.getElementById("first2");
 					var first3 = document.getElementById("first3");
 					var first4 = document.getElementById("first4");
@@ -275,7 +299,7 @@
 					first2.src = "images/Activity/amu/A_amu_2.jpg"; /*형선 : Activity_amu_2*/
 					first3.src = "images/Activity/spo/A_spo_1.jpg"; /*형선 : Activity_spo_1*/
 					first4.src = "images/Activity/spo/A_spo_2.jpg"; /*형선 : Activity_spo_2*/
-					
+
 				} else if (result1 == 2) {
 					var first1 = document.getElementById("first1");
 					var first2 = document.getElementById("first2"); /* 형선 : Learning */
@@ -287,8 +311,8 @@
 					first2.src = "images/Learning/art/L_art_2.jpg"; /* 형선 : Learning_art_2 */
 					first3.src = "images/Learning/mus/L_mus_1.jpg"; /* 형선 : Learning_mus_1 */
 					first4.src = "images/Learning/mus/L_mus_2.jpg"; /* 형선 : Learning_mus_1 */
-					
-				} else if (result1 == 3) { 
+
+				} else if (result1 == 3) {
 					var first1 = document.getElementById("first1");
 					var first2 = document.getElementById("first2");
 					var first3 = document.getElementById("first3"); /* 형선 : Relaxation */
@@ -299,7 +323,7 @@
 					first2.src = "images/Relaxation/res/R_res_2.jpg"; /* 형선 : Relaxation_res_2 */
 					first3.src = "images/Relaxation/res/R_res_3.jpg"; /* 형선 : Relaxation_res_3 */
 					first4.src = "images/Relaxation/res/R_res_4.jpg"; /* 형선 : Relaxation_res_4 */
-					
+
 				} else if (result1 == 4) {
 					var first1 = document.getElementById("first1");
 					var first2 = document.getElementById("first2");
@@ -311,25 +335,29 @@
 					first2.src = "images/View/his/V_his_2.JPG"; /* 형선 : View_his_2 */
 					first3.src = "images/View/nat/V_nat_1.jpg"; /* 형선 : View_nat_1 */
 					first4.src = "images/View/nat/V_nat_2.JPG"; /* 형선 : View_nat_2 */
-					
+
 				}
 			} else if (aa == 2) {
 				if (result1 == 1) {
 					type2 = document.getElementById("first1").src;
 					alert(type2); /*형선 : 이미지 값 넘어 가는 부분*/
-					location.href = "TypeUpdateCon?type1="+type1+"&type2="+type2; /*형선 : TypeUpdateCon으로 이동*/
+					location.href = "TypeUpdateCon?type1=" + type1 + "&type2="
+							+ type2; /*형선 : TypeUpdateCon으로 이동*/
 				} else if (result1 == 2) {
 					type2 = document.getElementById("first2").src;
 					alert(type2); /*형선 : 이미지 값 넘어 가는 부분*/
-					location.href = "TypeUpdateCon?type1="+type1+"&type2="+type2;
+					location.href = "TypeUpdateCon?type1=" + type1 + "&type2="
+							+ type2;
 				} else if (result1 == 3) {
 					type2 = document.getElementById("first3").src;
 					alert(type2); /*형선 : 이미지 값 넘어 가는 부분*/
-					location.href = "TypeUpdateCon?type1="+type1+"&type2="+type2;
+					location.href = "TypeUpdateCon?type1=" + type1 + "&type2="
+							+ type2;
 				} else if (result1 == 4) {
 					type2 = document.getElementById("first4").src;
 					alert(type2); /*형선 : 이미지 값 넘어 가는 부분*/
-					location.href = "TypeUpdateCon?type1="+type1+"&type2="+type2;
+					location.href = "TypeUpdateCon?type1=" + type1 + "&type2="
+							+ type2;
 				}
 
 			}
@@ -344,8 +372,8 @@
 
 	<!-- ==========================^설문조사 팝업 만들기============================ -->
 
-	<!--==========================try me==============================-->
-	
+	<!--==========================로그인/회원가입모달창입니다.==============================-->
+
 	<!-- login form -->
 	<a href="#x" class="overlay" id="login_form2"></a>
 	<div class="popup">
@@ -364,12 +392,14 @@
 					<td><input type="password" name="pw" required /></td>
 			</table>
 		</form>
-		<p>If you don't have account >><a href="#join_form" id="join_pop">Join</a></p>
+		<p>
+			If you don't have account >><a href="#join_form" id="join_pop">Join</a>
+		</p>
 		<a class="close" href="#close"></a>
 	</div>
-	
+
 	<!-- /login form -->
-	
+
 	<!-- login form -->
 	<a href="#x" class="overlay" id="login_form"></a>
 	<div class="popup">
@@ -388,7 +418,9 @@
 					<td><input type="password" name="pw" required /></td>
 			</table>
 		</form>
-		<p>If you don't have account >><a href="#join_form" id="join_pop">Join</a></p>
+		<p>
+			If you don't have account >><a href="#join_form" id="join_pop">Join</a>
+		</p>
 		<a class="close" href="#close"></a>
 	</div>
 	<!-- /login form -->
@@ -436,13 +468,15 @@
 				</tr>
 			</table>
 		</form>
-		<p>If you have account >><a href="#login_form" id="login_pop">Log In</a></p>
+		<p>
+			If you have account >><a href="#login_form" id="login_pop">Log In</a>
+		</p>
 		<a class="close" href="#close"></a>
 	</div>
 
 	<script>
 		function idCheck() {
-			
+
 			var id = document.getElementById("aa").value;
 			$.ajax({
 				url : "SearchId2",
@@ -491,11 +525,11 @@
 	</div>
 	<!-- /update form -->
 
-	<!--==========================try me==============================-->
+	<!--==========================로그인/회원가입 모달 끗==============================-->
 
 	<!-- allfor you -->
 	<div class="allFor">
-		<!-- ======SIDE MENU===== -->
+		<!-- ======SIDE MENU 옆의 메뉴 창===== -->
 		<div class="grid_13">
 			<img src="images/logo/tripickerLogo9.png">
 			<c:choose>
@@ -522,9 +556,9 @@
 				}
 			</script>
 		</div>
-		
+
 		<!-- ======^SIDE MENU===== -->
-		<!--==============================header=================================-->
+		<!--==============================header 위의 메뉴창=================================-->
 		<header>
 		<div class="container_12">
 			<div class="grid_12">
@@ -534,8 +568,7 @@
 						<li class="current"><a href="Main.jsp">HOME</a></li>
 						<c:choose>
 							<c:when test="${empty vo1.id}">
-								<li><a href="#login_form2">HOT
-										TOURS</a></li>
+								<li><a href="#login_form2">HOT TOURS</a></li>
 							</c:when>
 							<c:otherwise>
 								<li><a href="HotTour.jsp">HOT TOURS</a></li>
@@ -559,23 +592,23 @@
 		</div>
 		</header>
 
-		<!--==============================^header=================================-->
+		<!--==============================^header 첫화면에 큰 사진 슬라이드 나오는 부분=================================-->
 		<div class="slider_wrapper">
 			<div id="camera_wrap" class="">
-				<div data-src="images/Main/slide1.jpg">
+				<div data-src="images/Main/slide5.jpg">
 					<div class="caption fadeIn">
-						<h2 class="mainLogo">성산일출봉</h2>
+						<h2 class="mainLogo">이호테우 해변</h2>
 						<div class="price">
-							 &nbsp<span>멋있는 일출을 보고 싶다면?</span>
+							&nbsp<span>멋진 일몰을 보고 싶다면?</span>
 						</div>
-						<c:choose>
+						<%-- <c:choose>
 							<c:when test="${empty vo1.id}">
 						<a href="#login_form2">더 보기</a>
 							</c:when>
 							<c:otherwise>
 							<a href="HotTour.jsp">더 보기</a>
 							</c:otherwise>
-						</c:choose>
+						</c:choose> --%>
 					</div>
 				</div>
 				<div data-src="images/Main/slide2.jpg">
@@ -584,14 +617,14 @@
 						<div class="price">
 							&nbsp<span>향기로운 허브동산에서 멋있는 야경을!</span>
 						</div>
-						<c:choose>
+						<%-- <c:choose>
 							<c:when test="${empty vo1.id}">
 						<a href="#login_form2">더 보기</a>
 							</c:when>
 							<c:otherwise>
 							<a href="HotTour.jsp">더 보기</a>
 							</c:otherwise>
-						</c:choose>
+						</c:choose> --%>
 					</div>
 				</div>
 				<div data-src="images/Main/slide3.jpg">
@@ -600,14 +633,14 @@
 						<div class="price">
 							&nbsp<span>멋진 설경을 보고싶다면?</span>
 						</div>
-						<c:choose>
+						<%-- <c:choose>
 							<c:when test="${empty vo1.id}">
 						<a href="#login_form2">더 보기</a>
 							</c:when>
 							<c:otherwise>
 							<a href="HotTour.jsp">더 보기</a>
 							</c:otherwise>
-						</c:choose>
+						</c:choose> --%>
 					</div>
 				</div>
 				<div data-src="images/Main/slide4.jpg">
@@ -616,25 +649,27 @@
 						<div class="price">
 							&nbsp<span>선인장이 가득한 해변가에서 산책을!</span>
 						</div>
-						<c:choose>
+						<%-- <c:choose>
 							<c:when test="${empty vo1.id}">
 						<a href="#login_form2">더 보기</a>
 							</c:when>
 							<c:otherwise>
 							<a href="HotTour.jsp">더 보기</a>
 							</c:otherwise>
-						</c:choose>
+						</c:choose> --%>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<!--==============================Content=================================-->
+		<!--==============================Content 본문내용=================================-->
 		<div class="content">
 			<div class="ic"></div>
-			<!-- ================= banner ====================== -->
+			<!-- ================= minimap5슬라이드 밑 움직이는 기다란 지도 출력부분입니다. ====================== -->
 			<div class="container_12">
-				<h3><span style="color:#C73430;">Hot</span> Map</h3>
+				<h3>
+					<span style="color: #C73430;">Hot</span> Map
+				</h3>
 				<h2 style="font-size: 1.3em;">예비 여행자들이 추천한 인기 루트입니다.</h2>
 				<div class="grid_12">
 					<!-- MINIMAP 1번 사용자 맞춤 추천 루트 -->
@@ -644,104 +679,112 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="color" id="lastCon">
-				<!-- =========================== Lastest News=================================== -->
-				<div class="container_12" align="center">
-					<div class="grid_12">
-						<h3 class="head1" style="color:#F08080"><span style="color:#B0E0E6">This</span> Week's <span style="color:#B0E0E6">Choice</span></h3>
-					</div>
-					<div class="grid_4">
-						<div class="block1" id="news1">
-							<time datetime="2014-01-01">1<span></span></time>
-							<div class="extra_wrapper">
-								<div class="text1 col1">
-									<a href="#" id="news1" style="text-shadow: 0.05em 0.05em 0.15em #193c46;">카멜리아힐</a>
-								</div>
-								<span style="color:#FFFAF0; font-size:1.4em; text-shadow: 0.05em 0.05em 0.15em #193c46;">사계절 이쁜 꽃들과 함께 인생사진 만들기!</span>
-							</div>
-						</div>
-					</div>
-					<div class="grid_4">
-						<div class="block1" id="news2">
-							<time datetime="2014-01-01">2<span></span></time>
-							<div class="extra_wrapper">
-								<div class="text1 col1">
-									<a href="#" style="text-shadow: 0.05em 0.05em 0.15em #193c46;">세화해변</a>
-								</div>
-								 <span style="color:#FFFAF0; font-size:1.4em; text-shadow: 0.05em 0.05em 0.15em #193c46;">인생사진을 남기고 싶다면 꼭 가야봐할 곳!
-								</span>
-							</div>
-						</div>
-					</div>
-					<div class="grid_4">
-						<div class="block1" id="news3">
-							<time datetime="2014-01-01">3<span></span></time>
-							<div class="extra_wrapper">
-								<div class="text1 col1">
-									<a href="#" style="text-shadow: 0.05em 0.05em 0.15em #193c46;">더럭분교</a>
-								</div>
-								<span style="color:#FFFAF0; font-size:1.4em; text-shadow: 0.05em 0.05em 0.15em #193c46;">
-								알록달록 이쁜 벽에서 친구, 연인과 함께 한 컷!
-								</span>							
-							</div>
-						</div>
-					</div>
-
-					<!-- ===========================^Lastest News=================================== -->
+			<!-- ===========================this week choice 사진위에 커서 올리면 사진이 변하는 부분입니다.=================================== -->
+			<div class="container_12" align="center">
+				<div class="grid_12">
+					<h3 class="head1" style="color: #C73430">
+						<span style="color: #002141">This</span> Week's <span
+							style="color: #002141">Choice</span>
+					</h3>
 				</div>
+				<div class="grid_4">
+					<div class="block1" id="news1">
+						<time datetime="2014-01-01">1<span></span></time>
+						<div class="extra_wrapper">
+							<div class="text1 col1">
+								<a href="#" id="news1"
+									style="text-shadow: 0.08em 0.08em 0.16em #193c46;">카멜리아힐</a>
+							</div>
+							<span
+								style="color: #FFFAF0; font-size: 1.4em; text-shadow: 0.07em 0.07em 0.17em #193c46;">사계절
+								이쁜 꽃들과 함께 인생사진 만들기!</span>
+						</div>
+					</div>
+				</div>
+				<div class="grid_4">
+					<div class="block1" id="news2">
+						<time datetime="2014-01-01">2<span></span></time>
+						<div class="extra_wrapper">
+							<div class="text1 col1">
+								<a href="#" style="text-shadow: 0.08em 0.08em 0.16em #193c46;">세화해변</a>
+							</div>
+							<span
+								style="color: #FFFAF0; font-size: 1.4em; text-shadow: 0.07em 0.07em 0.17em #193c46;">인생사진을
+								남기고 싶다면 꼭 가야봐할 곳! </span>
+						</div>
+					</div>
+				</div>
+				<div class="grid_4">
+					<div class="block1" id="news3">
+						<time datetime="2014-01-01">3<span></span></time>
+						<div class="extra_wrapper">
+							<div class="text1 col1">
+								<a href="#" style="text-shadow: 0.08em 0.08em 0.16em #193c46;">더럭분교</a>
+							</div>
+							<span
+								style="color: #FFFAF0; font-size: 1.4em; text-shadow: 0.07em 0.07em 0.17em #193c46;">
+								알록달록 이쁜 벽에서 친구, 연인과 함께 한 컷! </span>
+						</div>
+					</div>
+				</div>
+
+
 			</div>
+		</div>
+		<!-- ===========================^this week choice 사진위에 커서 올리면 사진이 변하는 부분 자바스크립트=================================== -->
+		<script type="text/javascript">
+			document
+					.getElementById("news1")
+					.addEventListener(
+							"mouseover",
+							function(e) {
+								lastCon.style.background = "url('images/Main/back1.jpg')";
+							});
+			document
+					.getElementById("news1")
+					.addEventListener(
+							"mouseout",
+							function(e) {
+								lastCon.style.background = "url('images/Main/back1.jpg')";
 
-			<script type="text/javascript">
-				document
-						.getElementById("news1")
-						.addEventListener(
-								"mouseover",
-								function(e) {
-									lastCon.style.background = "url('images/Main/back1.jpg')";
-								});
-				document
-						.getElementById("news1")
-						.addEventListener(
-								"mouseout",
-								function(e) {
-									lastCon.style.background = "url('images/page1_img1.jpg')";
+							});
+			document
+					.getElementById("news2")
+					.addEventListener(
+							"mouseover",
+							function(e) {
+								lastCon.style.background = "url('images/Main/back2.jpg')";
+							});
+			document
+					.getElementById("news2")
+					.addEventListener(
+							"mouseout",
+							function(e) {
+								lastCon.style.background = "url('images/Main/back2.jpg')";
 
-								});
-				document
-						.getElementById("news2")
-						.addEventListener(
-								"mouseover",
-								function(e) {
-									lastCon.style.background = "url('images/Main/back2.jpg')";
-								});
-				document
-						.getElementById("news2")
-						.addEventListener(
-								"mouseout",
-								function(e) {
-									lastCon.style.background = "url('images/page1_img1.jpg')";
+							});
+			document
+					.getElementById("news3")
+					.addEventListener(
+							"mouseover",
+							function(e) {
+								lastCon.style.background = "url('images/Main/back3.jpg')";
+							});
+			document
+					.getElementById("news3")
+					.addEventListener(
+							"mouseout",
+							function(e) {
+								lastCon.style.background = "url('images/Main/back3.jpg')";
 
-								});
-				document
-						.getElementById("news3")
-						.addEventListener(
-								"mouseover",
-								function(e) {
-									lastCon.style.background = "url('images/Main/back3.jpg')";
-								});
-				document
-						.getElementById("news3")
-						.addEventListener(
-								"mouseout",
-								function(e) {
-									lastCon.style.background = "url('images/page1_img1.jpg')";
-
-								});
-			</script>
-			
+							});
+		</script>
+		<!-- ===========================^this week choice 사진위에 커서 올리면 사진이 변하는 부분입니다. 끗=================================== -->
+		<!--==============================minimap 1 2 3 4지 도 4개 들어 가는 부분입니다.=================================-->
 		<div class="content">
-		<div class="ic"></div>
+			<div class="ic"></div>
 			<div class="container_12">
 				<h3>Recommend</h3>
 				<h2 style="font-size: 1.3em;">당신 만을 위한 추천여행 루트 입니다.</h2>
@@ -769,48 +812,126 @@
 					<div id="minimap4"></div>
 				</div>
 
-				<!-- ==================== ^banner ======================= -->
 			</div>
 
 			<div class="clear"></div>
-		</div>
-		<!-- allfor you -->
-		<div class="allFor">
+			<!--==============================minimap 1 2 3 4지 도 4개 들어 가는 부분입니다. 끗=================================-->
 
-			
-			<!--==============================Content=================================-->
-			<div class="content">
-				<div class="ic"></div>
-				<div class="container_12">
-					<div class="grid_4 suffix_1">
-						<h3>Welcome!</h3>
-						<div style="width: 320px; height: 460px;">Tripicker는 여행자의
-							취향을 반영하여, 맞춤형 루트를 추천해주는 사이트 입니다. </div>
-					</div>
-					<div class="grid_7">
-						<h3>Welcome!</h3>
-						<div
-							style="background-color: lightblue; width: 560px; height: 460px;"></div>
+			<div class="container_12">
+				<h3 style="top: 0;">Welcome!</h3>
+				<div class="grid_5 suffix_1">
 
+					<div style="width: 320px; height: 460px; font-size: 1.3em;">
+						<span><p style="margin-bottom: 3px;">저희 Tripicker는 사용자
+								개인의 취향을 반</p>
+							<p style="margin-bottom: 3px;">영한 맞춤형 여행루트 추천 사이트 입니다.</p>
+							<p style="margin-bottom: 3px;">간편한 사진 설문조사에 참여하여 맞춤형 여</p>
+							<p style="margin: 0; padding: 0;">행 루트 추천 받고 여행 다녀오세요!</p></span> <br>
+						<br>
+						<p>
+							<span style="color: #3e454c;">★사이트 이용 방법★</span>
+						</p>
+						<p>1. 회원 가입을 한다.</p>
+						<p>
+							2. 로그인 후에 '여행지 추천받기'를 <span
+								style="color: #C73430; font-size: 1.1em;">click!</span>
+						</p>
+						<p>3. 마음에 드는 사진 1개 > 1개 선택하기!</p>
+						<p>4. 맞춤형 루트 추천받기 성공!</p>
+						<p>+ 'MAP DIY'에서 나만의 루트를 만들어보세요!</p>
+						<p style="margin-bottom: 3px;">
+							<span style="color: #C73430; font-size: 1em;">WHAT IS NEXT
+								BEST POST?</span>
+						</p>
+						<p>다음 BEST POST는 당신입니다!</p>
+						<p>+ 여행 후기를 사진과 함께 'POST'에서 공유해보세요!</p>
 					</div>
 				</div>
 
-				<div class="clear"></div>
 
-				<!-- ==================== ^banner ======================= -->
+				<div class="grid_6">
 
+					<div id="slideBox">
+				
+						<img class="mySlides" src="images/Main/side1.jpg"
+							style="display: none; width: 490px; height: 520px;"> <img
+							class="mySlides" src="images/Main/side1.jpg"
+							style="width: 490px; height: 520px;"> <img class="mySlides"
+							src="images/Main/side2.jpg" style="width: 490px; height: 520px;">
+						<img class="mySlides" src="images/Main/side2.jpg"
+							style="width: 490px; height: 520px;"> <img class="mySlides"
+							src="images/Main/side3.jpg" style="width: 490px; height: 520px;">
+							<img class="mySlides"
+							src="images/Main/side4.jpg" style="width: 490px; height: 520px;">
+							<img class="mySlides"
+							src="images/Main/side3.jpg" style="width: 490px; height: 520px;">
+								<img class="mySlides"
+							src="images/Main/side2.jpg" style="width: 490px; height: 520px;">
+								<img class="mySlides"
+							src="images/Main/side3.jpg" style="width: 490px; height: 520px;">
+							<img class="mySlides"
+							src="images/Main/side4.jpg" style="width: 490px; height: 520px;">
+							<img class="mySlides"
+							src="images/Main/side4.jpg" style="width: 490px; height: 520px;">
+							<img class="mySlides"
+							src="images/Main/side4.jpg" style="width: 490px; height: 520px;">
+							<img class="mySlides"
+							src="images/Main/side4.jpg" style="width: 490px; height: 520px;">
+								
+
+						<!--  <input id="left"
+							type="button" value="◀" onclick="slide(-1)"> <input
+							id="right" type="button" value="▶" onclick="slide(1)"> -->
+					</div>
+				</div>
 			</div>
+			<!--container 끗-->
 
-			<!-- ^allfor you -->
+
+			<!--===================================이미지 슬라이드 자바 스크립트=========================================-->
+			<script type="text/javascript">
+				var imgs = document.querySelectorAll("img.mySlides");
+				var index = 0; //number(숫자형)
+
+				slide(index);
+
+				//이미지가 시간초마다 바뀌게 하는 것
+				setInterval(function() {
+					index += 1;
+					slide(index);
+				}, 1500);
+
+				function slide(num) {
+					for (var i = 0; i < imgs.length; i++) {
+						imgs[i].style.display = "none";
+					}
+					index += num;
+					if (index > imgs.length - 1) {
+						index = 0;
+					} else if (index < 0) {
+						index = imgs.length - 1;
+					}
+					//선택 이미지 출력
+					imgs[index].style.display = "block";
+				}
+			</script>
+			<div class="clear"></div>
+			<!--============================== welcome 사이트 소개 부분입니다. 끗=================================-->
+
+
 		</div>
 
-		<!--==============================footer=================================-->
+		<!-- ^allfor you -->
+
+
+		<!--==============================footer 하단입니다.여기 밑은 볼필요없어요=================================-->
 		<footer>
 		<div class="container_12">
 			<div class="grid_12">
 				<div class="socials">
-					<a href="https://ko-kr.facebook.com/" class="fa fa-facebook"></a> <a href="https://twitter.com/"
-							class="fa fa-twitter"></a> <a href="https://plus.google.com/" class="fa fa-google-plus"></a>
+					<a href="https://ko-kr.facebook.com/" class="fa fa-facebook"></a> <a
+						href="https://twitter.com/" class="fa fa-twitter"></a> <a
+						href="https://plus.google.com/" class="fa fa-google-plus"></a>
 				</div>
 				<div class="copy">
 					Tripicker (c) 2017 | <a href="#">Privacy Policy</a> | Website
