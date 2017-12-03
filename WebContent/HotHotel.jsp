@@ -44,6 +44,166 @@ padding-bottom: 120px;
 </style>
    </head>
    <body>
+   <!-- ==========================설문조사 팝업  입니다.============================ -->
+	<!-- 1차 여행 설문 form -->
+	<a href="#x" class="overlay2" id="trip_form1"></a>
+	<div class="popup2">
+
+		<div class="container_12">
+			<span>SELECT YOUR TRAVEL TYPE</span><br>
+			<p style="font-size: 1.4em;">당신이 마음에 드는 사진을 선택하세요!</p>
+			<div class="clear"></div>
+			<ul align="center">
+
+				<li><div class="grid_4" id="no1">
+						<img style="width: 300px; height: 200px;" class="tripImg"
+							id="first1" src="images/Activity/A.jpg" onclick="moveFrom(1)">
+					</div></li>
+				<li><div class="grid_4" id="no2">
+						<img style="width: 300px; height: 200px;" class="tripImg"
+							id="first2" src="images/Learning/L.jpg" onclick="moveFrom(2)">
+					</div></li>
+				<div class="clear"></div>
+				<li><div class="grid_4" id="no3">
+						<img style="width: 300px; height: 200px;" class="tripImg"
+							id="first3" src="images/Relaxation/R.jpg" onclick="moveFrom(3)">
+					</div></li>
+				<li><div class="grid_4" id="no4">
+						<img style="width: 300px; height: 200px;" class="tripImg"
+							id="first4" src="images/View/V.jpg" onclick="moveFrom(4)">
+					</div></li>
+				<div class="clear"></div>
+
+			</ul>
+			<div class="grid_8" align="center"></div>
+		</div>
+		<a class="close2" href="#close2"></a> <a class="close2" href="#close2"></a>
+	</div>
+	<!--=====================================설문조사 도달 자바스크립트JAVA SCRIPT===========================================-->
+	<!-- 2차 설문 조사로 이동-->
+	<script type="text/javascript">
+		document.getElementById("no1").addEventListener("mouseover",
+				function(e) {
+					no1.style.border = "3px solid #C73430";
+				});
+		document.getElementById("no1").addEventListener("mouseout",
+				function(e) {
+					no1.style.border = "none";
+				});
+		document.getElementById("no2").addEventListener("mouseover",
+				function(e) {
+					no2.style.border = "3px solid #C73430";
+				});
+		document.getElementById("no2").addEventListener("mouseout",
+				function(e) {
+					no2.style.border = "none";
+				});
+		document.getElementById("no3").addEventListener("mouseover",
+				function(e) {
+					no3.style.border = "3px solid #C73430";
+				});
+		document.getElementById("no3").addEventListener("mouseout",
+				function(e) {
+					no3.style.border = "none";
+				});
+		document.getElementById("no4").addEventListener("mouseover",
+				function(e) {
+					no4.style.border = "3px solid #C73430";
+				});
+		document.getElementById("no4").addEventListener("mouseout",
+				function(e) {
+					no4.style.border = "none";
+				});
+
+		var aa = 1;
+		var type1 = null;
+		var type2 = null;
+		function moveFrom(result1) {
+			if (aa == 1) {
+				aa += 1;
+				if (result1 == 1) {
+					var first1 = document.getElementById("first1"); /*형선 : Activity*/
+					var first2 = document.getElementById("first2");
+					var first3 = document.getElementById("first3");
+					var first4 = document.getElementById("first4");
+					type1 = document.getElementById("first1").src;
+					
+					first1.src = "images/Activity/amu/A_amu_1.jpg"; /*형선 : Activity_amu_1*/
+					first2.src = "images/Activity/amu/A_amu_2.jpg"; /*형선 : Activity_amu_2*/
+					first3.src = "images/Activity/spo/A_spo_1.jpg"; /*형선 : Activity_spo_1*/
+					first4.src = "images/Activity/spo/A_spo_2.jpg"; /*형선 : Activity_spo_2*/
+
+				} else if (result1 == 2) {
+					var first1 = document.getElementById("first1");
+					var first2 = document.getElementById("first2"); /* 형선 : Learning */
+					var first3 = document.getElementById("first3");
+					var first4 = document.getElementById("first4");
+					type1 = document.getElementById("first2").src;
+					
+					first1.src = "images/Learning/art/L_art_1.jpg"; /* 형선 : Learning_art_1 */
+					first2.src = "images/Learning/art/L_art_2.jpg"; /* 형선 : Learning_art_2 */
+					first3.src = "images/Learning/mus/L_mus_1.jpg"; /* 형선 : Learning_mus_1 */
+					first4.src = "images/Learning/mus/L_mus_2.jpg"; /* 형선 : Learning_mus_1 */
+
+				} else if (result1 == 3) {
+					var first1 = document.getElementById("first1");
+					var first2 = document.getElementById("first2");
+					var first3 = document.getElementById("first3"); /* 형선 : Relaxation */
+					var first4 = document.getElementById("first4");
+					type1 = document.getElementById("first3").src;
+					
+					first1.src = "images/Relaxation/res/R_res_1.jpg"; /* 형선 : Relaxation_res_1 */
+					first2.src = "images/Relaxation/res/R_res_2.jpg"; /* 형선 : Relaxation_res_2 */
+					first3.src = "images/Relaxation/res/R_res_3.jpg"; /* 형선 : Relaxation_res_3 */
+					first4.src = "images/Relaxation/res/R_res_4.jpg"; /* 형선 : Relaxation_res_4 */
+
+				} else if (result1 == 4) {
+					var first1 = document.getElementById("first1");
+					var first2 = document.getElementById("first2");
+					var first3 = document.getElementById("first3");
+					var first4 = document.getElementById("first4"); /* 형선 : View */
+					type1 = document.getElementById("first4").src;
+					 /*형선 : 이미지 값 넘어 가는 부분*/
+					first1.src = "images/View/his/V_his_1.jpg"; /* 형선 : View_his_1 */
+					first2.src = "images/View/his/V_his_2.JPG"; /* 형선 : View_his_2 */
+					first3.src = "images/View/nat/V_nat_1.jpg"; /* 형선 : View_nat_1 */
+					first4.src = "images/View/nat/V_nat_2.JPG"; /* 형선 : View_nat_2 */
+
+				}
+			} else if (aa == 2) {
+				if (result1 == 1) {
+					type2 = document.getElementById("first1").src;
+			
+					location.href = "TypeUpdateCon?type1=" + type1 + "&type2="
+							+ type2; /*형선 : TypeUpdateCon으로 이동*/
+				} else if (result1 == 2) {
+					type2 = document.getElementById("first2").src;
+				
+					location.href = "TypeUpdateCon?type1=" + type1 + "&type2="
+							+ type2;
+				} else if (result1 == 3) {
+					type2 = document.getElementById("first3").src;
+
+					location.href = "TypeUpdateCon?type1=" + type1 + "&type2="
+							+ type2;
+				} else if (result1 == 4) {
+					type2 = document.getElementById("first4").src;
+			
+					location.href = "TypeUpdateCon?type1=" + type1 + "&type2="
+							+ type2;
+				}
+
+			}
+		}
+
+		function makeLine(result) {
+			if (result == 1) {
+				first1.style.border = "2px solid red";
+			}
+		}
+	</script>
+
+	<!-- ==========================^설문조사 팝업 만들기============================ -->
   <!--==========================try me==============================-->
 	
 	<!-- login form -->
@@ -224,11 +384,16 @@ padding-bottom: 120px;
 					<li><h1 style="color:white;">${vo1.nick}님</h1></li>
 						<li><a href="Logout.jsp" id="login_pop">로그아웃</a></li>
 						<li><a href="#update_form" id="join_pop">개인정보수정</a></li>
+						<li><a href="#trip_form1" id="trip_pop" onclick="move()">여행지추천 받기</a></li>
 					</ul>
 				</c:otherwise>
 			</c:choose>
       </div>
-
+<script type="text/javascript">
+function move() {
+document.getElementById("move").scrollIntoView(true);
+		}
+</script>
       <!-- ======^SIDE MENU===== -->
 <!--==============================header=================================-->
       <header>
@@ -244,7 +409,7 @@ padding-bottom: 120px;
 										TOURS</a></li>
 							</c:when>
 							<c:otherwise>
-								<li><a href="HotTour.jsp">HOT TOURS</a></li>
+								<li><a href="#trip_form1" onclick="move()">HOT TOURS</a></li>
 							</c:otherwise>
 						</c:choose>
                         <li class="current"><a href="specialOffer.jsp">SPECIAL OFFERS</a></li>
