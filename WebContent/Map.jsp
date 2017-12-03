@@ -1020,14 +1020,14 @@ request.setAttribute("hlist", hmlist);
 							// 마커에 표시할 인포윈도우를 생성합니다 
 							infowindow = new daum.maps.InfoWindow(
 									{
-										content : '여행경로의 제목을 입력하세요.<br><input type="text" id = "tname"><button id="button1" onclick="o();">넹!</button><button id="button1" onclick="no();">다시할래!</button>' // 인포윈도우에 표시할 내용
+										content : '여행경로의 제목을 입력하세요.<br><input type="text" id = "tname"><button id="button1" onclick="o();">입력</button><button id="button1" onclick="no();">다시입력</button>' // 인포윈도우에 표시할 내용
 									});
 							infowindow.open(map, marker);
 						} else {
 							// 마커에 표시할 인포윈도우를 생성합니다 
 							infowindow = new daum.maps.InfoWindow(
 									{
-										content : '이 장소의 이름은?<br><input type="text" id = "title"><button id="button1" onclick="ok();">넹!</button><button id="button1" onclick="no();">다시할래!</button>' // 인포윈도우에 표시할 내용
+										content : '이 장소의 이름은?<br><input type="text" id = "title"><button id="button1" onclick="ok();">입력</button><button id="button1" onclick="no();">다시입력</button>' // 인포윈도우에 표시할 내용
 									});
 							infowindow.open(map, marker);
 						}
@@ -1053,12 +1053,12 @@ request.setAttribute("hlist", hmlist);
 					pok = "t";
 					send();
 				}
-				document.getElementById("end").addEventListener("mouseout",
+			 	document.getElementById("end").addEventListener("mouseout",
 						function(e) {
 					document.getElementById("end").style.backgroundColor = "#C73430";
 					document.getElementById("end").style.borderColor = "#C73430";
 					document.getElementById("end").style.color = "#FFFAF0";
-						});
+						}); 
 						
 				function o() {
 					pgroup = document.getElementById("tname").value;
@@ -1071,7 +1071,7 @@ request.setAttribute("hlist", hmlist);
 				function ok() {
 					pname = document.getElementById("title").value;
 					infowindow
-							.setContent('이 장소는 어떤 곳 인가요?<br><input type="text" id = "pcon"><button id="button1" onclick="ok2();">넹!</button><button id="button1" onclick="no();">다시할래!</button>');
+							.setContent('이 장소는 어떤 곳 인가요?<br><input type="text" id = "pcon"><button id="button1" onclick="ok2();">입력</button><button id="button1" onclick="no();">다시입력</button>');
 				}
 
 				function ok2() {
@@ -1105,9 +1105,7 @@ request.setAttribute("hlist", hmlist);
 				function send() {
 					$.ajax({
 						url : "mymap",
-						data : "pname=" + pname + "&pcon=" + pcon + "&plat="
-								+ plat + "&plng=" + plng + "&pgroup=" + pgroup
-								+ "&pok=" + pok,
+						data : "pname=" + pname + "&pcon=" + pcon + "&plat="+ plat + "&plng=" + plng + "&pgroup=" + pgroup+ "&pok=" + pok,
 						success : function(data) {
 							if (data == "reload") {
 								alert("작성완료!!");

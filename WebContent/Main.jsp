@@ -1351,7 +1351,7 @@
 			var hotmap = new daum.maps.Map(mapContainerhot, mapOption); // 지도를 생성합니다
 
 			
-			
+	/* 		
 			var mapContainer = document.getElementById('minimap1'), // 지도를 표시할 div  
 			mapOption = {
 				center : new daum.maps.LatLng(33.37137, 126.56695), // 지도의 중심좌표
@@ -1384,11 +1384,11 @@
 			var mapTypeControl = new daum.maps.MapTypeControl();
 			var mapTypeControl2 = new daum.maps.MapTypeControl();
 			var mapTypeControl3 = new daum.maps.MapTypeControl();
-			var mapTypeControl4 = new daum.maps.MapTypeControl();
+			var mapTypeControl4 = new daum.maps.MapTypeControl(); */
 			var mapTypeControl5 = new daum.maps.MapTypeControl();
 			// 지도의 상단 우측에 지도 타입 변경 컨트롤을 추가한다
 		    hotmap.addControl(mapTypeControl5, daum.maps.ControlPosition.TOPRIGHT);
-			map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
+		/* 	map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
 			map2
 					.addControl(mapTypeControl2,
 							daum.maps.ControlPosition.TOPRIGHT);
@@ -1397,14 +1397,14 @@
 							daum.maps.ControlPosition.TOPRIGHT);
 			map4
 					.addControl(mapTypeControl4,
-							daum.maps.ControlPosition.TOPRIGHT);
+							daum.maps.ControlPosition.TOPRIGHT); */
 
 			//지도타입 컨트롤의 지도 또는 스카이뷰 버튼을 클릭하면 호출되어 지도타입을 바꾸는 함수입니다
 			hotmap.setMapTypeId(daum.maps.MapTypeId.HYBRID);
-			map.setMapTypeId(daum.maps.MapTypeId.HYBRID);
+			/* map.setMapTypeId(daum.maps.MapTypeId.HYBRID);
 			map2.setMapTypeId(daum.maps.MapTypeId.HYBRID);
 			map3.setMapTypeId(daum.maps.MapTypeId.HYBRID);
-			map4.setMapTypeId(daum.maps.MapTypeId.HYBRID);
+			map4.setMapTypeId(daum.maps.MapTypeId.HYBRID); */
 			var surfList = ["http://place.map.daum.net/9461977", "http://place.map.daum.net/23397740","http://place.map.daum.net/21135119","http://place.map.daum.net/25285071","http://place.map.daum.net/8413659",
 				"http://place.map.daum.net/11332661","http://place.map.daum.net/8100102","http://place.map.daum.net/7863269","http://place.map.daum.net/10793668","http://place.map.daum.net/23150855","http://place.map.daum.net/21500227"];
 	
@@ -1440,7 +1440,6 @@
 				 customOverlay.setMap(hotmap);
 			}
 			
-			new daum.maps.LatLng(33.37137, 126.56695)
 			var n = 0;
 			setInterval(function() {
 				if (n <= 9) {
@@ -1471,7 +1470,7 @@
 			 map3.addControl(zoomControl3, daum.maps.ControlPosition.RIGHT); 
 			 map4.addControl(zoomControl4, daum.maps.ControlPosition.RIGHT);  */
 			// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
-			var positions = [
+		/* 	var positions = [
 					{
 						content : '<div class="customoverlay">'
 								+ '  <a href="http://map.daum.net/?itemId=11394059" target="_blank">'
@@ -1590,7 +1589,7 @@
 				return function() {
 					customOverlay.setMap(null);
 				};
-			}
+			} */
 		</script>
 </body>
 </html>

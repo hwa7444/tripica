@@ -134,7 +134,7 @@
 	position: relative;
 	width: 100%;
 	top: 50px;
-	height: 350px;
+	height: 500px;
 }
 
 #category {
@@ -761,8 +761,8 @@ document.getElementById("move").scrollIntoView(true);
 				<div class="grid_8">
 					<h3>Recommend Tour Info</h3>
 					<!-- 경도 : 여행지 사진, 설명 이 출력되는 부분-->
-					<h5>${testna }</h5>
-						${testcon }
+				
+						
 					<div class="blog">
 						<!-- 경도 :기본 틀입니다. 카테고리클릭시 여기 div에 id 값을 주어 불러 들이면 됩니다.-->
 						<c:choose>
@@ -776,7 +776,7 @@ document.getElementById("move").scrollIntoView(true);
 						</c:choose>
 						<div class="extra_wrapper">
 							<div class="text1 col1">
-								<a href="#">${vo.name}</a>
+								<div id="mytitle">${testna }</div>
 								<!-- 경도 : 여행지 제목 출력하기 -->
 							</div>
 							<!-- 경도 : 원한다면 여기에 여행지 타입 출력 -->
@@ -785,11 +785,11 @@ document.getElementById("move").scrollIntoView(true);
 						</div>
 						<div class="clear"></div>
 						<!-- 그대로 두면되는 클래스 입니다. -->
-						<img src="${vo.img}" alt="" class="img_inner">
+						<img src="${testim}" alt="" id="myimg">
 						<!-- 경도: 여행지 사진 출력 -->
-						<p>
+						<p id="mycon">
 							<!-- 경도: 여행설명 출력-->
-							${vo.comment }
+							${testcon }
 						</p>
 						<br>
 
@@ -824,7 +824,7 @@ document.getElementById("move").scrollIntoView(true);
 									String name = String.valueOf(i+1)+". " + resultMap.get(i).getPname();
 									String name2 = URLEncoder.encode(name,"euc-kr");
 							%>
-						<li><a href="tourSelectCon?name=<%=name2%>"><%=name %></a></li>
+						<li onclick="change(<%=i%>)"><%=name %></li>
 						<%} %>
 												
 					</ul>
@@ -875,6 +875,7 @@ document.getElementById("move").scrollIntoView(true);
 		<c:forEach items="${alist}" var="item1">
 		var mapobj = {
 			name : '${item1.pname}',
+			content : '${item1.pcontent}',
 			lat : '${item1.plat}',
 			lng : '${item1.plng}',
 			pimg : '${item1.pimg}'
@@ -884,7 +885,7 @@ document.getElementById("move").scrollIntoView(true);
 		
 			var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 			mapOption = {
-				center : new daum.maps.LatLng(33.37137, 126.56695), // 지도의 중심좌표
+				center : new daum.maps.LatLng(hmlist[0].lat, hmlist[0].lng), // 지도의 중심좌표
 				level : 8
 			// 지도의 확대 레벨
 			};
@@ -902,7 +903,7 @@ document.getElementById("move").scrollIntoView(true);
 
 			// 지도의 우측에 확대 축소 컨트롤을 추가한다
 			map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
-
+			map.setMapTypeId(daum.maps.MapTypeId.HYBRID);
 				
 				
 				var hotpositions = [];
@@ -940,6 +941,16 @@ document.getElementById("move").scrollIntoView(true);
 					customOverlay.setMap(map);
 				}
 
+				
+				
+				
+				function change(num){
+					document.getElementById("mytitle").innerHTML = hmlist[num].name;
+					document.getElementById("myimg").src = hmlist[num].pimg;
+					document.getElementById("mycon").innerHTML = hmlist[num].content;
+					map.setCenter(hotpositions[num].latlng);
+					map.setLevel(5);
+				}
 			/* ##############################LINE SCRIPT############################### */
 			var drawingOK = false;
 			function drawing() {
