@@ -1393,18 +1393,23 @@
 			map2.setMapTypeId(daum.maps.MapTypeId.HYBRID);
 			map3.setMapTypeId(daum.maps.MapTypeId.HYBRID);
 			map4.setMapTypeId(daum.maps.MapTypeId.HYBRID);
-			
+			var surfList = ["http://place.map.daum.net/9461977", "http://place.map.daum.net/23397740","http://place.map.daum.net/21135119","http://place.map.daum.net/25285071","http://place.map.daum.net/8413659",
+				"http://place.map.daum.net/11332661","http://place.map.daum.net/8100102","http://place.map.daum.net/7863269","http://place.map.daum.net/10793668","http://place.map.daum.net/23150855","http://place.map.daum.net/21500227"];
+	
 			var hotpositions = [];
 			for (var i = 0; i < hmlist.length; i++) {
 				var getposition = new daum.maps.LatLng(hmlist[i].lat, hmlist[i].lng);
+				
 				hotpositions[i] = {
 						content :'<div class="customoverlay">'
-							+ '  <a href="http://place.map.daum.net/21135119" target="_blank">'
+							+ '  <a href="'+surfList[i]+'" target="_blank">'
 							+ '    <span class="title">'+hmlist[i].name+ '</span>'
 							+ '  </a>' + '</div>',
 						latlng : getposition
 				};
+				
 			}
+			
 			for (var i = 0; i < hotpositions.length; i++) {
 				
 				 var marker = new daum.maps.Marker({
