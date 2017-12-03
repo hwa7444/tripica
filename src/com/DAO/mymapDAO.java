@@ -70,6 +70,41 @@ public class mymapDAO {
 		return arr;
 	}
 
+	public ArrayList<mymapVO> getMymap(int num) {
+		ArrayList<mymapVO> arr = new ArrayList<>();
+		try {
+			getConnection();
+	
+			String sql = "SELECT * FROM mymap_p where num = ?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			
+			ResultSet r = pstmt.executeQuery();
+		
+			String pname;				//마커의 이름
+			String pcontent;			//마커설명
+			String plat;
+			String plng;
+			String pgroup;				//루트의 타이틀제목
+			
+			while (r.next()) {
+				pname = r.getString("pname");
+				pcontent = r.getString("pcontent");
+				plat = r.getString("plat");
+				plng = r.getString("plng");
+				pgroup = r.getString("pgroup");
+				arr.add(new mymapVO(pname, pcontent, plat, plng, pgroup));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("예외발생:getMymap()=> " + e.getMessage());
+		} finally {
+			dbClose();
+		}
+
+		return arr;
+	}
 	public boolean insertMap(String pname, String pgroup) {
 
 		boolean result = false;

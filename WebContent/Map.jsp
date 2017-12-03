@@ -1,3 +1,4 @@
+<%@page import="com.DAO.mymapVO"%>
 <%@page import="com.DAO.MymaplistVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.DAO.mymapDAO"%>
@@ -691,11 +692,94 @@
 			<!--===================================^지도 게시판 만들기=======================================-->
 
 			<!--================================여기는 지도 스크랩트 문!!======================================-->
-
+<%
+ArrayList<mymapVO> hmlist = null;
+mymapDAO mdao = new mymapDAO();
+hmlist = mdao.getMymap(mlist.get(max).getNum());
+request.setAttribute("hlist", hmlist);
+%>
 			<script type="text/javascript"
 				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7b2110a6aaef5104b2ce89c704a24ed3"></script>
 
 			<script>
+			var hmlist = new Array();
+			<c:forEach items="${hlist}" var="item1">
+			var mapobj = {
+					name : '${item1.pname}',
+					pcontent : '${item1.pcontent}',
+					lat : '${item1.plat}',
+					lng : '${item1.plng}',
+					pgroup : '${item1.pgroup}'
+			};
+			hmlist.push(mapobj);
+			</c:forEach>
+			
+			
+			/* hotmap 생성 */
+			var mapContainerhot = document.getElementById('minimap6'), // 지도를 표시할 div  
+			mapOption = {
+				center : new daum.maps.LatLng(33.37137, 126.56695), // 지도의 중심좌표
+				level : 10
+			// 지도의 확대 레벨
+			};
+			var hotmap = new daum.maps.Map(mapContainerhot, mapOption); // 지도를 생성합니다
+
+			var linePath2 = [];
+			var hotpositions = [];
+			
+			/* 세영아 여기야 여기 */
+			var cnt = 1;	//여행지순서 카운트변수 ex : 1. 카페베네 , 2. 우리집
+			for (var i = 0; i < hmlist.length; i++) {
+				var getposition = new daum.maps.LatLng(hmlist[i].lat, hmlist[i].lng);
+				hotpositions[i] = {
+						content :'<div class="customoverlay">'
+							+ '    <span class="title">'+cnt+'. '+hmlist[i].name+ '</span><br>'
+							+     hmlist[i].pcontent
+							+ '</div>',
+						latlng : getposition
+				};
+				cnt+=1;
+			}
+			
+			for (var i = 0; i < hotpositions.length; i++) {
+				
+				 var marker = new daum.maps.Marker({
+				        map: hotmap, // 마커를 표시할 지도
+				        clickable : true,
+				        position: hotpositions[i].latlng // 마커의 위치
+				    });
+				 marker.setMap(hotmap);
+				 
+				 var customOverlay = new daum.maps.CustomOverlay({
+					    map: hotmap,
+					    position: hotpositions[i].latlng,
+					    content: hotpositions[i].content,
+					    yAnchor: 1 
+					});
+				 customOverlay.setMap(hotmap);
+				 linePath2.push(hotpositions[i].latlng);
+				 if (i >= 1) {
+						hotline();
+					}
+			}
+			
+			function hotline() {
+				// 지도에 표시할 선을 생성합니다
+				var polyline2 = new daum.maps.Polyline({
+					path : linePath2, // 선을 구성하는 좌표배열 입니다
+					strokeWeight : 5, // 선의 두께 입니다
+					strokeColor : '#F44336', // 선의 색깔입니다
+					strokeOpacity : 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+					strokeStyle : 'solid' // 선의 스타일입니다
+				});
+				// 지도에 선을 표시합니다 
+				polyline2.setMap(hotmap);
+
+			}
+			
+			/*################## 루트만들기script + 맵생성 ################################*/
+			
+	
 				var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 				mapOption = {
 					center : new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -869,7 +953,7 @@
 					});
 					daum.maps.event.addListener(polyline, 'mouseover',
 							function(mouseEvent) {
-								alert("d");
+								//alert("d");
 							});
 					// 지도에 선을 표시합니다 
 					polyline.setMap(map);

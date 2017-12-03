@@ -27,6 +27,14 @@ public class mymapVO {
 		this.userid = userid;
 	}
 
+	public mymapVO(String pname, String pcontent, String plat, String plng, String pgroup) {
+		this.pname = pname;
+		this.pcontent = pcontent;
+		this.plat = plat;
+		this.plng = plng;
+		this.pgroup = pgroup;
+	}
+
 	public String getPname() {
 		return pname;
 	}
