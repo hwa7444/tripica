@@ -280,4 +280,38 @@ boolean result = false;
 		return result;
 	}
 
+	public realVO selectPlace(String tour_name, String lat, String lng) {
+			realVO rvo = null;
+			try {
+				getConnection();
+		
+				String sql = "SELECT * FROM tour_list where tour_name = ?";
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, tour_name);
+				
+				ResultSet r = pstmt.executeQuery();
+			
+				String pname;
+				String pcontent;
+			    String plat = lat;
+			    String plng = lng;
+				String pimg;
+				
+				while (r.next()) {
+					pname = r.getString("tour_name");
+					pcontent = r.getString("tour_comment");
+					pimg = r.getString("tour_img");
+					rvo = new realVO(pname, pcontent, plat, plng, pimg);
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("예외발생:selectPlace()=> " + e.getMessage());
+			} finally {
+				dbClose();
+			}
+
+			return rvo;
+	}
+
 }

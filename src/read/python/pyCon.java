@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.DAO.memberVO;
+import com.DAO.mymapDAO;
+import com.DAO.realVO;
 import com.DAO.resultMapVO;
 
 /**
@@ -24,8 +26,8 @@ public class pyCon extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String python35 = "C:/ProgramData/Anaconda3/python.exe";
-		
+		String python35 = "C:/Users/pc-22/AppData/Local/Programs/Python/Python35/python.exe";
+
 		int i = 0;
 		ArrayList<String> pyArr = new ArrayList<String>();
 		String id = (String) request.getAttribute("id");
@@ -41,6 +43,10 @@ public class pyCon extends HttpServlet {
 			System.out.println(".........start   process.........");
 			String line = "";
 			// System.out.println(bfr.readLine());
+
+			ArrayList<resultMapVO> resultMap = new ArrayList<resultMapVO>();
+			resultMapVO vo = null;
+
 			while ((line = bfr.readLine()) != null) {
 				pyArr.add(line);
 				// System.out.println("Python Output: " + line);
@@ -55,8 +61,6 @@ public class pyCon extends HttpServlet {
 				System.out.println(str);
 				String[] result = str.split("\\)");
 
-				ArrayList<resultMapVO> resultMap = new ArrayList<resultMapVO>();
-				resultMapVO vo = null;
 				for (int j = 0; j < result.length; j++) {
 					String rate = "";
 					String tourName = "";
@@ -83,20 +87,38 @@ public class pyCon extends HttpServlet {
 						resultMap.add(vo);
 
 					}
-					
-				}
-				System.out.println("사이즈:" + resultMap.size());
-				request.setAttribute("resultMap", resultMap);
-				request.getRequestDispatcher("HotTour.jsp").forward(request, response);
-			}
-			
-			
-			
 
+				}
+
+			}
 			System.out.println("........end   process.......");
+			
+			mymapDAO dao = new mymapDAO();
+			realVO rvo = null;
+			ArrayList<realVO> alist = new ArrayList<>();
+			
+			System.out.println("#################################");
+			for (int j = 0; j < resultMap.size(); j++) {
+				String lat = resultMap.get(j).getPlat();
+				String lng = resultMap.get(j).getPlong();
+				rvo = dao.selectPlace(resultMap.get(j).getTour_name(),lat,lng);
+				alist.add(rvo);
+			}
+			System.out.println("#################################");
+			System.out.println("###########내결과###############");
+			for (int j = 0; j < alist.size(); j++) {
+				System.out.println(alist.get(j).getPname() + " ####  " + alist.get(j).getPimg());
+			}
+			System.out.println("############내결과###############");
+			
+			
+			request.setAttribute("alist", alist);
+			request.getRequestDispatcher("HotTour.jsp").forward(request, response);
+
+			
 
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 	}
 

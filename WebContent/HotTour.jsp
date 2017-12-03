@@ -1,3 +1,4 @@
+<%@page import="com.DAO.realVO"%>
 <%@page import="java.net.URLEncoder"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.DAO.resultMapVO"%>
@@ -286,6 +287,14 @@
 	color: #999;
 	font-size: 11px;
 	margin-top: 0;
+}
+#songha{
+background-color: #FBFBFB;
+color:#C73430;
+border-top-left-radius: 10%;
+}
+#soul{
+color: #002141;
 }
 </style>
 <title>Hot Tours</title>
@@ -731,6 +740,20 @@ document.getElementById("move").scrollIntoView(true);
 		<!--==============================header 상단의 메뉴 창입니다. 끗=================================-->
 		
 		<!--==============================Content 본문내용=================================-->
+		<%
+			ArrayList<realVO> resultMap = (ArrayList<realVO>)request.getAttribute("alist");
+			
+			/* 0순위로 출력된 여행지정보를 변수에담아 el식으로 출력 */
+			String testname = resultMap.get(0).getPname();			/* 이름불러오는법 */
+			String testcontent = resultMap.get(0).getPcontent();	/* 설명불러오는법 */
+			String testimg = resultMap.get(0).getPimg();		/* img값불러오는법 */
+			
+			
+			request.setAttribute("testna", testname);
+			request.setAttribute("testcon", testcontent);
+			request.setAttribute("testim", testimg);
+		%>
+								
 		<div class="content">
 			<div class="ic"></div>
 			<div class="container_12">
@@ -738,7 +761,8 @@ document.getElementById("move").scrollIntoView(true);
 				<div class="grid_8">
 					<h3>Recommend Tour Info</h3>
 					<!-- 경도 : 여행지 사진, 설명 이 출력되는 부분-->
-
+					<h5>${testna }</h5>
+						${testcon }
 					<div class="blog">
 						<!-- 경도 :기본 틀입니다. 카테고리클릭시 여기 div에 id 값을 주어 불러 들이면 됩니다.-->
 						<c:choose>
@@ -787,11 +811,7 @@ document.getElementById("move").scrollIntoView(true);
 					<ul class="list">
 						<!--foransdms li 태그 안에서 돌리면 됩니다.-->
 						
-							<%
-								
-								ArrayList<resultMapVO> resultMap = (ArrayList<resultMapVO>)request.getAttribute("resultMap");
-								
-						
+							<% 
 								/*  
 								vo형식
 								1.여행지이름
@@ -801,10 +821,10 @@ document.getElementById("move").scrollIntoView(true);
 								
 								*/
 								for(int i=0;i<resultMap.size();i++){
-									String name = resultMap.get(i).getTour_name();
+									String name = String.valueOf(i+1)+". " + resultMap.get(i).getPname();
 									String name2 = URLEncoder.encode(name,"euc-kr");
 							%>
-						<li><a href="tourSelectCon?name=<%=name2%>"><%=resultMap.get(i).getTour_name() %></a></li>
+						<li><a href="tourSelectCon?name=<%=name2%>"><%=name %></a></li>
 						<%} %>
 												
 					</ul>
@@ -850,6 +870,18 @@ document.getElementById("move").scrollIntoView(true);
 		<script type="text/javascript"
 			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7b2110a6aaef5104b2ce89c704a24ed3&libraries=services"></script>
 		<script>
+		
+		var hmlist = new Array();
+		<c:forEach items="${alist}" var="item1">
+		var mapobj = {
+			name : '${item1.pname}',
+			lat : '${item1.plat}',
+			lng : '${item1.plng}',
+			pimg : '${item1.pimg}'
+		};
+		hmlist.push(mapobj);
+		</c:forEach>
+		
 			var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 			mapOption = {
 				center : new daum.maps.LatLng(33.37137, 126.56695), // 지도의 중심좌표
@@ -871,79 +903,42 @@ document.getElementById("move").scrollIntoView(true);
 			// 지도의 우측에 확대 축소 컨트롤을 추가한다
 			map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
 
-			// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
-			var positions = [
-					{
-						content : '<div class="customoverlay">'
-								+ '  <a href="http://map.daum.net/?itemId=11394059" target="_blank">'
-								+ '    <span class="title">제주시청</span>'
-								+ '  </a>' + '</div>',
-						latlng : new daum.maps.LatLng(33.499565, 126.531241)
-					},
-					{
-						content : '<div class="customoverlay">'
-								+ '  <a href="http://map.daum.net/?itemId=11394059" target="_blank">'
-								+ '    <span class="title">섭지코지</span>'
-								+ '  </a>' + '</div>',
-						latlng : new daum.maps.LatLng(33.42377208326678,
-								126.93045722895785)
-					},
-					{
-						content : '<div class="customoverlay">'
-								+ '  <a href="http://map.daum.net/?itemId=11394059" target="_blank">'
-								+ '    <span class="title">성산 일출봉</span>'
-								+ '  </a>' + '</div>',
-						latlng : new daum.maps.LatLng(33.45943569514741,
-								126.93968216363504)
-					},
-					{
-						content : '<div class="customoverlay">'
-								+ '  <a href="http://map.daum.net/?itemId=11394059" target="_blank">'
-								+ '    <span class="title">한라산</span>'
-								+ '  </a>' + '</div>',
-						latlng : new daum.maps.LatLng(33.36083380810028,
-								126.53581319393376)
-					} ];
+				
+				
+				var hotpositions = [];
 
-			var latlng = new daum.maps.LatLng(37, 127);
+				var cnt = 1; //여행지순서 카운트변수 ex : 1. 카페베네 , 2. 우리집
+				for (var i = 0; i < hmlist.length; i++) {
+					var getposition = new daum.maps.LatLng(hmlist[i].lat, hmlist[i].lng);
+					hotpositions[i] = {
+							content :'<div class="customoverlay" id="songha">'
+								+ '    <span class="title" id="soul">'+cnt+'. '+hmlist[i].name+ '</span>'
+								+ '</div>',
+						latlng : getposition
+					};
+					cnt += 1;
+				}
 
-			for (var i = 0; i < positions.length; i++) {
-				// 마커를 생성합니다
-				var marker = new daum.maps.Marker({
-					map : map, // 마커를 표시할 지도
-					clickable : true,
-					position : positions[i].latlng
-				// 마커의 위치
-				});
+				for (var i = 0; i < hotpositions.length; i++) {
+					if(i==0){
+						map.setCenter(hotpositions[0].latlng);
+					}
+					var marker = new daum.maps.Marker({
+						map : map, // 마커를 표시할 지도
+						clickable : true,
+						position : hotpositions[i].latlng
+					// 마커의 위치
+					});
+					marker.setMap(map);
 
-				// 커스텀 오버레이를 생성합니다
-				var customOverlay = new daum.maps.CustomOverlay({
-					map : map,
-					clickable : true,
-					position : positions[i].latlng,
-					content : positions[i].content,
-					yAnchor : 1
-				});
-
-				customOverlay.setMap(null);
-
-				daum.maps.event.addListener(marker, 'click', makeOverListener(
-						map, marker, customOverlay));
-			}
-
-			//인포윈도우를 표시하는 클로저를 만드는 함수입니다 
-			function makeOverListener(map, marker, customOverlay) {
-				return function() {
+					var customOverlay = new daum.maps.CustomOverlay({
+						map : map,
+						position : hotpositions[i].latlng,
+						content : hotpositions[i].content,
+						yAnchor : 1
+					});
 					customOverlay.setMap(map);
-				};
-			}
-
-			//인포윈도우를 닫는 클로저를 만드는 함수입니다 
-			function makeOutListener(customOverlay) {
-				return function() {
-					customOverlay.setMap(null);
-				};
-			}
+				}
 
 			/* ##############################LINE SCRIPT############################### */
 			var drawingOK = false;
