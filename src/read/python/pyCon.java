@@ -49,7 +49,8 @@ public class pyCon extends HttpServlet {
 				for (int j = 0; j < result.length; j++) {
 					String rate ="";
 					String tourName="";
-					String loca ="";
+					String lati ="";//위도
+					String longti ="";//경도
 					
 					
 					if(j>0) {
@@ -57,7 +58,8 @@ public class pyCon extends HttpServlet {
 						String[] recomList = recom.split(", ");
 						rate = recomList[0];
 						tourName = recomList[1];
-						loca = recomList[2]+", "+recomList[3];
+						lati = recomList[2];
+						longti = recomList[3];
 						
 						
 						
@@ -65,11 +67,13 @@ public class pyCon extends HttpServlet {
 						String[] recomList = result[j].split(", ");
 						rate = recomList[0];
 						tourName = recomList[1];
-						loca = recomList[2]+", "+recomList[3];
+						lati = recomList[2];
+						longti = recomList[3];
+						
 						
 					}
 					
-					System.out.println(rate +" "+tourName +" "+ loca );
+					System.out.println(rate +" "+tourName +" "+ lati +" "+longti );
 					
 					
 				}

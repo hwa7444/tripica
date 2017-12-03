@@ -45,11 +45,12 @@ public class TypeUpdateCon extends HttpServlet {
 		
 		System.out.println(type1);
 		System.out.println(type2);
-
+		
 		try {
 			memberDAO dao = memberDAO.getInstance();
 			PrintWriter out = response.getWriter();
 			dao.typeUpdate(type1, type2, id);
+			response.sendRedirect("HotTour.jsp");
 
 			
 
