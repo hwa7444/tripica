@@ -39,7 +39,8 @@ public class LoginCon extends HttpServlet {
 			}else {
 				response.setContentType("text/html;charset=euc-kr");
 				PrintWriter out = response.getWriter();
-				out.println("비밀번호나 아이디를 다시 확인하세요");
+				/*out.println("비밀번호나 아이디를 다시 확인하세요");*/
+				out.print("<script>alert('비밀번호나 아이디를 다시 확인하세요'); history.back();</script>");
 				
 			}
 		} catch (Exception e) {

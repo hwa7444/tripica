@@ -340,22 +340,22 @@
 			} else if (aa == 2) {
 				if (result1 == 1) {
 					type2 = document.getElementById("first1").src;
-					alert(type2); /*형선 : 이미지 값 넘어 가는 부분*/
+			
 					location.href = "TypeUpdateCon?type1=" + type1 + "&type2="
 							+ type2; /*형선 : TypeUpdateCon으로 이동*/
 				} else if (result1 == 2) {
 					type2 = document.getElementById("first2").src;
-					alert(type2); /*형선 : 이미지 값 넘어 가는 부분*/
+				
 					location.href = "TypeUpdateCon?type1=" + type1 + "&type2="
 							+ type2;
 				} else if (result1 == 3) {
 					type2 = document.getElementById("first3").src;
-					alert(type2); /*형선 : 이미지 값 넘어 가는 부분*/
+
 					location.href = "TypeUpdateCon?type1=" + type1 + "&type2="
 							+ type2;
 				} else if (result1 == 4) {
 					type2 = document.getElementById("first4").src;
-					alert(type2); /*형선 : 이미지 값 넘어 가는 부분*/
+			
 					location.href = "TypeUpdateCon?type1=" + type1 + "&type2="
 							+ type2;
 				}
