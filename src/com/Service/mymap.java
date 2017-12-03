@@ -18,7 +18,7 @@ import com.DAO.mymapVO;
 @WebServlet("/mymap")
 public class mymap extends HttpServlet {
 	static ArrayList<mymapVO> arr = new ArrayList<>();
-
+	static int index = 1;
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -42,11 +42,11 @@ public class mymap extends HttpServlet {
 		String plat = request.getParameter("plat");
 		String plng = request.getParameter("plng");
 		String pgroup = request.getParameter("pgroup");
-
+		
 		if (pok.equals("f")) {
 
-			arr.add(new mymapVO(pname, pcon, plat, plng, pgroup, uid)); // USER ID값이 들어가야한다.
-
+			arr.add(new mymapVO(pname, pcon, plat, plng, pgroup, uid,index)); // USER ID값이 들어가야한다.
+			index += 1;
 		} else if (pok.equals("t")) {
 
 			mymapDAO dao = new mymapDAO();
@@ -54,6 +54,7 @@ public class mymap extends HttpServlet {
 			if (dao.insertMymapList22(pgroup, nic, uid, arr)) { // 유저정보가져와야한다
 				System.out.println("db 삽입 완료 (나만의여행지도)");
 				arr.clear();
+				index = 0;
 				String re = "reload";
 				response.getWriter().print(re);
 			} else {

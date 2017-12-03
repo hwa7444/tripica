@@ -75,7 +75,7 @@ public class mymapDAO {
 		try {
 			getConnection();
 	
-			String sql = "SELECT * FROM mymap_p where num = ?";
+			String sql = "SELECT * FROM mymap_p where num = ? order by ind";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			
@@ -86,7 +86,6 @@ public class mymapDAO {
 			String plat;
 			String plng;
 			String pgroup;				//루트의 타이틀제목
-			
 			while (r.next()) {
 				pname = r.getString("pname");
 				pcontent = r.getString("pcontent");
@@ -201,7 +200,7 @@ public class mymapDAO {
 		boolean result = false;
 		try {
 				
-			String sql = "INSERT INTO mymap_p VALUES (?,?,?,?,?,?,mymap_n.CURRVAL)";
+			String sql = "INSERT INTO mymap_p VALUES (?,?,?,?,?,?,mymap_n.CURRVAL,?)";
 			pstmt = conn.prepareStatement(sql);
 			int r = 0;
 			
@@ -212,6 +211,7 @@ public class mymapDAO {
 				pstmt.setString(4, myarr.get(j).getPlng());
 				pstmt.setString(5, myarr.get(j).getPgroup());
 				pstmt.setInt(6, myarr.get(j).getUserid());
+				pstmt.setInt(7, myarr.get(j).getIndex());
 				r = pstmt.executeUpdate();
 			}
 			if (r > 0) {

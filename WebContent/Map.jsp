@@ -739,7 +739,8 @@ request.setAttribute("hlist", hmlist);
 			// 지도의 확대 레벨
 			};
 			var hotmap = new daum.maps.Map(mapContainerhot, mapOption); // 지도를 생성합니다
-
+			hotmap.setCenter(new daum.maps.LatLng(hmlist[0].lat, hmlist[0].lng));
+			
 			var linePath2 = [];
 			var hotpositions = [];
 			
@@ -749,7 +750,7 @@ request.setAttribute("hlist", hmlist);
 				var getposition = new daum.maps.LatLng(hmlist[i].lat, hmlist[i].lng);
 				hotpositions[i] = {
 						content :'<div class="customoverlay" id="songha">'
-							+ '    <span class="title" id="soul">'+cnt+'. '+hmlist[i].name+ '</span><br>'
+							+ '    <span class="title" id="soul">'+cnt+'. '+hmlist[i].name+ '</span>'
 							+     hmlist[i].pcontent
 							+ '</div>',
 						latlng : getposition
@@ -793,13 +794,27 @@ request.setAttribute("hlist", hmlist);
 
 			}
 			
+			var n = 0;
+			var lim = hmlist.length;
+			setInterval(function() {
+				if (n < lim) {
+					hotmap.panTo(hotpositions[n].latlng);
+					hotmap.setLevel(5, {anchor: hotpositions[n].latlng});
+					n+=1;
+				} else {
+					n = 0;
+					hotmap.panTo(hotpositions[n].latlng);
+					hotmap.setLevel(9, {anchor: hotpositions[n].latlng});
+				}
+			}, 3000);
+			
 			/*################## 루트만들기script + 맵생성 ################################*/
 			
 	
 				var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 				mapOption = {
-					center : new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-					level : 3
+					center : new daum.maps.LatLng(33.37137, 126.56695), // 지도의 중심좌표
+					level : 9
 				// 지도의 확대 레벨
 				};
 

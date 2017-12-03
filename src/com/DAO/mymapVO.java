@@ -9,6 +9,7 @@ public class mymapVO {
 	String plng;
 	String pgroup;
 	int userid;
+	int index;
 	
 	public mymapVO() {
 	}
@@ -35,6 +36,15 @@ public class mymapVO {
 		this.pgroup = pgroup;
 	}
 
+	public mymapVO(String pname2, String pcon, String plat2, String plng2, String pgroup2, int uid, int index) {
+		this.pname = pname;
+		this.pcontent = pcontent;
+		this.plat = plat;
+		this.plng = plng;
+		this.pgroup = pgroup;
+		this.index = index;
+	}
+
 	public String getPname() {
 		return pname;
 	}
@@ -57,6 +67,10 @@ public class mymapVO {
 
 	public int getUserid() {
 		return userid;
+	}
+	
+	public int getIndex() {
+		return index;
 	}
 	
 }
