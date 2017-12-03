@@ -294,7 +294,7 @@
 					var first3 = document.getElementById("first3");
 					var first4 = document.getElementById("first4");
 					type1 = document.getElementById("first1").src;
-					alert(type1);
+					
 					first1.src = "images/Activity/amu/A_amu_1.jpg"; /*형선 : Activity_amu_1*/
 					first2.src = "images/Activity/amu/A_amu_2.jpg"; /*형선 : Activity_amu_2*/
 					first3.src = "images/Activity/spo/A_spo_1.jpg"; /*형선 : Activity_spo_1*/
@@ -306,7 +306,7 @@
 					var first3 = document.getElementById("first3");
 					var first4 = document.getElementById("first4");
 					type1 = document.getElementById("first2").src;
-					alert(type1);
+					
 					first1.src = "images/Learning/art/L_art_1.jpg"; /* 형선 : Learning_art_1 */
 					first2.src = "images/Learning/art/L_art_2.jpg"; /* 형선 : Learning_art_2 */
 					first3.src = "images/Learning/mus/L_mus_1.jpg"; /* 형선 : Learning_mus_1 */
@@ -318,7 +318,7 @@
 					var first3 = document.getElementById("first3"); /* 형선 : Relaxation */
 					var first4 = document.getElementById("first4");
 					type1 = document.getElementById("first3").src;
-					alert(type1);
+					
 					first1.src = "images/Relaxation/res/R_res_1.jpg"; /* 형선 : Relaxation_res_1 */
 					first2.src = "images/Relaxation/res/R_res_2.jpg"; /* 형선 : Relaxation_res_2 */
 					first3.src = "images/Relaxation/res/R_res_3.jpg"; /* 형선 : Relaxation_res_3 */
@@ -330,7 +330,7 @@
 					var first3 = document.getElementById("first3");
 					var first4 = document.getElementById("first4"); /* 형선 : View */
 					type1 = document.getElementById("first4").src;
-					alert(type1); /*형선 : 이미지 값 넘어 가는 부분*/
+					 /*형선 : 이미지 값 넘어 가는 부분*/
 					first1.src = "images/View/his/V_his_1.jpg"; /* 형선 : View_his_1 */
 					first2.src = "images/View/his/V_his_2.JPG"; /* 형선 : View_his_2 */
 					first3.src = "images/View/nat/V_nat_1.jpg"; /* 형선 : View_nat_1 */
