@@ -52,6 +52,9 @@ background-image:url("images/large.jpg");
 background-repeat:repeat; 
 padding-bottom: 120px;
 }
+.sf-menu>li>a{
+text-decoration: none;
+}
 </style>
 </head>
 <body>

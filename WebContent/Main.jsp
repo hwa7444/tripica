@@ -792,15 +792,15 @@
 		<!--==============================minimap 1 2 3 4지 도 4개 들어 가는 부분입니다.=================================-->
 		<div class="content">
 			<div class="ic"></div>
-			<div class="container_12">
+			<!-- <div class="container_12">
 				<h3>Recommend</h3>
 				<h2 style="font-size: 1.3em;">당신 만을 위한 추천여행 루트 입니다.</h2>
 				<div class="grid_6">
-					<!-- MINIMAP 1번 사용자 맞춤 추천 루트 -->
+					MINIMAP 1번 사용자 맞춤 추천 루트
 					<div id="minimap1"></div>
 				</div>
 				<div class="grid_6">
-					<!-- MINIMAP 2번 사용자 맞춤 추천 루트 -->
+					MINIMAP 2번 사용자 맞춤 추천 루트
 					<div id="minimap2"></div>
 				</div>
 			</div>
@@ -811,18 +811,18 @@
 				<h3>Tirpicker's Choice</h3>
 				<h2 style="font-size: 1.3em;">저희 사이트가 추천하는 여행 루트 입니다.</h2>
 				<div class="grid_6">
-					<!-- MINIMAP 3번 우리사이트 자체 추천 루트 -->
+					MINIMAP 3번 우리사이트 자체 추천 루트
 					<div id="minimap3"></div>
 				</div>
 				<div class="grid_6">
-					<!-- MINIMAP 4번 우리사이트 자체 추천 루트 -->
+					MINIMAP 4번 우리사이트 자체 추천 루트
 					<div id="minimap4"></div>
 				</div>
 
 			</div>
 
 			<div class="clear"></div>
-			<!--==============================minimap 1 2 3 4지 도 4개 들어 가는 부분입니다. 끗=================================-->
+			==============================minimap 1 2 3 4지 도 4개 들어 가는 부분입니다. 끗================================= -->
 
 			<div class="container_12">
 				<h3 style="top: 0;">Welcome!</h3>

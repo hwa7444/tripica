@@ -480,10 +480,7 @@ document.getElementById("move").scrollIntoView(true);
 					</c:when>
 
 					<c:otherwise>
-						<h3>Best Post</h3>
-						<div class="grid_12">
-							<div style="width: 500px; height: 300px;">
-								<%
+					<%
 									int max = 0;
 								for (int i = 0; i < arr.size(); i++) {
 									if(arr.get(i).getCheckD()>arr.get(max).getCheckD()){
@@ -491,6 +488,11 @@ document.getElementById("move").scrollIntoView(true);
 									}
 									}											
 								%>
+						<h3>Best Post</h3>
+						<span style="font-size:1.4em;">제목 : <span style="color:#002141;"><%=arr.get(max).getTitle()%></span>&nbsp 작성자 : <span style="color:#002141;"><%=arr.get(max).getNick()%></span>&nbsp 추천 수 : <span style="color:#002141;"><%=arr.get(max).getCheckD()%></span></span>
+						<div class="grid_12">
+							<div style="width: 500px; height: 300px;">
+								
 								<img
 									src="upload/<%=URLEncoder.encode(arr.get(max).getFileName(), "euc-kr")%>">
 								
