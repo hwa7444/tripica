@@ -147,6 +147,8 @@ public class memberDAO {
 		pst.setString(1, type1);
 		pst.setString(2, type2);
 		pst.setString(3, id);
+		
+		
 		int cnt = pst.executeUpdate();
 		
 		return cnt;

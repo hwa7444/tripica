@@ -499,7 +499,7 @@
 		<div class="grid_13">
 			<img src="images/logo/tripickerLogo9.png">
 			<c:choose>
-				<c:when test="${empty vo.id}">
+				<c:when test="${empty vo1.id}">
 					<ul>
 						<li><a href="#login_form" id="login_pop">로그인</a></li>
 						<li><a href="#join_form" id="join_pop">회원가입</a></li>
@@ -507,7 +507,7 @@
 				</c:when>
 				<c:otherwise>
 					<ul>
-						<li><h1 style="color: white;">${vo.nick}님</h1></li>
+						<li><h1 style="color: white;">${vo1.nick}님</h1></li>
 						<li><a href="Logout.jsp" id="login_pop">로그아웃</a></li>
 						<li><a href="#update_form" id="join_pop">개인정보수정</a></li>
 						<li><a href="#trip_form1" id="trip_pop" onclick="move()">여행지추천
@@ -533,7 +533,7 @@
 					<ul class="sf-menu">
 						<li class="current"><a href="Main.jsp">HOME</a></li>
 						<c:choose>
-							<c:when test="${empty vo.id}">
+							<c:when test="${empty vo1.id}">
 								<li><a href="#login_form2">HOT
 										TOURS</a></li>
 							</c:when>
@@ -569,7 +569,7 @@
 							 &nbsp<span>멋있는 일출을 보고 싶다면?</span>
 						</div>
 						<c:choose>
-							<c:when test="${empty vo.id}">
+							<c:when test="${empty vo1.id}">
 						<a href="#login_form2">더 보기</a>
 							</c:when>
 							<c:otherwise>
@@ -585,7 +585,7 @@
 							&nbsp<span>향기로운 허브동산에서 멋있는 야경을!</span>
 						</div>
 						<c:choose>
-							<c:when test="${empty vo.id}">
+							<c:when test="${empty vo1.id}">
 						<a href="#login_form2">더 보기</a>
 							</c:when>
 							<c:otherwise>
@@ -601,7 +601,7 @@
 							&nbsp<span>멋진 설경을 보고싶다면?</span>
 						</div>
 						<c:choose>
-							<c:when test="${empty vo.id}">
+							<c:when test="${empty vo1.id}">
 						<a href="#login_form2">더 보기</a>
 							</c:when>
 							<c:otherwise>
@@ -617,7 +617,7 @@
 							&nbsp<span>선인장이 가득한 해변가에서 산책을!</span>
 						</div>
 						<c:choose>
-							<c:when test="${empty vo.id}">
+							<c:when test="${empty vo1.id}">
 						<a href="#login_form2">더 보기</a>
 							</c:when>
 							<c:otherwise>

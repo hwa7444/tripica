@@ -34,7 +34,7 @@ public class LoginCon extends HttpServlet {
 			vo = dao.login(id,pw);
 			if (vo != null) {
 				HttpSession session = request.getSession();
-				session.setAttribute("vo", vo);
+				session.setAttribute("vo1", vo);
 				response.sendRedirect("Main.jsp");
 			}else {
 				response.setContentType("text/html;charset=euc-kr");
