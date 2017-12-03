@@ -81,7 +81,9 @@
 	border: 1px solid #ccc;
 	border-bottom: 2px solid #ddd;
 	float: left;
+	
 }
+
 
 .customoverlay:nth-of-type(n) {
 	border: 0;
@@ -305,6 +307,17 @@
 }
 </style> -->
 
+<style type="text/css">
+#songha{
+background-color: #FBFBFB;
+color:#C73430;
+border-top-left-radius: 10%;
+}
+#soul{
+color: #002141;
+}
+</style>
+
 <title>MAP DIY</title>
 <meta charset="utf-8">
 <%
@@ -349,6 +362,7 @@
 	padding-bottom: 120px;
 }
 </style>
+
 </head>
 <body>
 	<%
@@ -649,6 +663,7 @@
 							<th>작성자</th>
 							<th>작성일자</th>
 							<th>추천 수</th>
+							<th>추천하기</th>
 						</tr>
 
 						<!-- 	/*  
@@ -670,6 +685,7 @@
 							<td><%=mlist.get(i).getNick()%></td>
 							<td><%=mlist.get(i).getDay()%></td>
 							<td><%=mlist.get(i).getRecom()%></td>
+							<td><a href="MapBest?num=<%=mlist.get(i).getNum()%>&recom=<%=mlist.get(i).getRecom()%>"><span style="background-color: #;">추천</span></a></td>
 						</tr>
 						<%
 							}
@@ -732,8 +748,8 @@ request.setAttribute("hlist", hmlist);
 			for (var i = 0; i < hmlist.length; i++) {
 				var getposition = new daum.maps.LatLng(hmlist[i].lat, hmlist[i].lng);
 				hotpositions[i] = {
-						content :'<div class="customoverlay">'
-							+ '    <span class="title">'+cnt+'. '+hmlist[i].name+ '</span><br>'
+						content :'<div class="customoverlay" id="songha">'
+							+ '    <span class="title" id="soul">'+cnt+'. '+hmlist[i].name+ '</span><br>'
 							+     hmlist[i].pcontent
 							+ '</div>',
 						latlng : getposition
