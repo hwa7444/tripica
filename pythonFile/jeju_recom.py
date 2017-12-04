@@ -22,15 +22,15 @@ def member_group():
     for result in mem_test:
         idp = result[1]
         name=result[3]
-        type_1=result[4]
-        type_2=result[5]
+        type_1=result[7]
+        type_2=result[8]
         members[idp]={'type':[type_1,type_2]}
     return members
 
 member_group()
 
 # 3. 회원들의 id값 불러오기
-memberi=cur.execute("SELECT id FROM member")
+memberi=cur.execute("SELECT mem_id FROM member")
 memberid=[]
 for i in memberi:
     memberid.append(i[0])
