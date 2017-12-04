@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.DAO.memberDAO;
+import com.DAO.memberVO;
 
 
 @WebServlet("/TypeUpdateCon")
@@ -18,7 +19,8 @@ public class TypeUpdateCon extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String id = (String)session.getAttribute("id");
+		memberVO vo1 = (memberVO) session.getAttribute("vo1");
+		String id = vo1.getId();
 		String type1 = request.getParameter("type1");
 		String type2 = request.getParameter("type2");
 		if(type1.contains("Learning")) {

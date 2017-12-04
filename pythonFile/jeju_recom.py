@@ -8,7 +8,7 @@ Created on 2017. 11. 29.
 # In[1]:
 import cx_Oracle
 from math import sqrt
-conn = cx_Oracle.connect('system/1234@localhost:1521/xe')
+conn = cx_Oracle.connect('web/web@192.168.0.11:1521/xe')
 cur=conn.cursor()
 
 
@@ -42,7 +42,7 @@ for i in memberid: #iterating the list using index(int)
     k=cur.fetchall()
     name = i
     for j in k:
-        cur.execute('select t_type from tour_list where tour=(:a)',a=j[1]) #here cursor is using the existing cursor objec
+        cur.execute('select tour_type from tour_list where tour_name=(:a)',a=j[1]) #here cursor is using the existing cursor objec
         d=cur.fetchone()
         
         gone =  j[1]
@@ -141,14 +141,14 @@ def getRecommendation(data, person,sim_funciton=sim_pearson):
                 simsum_list.setdefault(tour,0)
                 simsum_list[tour]+=sim
     
-    cur.execute('select t_type2 from member where id=(:k) ',k=person) #회원속성 불러오기
+    cur.execute('select t_type2 from member where mem_id=(:k) ',k=person) #회원속성 불러오기
     t_type = cur.fetchone()
     
     for tour in score_dic:
         rate=score_dic[tour]/simsum_list[tour]
         
         
-        cur.execute('select address from tour_list where tour=(:k) ',k=tour) #여행지 위치 불러오기
+        cur.execute('select tour_address from tour_list where tour_name=(:k) ',k=tour) #여행지 위치 불러오기
         loca = cur.fetchone()
         
         if data[person]['type'][1]==t_type: 
@@ -160,7 +160,7 @@ def getRecommendation(data, person,sim_funciton=sim_pearson):
          
     return(recom_list)           
                 
-print(getRecommendation(members,'chs',sim_pearson))    
+print(getRecommendation(members,'1234',sim_pearson))    
 
             
 

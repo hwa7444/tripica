@@ -25,7 +25,7 @@ public class pyCon extends HttpServlet {
 		try {
 			Runtime r = Runtime.getRuntime();
 			
-			Process p = r.exec("cmd /c "+python35+" D:/travle.py"); //cmd를 이용해 파이썬의 경로를 입력해 파이썬을 실행시키고 실행시킨 파이썬을 이용해 파이썬 파일안의 코드를 실행
+			Process p = r.exec("cmd /c "+python35+" D:/jeju_recom.py"); //cmd를 이용해 파이썬의 경로를 입력해 파이썬을 실행시키고 실행시킨 파이썬을 이용해 파이썬 파일안의 코드를 실행
 
 			BufferedReader bfr = new BufferedReader(new InputStreamReader(p.getInputStream()));
 			
