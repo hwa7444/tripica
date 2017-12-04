@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.DAO.resultMapVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -617,10 +619,29 @@
 					<!-- 경도 : 여행지 목록 출력 부분-->
 					<ul class="list">
 						<!--foransdms li 태그 안에서 돌리면 됩니다.-->
+						
+							<%
+								
+								ArrayList<resultMapVO> resultMap = (ArrayList<resultMapVO>)request.getAttribute("resultMap");
+								
+						
+								/*  
+								vo형식
+								1.여행지이름
+								2.평점
+								3.위도
+								4.경도
+								
+								*/
+								for(int i=0;i<resultMap.size();i++){
+							%>
+						<li><a href="tourSelectCon?name=<%=resultMap.get(i).getTour_name()%>"><%=resultMap.get(i).getTour_name() %></a></li>
+						<%} %>
 						<li><a href="tourSelectCon?name=건강과성박물관">건강과성박물관</a></li>
 						<li><a href="tourSelectCon?name=명도암">명도암</a></li>
 						<li><a href="tourSelectCon?name=김만덕기념관">김만덕기념관</a></li>
 						<li><a href="tourSelectCon?name=무병장수테마파크">무병장수테마파크</a></li>
+						
 					</ul>
 				</div>
 			</div>

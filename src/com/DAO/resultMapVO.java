@@ -13,5 +13,21 @@ public class resultMapVO {
 		this.plat = plat;
 		this.plong = plong;
 	}
+
+	public String getTour_name() {
+		return tour_name;
+	}
+
+	public String getRate() {
+		return rate;
+	}
+
+	public String getPlat() {
+		return plat;
+	}
+
+	public String getPlong() {
+		return plong;
+	}
 	
 }
