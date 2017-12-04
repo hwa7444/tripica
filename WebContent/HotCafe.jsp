@@ -34,6 +34,14 @@
       <script src="js/html5shiv.js"></script>
       <link rel="stylesheet" media="screen" href="css/ie.css">
       <![endif]-->
+   <style type="text/css">
+.content {
+background-color: #FBFBFB;
+background-image:url("images/large.jpg");
+background-repeat:repeat; 
+padding-bottom: 120px;
+}
+</style>   
    </head>
    <body>
   <!--==========================try me==============================-->
@@ -231,7 +239,7 @@
             <div class="grid_12">
                <h1>
                   <a href="tourInformation.jsp">
-                     <img src="images/logo/tripickerLogo9.png" alt="Your Happy Family">
+                     <img id="hotRe1" src="images/logo/tripickerLogo9.png" alt="Your Happy Family">
                   </a>
                </h1>
             </div>
@@ -245,7 +253,7 @@
                <div class="block2">
                   <img style="width:250px; height:266px;" src="images/sepecial/ca1_1.jpg" alt="" class="img_inner fleft">
                   <div class="extra_wrapper">
-                     <div class="text1 col1" id="hotRe1"><a href="#">메이비 카페</a></div>
+                     <div class="text1 col1"><a href="#">메이비 카페</a></div>
                      <p>위치 : 서귀포 이중섭로 34</p> 
                      <p>전화번호 : 010-6666-0639</p>                   
                      <p>운영시간</p>

@@ -44,7 +44,6 @@ public class LoginCon extends HttpServlet {
 				
 			}
 		} catch (Exception e) {
-			
 			e.printStackTrace();
 		}
 		
