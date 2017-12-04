@@ -677,7 +677,7 @@
 				<h3>
 					<span style="color: #C73430;">Hot</span> Map
 				</h3>
-				<h2 style="font-size: 1.3em;">예비 여행자들이 추천한 인기 루트입니다.</h2>
+				<h2 style="font-size: 1.3em;">최근 여행자들의 인기 관광지 입니다.</h2>
 				<div class="grid_12">
 					<!-- MINIMAP 1번 사용자 맞춤 추천 루트 -->
 					<div
@@ -1311,12 +1311,15 @@
 		};
 		hmlist.push(mapobj);
 		</c:forEach>
-		alert(hmlist[0].name);
-		var temp;
+		
+		
+/* 		var temp;
 		for (var i = 0; i < hmlist.length; i++) {
 			temp = new daum.maps.LatLng(hmlist[i].lat, hmlist[i].lng);
 			alert(temp);
 		}
+		 */
+		
 /* 		
 		for (var i = 0; i < hmlist.length; i++) {
 			var obj =hmlist[i];
@@ -1327,7 +1330,7 @@
 		}
 	 */
 		
-			var mapContainerhot = document.getElementById('minimap1'), // 지도를 표시할 div  
+			var mapContainerhot = document.getElementById('minimap5'), // 지도를 표시할 div  
 			mapOption = {
 				center : new daum.maps.LatLng(33.37137, 126.56695), // 지도의 중심좌표
 				level : 10
@@ -1370,7 +1373,9 @@
 			var mapTypeControl2 = new daum.maps.MapTypeControl();
 			var mapTypeControl3 = new daum.maps.MapTypeControl();
 			var mapTypeControl4 = new daum.maps.MapTypeControl();
+			var mapTypeControl5 = new daum.maps.MapTypeControl();
 			// 지도의 상단 우측에 지도 타입 변경 컨트롤을 추가한다
+		    hotmap.addControl(mapTypeControl5, daum.maps.ControlPosition.TOPRIGHT);
 			map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
 			map2
 					.addControl(mapTypeControl2,
@@ -1383,20 +1388,65 @@
 							daum.maps.ControlPosition.TOPRIGHT);
 
 			//지도타입 컨트롤의 지도 또는 스카이뷰 버튼을 클릭하면 호출되어 지도타입을 바꾸는 함수입니다
+			hotmap.setMapTypeId(daum.maps.MapTypeId.HYBRID);
 			map.setMapTypeId(daum.maps.MapTypeId.HYBRID);
 			map2.setMapTypeId(daum.maps.MapTypeId.HYBRID);
 			map3.setMapTypeId(daum.maps.MapTypeId.HYBRID);
 			map4.setMapTypeId(daum.maps.MapTypeId.HYBRID);
+			
+			var hotpositions = [];
+			for (var i = 0; i < hmlist.length; i++) {
+				var getposition = new daum.maps.LatLng(hmlist[i].lat, hmlist[i].lng);
+				hotpositions[i] = {
+						content :'<div class="customoverlay">'
+							+ '  <a href="http://map.daum.net/?itemId=11394059" target="_blank">'
+							+ '    <span class="title">'+hmlist[i].name+ '</span>'
+							+ '  </a>' + '</div>',
+						latlng : getposition
+				};
+			}
+			for (var i = 0; i < hotpositions.length; i++) {
+				
+				 var marker = new daum.maps.Marker({
+				        map: hotmap, // 마커를 표시할 지도
+				        clickable : true,
+				        position: hotpositions[i].latlng // 마커의 위치
+				    });
+				 marker.setMap(hotmap);
+				 
+				 var customOverlay = new daum.maps.CustomOverlay({
+					    map: hotmap,
+					    position: hotpositions[i].latlng,
+					    content: hotpositions[i].content,
+					    yAnchor: 1 
+					});
+				 customOverlay.setMap(hotmap);
+			}
+			
+			new daum.maps.LatLng(33.37137, 126.56695)
 			var n = 0;
 			setInterval(function() {
-				if (n <= 3) {
-					map.panTo(positions[n].latlng);
+				if (n <= 9) {
+					hotmap.panTo(hotpositions[n].latlng);
+					hotmap.setLevel(8, {anchor: hotpositions[n].latlng});
+					setTimeout(function() {
+						hotmap.setLevel(10);
+						hotmap.panTo(new daum.maps.LatLng(33.37137, 126.56695));
+						}, 2000);
 					n++;
 				} else {
 					n = 0;
 				}
+				
+				// 지도 레벨을 4로 설정하고 특정 좌표를 기준으로 확대 또는 축소되도록 한다
+				hotmap.setLevel(8, {anchor: hotpositions[n].latlng});
 
-			}, 3000);
+			
+				
+			
+				
+			}, 3500);
+			
 			/* // 지도에 확대 축소 컨트롤을 생성한다
 			 var zoomControl = new daum.maps.ZoomControl();
 			 var zoomControl2 = new daum.maps.ZoomControl();
