@@ -13,8 +13,12 @@
 </head>
 
 <body>
-<div id="minimap7">
 
+
+<div id="minimap7">
 </div>
+
+
+
 </body>
 </html>

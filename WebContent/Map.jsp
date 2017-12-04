@@ -1,3 +1,6 @@
+<%@page import="com.DAO.MymaplistVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.DAO.mymapDAO"%>
 <%@page import="com.DAO.memberVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
@@ -360,6 +363,22 @@ padding-bottom: 120px;
 			nick = (String) session.getAttribute("nick");
 		} */
 	%>
+	<%
+	
+	mymapDAO dao = new mymapDAO();
+	ArrayList<MymaplistVO> mlist = null;
+	mlist = dao.getAllMaplist();
+	
+	/*  
+	
+	int num;			게시글번호
+	String pgroup;		지도이름
+	String nick;		작성자닉네임
+	int recom;			추천수
+	String day;			작성일
+	
+	*/
+	%>
 	<!--==========================로그인/회원가입 모달입니다.==============================-->
 
 	<!-- login form -->
@@ -619,28 +638,28 @@ padding-bottom: 120px;
 						</tr>
 						<tr>
 							<td>1</td>
-							<td><a onclick="showMap()">송하의 제주도 오름 탐방기</a></td>
+							<td><a onclick="showMap(1)">송하의 제주도 오름 탐방기</a></td>
 							<td>123</td>
 							<td>2017-12-03</td>
 							<td>23</td>
 						</tr>
 						<tr>
 							<td>2</td>
-							<td><a onclick="showMap()">송하의 제주도 오름 탐방기</a></td>
+							<td><a onclick="showMap(2)">송하의 제주도 오름 탐방기</a></td>
 							<td>123</td>
 							<td>2017-12-03</td>
 							<td>23</td>
 						</tr>
 						<tr>
 							<td>2</td>
-							<td><a onclick="showMap()">송하의 제주도 오름 탐방기</a></td>
+							<td><a onclick="showMap(3)">송하의 제주도 오름 탐방기</a></td>
 							<td>123</td>
 							<td>2017-12-03</td>
 							<td>23</td>
 						</tr>
 						<tr>
 							<td>2</td>
-							<td><a onclick="showMap()">송하의 제주도 오름 탐방기</a></td>
+							<td><a onclick="showMap(4)">송하의 제주도 오름 탐방기</a></td>
 							<td>123</td>
 							<td>2017-12-03</td>
 							<td>23</td>
@@ -650,8 +669,8 @@ padding-bottom: 120px;
 					<div class="clear"></div>
 			</div>
 			<script type="text/javascript">
-			function showMap(){
-				window.open('showMap.jsp','showMap','width=900px,left=100px,top=100px,height=450px,scrollbars = no,resizeable = no,menubar = no,menubar = no');
+			function showMap(num){
+				window.open('showMap.jsp?num='+num,'showMap','width=900px,left=100px,top=100px,height=450px,scrollbars = no,resizeable = no,menubar = no,menubar = no');
 			}
 			</script>
 
@@ -777,6 +796,9 @@ function send(){
 		success:function(data){
 			if(data == "reload"){
 				alert("작성완료!!");
+				location.reload();
+			}else if(data == "nologin"){
+				alert("로그인이 필요한 작업입니다.");
 				location.reload();
 			}
 		}

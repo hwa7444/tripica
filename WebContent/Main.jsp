@@ -1399,7 +1399,7 @@
 				var getposition = new daum.maps.LatLng(hmlist[i].lat, hmlist[i].lng);
 				hotpositions[i] = {
 						content :'<div class="customoverlay">'
-							+ '  <a href="http://map.daum.net/?itemId=11394059" target="_blank">'
+							+ '  <a href="http://place.map.daum.net/21135119" target="_blank">'
 							+ '    <span class="title">'+hmlist[i].name+ '</span>'
 							+ '  </a>' + '</div>',
 						latlng : getposition
