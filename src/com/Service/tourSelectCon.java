@@ -19,6 +19,7 @@ public class tourSelectCon extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("EUC-KR");
+		response.setCharacterEncoding("euc-kr");
 		String name =request.getParameter("name");
 		tourDAO dao = tourDAO.getInstance();
 		System.out.println(name);

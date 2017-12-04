@@ -46,7 +46,7 @@ public class tourDAO {
 	}
 	public tourVO tourselect(String name) throws Exception { // 해당아이디 정보 불러오는 메소드
 		getConn();
-
+		System.out.println("DAO:"+name);
 		pst = conn.prepareStatement("select * from tour_list where tour_name=?");
 		pst.setString(1, name);
 

@@ -1,3 +1,4 @@
+<%@page import="java.net.URLEncoder"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.DAO.resultMapVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -634,14 +635,12 @@
 								
 								*/
 								for(int i=0;i<resultMap.size();i++){
+									String name = resultMap.get(i).getTour_name();
+									String name2 = URLEncoder.encode(name,"euc-kr");
 							%>
-						<li><a href="tourSelectCon?name=<%=resultMap.get(i).getTour_name()%>"><%=resultMap.get(i).getTour_name() %></a></li>
+						<li><a href="tourSelectCon?name=<%=name2%>"><%=resultMap.get(i).getTour_name() %></a></li>
 						<%} %>
-						<li><a href="tourSelectCon?name=건강과성박물관">건강과성박물관</a></li>
-						<li><a href="tourSelectCon?name=명도암">명도암</a></li>
-						<li><a href="tourSelectCon?name=김만덕기념관">김만덕기념관</a></li>
-						<li><a href="tourSelectCon?name=무병장수테마파크">무병장수테마파크</a></li>
-						
+												
 					</ul>
 				</div>
 			</div>

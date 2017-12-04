@@ -5,7 +5,6 @@ Created on 2017. 11. 29.
 @author: home
 '''
 
-# In[1]:
 import cx_Oracle
 from math import sqrt
 conn = cx_Oracle.connect('web/web@192.168.0.11:1521/xe')
@@ -19,6 +18,7 @@ members={}
 
 cur.execute('SELECT * FROM member')
 mem_test=cur.fetchall()
+cur.close()
 for result in mem_test:
     idp = result[1]
     name=result[3]
@@ -28,17 +28,21 @@ for result in mem_test:
 
 
 # 3. 회원들의 id값 불러오기
+cur=conn.cursor()
 memberi=cur.execute('SELECT mem_id FROM member')
 memberid=[]
 for i in memberi:
     memberid.append(i[0])
-
+cur.close()
 # 4. Members 딕셔너리에 회원들이 다녀온 여행지 및 평점 추가
 
+cur=conn.cursor()
 for i in memberid: #iterating the list using index(int)
     cur.execute('select * from goneTourList where id=(:b)',b=i) #here cursor is using the existing cursor objec
     k=cur.fetchall()
+    cur.close()
    
+    cur=conn.cursor()
     for j in k:
         cur.execute('select tour_type from tour_list where tour_name=(:a)',a=j[1]) #here cursor is using the existing cursor objec
         d=cur.fetchone()
@@ -47,7 +51,7 @@ for i in memberid: #iterating the list using index(int)
              
         members[i][gone]=(d[0],j[2])
         
-
+cur.close()
 # 피어슨상관계수
 
 def sim_pearson(data, person1, person2):
@@ -76,9 +80,9 @@ def sim_pearson(data, person1, person2):
     
     coval = sumXY-sumX*sumY/len(tour_lis)
     varX= sumPowX-pow(sumX,2)/len(tour_lis)
-    
+    if varX==0: return 1
     varY= sumPowY-pow(sumY,2)/len(tour_lis)
-    if varX*varY==0:return 0
+    if varY==0: return 1
     r=coval/sqrt(varX*varY)
     
     return r
@@ -141,19 +145,20 @@ def getRecommendation(data, person,sim_funciton=sim_pearson):
                 score_dic[tour]+=sim*data[name][tour][1]
                 simsum_list.setdefault(tour,0)
                 simsum_list[tour]+=sim
-    
+    cur=conn.cursor()
     cur.execute('select t_type2 from member where mem_id=(:k) ',k=person) #회원속성 불러오기
     t_type = cur.fetchone()
+    cur.close()
     
     for tour in score_dic:
         rate=score_dic[tour]/simsum_list[tour]
         
-        
-        cur.execute('select tour_address from tour_list where tour_name=(:k) ',k=tour) #여행지 위치 불러오기
+        cur=conn.cursor()
+        cur.execute('select tour_address,tour_type from tour_list where tour_name=(:k) ',k=tour) #여행지 위치 불러오기
         loca = cur.fetchone()
-        
-        if data[person]['type'][1]==t_type: 
-            recom_list.append((rate*1.2,tour,loca[0])) #선호 여행지에대한 가중치 1.2 줌
+        cur.close()
+        if data[person]['type'][1]==loca[1]: 
+            recom_list.append((rate*2,tour,loca[0])) #선호 여행지에대한 가중치 1.2 줌
         else :recom_list.append((rate,tour,loca[0]))
         
     recom_list.sort()
@@ -166,6 +171,8 @@ import sys
 var1 = sys.argv[1]
       
 print(getRecommendation(members,var1,sim_pearson))    
+
+              
 
             
 
