@@ -3,6 +3,7 @@ package com.Service;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -60,7 +61,12 @@ public class TypeUpdateCon extends HttpServlet {
 			
 			if(cnt>0) {
 				System.out.println("타입업데이트성공");
-				response.sendRedirect("HotTour.jsp");
+				request.setAttribute("id", id);
+				request.getRequestDispatcher("pyCon").forward(request, response);
+				
+				
+				
+				
 			}else {
 				System.out.println("타입업데이트실패");
 			}

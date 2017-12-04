@@ -114,7 +114,7 @@ def top_match(data, person, n=3, sim_function=sim_distance):#default값 설정가능 
     for i in match_person:
         score=sim_function(data,person, i)
         match_list.append((score,i))
-    print(match_list)
+    
     match_list.sort()
     match_list.reverse()
     return match_list[:n]
@@ -160,8 +160,12 @@ def getRecommendation(data, person,sim_funciton=sim_pearson):
     recom_list.reverse()
          
     return(recom_list)           
-                
-print(getRecommendation(members,'k1',sim_pearson))    
+
+#웹페이지 세션값으로 아이디 불러오기
+import sys
+var1 = sys.argv[1]
+      
+print(getRecommendation(members,var1,sim_pearson))    
 
             
 
