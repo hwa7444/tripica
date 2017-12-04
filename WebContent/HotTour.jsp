@@ -852,7 +852,7 @@ document.getElementById("move").scrollIntoView(true);
 					<div class="ic"></div>
 					<div class="grid_12">
 <h3>Recommend Tour Map Info</h3>
-<span style="font-size:1.3em;">추천 받은 여행지의 장소 정보입니다.지도에 위치 찍어보고 이동경로를 계획하세요!</span>
+<span style="font-size:1.3em;">추천 받은 여행지의 장소 정보입니다.지도에 위치를 찍어보고 이동경로를 계획하세요!</span>
 						<div class="map_wrap">
 							<ul id="category">
 								<li id="BK9" data-order="0"><span class="category_bg bank"></span>
@@ -877,7 +877,7 @@ document.getElementById("move").scrollIntoView(true);
 							<div id="map" style="width: 100%; height: 100%;"></div>
 						</div>
 
-						<button id="hu3" onclick="drawing()" style="margin-top:100px; cursor:pointer; margin-left:83%;font-family: SeoulNamsanEB; font-size:1.3em; 100px; position: relative; padding:10px; background-color: #C73430; border-color: #C73430; color:#FFFAF0; border-radius: 10%; ">소요시간측정하기</button>
+						<button id="hu3" onclick="drawing()" style="margin-top:100px; cursor:pointer; margin-left:83%;font-family: SeoulNamsanEB; font-size:1.1em; 100px; position: relative; padding:10px; background-color: #C73430; border-color: #C73430; color:#FFFAF0; border-radius: 10%; ">소요시간측정하기</button>
 					</div>
 				</div>
 			</div>

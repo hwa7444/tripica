@@ -489,7 +489,7 @@ document.getElementById("move").scrollIntoView(true);
 									}											
 								%>
 						<h3>Best Post</h3>
-						<span style="font-size:1.3em;">추천을 가장 많이 받은 사용자의 게시물 입니다.</span><p></p>
+						<span style="font-size:1.3em;">추천을 가장 많이 받은 게시물 입니다.</span><p></p>
 						<span style="color:#C73430;font-size:1.4em;">&lt;&nbsp</span><span style="font-size:1.4em;">제목 : <span style="color:#002141;"><%=arr.get(max).getTitle()%></span>&nbsp 작성자 : <span style="color:#002141;"><%=arr.get(max).getNick()%></span>&nbsp 추천 수 : <span style="color:#002141;"><%=arr.get(max).getCheckD()%></span></span>
 						<span style="color:#C73430;font-size:1.4em;">&nbsp&gt;</span>
 						<p></p>
