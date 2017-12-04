@@ -16,21 +16,19 @@ cur=conn.cursor()
 members={}
 
 # 2. Members 딕셔너리에 회원의 여행 속성 추가
-def member_group():
-    cur.execute('SELECT * FROM member')
-    mem_test=cur.fetchall()
-    for result in mem_test:
-        idp = result[1]
-        name=result[3]
-        type_1=result[7]
-        type_2=result[8]
-        members[idp]={'type':[type_1,type_2]}
-    return members
 
-member_group()
+cur.execute('SELECT * FROM member')
+mem_test=cur.fetchall()
+for result in mem_test:
+    idp = result[1]
+    name=result[3]
+    type_1=result[7]
+    type_2=result[8]
+    members[idp]={'type':[type_1,type_2]}
+
 
 # 3. 회원들의 id값 불러오기
-memberi=cur.execute("SELECT mem_id FROM member")
+memberi=cur.execute('SELECT mem_id FROM member')
 memberid=[]
 for i in memberi:
     memberid.append(i[0])
@@ -40,14 +38,14 @@ for i in memberi:
 for i in memberid: #iterating the list using index(int)
     cur.execute('select * from goneTourList where id=(:b)',b=i) #here cursor is using the existing cursor objec
     k=cur.fetchall()
-    name = i
+   
     for j in k:
         cur.execute('select tour_type from tour_list where tour_name=(:a)',a=j[1]) #here cursor is using the existing cursor objec
         d=cur.fetchone()
         
         gone =  j[1]
-        
-        members[name][gone]=[d[0],j[2]]
+             
+        members[i][gone]=(d[0],j[2])
         
 
 # 피어슨상관계수
@@ -59,31 +57,32 @@ def sim_pearson(data, person1, person2):
     sumPowY = 0;
     sumXY= 0;
     
-    tour_list=[]
+    tour_lis=[]
    
     for i in data[person1]:
         if i =='type':continue
         if i in data[person2]:
             if i =='type':continue
-            tour_list.append(i)
+            tour_lis.append(i)
             
-    if len(tour_list)==0 : return 0
+    if len(tour_lis)==0 : return 0
     
-    for x in tour_list:
+    for x in tour_lis:
         sumX+=data[person1][x][1]
         sumY+=data[person2][x][1]
         sumPowX+=pow(data[person1][x][1],2)
         sumPowY+=pow(data[person2][x][1],2)
         sumXY+=data[person1][x][1]*data[person2][x][1]
     
-    coval = sumXY-sumX*sumY/len(tour_list)
-    varX= sumPowX-pow(sumX,2)/len(tour_list)
-    varY= sumPowY-pow(sumY,2)/len(tour_list)
+    coval = sumXY-sumX*sumY/len(tour_lis)
+    varX= sumPowX-pow(sumX,2)/len(tour_lis)
     
+    varY= sumPowY-pow(sumY,2)/len(tour_lis)
+    if varX*varY==0:return 0
     r=coval/sqrt(varX*varY)
     
     return r
-
+   
 
 def sim_distance(data,person1,person2):
    
@@ -110,10 +109,12 @@ def top_match(data, person, n=3, sim_function=sim_distance):#default값 설정가능 
     for p in data:
         if p != person:
             match_person.append(p)
+            
+          
     for i in match_person:
         score=sim_function(data,person, i)
         match_list.append((score,i))
-        
+    print(match_list)
     match_list.sort()
     match_list.reverse()
     return match_list[:n]
@@ -122,14 +123,14 @@ def top_match(data, person, n=3, sim_function=sim_distance):#default값 설정가능 
 # In[71]:
 
 def getRecommendation(data, person,sim_funciton=sim_pearson):
-    result = top_match(members,person,5,sim_pearson)
+    result = top_match(members,person,3,sim_pearson)
     score_dic={}
     simsum_list={}
     
     recom_list=[]
     for sim, name in result:
        
-        if sim< 0: continue
+        if sim<= 0: continue
         
         for tour in data[name]:
             simsum=0
@@ -160,7 +161,7 @@ def getRecommendation(data, person,sim_funciton=sim_pearson):
          
     return(recom_list)           
                 
-print(getRecommendation(members,'1234',sim_pearson))    
+print(getRecommendation(members,'k1',sim_pearson))    
 
             
 
